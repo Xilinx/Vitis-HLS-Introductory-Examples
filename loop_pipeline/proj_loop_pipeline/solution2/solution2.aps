@@ -1,0 +1,19 @@
+<AutoPilot:solution xmlns:AutoPilot="com.autoesl.autopilot.solution">
+    <name>
+        <value string="solution2"/>
+    </name>
+    <project>
+        <value string="proj_loop_pipeline.prj"/>
+    </project>
+    <targetInfo>
+        <TargetInfo value="xc7k160t:fbg484:-1"/>
+    </targetInfo>
+    <libraryList>
+        <library value="xilinx/kintex7/kintex7" name="DefaultPlatform"/>
+        <library value="xilinx/kintex7/kintex7_fpv6" name="DefaultPlatform"/>
+    </libraryList>
+    <clockList>
+        <clock name="-" period="25" default="false"/>
+    </clockList>
+</AutoPilot:solution>
+
