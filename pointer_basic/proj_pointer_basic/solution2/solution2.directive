@@ -1,0 +1,11 @@
+<AutoPilot:ProjectResources xmlns:AutoPilot="com.autoesl.autopilot.ui.directiveView">
+    <sourceFile name="">
+        <directive functionName="pointer_basic" label="" functionLabel="">
+            <pragma name="INTERFACE">
+                <option name="ap_hs" value="" positionalBoolean="mode"/>
+                <option name="port" value="d" positionalBoolean="4"/>
+            </pragma>
+        </directive>
+    </sourceFile>
+</AutoPilot:ProjectResources>
+
