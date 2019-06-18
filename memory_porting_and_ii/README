@@ -1,0 +1,132 @@
+/*******************************************************************************
+Vendor: Xilinx 
+Associated Filename: README
+Purpose: Matrix multiply example in AutoESL
+Revision History: February 13, 2012 - initial release
+                                                
+*******************************************************************************
+#-  (c) Copyright 2011-2019 Xilinx, Inc. All rights reserved.
+#-
+#-  This file contains confidential and proprietary information
+#-  of Xilinx, Inc. and is protected under U.S. and
+#-  international copyright and other intellectual property
+#-  laws.
+#-
+#-  DISCLAIMER
+#-  This disclaimer is not a license and does not grant any
+#-  rights to the materials distributed herewith. Except as
+#-  otherwise provided in a valid license issued to you by
+#-  Xilinx, and to the maximum extent permitted by applicable
+#-  law: (1) THESE MATERIALS ARE MADE AVAILABLE "AS IS" AND
+#-  WITH ALL FAULTS, AND XILINX HEREBY DISCLAIMS ALL WARRANTIES
+#-  AND CONDITIONS, EXPRESS, IMPLIED, OR STATUTORY, INCLUDING
+#-  BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, NON-
+#-  INFRINGEMENT, OR FITNESS FOR ANY PARTICULAR PURPOSE; and
+#-  (2) Xilinx shall not be liable (whether in contract or tort,
+#-  including negligence, or under any other theory of
+#-  liability) for any loss or damage of any kind or nature
+#-  related to, arising under or in connection with these
+#-  materials, including for any direct, or any indirect,
+#-  special, incidental, or consequential loss or damage
+#-  (including loss of data, profits, goodwill, or any type of
+#-  loss or damage suffered as a result of any action brought
+#-  by a third party) even if such damage or loss was
+#-  reasonably foreseeable or Xilinx had been advised of the
+#-  possibility of the same.
+#-
+#-  CRITICAL APPLICATIONS
+#-  Xilinx products are not designed or intended to be fail-
+#-  safe, or for use in any application requiring fail-safe
+#-  performance, such as life-support or safety devices or
+#-  systems, Class III medical devices, nuclear facilities,
+#-  applications related to the deployment of airbags, or any
+#-  other applications that could lead to death, personal
+#-  injury, or severe property or environmental damage
+#-  (individually and collectively, "Critical
+#-  Applications"). Customer assumes the sole risk and
+#-  liability of any use of Xilinx products in Critical
+#-  Applications, subject only to applicable laws and
+#-  regulations governing limitations on product liability.
+#-
+#-  THIS COPYRIGHT NOTICE AND DISCLAIMER MUST BE RETAINED AS
+#-  PART OF THIS FILE AT ALL TIMES. 
+#- ************************************************************************
+
+
+This file contains confidential and proprietary information of Xilinx, Inc. and 
+is protected under U.S. and international copyright and other intellectual 
+property laws.
+
+DISCLAIMER
+This disclaimer is not a license and does not grant any rights to the materials 
+distributed herewith. Except as otherwise provided in a valid license issued to 
+you by Xilinx, and to the maximum extent permitted by applicable law: 
+(1) THESE MATERIALS ARE MADE AVAILABLE "AS IS" AND WITH ALL FAULTS, AND XILINX 
+HEREBY DISCLAIMS ALL WARRANTIES AND CONDITIONS, EXPRESS, IMPLIED, OR STATUTORY, 
+INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, NON-INFRINGEMENT, OR 
+FITNESS FOR ANY PARTICULAR PURPOSE; and (2) Xilinx shall not be liable (whether 
+in contract or tort, including negligence, or under any other theory of 
+liability) for any loss or damage of any kind or nature related to, arising under 
+or in connection with these materials, including for any direct, or any indirect, 
+special, incidental, or consequential loss or damage (including loss of data, 
+profits, goodwill, or any type of loss or damage suffered as a result of any 
+action brought by a third party) even if such damage or loss was reasonably 
+foreseeable or Xilinx had been advised of the possibility of the same.
+
+CRITICAL APPLICATIONS
+Xilinx products are not designed or intended to be fail-safe, or for use in any 
+application requiring fail-safe performance, such as life-support or safety 
+devices or systems, Class III medical devices, nuclear facilities, applications 
+related to the deployment of airbags, or any other applications that could lead 
+to death, personal injury, or severe property or environmental damage 
+(individually and collectively, "Critical Applications"). Customer assumes the 
+sole risk and liability of any use of Xilinx products in Critical Applications, 
+subject only to applicable laws and regulations governing limitations on product 
+liability. 
+
+THIS COPYRIGHT NOTICE AND DISCLAIMER MUST BE RETAINED AS PART OF THIS FILE AT 
+ALL TIMES.
+
+*******************************************************************************/
+/*
+ * Memory porting and II example inVivado HLSusing a matrix multiplication
+ */
+
+Files Included in this Package
+==================================================
+matrixmul.cpp
+matrixmul.h
+matrixmul_test.cpp
+run_hls.tcl
+README
+
+Running the Design (edit x_hls.tcl to run synthesis)
+=================================================
+autoesl -f run_hls.tcl
+
+Expected Behavior
+=================================================
+Solution 1:
+In solution 1, a pipeline directive is applied to the J_LOOP to increase performance
+and decrease latency. This has the effect of completely unrolling the K_LOOP.Vivado HLS
+will schedule the new design and attemtp to achieve an II of 1 as specified by the
+pipeline directive. For this case,Vivado HLSwill only achieve an II of 2 due to the effects
+of memory porting on arrays a and b. 
+
+The unrolling of the K_LOOP exposes 3 memory operations on both a and b to AutoESL. In order to
+achieve and II of 1, all 3 operations should be able to occur on the same clock cycle. The 
+problem is that the default memory model inVivado HLSassumes a maximum of 2 ports per memory
+(exactly the same as a BRAM). This means that at least 2 clock cycles are needed to execute
+all 3 memory operations on arrays a and b.
+
+Solution 2:
+Solution 2 achieves the II of 1 target specified in solution 1 by altering the physical
+implementation of arrays a and b. This change is enforced by applying the reshape and 
+partition pragmas on each array. 
+
+The reshape of array a along dimension 2 has the effect of merging the columns of a into a 
+single wide word. This leads to only 1 memory operation on a per clock cycle.
+
+The partition of array b along dimension 1 has the effect of separating the rows of b
+into independent memory banks. This has the effect of showingVivado HLSonly 1 memory operation
+per memory bank of b.

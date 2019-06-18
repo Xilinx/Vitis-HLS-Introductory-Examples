@@ -1,0 +1,131 @@
+/*******************************************************************************
+Vendor: Xilinx 
+Associated Filename: README
+Purpose: Matrix multiply example in AutoESL
+Revision History: February 13, 2012 - initial release
+                                                
+*******************************************************************************
+#-  (c) Copyright 2011-2019 Xilinx, Inc. All rights reserved.
+#-
+#-  This file contains confidential and proprietary information
+#-  of Xilinx, Inc. and is protected under U.S. and
+#-  international copyright and other intellectual property
+#-  laws.
+#-
+#-  DISCLAIMER
+#-  This disclaimer is not a license and does not grant any
+#-  rights to the materials distributed herewith. Except as
+#-  otherwise provided in a valid license issued to you by
+#-  Xilinx, and to the maximum extent permitted by applicable
+#-  law: (1) THESE MATERIALS ARE MADE AVAILABLE "AS IS" AND
+#-  WITH ALL FAULTS, AND XILINX HEREBY DISCLAIMS ALL WARRANTIES
+#-  AND CONDITIONS, EXPRESS, IMPLIED, OR STATUTORY, INCLUDING
+#-  BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, NON-
+#-  INFRINGEMENT, OR FITNESS FOR ANY PARTICULAR PURPOSE; and
+#-  (2) Xilinx shall not be liable (whether in contract or tort,
+#-  including negligence, or under any other theory of
+#-  liability) for any loss or damage of any kind or nature
+#-  related to, arising under or in connection with these
+#-  materials, including for any direct, or any indirect,
+#-  special, incidental, or consequential loss or damage
+#-  (including loss of data, profits, goodwill, or any type of
+#-  loss or damage suffered as a result of any action brought
+#-  by a third party) even if such damage or loss was
+#-  reasonably foreseeable or Xilinx had been advised of the
+#-  possibility of the same.
+#-
+#-  CRITICAL APPLICATIONS
+#-  Xilinx products are not designed or intended to be fail-
+#-  safe, or for use in any application requiring fail-safe
+#-  performance, such as life-support or safety devices or
+#-  systems, Class III medical devices, nuclear facilities,
+#-  applications related to the deployment of airbags, or any
+#-  other applications that could lead to death, personal
+#-  injury, or severe property or environmental damage
+#-  (individually and collectively, "Critical
+#-  Applications"). Customer assumes the sole risk and
+#-  liability of any use of Xilinx products in Critical
+#-  Applications, subject only to applicable laws and
+#-  regulations governing limitations on product liability.
+#-
+#-  THIS COPYRIGHT NOTICE AND DISCLAIMER MUST BE RETAINED AS
+#-  PART OF THIS FILE AT ALL TIMES. 
+#- ************************************************************************
+
+
+This file contains confidential and proprietary information of Xilinx, Inc. and 
+is protected under U.S. and international copyright and other intellectual 
+property laws.
+
+DISCLAIMER
+This disclaimer is not a license and does not grant any rights to the materials 
+distributed herewith. Except as otherwise provided in a valid license issued to 
+you by Xilinx, and to the maximum extent permitted by applicable law: 
+(1) THESE MATERIALS ARE MADE AVAILABLE "AS IS" AND WITH ALL FAULTS, AND XILINX 
+HEREBY DISCLAIMS ALL WARRANTIES AND CONDITIONS, EXPRESS, IMPLIED, OR STATUTORY, 
+INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, NON-INFRINGEMENT, OR 
+FITNESS FOR ANY PARTICULAR PURPOSE; and (2) Xilinx shall not be liable (whether 
+in contract or tort, including negligence, or under any other theory of 
+liability) for any loss or damage of any kind or nature related to, arising under 
+or in connection with these materials, including for any direct, or any indirect, 
+special, incidental, or consequential loss or damage (including loss of data, 
+profits, goodwill, or any type of loss or damage suffered as a result of any 
+action brought by a third party) even if such damage or loss was reasonably 
+foreseeable or Xilinx had been advised of the possibility of the same.
+
+CRITICAL APPLICATIONS
+Xilinx products are not designed or intended to be fail-safe, or for use in any 
+application requiring fail-safe performance, such as life-support or safety 
+devices or systems, Class III medical devices, nuclear facilities, applications 
+related to the deployment of airbags, or any other applications that could lead 
+to death, personal injury, or severe property or environmental damage 
+(individually and collectively, "Critical Applications"). Customer assumes the 
+sole risk and liability of any use of Xilinx products in Critical Applications, 
+subject only to applicable laws and regulations governing limitations on product 
+liability. 
+
+THIS COPYRIGHT NOTICE AND DISCLAIMER MUST BE RETAINED AS PART OF THIS FILE AT 
+ALL TIMES.
+
+*******************************************************************************/
+/*
+ * Effect of perfect and semi-perfect loop nests in AutoESL
+ */
+
+Files Included in this Package
+==================================================
+matrixmul.cpp
+matrixmul.h
+matrixmul_test.cpp
+run_hls.tcl
+README
+
+Running the Design (edit x_hls.tcl to run synthesis)
+=================================================
+autoesl -f run_hls.tcl
+
+Both designs in the perfect and semi_perfect directories are functionally equivalent.
+
+Expected Behavior
+=================================================
+semi_perfect directory
+This directory contains a semi-perfect loop nest for the matrix multiplication. A semi-perfect
+loop nest is defined as a loop nest where not all of the code is limited to the inner most
+loop. For example, in this case there is code between the J_LOOP and K_LOOP to initialize
+the value of temp and write the result. 
+
+The issue with semi-perfect loops is that they limit the level of automatic loop flattening
+in AutoESL. In this case the I_LOOP and J_LOOP are flattened but the K_LOOP remains as its
+own control domain. This causes extra overhead in transitioning into and out of the K_LOOP. 
+For this example,Vivado HLSdetermines a best case latency of 74 clock cycles.
+
+perfect directory
+This directory contains a perfect loop nest for the matrix multiplication. A perfect
+loop nest is defined as a loop nest where all of the code is limited to the inner most
+loop. 
+
+For this example,Vivado HLScan automatically flatten the control domains between loops
+I_LOOP, J_LOOP, and K_LOOP into a single control domain and reduce FSM overhead. The resulting
+best case latency is 33 clock cycles, which is approximately a factor of 2 better than the 
+semi-perfect implementation of this algorithm.
+
