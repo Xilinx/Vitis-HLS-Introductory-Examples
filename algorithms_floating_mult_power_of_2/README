@@ -115,5 +115,5 @@ README             - this file
 
 Running the Design
 =================================================
-autoesl -f run_hls.tcl
+vivado_hls -f run_hls.tcl
 
