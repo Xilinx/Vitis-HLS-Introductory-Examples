@@ -6,7 +6,7 @@ Device: All
 # Revision History: Oct 1, 2014-2019 - initial release
                                                 
 *******************************************************************************
-© Copyright 2008 – 2012 Xilinx, Inc. All rights reserved. 
+(c) Copyright 2008 - 2012 Xilinx, Inc. All rights reserved. 
 
 This file contains confidential and proprietary information of Xilinx, Inc. and 
 is protected under U.S. and international copyright and other intellectual 

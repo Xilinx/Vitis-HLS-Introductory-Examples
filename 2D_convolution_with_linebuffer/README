@@ -100,7 +100,7 @@ convolution.cpp
 README
 
 Running the Design (edit x_hls.tcl to run synthesis)
-=================================================
+====================================================
 vivado_hls -f run_hls.tcl
 
 This design is discussed in the Vivado HLS UltraFAST Methodology in the section "Writing Hardware Efficient C Code".

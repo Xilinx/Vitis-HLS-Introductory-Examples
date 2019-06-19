@@ -6,7 +6,7 @@ Device: All
 # Revision History: Oct 1, 2014-2019 - initial release
                                                 
 *******************************************************************************
-© Copyright 2008 – 2012 Xilinx, Inc. All rights reserved. 
+(c) Copyright 2008 - 2012 Xilinx, Inc. All rights reserved. 
 
 This file contains confidential and proprietary information of Xilinx, Inc. and 
 is protected under U.S. and international copyright and other intellectual 
@@ -61,7 +61,7 @@ int main(void)
     const data_t min_pix_val = 0;
     int err_cnt = 0;
     int ret_val = 20;
-    // Generate source image with a fixed test pattern - checker-board
+    // Generate the source image with a fixed test pattern - checker-board
     for (int i = 0; i < TEST_IMG_ROWS; i++) {
         data_t chkr_pair_val[2];
         if ((i / chkr_size) % 2 == 0) {
