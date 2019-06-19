@@ -177,5 +177,3 @@ void fxp_sqrt(ap_ufixed<W2,IW2>& result, ap_ufixed<W1,IW1>& in_val)
 }
 
 #endif //__FXP_SQRT_H__ not defined
-
-
