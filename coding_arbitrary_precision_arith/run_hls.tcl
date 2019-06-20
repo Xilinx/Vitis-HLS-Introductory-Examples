@@ -90,16 +90,16 @@
 
 #*******************************************************************************
 # Create a project
-open_project -reset proj_apint_arith
+open_project -reset proj_cpp_ap_int_arith
 
 # Add design files
-add_files apint_arith.c
+add_files cpp_ap_int_arith.cpp
 # Add test bench & files
-add_files -tb apint_arith_test.c
+add_files -tb cpp_ap_int_arith_test.cpp
 add_files -tb result.golden.dat
 
 # Set the top-level function
-set_top apint_arith
+set_top cpp_ap_int_arith
 
 # ########################################################
 # Create a solution
