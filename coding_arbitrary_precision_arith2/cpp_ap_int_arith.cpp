@@ -102,5 +102,3 @@ void cpp_ap_int_arith(dinA_t  inA, dinB_t  inB, dinC_t  inC, dinD_t  inD,
 	*out4 = inD % inA;
 
 } 
-
-
