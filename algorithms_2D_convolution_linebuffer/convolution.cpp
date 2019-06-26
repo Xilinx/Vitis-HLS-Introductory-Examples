@@ -236,13 +236,13 @@ void filter11x11_orig(
         int width, int height,
         const data_t *src, data_t *dst)
 {
-#pragma HLS INTERFACE port=src ap_bus depth=32400 // TEST_IMG_SIZE
-#pragma HLS RESOURCE variable=src core=AXI4M
-#pragma HLS INTERFACE port=dst ap_bus depth=32400 // TEST_IMG_SIZE
-#pragma HLS RESOURCE variable=dst core=AXI4M
-#pragma HLS RESOURCE variable=return core=AXI4LiteS metadata="-bus_bundle hls_ctrl"
-#pragma HLS RESOURCE variable=width      core=AXI4LiteS metadata="-bus_bundle hls_ctrl"
-#pragma HLS RESOURCE variable=height      core=AXI4LiteS metadata="-bus_bundle hls_ctrl"
+#pragma HLS INTERFACE port=src m_axi depth=32400 // TEST_IMG_SIZE
+#pragma HLS RESOURCE  variable=src core=AXI4M
+#pragma HLS INTERFACE port=dst m_axi depth=32400 // TEST_IMG_SIZE
+#pragma HLS RESOURCE  variable=dst core=AXI4M
+#pragma HLS RESOURCE  variable=return core=AXI4LiteS metadata="-bus_bundle hls_ctrl"
+#pragma HLS RESOURCE  variable=width      core=AXI4LiteS metadata="-bus_bundle hls_ctrl"
+#pragma HLS RESOURCE  variable=height      core=AXI4LiteS metadata="-bus_bundle hls_ctrl"
 
 #pragma HLS INLINE region
 #pragma HLS DATAFLOW
