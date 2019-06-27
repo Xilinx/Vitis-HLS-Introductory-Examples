@@ -94,28 +94,28 @@ ALL TIMES.
 data_t A[N][10];
 
 data_t pointer_array(data_t B[N*10]) {
-	data_t i,j;
-	data_t sum1;
-
-	// Array of pointers
-	data_t* PtrA[N];
-	
-	// Store global array locations in temp pointer array
-	for (i=0; i<N; ++i) 
-		PtrA[i] = &(A[i][0]);
-
-	// Copy input array using pointers
-	for(i=0; i<N; ++i) 
-		for(j=0; j<10; ++j) 
-			*(PtrA[i]+j) = B[i*10 + j];
-	
-	// Sum input array
-	sum1 = 0;
-	for(i=0; i<N; ++i)
-		for(j=0; j<10; ++j) 
-			sum1 += *(PtrA[i] + j);
-	
-	return sum1;
+  data_t i,j;
+  data_t sum1;
+  
+  // Array of pointers
+  data_t* PtrA[N];
+  
+  // Store global array locations in temp pointer array
+  for (i=0; i<N; ++i) 
+    PtrA[i] = &(A[i][0]);
+  
+  // Copy input array using pointers
+  for(i=0; i<N; ++i) 
+    for(j=0; j<10; ++j) 
+      *(PtrA[i]+j) = B[i*10 + j];
+  
+  // Sum input array
+  sum1 = 0;
+  for(i=0; i<N; ++i)
+    for(j=0; j<10; ++j) 
+      sum1 += *(PtrA[i] + j);
+  
+  return sum1;
 }
 
 

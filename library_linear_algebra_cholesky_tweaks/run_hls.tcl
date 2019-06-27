@@ -1,5 +1,12 @@
 # *******************************************************************************
-#-  (c) Copyright  2011-2019  Xilinx, Inc. All rights reserved.
+# Vendor: Xilinx
+# Associated Filename: run_hls.tcl
+# Purpose: Tcl commands to setup Vivado HLS tutorial example
+# Device: All
+# Revision History: April 16, 2014 - Initial release
+#
+# *******************************************************************************
+#-  (c) Copyright 2011-2019 Xilinx, Inc. All rights reserved.
 #-
 #-  This file contains confidential and proprietary information
 #-  of Xilinx, Inc. and is protected under U.S. and
@@ -82,44 +89,57 @@
 # ALL TIMES.
 
 #*******************************************************************************
-set script_name [file normalize [info script]]
-set example_dir [file dirname $script_name]
-set example     [file tail $example_dir]
 
 # Create a project
-open_project -reset proj_${example}
+open_project -reset proj_cholesky
 
 # Add design files
-add_files ${example_dir}/${example}.cpp
+add_files cholesky.cpp
 # Add test bench & files
-add_files -tb ${example_dir}/${example}_tb.cpp
+add_files -tb cholesky_tb.cpp
 
 # Set the top-level function
-# o Using set_directive_top to specify a different top-level function for each solution
-# o Reports for different implementation targets can be compared 
-set_top DESIGN_TOP
+set_top cholesky_top
+
+# Create a solution
+open_solution -reset solution1
+# Define technology and clock rate
+set_part  {xcvu9p-flga2104-2-i}
+create_clock -period 5
+
+# Set any optimization directives
+if { [file exists "directives.tcl"] } {
+  puts "  Sourcing directives.tcl...  "
+  source "directives.tcl"
+}
+
+csim_design
 
 # Set to 1: to run setup and synthesis
 # Set to 2: to run setup, synthesis and RTL simulation
 # Set to 3: to run setup, synthesis, RTL simulation and RTL synthesis
-if {![info exists hls_exec] } {
-  set hls_exec 1
+# Any other value will run setup only
+set hls_exec 1
+
+if {$hls_exec == 1} {
+        # Run Synthesis and Exit
+        csynth_design
+
+} elseif {$hls_exec == 2} {
+        # Run Synthesis, RTL Simulation and Exit
+        csynth_design
+
+        cosim_design -rtl verilog
+} elseif {$hls_exec == 3} {
+        # Run Synthesis, RTL Simulation, RTL implementation and Exit
+        csynth_design
+
+        cosim_design -rtl verilog
+
+        export_design
+} else {
+        # Default is to exit after setup
+        csynth_design
 }
 
-# Create a solution for each implementation target
-foreach target [list "small" "balanced" "alt_balanced" "fast" "faster"] {
-  open_solution -reset $target
-  set_part  {xcvu9p-flga2104-2-i}
-  create_clock -period 4
-  # o Specify top-level function for this solution
-  set_directive_top -name DESIGN_TOP cholesky_${target}
-  
-  if { $hls_exec > 0} { csynth_design }
-  if { $hls_exec > 1} { cosim_design -rtl verilog }
-  if { $hls_exec > 2} { export_design }
-}
-if { ![info exists SKIP_EXIT] } {
-  exit
-}
-
-
+exit

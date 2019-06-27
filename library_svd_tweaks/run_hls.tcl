@@ -1,5 +1,12 @@
 # *******************************************************************************
-#-  (c) Copyright  2011-2019  Xilinx, Inc. All rights reserved.
+# Vendor: Xilinx
+# Associated Filename: run_hls.tcl
+# Purpose: Tcl commands to setup Vivado HLS tutorial example
+# Device: All
+# Revision History: April 16, 2014 - Initial release
+#
+# *******************************************************************************
+#-  (c) Copyright 2011-2019 Xilinx, Inc. All rights reserved.
 #-
 #-  This file contains confidential and proprietary information
 #-  of Xilinx, Inc. and is protected under U.S. and
@@ -82,57 +89,57 @@
 # ALL TIMES.
 
 #*******************************************************************************
-set script_name [file normalize [info script]]
-set example_dir [file dirname $script_name]
-set example     [file tail $example_dir]
 
 # Create a project
-open_project -reset proj_${example}
+open_project -reset proj_svd
 
 # Add design files
-add_files ${example_dir}/${example}.cpp
+add_files svd.cpp
 # Add test bench & files
-add_files -tb ${example_dir}/${example}_tb.cpp
+add_files -tb svd_tb.cpp
 
 # Set the top-level function
-# o Using set_directive_top to specify a different top-level function for each solution
-# o Reports for different implementation targets can be compared 
-set_top DESIGN_TOP
+set_top svd_top
+
+# Create a solution
+open_solution -reset solution1
+# Define technology and clock rate
+set_part  {xcvu9p-flga2104-2-i}
+create_clock -period 5
+
+# Set any optimization directives
+if { [file exists "directives.tcl"] } {
+  puts "  Sourcing directives.tcl...  "
+  source "directives.tcl"
+}
+
+csim_design
 
 # Set to 1: to run setup and synthesis
 # Set to 2: to run setup, synthesis and RTL simulation
 # Set to 3: to run setup, synthesis, RTL simulation and RTL synthesis
-if {![info exists hls_exec] } {
-  set hls_exec 1
+# Any other value will run setup only
+set hls_exec 1
+
+if {$hls_exec == 1} {
+        # Run Synthesis and Exit
+        csynth_design
+
+} elseif {$hls_exec == 2} {
+        # Run Synthesis, RTL Simulation and Exit
+        csynth_design
+
+        cosim_design -rtl verilog
+} elseif {$hls_exec == 3} {
+        # Run Synthesis, RTL Simulation, RTL implementation and Exit
+        csynth_design
+
+        cosim_design -rtl verilog
+
+        export_design
+} else {
+        # Default is to exit after setup
+        csynth_design
 }
 
-# Create a solution for each implementation target
-foreach target [list "small" "balanced" "fast" "fast_low_iter"] {
-  open_solution -reset $target
-  set_part  {xcvu9p-flga2104-2-i}
-  create_clock -period 4
-  # Specify top-level function for this solution
-  set_directive_top -name DESIGN_TOP svd_${target}
-  # Renable the use of rsqrt
-  config_compile -unsafe_math_optimizations
-  # Disable auto-array partitioning for small internal memories, degrades II/Latency result
-  config_array_partition -auto_partition_threshold 3
-  # Set target specific directives
-  if { $target eq "small" } {
-    # Limiting resources by specifying the number of vm2x1_base instances
-    set_directive_inline -off "vm2x1_base"
-    set_directive_allocation -limit 1 -type function "svd_pairs" vm2x1_base
-    set_directive_allocation -limit 1 -type function "svd_pairs" vm2x1_base_1
-  }
-  # 
-  if { $hls_exec > 0} { csynth_design }
-  if { $hls_exec > 1} { cosim_design -rtl verilog }
-  if { $hls_exec > 2} { export_design }
-}
-
-if { ![info exists SKIP_EXIT] } {
-  exit
-}
-
-
-
+exit

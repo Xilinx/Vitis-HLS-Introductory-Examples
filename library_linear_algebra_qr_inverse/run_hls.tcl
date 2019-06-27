@@ -89,31 +89,28 @@
 # ALL TIMES.
 
 #*******************************************************************************
-set script_name [file normalize [info script]]
-set example_dir [file dirname $script_name]
-set example     [file tail $example_dir]
 
 # Create a project
-open_project -reset proj_${example}
+open_project -reset proj_svd
 
 # Add design files
-add_files ${example_dir}/${example}.cpp
+add_files svd.cpp
 # Add test bench & files
-add_files -tb ${example_dir}/${example}_tb.cpp
+add_files -tb svd_tb.cpp
 
 # Set the top-level function
-set_top ${example}_top
+set_top svd_top
 
 # Create a solution
 open_solution -reset solution1
 # Define technology and clock rate
 set_part  {xcvu9p-flga2104-2-i}
-create_clock -period 4
+create_clock -period 5
 
 # Set any optimization directives
-if { [file exists "${example_dir}/directives.tcl"] } {
+if { [file exists "directives.tcl"] } {
   puts "  Sourcing directives.tcl...  "
-  source "${example_dir}/directives.tcl"
+  source "directives.tcl"
 }
 
 csim_design
@@ -146,4 +143,3 @@ if {$hls_exec == 1} {
 }
 
 exit
-
