@@ -93,8 +93,8 @@ int main (void){
         scale_im = -1;
       }
     }
-    x_val.cartesian.real() = re*scale_re;
-    x_val.cartesian.imag() = im*scale_im;
+    x_val.cartesian.real(re*scale_re);
+    x_val.cartesian.imag(im*scale_im);
     x << x_val;
     reference_x << x_val;
   }
