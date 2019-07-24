@@ -93,9 +93,9 @@
 open_project -reset proj_loop_pipeline
 
 # Add design files
-add_files loop_pipeline.c
+add_files loop_pipeline.cpp
 # Add test bench & files
-add_files -tb loop_pipeline_test.c
+add_files -tb loop_pipeline_test.cpp
 add_files -tb result.golden.dat
 
 # Set the top-level function

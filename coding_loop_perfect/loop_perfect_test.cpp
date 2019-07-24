@@ -1,6 +1,6 @@
 /*******************************************************************************
 Vendor: Xilinx 
-Associated Filename: loop_pipeline.c
+Associated Filename: loop_perfect_test.c
 Purpose:Vivado HLS Coding Style example 
 Device: All 
 Revision History: May 30, 2008 - initial release
@@ -80,7 +80,7 @@ application requiring fail-safe performance, such as life-support or safety
 devices or systems, Class III medical devices, nuclear facilities, applications 
 related to the deployment of airbags, or any other applications that could lead 
 to death, personal injury, or severe property or environmental damage 
-(individually and collectively, "Critical Applications"). Customer assumes the 
+(individually and collectively, "Critical Applications"). Customer asresultes the 
 sole risk and liability of any use of Xilinx products in Critical Applications, 
 subject only to applicable laws and regulations governing limitations on product 
 liability. 
@@ -89,21 +89,38 @@ THIS COPYRIGHT NOTICE AND DISCLAIMER MUST BE RETAINED AS PART OF THIS FILE AT
 ALL TIMES.
 
 *******************************************************************************/
-#include "loop_pipeline.h"
+#include "loop_perfect.h"
 
-dout_t loop_pipeline(din_t A[N]) {  
+int main() {
+    din_t A[N];
+    dout_t B[N];
 
-  int i,j;
-	static dout_t acc;
-  
-	LOOP_I:for(i=0; i < 20; i++){
-		LOOP_J: for(j=0; j < 20; j++){
-			acc += A[j] * i;
-		}
-	}
+    int i, retval = 0;
+    ofstream FILE;
 
-	return acc;
+    for (i = 0; i < N; ++i) {
+        A[i] = i;
+    }
+    // Save the results to a file
+    FILE.open ("result.dat");
+
+    // Call the function
+    loop_perfect(A, B);
+    for (i = 0; i < N; ++i) {
+      FILE << B[i] << endl;
+    }
+    FILE.close();
+
+    // Compare the results file with the golden results
+    retval = system("diff --brief -w result.dat result.golden.dat");
+    if (retval != 0) {
+        printf("Test failed  !!!\n");
+        retval = 1;
+    } else {
+        printf("Test passed !\n");
+    }
+
+    // Return 0 if the test passed
+    return retval;
 }
-
-
 

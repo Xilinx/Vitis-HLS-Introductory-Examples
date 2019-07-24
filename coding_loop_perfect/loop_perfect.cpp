@@ -1,6 +1,6 @@
 /*******************************************************************************
 Vendor: Xilinx 
-Associated Filename: loop_max_bounds_test.c
+Associated Filename: loop_perfect.cpp
 Purpose:Vivado HLS Coding Style example 
 Device: All 
 Revision History: May 30, 2008 - initial release
@@ -80,7 +80,7 @@ application requiring fail-safe performance, such as life-support or safety
 devices or systems, Class III medical devices, nuclear facilities, applications 
 related to the deployment of airbags, or any other applications that could lead 
 to death, personal injury, or severe property or environmental damage 
-(individually and collectively, "Critical Applications"). Customer asresultes the 
+(individually and collectively, "Critical Applications"). Customer assumes the 
 sole risk and liability of any use of Xilinx products in Critical Applications, 
 subject only to applicable laws and regulations governing limitations on product 
 liability. 
@@ -89,40 +89,22 @@ THIS COPYRIGHT NOTICE AND DISCLAIMER MUST BE RETAINED AS PART OF THIS FILE AT
 ALL TIMES.
 
 *******************************************************************************/
-#include "loop_max_bounds.h"
- 
-int main () {
-  din_t A[N];
-	dsel_t x=0;
-	dout_t accum;
-	
-	int i, retval=0;
-	FILE        *fp;
+#include "loop_perfect.h"
 
-	for(i=0; i<N;++i) {
-	  A[i]=i;
-	}
-	// Save the results to a file
-	fp=fopen("result.dat","w");
+void loop_perfect(din_t A[N], dout_t B[N]) {
+    int i,j;
+    dint_t acc;
 
-	// Call the function
-	for(i=0; i<N;++i) {
-	  x=i;
-    accum = loop_max_bounds(A,x);  
-		fprintf(fp, "%d \n", accum);
-	}
-	fclose(fp);
-
-	// Compare the results file with the golden results
-	retval = system("diff --brief -w result.dat result.golden.dat");
-	if (retval != 0) {
-		printf("Test failed  !!!\n"); 
-		retval=1;
-	} else {
-		printf("Test passed !\n");
-  }
-
-	// Return 0 if the test passed
-  return retval;
+    LOOP_I:for(i=0; i < 20; i++){
+        LOOP_J: for(j=0; j < 20; j++){
+            if(j==0) acc = 0;
+            acc += A[j] * j;
+            if(j==19) {
+                if (i%2 == 0)
+                    B[i] = acc / 20;
+                else
+                    B[i] = 0;
+            }
+        }
+    }
 }
-

@@ -93,9 +93,9 @@
 open_project -reset proj_loop_imperfect
 
 # Add design files
-add_files loop_imperfect.c
+add_files loop_imperfect.cpp
 # Add test bench & files
-add_files -tb loop_imperfect_test.c
+add_files -tb loop_imperfect_test.cpp
 add_files -tb result.golden.dat
 
 # Set the top-level function

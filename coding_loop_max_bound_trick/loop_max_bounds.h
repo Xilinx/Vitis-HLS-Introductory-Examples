@@ -92,13 +92,16 @@ ALL TIMES.
 #ifndef _LOOP_MAX_BOUNDS_H_
 #define _LOOP_MAX_BOUNDS_H_
 
-#include <stdio.h>
-#include "ap_cint.h"
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+#include "ap_int.h"
 #define N 32
 
-typedef int8 din_t;
-typedef int13 dout_t;
-typedef uint5 dsel_t;
+typedef ap_int<8>  din_t;
+typedef ap_int<13> dout_t;
+typedef ap_uint<5> dsel_t;
 
 dout_t loop_max_bounds(din_t A[N], dsel_t width);
 

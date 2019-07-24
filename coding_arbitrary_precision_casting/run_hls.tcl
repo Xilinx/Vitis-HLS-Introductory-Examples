@@ -111,9 +111,6 @@ create_clock -period 4
 # Source x_hls.tcl to determine which steps to execute
 source x_hls.tcl
 csim_design
-# Set any optimization directives
-config_interface -expose_global
-# End of directives
 
 if {$hls_exec == 1} {
 	# Run Synthesis and Exit

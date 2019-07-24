@@ -1,6 +1,6 @@
 /*******************************************************************************
 Vendor: Xilinx 
-Associated Filename: loop_var_test.c
+Associated Filename: loop_functions_test.cpp
 Purpose:Vivado HLS Coding Style example 
 Device: All 
 Revision History: May 30, 2008 - initial release
@@ -89,40 +89,43 @@ THIS COPYRIGHT NOTICE AND DISCLAIMER MUST BE RETAINED AS PART OF THIS FILE AT
 ALL TIMES.
 
 *******************************************************************************/
-#include "loop_var.h"
+#include "loop_functions.h"
  
 int main () {
-  din_t A[N];
-	dsel_t x=0;
-	dout_t accum;
+  	din_t A[N], B[N];
+	dout_t X[N], Y[N];
+	dsel_t xlimit, ylimit;
 	
 	int i, retval=0;
-	FILE        *fp;
+	ofstream FILE;
 
+  // Create input data
 	for(i=0; i<N;++i) {
 	  A[i]=i;
+	  B[i]=N-1-i;
 	}
 	// Save the results to a file
-	fp=fopen("result.dat","w");
+	FILE.open ("result.dat");
 
 	// Call the function
-	for(i=0; i<N;++i) {
-	  x=i;
-    accum = loop_var(A,x);  
-		fprintf(fp, "%d \n", accum);
+	xlimit=31;
+	ylimit=31;
+  	loop_functions(A,B,X,Y,xlimit,ylimit);
+
+	for(i=0; i<N-1;++i) {
+		FILE << X[i] << " " << Y[i] << endl;
 	}
-	fclose(fp);
+	FILE.close();
 
 	// Compare the results file with the golden results
 	retval = system("diff --brief -w result.dat result.golden.dat");
 	if (retval != 0) {
-		printf("Test failed  !!!\n"); 
+		cout << "Test failed  !!!" << endl; 
 		retval=1;
 	} else {
-		printf("Test passed !\n");
+		cout << "Test passed !" << endl;
   }
 
 	// Return 0 if the test passed
   return retval;
 }
-

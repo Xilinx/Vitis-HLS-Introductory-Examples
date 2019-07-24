@@ -93,9 +93,9 @@
 open_project -reset proj_loop_max_bounds
 
 # Add design files
-add_files loop_max_bounds.c
+add_files loop_max_bounds.cpp
 # Add test bench & files
-add_files -tb loop_max_bounds_test.c
+add_files -tb loop_max_bounds_test.cpp
 add_files -tb result.golden.dat
 
 # Set the top-level function
@@ -111,10 +111,6 @@ create_clock -period 25
 # Source x_hls.tcl to determine which steps to execute
 source x_hls.tcl
 csim_design
-# Set any optimization directives
-set_directive_unroll loop_max_bounds/LOOP_X
-set_directive_array_partition -type complete -dim 0 loop_max_bounds A
-# End of directives
 
 if {$hls_exec == 1} {
 	# Run Synthesis and Exit

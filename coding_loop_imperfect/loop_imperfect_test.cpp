@@ -1,8 +1,9 @@
 /*******************************************************************************
 Vendor: Xilinx 
-Associated Filename: README
-Purpose: Using STABLE_CONTENT pragma with DATAFLOW
-Revision History: April 9, 2019 - initial release
+Associated Filename: loop_imperfect_test.cpp
+Purpose:Vivado HLS Coding Style example 
+Device: All 
+Revision History: May 30, 2008 - initial release
                                                 
 *******************************************************************************
 #-  (c) Copyright 2011-2019 Xilinx, Inc. All rights reserved.
@@ -79,7 +80,7 @@ application requiring fail-safe performance, such as life-support or safety
 devices or systems, Class III medical devices, nuclear facilities, applications 
 related to the deployment of airbags, or any other applications that could lead 
 to death, personal injury, or severe property or environmental damage 
-(individually and collectively, "Critical Applications"). Customer assumes the 
+(individually and collectively, "Critical Applications"). Customer asresultes the 
 sole risk and liability of any use of Xilinx products in Critical Applications, 
 subject only to applicable laws and regulations governing limitations on product 
 liability. 
@@ -88,17 +89,39 @@ THIS COPYRIGHT NOTICE AND DISCLAIMER MUST BE RETAINED AS PART OF THIS FILE AT
 ALL TIMES.
 
 *******************************************************************************/
-/*
- * Example C++ code using loop the STABLE_CONTENT pragma in Vivado HLS
- */
+#include "loop_imperfect.h"
 
-Files Included in this Package
-==================================================
-example_test.cpp
-example.cpp
-example.h
-README
+int main() {
+    din_t A[N];
+    dout_t B[N];
 
-Running the Design (edit x_hls.tcl to run synthesis)
-====================================================
-vivado_hls -f run_hls.tcl
+    int i, retval = 0;
+    ofstream FILE;
+
+
+    for (i = 0; i < N; ++i) {
+        A[i] = i;
+    }
+    // Save the results to a file
+    FILE.open ("result.dat");
+
+    // Call the function
+    loop_imperfect(A, B);
+    for (i = 0; i < N; ++i) {
+      FILE << B[i] << endl;
+    }
+    FILE.close();
+
+    // Compare the results file with the golden results
+    retval = system("diff --brief -w result.dat result.golden.dat");
+    if (retval != 0) {
+      cout << "Test failed  !!!" << endl; 
+      retval = 1;
+    } else {
+      cout << "Test passed !" << endl;
+    }
+
+    // Return 0 if the test passed
+    return retval;
+}
+

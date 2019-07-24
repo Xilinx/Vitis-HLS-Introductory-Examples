@@ -92,15 +92,17 @@ ALL TIMES.
 #ifndef _LOOP_FUNCTIONS_H_
 #define _LOOP_FUNCTIONS_H_
 
-#include <stdio.h>
-#include "ap_cint.h"
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+#include "ap_int.h"
 #define N 32
 
-typedef int8 din_t;
-typedef int13 dout_t;
-typedef uint5 dsel_t;
+typedef ap_int<8>  din_t;
+typedef ap_int<13> dout_t;
+typedef ap_uint<5> dsel_t;
 
 void loop_functions(din_t A[N], din_t B[N], dout_t X[N], dout_t Y[N], dsel_t xlimit, dsel_t ylimit);
 
 #endif
-

@@ -1,6 +1,6 @@
 /*******************************************************************************
 Vendor: Xilinx 
-Associated Filename: pointer_array.c
+Associated Filename: loop_sequential_assert.cpp
 Purpose:Vivado HLS Coding Style example 
 Device: All 
 Revision History: May 30, 2008 - initial release
@@ -89,33 +89,23 @@ THIS COPYRIGHT NOTICE AND DISCLAIMER MUST BE RETAINED AS PART OF THIS FILE AT
 ALL TIMES.
 
 *******************************************************************************/
-#include "pointer_array.h"
+#include "loop_sequential_assert.h"
 
-data_t A[N][10];
+void loop_sequential_assert(din_t A[N], din_t B[N], dout_t X[N], dout_t Y[N], dsel_t xlimit, dsel_t ylimit) {  
 
-data_t pointer_array(data_t B[N*10]) {
-  data_t i,j;
-  data_t sum1;
-  
-  // Array of pointers
-  data_t* PtrA[N];
-  
-  // Store global array locations in temp pointer array
-  for (i=0; i<N; ++i) 
-    PtrA[i] = &(A[i][0]);
-  
-  // Copy input array using pointers
-  for(i=0; i<N; ++i) 
-    for(j=0; j<10; ++j) 
-      *(PtrA[i]+j) = B[i*10 + j];
-  
-  // Sum input array
-  sum1 = 0;
-  for(i=0; i<N; ++i)
-    for(j=0; j<10; ++j) 
-      sum1 += *(PtrA[i] + j);
-  
-  return sum1;
+  dout_t X_accum=0;
+  dout_t Y_accum=0;
+  int i,j;
+
+  assert(xlimit<32);
+  SUM_X:for (i=0;i<=xlimit; i++) {
+      X_accum += A[i];
+      X[i] = X_accum;
+  }
+
+  assert(ylimit<16);
+  SUM_Y:for (i=0;i<=ylimit; i++) {
+      Y_accum += B[i];
+      Y[i] = Y_accum;
+  }
 }
-
-

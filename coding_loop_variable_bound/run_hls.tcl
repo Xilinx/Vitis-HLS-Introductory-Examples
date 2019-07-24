@@ -93,9 +93,9 @@
 open_project -reset proj_loop_var
 
 # Add design files
-add_files loop_var.c
+add_files loop_var.cpp
 # Add test bench & files
-add_files -tb loop_var_test.c
+add_files -tb loop_var_test.cpp
 add_files -tb result.golden.dat
 
 # Set the top-level function
@@ -114,22 +114,18 @@ csim_design
 # Set any optimization directives
 set_directive_unroll loop_var/LOOP_X
 set_directive_loop_tripcount -max 32 loop_var/LOOP_X
-set_directive_array_partition -type complete -dim 0 loop_var A
 # End of directives
 
 if {$hls_exec == 1} {
 	# Run Synthesis and Exit
 	csynth_design
-	
-} elseif {$hls_exec == 2} {
+	} elseif {$hls_exec == 2} {
 	# Run Synthesis, RTL Simulation and Exit
 	csynth_design
-	
 	cosim_design
 } elseif {$hls_exec == 3} { 
 	# Run Synthesis, RTL Simulation, RTL implementation and Exit
 	csynth_design
-	
 	cosim_design
 	export_design
 } else {
@@ -138,4 +134,3 @@ if {$hls_exec == 1} {
 }
 
 exit
-

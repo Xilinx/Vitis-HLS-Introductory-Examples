@@ -1,6 +1,6 @@
 /*******************************************************************************
 Vendor: Xilinx 
-Associated Filename: loop_functions.c
+Associated Filename: loop_sequential.cpp
 Purpose:Vivado HLS Coding Style example 
 Device: All 
 Revision History: May 30, 2008 - initial release
@@ -89,25 +89,22 @@ THIS COPYRIGHT NOTICE AND DISCLAIMER MUST BE RETAINED AS PART OF THIS FILE AT
 ALL TIMES.
 
 *******************************************************************************/
-#include "loop_functions.h"
+#include "loop_sequential.h"
 
-void sub_func(din_t I[N], dout_t O[N], dsel_t limit) {
-  int i;
-  dout_t accum=0;
-  
-  SUM:for (i=0;i<limit; i++) {
-      accum += I[i];
-      O[i] = accum;
-  }
-}
-
-void loop_functions(din_t A[N], din_t B[N], dout_t X[N], dout_t Y[N], dsel_t xlimit, dsel_t ylimit) {  
+void loop_sequential(din_t A[N], din_t B[N], dout_t X[N], dout_t Y[N], dsel_t xlimit, dsel_t ylimit) {  
 
   dout_t X_accum=0;
   dout_t Y_accum=0;
   int i,j;
   
-  sub_func(A,X,xlimit);
-  sub_func(B,Y,ylimit);
+  SUM_X:for (i=0;i<xlimit; i++) {
+      X_accum += A[i];
+      X[i] = X_accum;
+  }
+
+  SUM_Y:for (i=0;i<ylimit; i++) {
+      Y_accum += B[i];
+      Y[i] = Y_accum;
+  }
 }
 

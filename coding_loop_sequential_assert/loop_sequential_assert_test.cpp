@@ -1,6 +1,6 @@
 /*******************************************************************************
 Vendor: Xilinx 
-Associated Filename: loop_sequential_test.c
+Associated Filename: loop_sequential_assert_test.cpp
 Purpose:Vivado HLS Coding Style example 
 Device: All 
 Revision History: May 30, 2008 - initial release
@@ -89,44 +89,48 @@ THIS COPYRIGHT NOTICE AND DISCLAIMER MUST BE RETAINED AS PART OF THIS FILE AT
 ALL TIMES.
 
 *******************************************************************************/
-#include "loop_sequential.h"
+#include "loop_sequential_assert.h"
  
 int main () {
   din_t A[N], B[N];
-	dout_t X[N], Y[N];
-	dsel_t xlimit, ylimit;
-	
-	int i, retval=0;
-	FILE        *fp;
+  dout_t X[N], Y[N];
+  dsel_t xlimit, ylimit;
+  
+  int i, retval=0;
+  ofstream FILE;
 
   // Create input data
-	for(i=0; i<N;++i) {
-	  A[i]=i;
-	  B[i]=N-1-i;
-	}
-	// Save the results to a file
-	fp=fopen("result.dat","w");
+  for(i=0; i<N;++i) {
+    A[i]=i;
+    B[i]=N-1-i;
+  }
+  // Save the results to a file
+  FILE.open ("result.dat");
 
-	// Call the function
-	xlimit=31;
-	ylimit=31;
-  loop_sequential(A,B,X,Y,xlimit,ylimit);
+  // Call the function
+  xlimit=31;
+  ylimit=15;
+  cout << "s1" << endl;
+  loop_sequential_assert(A,B,X,Y,xlimit,ylimit);
 
-	for(i=0; i<N-1;++i) {
-		fprintf(fp, "%d %d \n", X[i],Y[i]);
-	}
-	fclose(fp);
+  for(i=0; i<N-1;++i) {
+    if (i<=ylimit)
+      FILE << i << " " << X[i] << " " << Y[i] << endl;    
+    else
+      FILE << i << " " << X[i] << endl;
+  }
+  FILE.close();
 
-	// Compare the results file with the golden results
-	retval = system("diff --brief -w result.dat result.golden.dat");
-	if (retval != 0) {
-		printf("Test failed  !!!\n"); 
-		retval=1;
-	} else {
-		printf("Test passed !\n");
+  // Compare the results file with the golden results
+  retval = system("diff --brief -w result.dat result.golden.dat");
+  if (retval != 0) {
+    cout << "Test failed  !!!" << endl; 
+    retval=1;
+  } else {
+    cout << "Test passed !" << endl;
   }
 
-	// Return 0 if the test passed
+  // Return 0 if the test passed
   return retval;
 }
 

@@ -93,9 +93,9 @@
 open_project -reset proj_loop_sequential
 
 # Add design files
-add_files loop_sequential.c
+add_files loop_sequential.cpp
 # Add test bench & files
-add_files -tb loop_sequential_test.c
+add_files -tb loop_sequential_test.cpp
 add_files -tb result.golden.dat
 
 # Set the top-level function
@@ -118,17 +118,14 @@ set_directive_loop_tripcount -max 32 "loop_sequential/SUM_Y"
 
 if {$hls_exec == 1} {
 	# Run Synthesis and Exit
-	csynth_design
-	
+	csynth_design	
 } elseif {$hls_exec == 2} {
 	# Run Synthesis, RTL Simulation and Exit
-	csynth_design
-	
+	csynth_design	
 	cosim_design
 } elseif {$hls_exec == 3} { 
 	# Run Synthesis, RTL Simulation, RTL implementation and Exit
-	csynth_design
-	
+	csynth_design	
 	cosim_design
 	export_design
 } else {

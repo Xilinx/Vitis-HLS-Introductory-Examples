@@ -1,6 +1,6 @@
 /*******************************************************************************
 Vendor: Xilinx 
-Associated Filename: loop_sequential_assert.c
+Associated Filename: loop_max_bounds.cpp
 Purpose:Vivado HLS Coding Style example 
 Device: All 
 Revision History: May 30, 2008 - initial release
@@ -89,24 +89,18 @@ THIS COPYRIGHT NOTICE AND DISCLAIMER MUST BE RETAINED AS PART OF THIS FILE AT
 ALL TIMES.
 
 *******************************************************************************/
-#include "loop_sequential_assert.h"
+#include "loop_max_bounds.h"
 
-void loop_sequential_assert(din_t A[N], din_t B[N], dout_t X[N], dout_t Y[N], dsel_t xlimit, dsel_t ylimit) {  
+dout_t loop_max_bounds(din_t A[N], dsel_t width) {  
 
-  dout_t X_accum=0;
-  dout_t Y_accum=0;
-  int i,j;
-
-  assert(xlimit<32);
-  SUM_X:for (i=0;i<=xlimit; i++) {
-      X_accum += A[i];
-      X[i] = X_accum;
+  dout_t out_accum=0;
+  dsel_t x;
+  
+  LOOP_X:for (x=0;x<N-1; x++) {
+    if (x<width) {
+      out_accum += A[x];
+    }
   }
 
-  assert(ylimit<16);
-  SUM_Y:for (i=0;i<=ylimit; i++) {
-      Y_accum += B[i];
-      Y[i] = Y_accum;
-  }
+  return out_accum;
 }
-

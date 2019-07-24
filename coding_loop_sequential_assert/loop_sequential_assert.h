@@ -92,14 +92,17 @@ ALL TIMES.
 #ifndef _loop_sequential_assert_H_
 #define _loop_sequential_assert_H_
 
-#include <stdio.h>
+#include <iostream>
+#include <fstream>
+using namespace std;
+
 #include <assert.h> 
-#include "ap_cint.h"
+#include "ap_int.h"
 #define N 32
 
-typedef int8 din_t;
-typedef int13 dout_t;
-typedef uint8 dsel_t;
+typedef ap_int<8> din_t;
+typedef ap_int<13> dout_t;
+typedef ap_uint<8> dsel_t;
 
 void loop_sequential_assert(din_t A[N], din_t B[N], dout_t X[N], dout_t Y[N], dsel_t xlimit, dsel_t ylimit);
 

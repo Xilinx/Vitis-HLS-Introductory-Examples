@@ -112,7 +112,7 @@ create_clock -period 4
 source x_hls.tcl
 csim_design
 # Set any optimization directives
-set_directive_interface -depth 5 -mode ap_bus "pointer_arith" d
+set_directive_interface -depth 5 -mode m_axi "pointer_arith" d
 # End of directives
 
 if {$hls_exec == 1} {

@@ -1,6 +1,6 @@
 /*******************************************************************************
 Vendor: Xilinx 
-Associated Filename: loop_pipeline_test.c
+Associated Filename: loop_sequential_test.cpp
 Purpose:Vivado HLS Coding Style example 
 Device: All 
 Revision History: May 30, 2008 - initial release
@@ -89,43 +89,44 @@ THIS COPYRIGHT NOTICE AND DISCLAIMER MUST BE RETAINED AS PART OF THIS FILE AT
 ALL TIMES.
 
 *******************************************************************************/
-#include "loop_pipeline.h"
+#include "loop_sequential.h"
  
 int main () {
-  din_t A[N];
-	dout_t accum;
-	
-	int i, j, retval=0;
-	FILE        *fp;
-
-	// Create input data
-	for(i=0; i<N;++i) {
-	  A[i]=i;
-	}
-	// Save the results to a file
-	fp=fopen("result.dat","w");
-
-	// Call the function
-	for(j=0; j<NUM_TRANS;++j) {
-		accum = loop_pipeline(A);
-		fprintf(fp, "%d \n", accum);
-		// New input data
-		for(i=0; i<N;++i) {
-			A[i]=A[i]+N;
-		}
-	}
-	fclose(fp);
-
-	// Compare the results file with the golden results
-	retval = system("diff --brief -w result.dat result.golden.dat");
-	if (retval != 0) {
-		printf("Test failed  !!!\n"); 
-		retval=1;
-	} else {
-		printf("Test passed !\n");
+  din_t A[N], B[N];
+  dout_t X[N], Y[N];
+  dsel_t xlimit, ylimit;
+  
+  int i, retval=0;
+  ofstream FILE;
+  
+  // Create input data
+  for(i=0; i<N;++i) {
+    A[i]=i;
+    B[i]=N-1-i;
   }
-
-	// Return 0 if the test
+  // Save the results to a file
+  FILE.open ("result.dat");
+  
+  // Call the function
+  xlimit=31;
+  ylimit=31;
+  loop_sequential(A,B,X,Y,xlimit,ylimit);
+  
+  for(i=0; i<N-1;++i) {
+    FILE << X[i] << " " << Y[i] << endl;
+  }
+  FILE.close();
+  
+  // Compare the results file with the golden results
+  retval = system("diff --brief -w result.dat result.golden.dat");
+  if (retval != 0) {
+    cout << "Test failed  !!!" << endl; 
+    retval=1;
+  } else {
+    cout << "Test passed !" << endl;
+  }
+  
+  // Return 0 if the test passed
   return retval;
 }
 

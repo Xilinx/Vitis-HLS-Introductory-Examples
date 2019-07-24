@@ -1,6 +1,6 @@
 /*******************************************************************************
 Vendor: Xilinx 
-Associated Filename: pointer_array.h
+Associated Filename: loop_var_test.c
 Purpose:Vivado HLS Coding Style example 
 Device: All 
 Revision History: May 30, 2008 - initial release
@@ -80,7 +80,7 @@ application requiring fail-safe performance, such as life-support or safety
 devices or systems, Class III medical devices, nuclear facilities, applications 
 related to the deployment of airbags, or any other applications that could lead 
 to death, personal injury, or severe property or environmental damage 
-(individually and collectively, "Critical Applications"). Customer assumes the 
+(individually and collectively, "Critical Applications"). Customer asresultes the 
 sole risk and liability of any use of Xilinx products in Critical Applications, 
 subject only to applicable laws and regulations governing limitations on product 
 liability. 
@@ -89,16 +89,40 @@ THIS COPYRIGHT NOTICE AND DISCLAIMER MUST BE RETAINED AS PART OF THIS FILE AT
 ALL TIMES.
 
 *******************************************************************************/
-#ifndef _POINTER_ARRAY_H_
-#define _POINTER_ARRAY_H_
+#include "loop_var.h"
+ 
+int main () {
+  din_t A[N];
+  dsel_t x=0;
+  dout_t accum;
+  
+  int i, retval=0;
+  ofstream FILE;
 
-#include <stdio.h>
+  for(i=0; i<N;++i) {
+    A[i]=i;
+  }
+  // Save the results to a file
+  FILE.open ("result.dat");
 
-#define N 10
+  // Call the function
+  for(i=0; i<N;++i) {
+    x=i;
+    accum = loop_var(A,x);  
+    FILE << accum << endl;
+  }
+  FILE.close();
+  
+  // Compare the results file with the golden results
+  retval = system("diff --brief -w result.dat result.golden.dat");
+  if (retval != 0) {
+    cout << "Test failed  !!!" << endl; 
+    retval=1;
+  } else {
+    cout << "Test passed !" << endl;
+  }
 
-typedef int data_t;
-
-data_t pointer_array(data_t B[N*10]);
-
-#endif
+  // Return 0 if the test passed
+  return retval;
+}
 

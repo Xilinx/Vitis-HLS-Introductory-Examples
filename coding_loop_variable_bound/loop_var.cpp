@@ -1,6 +1,6 @@
 /*******************************************************************************
 Vendor: Xilinx 
-Associated Filename: loop_var.c
+Associated Filename: loop_var.cpp
 Purpose:Vivado HLS Coding Style example 
 Device: All 
 Revision History: May 30, 2008 - initial release
@@ -102,4 +102,3 @@ dout_t loop_var(din_t A[N], dsel_t width) {
 
   return out_accum;
 }
-

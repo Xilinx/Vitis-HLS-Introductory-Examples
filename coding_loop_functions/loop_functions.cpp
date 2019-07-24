@@ -1,6 +1,6 @@
 /*******************************************************************************
 Vendor: Xilinx 
-Associated Filename: loop_functions_test.c
+Associated Filename: loop_functions.cpp
 Purpose:Vivado HLS Coding Style example 
 Device: All 
 Revision History: May 30, 2008 - initial release
@@ -80,7 +80,7 @@ application requiring fail-safe performance, such as life-support or safety
 devices or systems, Class III medical devices, nuclear facilities, applications 
 related to the deployment of airbags, or any other applications that could lead 
 to death, personal injury, or severe property or environmental damage 
-(individually and collectively, "Critical Applications"). Customer asresultes the 
+(individually and collectively, "Critical Applications"). Customer assumes the 
 sole risk and liability of any use of Xilinx products in Critical Applications, 
 subject only to applicable laws and regulations governing limitations on product 
 liability. 
@@ -90,43 +90,23 @@ ALL TIMES.
 
 *******************************************************************************/
 #include "loop_functions.h"
- 
-int main () {
-  din_t A[N], B[N];
-	dout_t X[N], Y[N];
-	dsel_t xlimit, ylimit;
-	
-	int i, retval=0;
-	FILE        *fp;
 
-  // Create input data
-	for(i=0; i<N;++i) {
-	  A[i]=i;
-	  B[i]=N-1-i;
-	}
-	// Save the results to a file
-	fp=fopen("result.dat","w");
-
-	// Call the function
-	xlimit=31;
-	ylimit=31;
-  loop_functions(A,B,X,Y,xlimit,ylimit);
-
-	for(i=0; i<N-1;++i) {
-		fprintf(fp, "%d %d \n", X[i],Y[i]);
-	}
-	fclose(fp);
-
-	// Compare the results file with the golden results
-	retval = system("diff --brief -w result.dat result.golden.dat");
-	if (retval != 0) {
-		printf("Test failed  !!!\n"); 
-		retval=1;
-	} else {
-		printf("Test passed !\n");
+void sub_func(din_t I[N], dout_t O[N], dsel_t limit) {
+  int i;
+  dout_t accum=0;
+  
+  SUM:for (i=0;i<limit; i++) {
+      accum += I[i];
+      O[i] = accum;
   }
-
-	// Return 0 if the test passed
-  return retval;
 }
 
+void loop_functions(din_t A[N], din_t B[N], dout_t X[N], dout_t Y[N], dsel_t xlimit, dsel_t ylimit) {  
+
+  dout_t X_accum=0;
+  dout_t Y_accum=0;
+  int i,j;
+  
+  sub_func(A,X,xlimit);
+  sub_func(B,Y,ylimit);
+}

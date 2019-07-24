@@ -1,6 +1,6 @@
 /*******************************************************************************
 Vendor: Xilinx 
-Associated Filename: loop_sequential_assert_test.c
+Associated Filename: loop_max_bounds_test.cpp
 Purpose:Vivado HLS Coding Style example 
 Device: All 
 Revision History: May 30, 2008 - initial release
@@ -89,46 +89,38 @@ THIS COPYRIGHT NOTICE AND DISCLAIMER MUST BE RETAINED AS PART OF THIS FILE AT
 ALL TIMES.
 
 *******************************************************************************/
-#include "loop_sequential_assert.h"
+#include "loop_max_bounds.h"
  
 int main () {
-  din_t A[N], B[N];
-	dout_t X[N], Y[N];
-	dsel_t xlimit, ylimit;
+  din_t A[N];
+	dsel_t x=0;
+	dout_t accum;
 	
 	int i, retval=0;
-	FILE        *fp;
+	ofstream FILE;
 
-  // Create input data
 	for(i=0; i<N;++i) {
 	  A[i]=i;
-	  B[i]=N-1-i;
 	}
 	// Save the results to a file
-	fp=fopen("result.dat","w");
+	FILE.open ("result.dat");
 
 	// Call the function
-	xlimit=31;
-	ylimit=15;
-		printf("s1\n"); 
-  loop_sequential_assert(A,B,X,Y,xlimit,ylimit);
-
-	for(i=0; i<N-1;++i) {
-	  if (i<=ylimit) 
-		  fprintf(fp, "%d %d %d \n", i, X[i],Y[i]);
-	  else
-		  fprintf(fp, "%d %d \n", i, X[i]);
+	for(i=0; i<N;++i) {
+	  x=i;
+	  accum = loop_max_bounds(A,x);
+	  FILE << accum << endl;
 	}
-	fclose(fp);
+	FILE.close();
 
 	// Compare the results file with the golden results
 	retval = system("diff --brief -w result.dat result.golden.dat");
 	if (retval != 0) {
-		printf("Test failed  !!!\n"); 
-		retval=1;
+	  cout << "Test failed  !!!" << endl; 
+	  retval=1;
 	} else {
-		printf("Test passed !\n");
-  }
+	  cout << "Test passed !" << endl;
+	}
 
 	// Return 0 if the test passed
   return retval;

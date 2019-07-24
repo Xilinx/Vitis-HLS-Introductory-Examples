@@ -93,9 +93,9 @@
 open_project -reset proj_loop_sequential_assert
 
 # Add design files
-add_files loop_sequential_assert.c
+add_files loop_sequential_assert.cpp
 # Add test bench & files
-add_files -tb loop_sequential_assert_test.c
+add_files -tb loop_sequential_assert_test.cpp
 add_files -tb result.golden.dat
 
 # Set the top-level function
@@ -110,6 +110,7 @@ create_clock -period 25
 
 # Source x_hls.tcl to determine which steps to execute
 source x_hls.tcl
+csim_design
 # Set any optimization directives
 # using assertions, directives are not required
 #set_directive_loop_tripcount -max 32 "loop_sequential_assert/SUM_X"
@@ -118,20 +119,19 @@ source x_hls.tcl
 
 if {$hls_exec == 1} {
 	# Run Synthesis and Exit
-	csynth_design
+	csynth_design	
 } elseif {$hls_exec == 2} {
 	# Run Synthesis, RTL Simulation and Exit
-	csynth_design
+	csynth_design	
 	cosim_design
 } elseif {$hls_exec == 3} { 
 	# Run Synthesis, RTL Simulation, RTL implementation and Exit
-	csynth_design
+	csynth_design	
 	cosim_design
 	export_design
 } else {
 	# Default is to exit after setup
-	csim_design
+	csynth_design
 }
 
 exit
-

@@ -1,6 +1,6 @@
 /*******************************************************************************
 Vendor: Xilinx 
-Associated Filename: loop_max_bounds.c
+Associated Filename: loop_pipeline_test.c
 Purpose:Vivado HLS Coding Style example 
 Device: All 
 Revision History: May 30, 2008 - initial release
@@ -80,7 +80,7 @@ application requiring fail-safe performance, such as life-support or safety
 devices or systems, Class III medical devices, nuclear facilities, applications 
 related to the deployment of airbags, or any other applications that could lead 
 to death, personal injury, or severe property or environmental damage 
-(individually and collectively, "Critical Applications"). Customer assumes the 
+(individually and collectively, "Critical Applications"). Customer asresultes the 
 sole risk and liability of any use of Xilinx products in Critical Applications, 
 subject only to applicable laws and regulations governing limitations on product 
 liability. 
@@ -89,19 +89,43 @@ THIS COPYRIGHT NOTICE AND DISCLAIMER MUST BE RETAINED AS PART OF THIS FILE AT
 ALL TIMES.
 
 *******************************************************************************/
-#include "loop_max_bounds.h"
+#include "loop_pipeline.h"
+ 
+int main () {
+  din_t A[N];
+  dout_t accum;
+	
+  int i, j, retval=0;
+  ofstream FILE;
 
-dout_t loop_max_bounds(din_t A[N], dsel_t width) {  
-
-  dout_t out_accum=0;
-  dsel_t x;
+  // Create input data
+  for(i=0; i<N;++i) {
+    A[i]=i;
+  }
+  // Save the results to a file
+  FILE.open ("result.dat");
   
-  LOOP_X:for (x=0;x<N-1; x++) {
-    if (x<width) {
-      out_accum += A[x];
+  // Call the function
+  for(j=0; j<NUM_TRANS;++j) {
+    accum = loop_pipeline(A);
+    FILE << accum << endl;
+    // New input data
+    for(i=0; i<N;++i) {
+      A[i]=A[i]+N;
     }
   }
+  FILE.close();
+  
+  // Compare the results file with the golden results
+  retval = system("diff --brief -w result.dat result.golden.dat");
+  if (retval != 0) {
+    cout << "Test failed  !!!" << endl; 
+    retval=1;
+  } else {
+    cout << "Test passed !" << endl;
+  }
 
-  return out_accum;
+  // Return 0 if the test
+  return retval;
 }
 
