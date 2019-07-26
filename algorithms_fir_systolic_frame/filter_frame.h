@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <iomanip>
 using namespace std;
 
@@ -18,7 +19,7 @@ const int FRM = 8;
 
 void filter(data_t x[FRM], coef_t h[TAP], sum_t &y);
 
-// Filtering unit cell class
+// Filter unit cell class
 template <typename T0, typename T1, typename T2>
 class systolic
 {

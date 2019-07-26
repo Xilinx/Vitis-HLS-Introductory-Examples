@@ -1,6 +1,6 @@
 /*******************************************************************************
 Vendor: Xilinx 
-Associated Filename: array_mem_bottleneck.c
+Associated Filename: array_mem_bottleneck.cpp
 Purpose:Vivado HLS Coding Style example 
 Device: All 
 Revision History: May 30, 2008 - initial release
@@ -101,4 +101,3 @@ dout_t array_mem_bottleneck(din_t mem[N]) {
     
   return sum;
 }
-

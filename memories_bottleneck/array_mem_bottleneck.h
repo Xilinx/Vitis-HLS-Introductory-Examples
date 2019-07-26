@@ -92,12 +92,15 @@ ALL TIMES.
 #ifndef _ARRAY_MEM_BOTTLENECK_H_
 #define _ARRAY_MEM_BOTTLENECK_H_
 
-#include <stdio.h>
-#include "ap_cint.h"
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+#include "ap_int.h"
 #define N 128
 
-typedef int7 din_t;
-typedef int10 dout_t;
+typedef ap_int<7> din_t;
+typedef ap_int<10> dout_t;
 
 dout_t array_mem_bottleneck(din_t mem[N]);
 

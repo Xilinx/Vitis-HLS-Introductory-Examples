@@ -1,6 +1,6 @@
 /*******************************************************************************
 Vendor: Xilinx 
-Associated Filename: array_mem_perform_test.c
+Associated Filename: array_mem_bottleneck_test.cpp
 Purpose:Vivado HLS Coding Style example 
 Device: All 
 Revision History: May 30, 2008 - initial release
@@ -89,37 +89,36 @@ THIS COPYRIGHT NOTICE AND DISCLAIMER MUST BE RETAINED AS PART OF THIS FILE AT
 ALL TIMES.
 
 *******************************************************************************/
-#include "array_mem_perform.h"
+#include "array_mem_bottleneck.h"
  
 int main () {
   din_t A[N];
-	dout_t sum;
+  dout_t sum;
 	
-	int i, retval=0;
-	FILE        *fp;
+  int i, retval=0;
+  ofstream FILE;
 
   // Create input data
-	for(i=0; i<N;++i) {
-	  A[i]=i;
-	}
-	// Save the results to a file
-	fp=fopen("result.dat","w");
-
-	// Call the function
-  sum= array_mem_perform(A); 
-  fprintf(fp, "%d \n", sum);
-	fclose(fp);
-
-	// Compare the results file with the golden results
-	retval = system("diff --brief -w result.dat result.golden.dat");
-	if (retval != 0) {
-		printf("Test failed  !!!\n"); 
-		retval=1;
-	} else {
-		printf("Test passed !\n");
+  for(i=0; i<N;++i) {
+    A[i]=i;
+  }
+  // Save the results to a file
+  FILE.open ("result.dat");
+  
+  // Call the function
+  sum= array_mem_bottleneck(A); 
+  FILE << sum << endl;
+  FILE.close();
+  
+  // Compare the results file with the golden results
+  retval = system("diff --brief -w result.dat result.golden.dat");
+  if (retval != 0) {
+    printf("Test failed  !!!\n"); 
+    retval=1;
+  } else {
+    printf("Test passed !\n");
   }
 
-	// Return 0 if the test passes
+  // Return 0 if the test passes
   return retval;
 }
-

@@ -93,9 +93,9 @@
 open_project -reset proj_array_mem_perform
 
 # Add design files
-add_files array_mem_perform.c
+add_files array_mem_perform.cpp
 # Add test bench & files
-add_files -tb array_mem_perform_test.c
+add_files -tb array_mem_perform_test.cpp
 add_files -tb result.golden.dat
 
 # Set the top-level function
@@ -111,9 +111,9 @@ create_clock -period 4
 # Source x_hls.tcl to determine which steps to execute
 source x_hls.tcl
 csim_design
+
 # Set any optimization directives
 set_directive_pipeline array_mem_perform/SUM_LOOP
-set_directive_resource -core RAM_1P "array_mem_perform" mem
 # End of directives
 
 if {$hls_exec == 1} {

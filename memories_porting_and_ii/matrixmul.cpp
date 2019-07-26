@@ -114,4 +114,3 @@ void matrixmul(
    }
  }
 }
-

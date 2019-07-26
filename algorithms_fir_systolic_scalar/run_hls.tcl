@@ -96,6 +96,7 @@ open_project -reset proj_filter_scalar
 add_files filter_scalar.cpp
 # Add test bench & files
 add_files -tb filter_scalar_test.cpp
+add_files -tb result.golden.dat
 
 # Set the top-level function
 set_top filter

@@ -11,7 +11,8 @@ void run(data_t x, coef_t h[TAP], sum_t &y)
   sum_t y_int[TAP];
   sum_t tmp = 0;
 
-/* code */
+  // Connect the execution blocks to implement the systolic
+  // filter chain.
 connect:
   for (int i = 0; i < TAP; i++)
   {
@@ -24,13 +25,23 @@ connect:
 }
 
 //-----------------------------------------------
-void filter(data_t x[FRM], coef_t h[TAP], sum_t &y)
+void filter(data_t x[FRM], coef_t coef[TAP], sum_t &y)
 {
-#pragma HLS INTERFACE ap_fifo depth=FRM port=y
-#pragma HLS ARRAY_PARTITION variable=h complete dim=1
+#pragma HLS INTERFACE ap_fifo port=x
+#pragma HLS INTERFACE ap_fifo port=y
+#pragma HLS INTERFACE ap_fifo port=coef
 #pragma HLS PIPELINE
 
-unpack:
+  coef_t h[TAP];
+
+  // Copy, partition the coefficients to make them available in
+  // parallel.
+#pragma HLS ARRAY_PARTITION variable = h complete dim = 1
+  for (int i = 0; i < TAP; i++) {
+    h[i] = coef[i];
+  }
+  
+unpackframe:
   for (int k = 0; k < FRM; k++)
     run(x[k], h, y);
 }
