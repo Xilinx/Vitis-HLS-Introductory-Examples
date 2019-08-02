@@ -99,6 +99,7 @@
                         "module_clock"                    : "ap_clk",
                         "module_reset"                    : "ap_rst",
                         "module_clock_enable"             : "ap_ce",
+                        "ap_ctrl_chain_protocol_idle"     : "ap_idle",
                         "ap_ctrl_chain_protocol_start"    : "ap_start",
                         "ap_ctrl_chain_protocol_ready"    : "ap_ready",
                         "ap_ctrl_chain_protocol_done"     : "ap_done",

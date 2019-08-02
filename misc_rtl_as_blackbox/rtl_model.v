@@ -6,7 +6,7 @@
 (* dont_touch = "1" *)  
 module rtl_model (input            ap_clk, ap_rst, ap_ce, ap_start, ap_continue,
                   input [9:0]      a1, a2, a3, a4, b1, b2, b3, b4,
-                  output           ap_done, ap_ready,
+                  output           ap_idle, ap_done, ap_ready,
                   output           z1_ap_vld, z2_ap_vld, z3_ap_vld, z4_ap_vld,
                   output reg [9:0] z1, z2, z3, z4);
 
@@ -52,11 +52,12 @@ module rtl_model (input            ap_clk, ap_rst, ap_ce, ap_start, ap_continue,
           dly2  <= dly1;          
        end
 
-   assign z1_ap_vld = dly2;   
-   assign z2_ap_vld = dly2;   
-   assign z3_ap_vld = dly2;   
-   assign z4_ap_vld = dly2;   
+   assign z1_ap_vld = dly2;
+   assign z2_ap_vld = dly2;
+   assign z3_ap_vld = dly2;
+   assign z4_ap_vld = dly2;
    assign ap_ready  = dly2;
    assign ap_done   = dly2;
+   assign ap_idle   = ~ap_start;
       
 endmodule // rtl_model
