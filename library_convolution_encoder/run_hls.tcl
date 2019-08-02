@@ -97,6 +97,8 @@ open_project -reset proj_convolution_encoder
 add_files convolution_encoder.cpp
 # Add test bench & files
 add_files -tb convolution_encoder_tb.cpp
+add_files -tb din.dat
+add_files -tb dout.dat
 
 # Set the top-level function
 set_top convolution_encoder_top

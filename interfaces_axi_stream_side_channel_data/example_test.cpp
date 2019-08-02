@@ -88,39 +88,36 @@ THIS COPYRIGHT NOTICE AND DISCLAIMER MUST BE RETAINED AS PART OF THIS FILE AT
 ALL TIMES.
 
 *******************************************************************************/
-#include <stdio.h>
+#include <iostream>
 #include "ap_axi_sdata.h"
+#include "hls_stream.h"
+using namespace std;
 
-
-void example(ap_axis<32,2,5,6> A[50], ap_axis<32,2,5,6> B[50]);
-
+void example(hls::stream<ap_axis<32,2,5,6> > &A, hls::stream<ap_axis<32,2,5,6> > &B);
 
 int main()
 {
-  int i;
-  ap_axis<32,2,5,6> A[50];
-  ap_axis<32,2,5,6> B[50];
+  int i=100;
+  hls::stream<ap_axis<32,2,5,6> > A;
+  hls::stream<ap_axis<32,2,5,6> > B;
 
-  for(i=0; i < 50; i++){
-    A[i].data = i;
-    A[i].keep = 1;
-    A[i].strb = 1;
-    A[i].user = 1;
-    A[i].last = 0;
-    A[i].id = 0;
-    A[i].dest = 1;
-  }
-
+  A.data = i;
+  A.keep = 1;
+  A.strb = 1;
+  A.user = 1;
+  A.last = 0;
+  A.id = 0;
+  A.dest = 1;
+  
   example(A,B);
 
-  for(i=0; i < 50; i++){
-    if(B[i].data.to_int() != (i+5)){
-      printf("ERROR: HW and SW results mismatch\n");
-      return 1;
-    }
-  }
 
-  printf("Success: HW and SW results match\n");
+  if (B[i].data.to_int() != 100){
+    cout << "ERROR: HW and SW results mismatch\n" << endl;
+    return 1;
+  }
+  
+  cout << "Success: HW and SW results match\n" << endl;
   return 0;
 }
 

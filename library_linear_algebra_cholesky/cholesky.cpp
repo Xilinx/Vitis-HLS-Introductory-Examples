@@ -34,7 +34,7 @@
 // The top-level function to synthesize
 //
 int cholesky_top(MATRIX_IN_T  A[ROWS_COLS_A][ROWS_COLS_A],
-                MATRIX_OUT_T L[ROWS_COLS_A][ROWS_COLS_A]){
+		 MATRIX_OUT_T L[ROWS_COLS_A][ROWS_COLS_A]){
 
   MATRIX_IN_T  a_i[ROWS_COLS_A][ROWS_COLS_A];
   MATRIX_OUT_T l_i[ROWS_COLS_A][ROWS_COLS_A];
