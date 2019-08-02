@@ -1,8 +1,0 @@
-<AutoPilot:ProjectResources xmlns:AutoPilot="com.autoesl.autopilot.ui.directiveView">
-    <sourceFile name="">
-        <directive functionName="loop_pipeline" label="LOOP_I" functionLabel="">
-            <pragma name="PIPELINE"/>
-        </directive>
-    </sourceFile>
-</AutoPilot:ProjectResources>
-
