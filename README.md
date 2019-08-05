@@ -10,7 +10,7 @@ Each includes code sources for top function and testbench, a README, Tcl files. 
 * **_Misc._**: Other examples such are RTL blackboxes
 
 ## Running the examples
-Two Tcl files are provided to help run the examples:
+Two Tcl files are provided:
 * _x_hls.tcl_: Specifies what steps of the flow will be executed (by default only C simulation and C synthesis are run).  By changing the value of hls_run it's possible to run C-RTL co-simulation and Vivado implementation
 * _run_hls.tcl_: Sets up the project and sources x_hls.tcl mentioned above
 
