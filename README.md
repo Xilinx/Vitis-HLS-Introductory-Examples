@@ -2,14 +2,14 @@
 
 ## Code examples demonstrating synthesizable C/C++ examples.
 
-Each example include a README and a Tcl project file and are organized in several categories denoted by the prefix of the directory in which thay can be found:
-* Coding: Common coding styles for loops, arrays, etc...
-* Algorithms: Math and DSP examples
-* Interface: Manage block connectivity to other blocks
-* Libraries: Using libraries included in HLS
-* Misc.: Other examples such are RTL blackboxes
+Each example includes code sources, a README, a Tcl project file.  They are organized in several categories denoted by the prefix of the directory in which they can be found:
+* _Coding_: Common coding styles for loops, arrays, etc...
+* _Algorithms_: Math and DSP examples
+* _Interface_: Manage block connectivity to other blocks
+* _Libraries_: Using libraries included in HLS
+* _Misc._: Other examples such are RTL blackboxes
 
-## Runnung these examples
+## Running the examples
 To run an example at the command line, run:
 `vitis_hls -f <example>.tcl`
 
