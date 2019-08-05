@@ -1,8 +1,8 @@
-# Code examples for Xilinx Vitis HLS
+# Examples for Xilinx Vitis HLS
 
 ## Code examples demonstrating synthesizable C/C++ examples.
 
-Each example includes code sources, a README, a Tcl project file.  They are organized in several categories denoted by the prefix of the directory in which they can be found:
+Each example includes code sources, a README, a Tcl project file.  They are organized in categories denoted by the prefix of the directory in which they reside:
 * _Coding_: Common coding styles for loops, arrays, etc...
 * _Algorithms_: Math and DSP examples
 * _Interface_: Manage block connectivity to other blocks
