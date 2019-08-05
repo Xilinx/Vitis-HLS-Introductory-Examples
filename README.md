@@ -3,8 +3,8 @@
 ## C/C++ synthesizable examples
 
 Each includes code sources for top function and testbench, a README, Tcl files.  They are organized in categories denoted by the prefix of the directory in which they reside:
-* _Coding_: Common coding styles for pointers, loops, arrays, etc...
-* _Algorithms_: Math and DSP examples
+* **_Coding_**: Common coding styles for pointers, loops, arrays, etc...
+* **_Algorithms_**: Math and DSP examples
 * _Interface_: Manage block connectivity to other blocks
 * _Libraries_: Using libraries included in HLS
 * _Misc._: Other examples such are RTL blackboxes
