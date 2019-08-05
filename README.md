@@ -1,4 +1,4 @@
-![Xilinx Logo](./images/logo.gif =100x)
+![Xilinx Logo](./images/logo.gif =100x50)
 Format: ![Xilinx logo](url)
 
 # Examples for Xilinx Vitis HLS
