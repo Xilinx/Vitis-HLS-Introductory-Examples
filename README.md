@@ -1,3 +1,6 @@
+![Xilinx Logo](/images/logo.gif)
+Format: ![Xilinx logo](url)
+
 # Examples for Xilinx Vitis HLS
 
 ## C/C++ synthesizable examples
