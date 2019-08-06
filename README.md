@@ -6,6 +6,16 @@
 
 Each includes code sources for top function and testbench, a README, Tcl files.  They are organized in categories denoted by the prefix of the directory in which they reside:
 * **_Coding_**: Common coding styles for pointers, loops, arrays, etc...
+<details>
+  <summary>Click to expand!</summary>
+  
+  ## Heading
+  1. A numbered
+  2. list
+     * With some
+     * Sub bullets
+</details>
+
 * **_Algorithms_**: Math and DSP examples
 * **_Interface_**: Manage block connectivity to other blocks
 * **_Libraries_**: Using libraries included in HLS
