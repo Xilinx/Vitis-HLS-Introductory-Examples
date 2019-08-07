@@ -1,0 +1,13 @@
+<AutoPilot:ProjectResources xmlns:AutoPilot="com.autoesl.autopilot.ui.directiveView">
+    <sourceFile name="">
+        <directive functionName="array_mem_perform" label="SUM_LOOP" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="array_mem_perform" label="" functionLabel="">
+            <pragma name="TOP">
+                <option name="name" value="array_mem_perform"/>
+            </pragma>
+        </directive>
+    </sourceFile>
+</AutoPilot:ProjectResources>
+

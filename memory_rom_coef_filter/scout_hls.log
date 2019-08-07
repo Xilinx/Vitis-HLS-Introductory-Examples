@@ -1,0 +1,48 @@
+
+****** Scout HLS - High-Level Synthesis from C, C++ and OpenCL v2019.2.0 (64-bit)
+  **** SW Build 2597062 on Sun Jul 21 20:25:32 MDT 2019
+  **** IP Build 2596835 on Sun Jul 21 23:23:41 MDT 2019
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+source /proj/xbuilds/SWIP/2019.2_0721_2011/installs/lin64/Scout/2019.2/scripts/scout_hls/hls.tcl -notrace
+INFO: [HLS 200-10] Running '/proj/xbuilds/SWIP/2019.2_0721_2011/installs/lin64/Scout/2019.2/bin/unwrapped/lnx64.o/scout_hls'
+INFO: [HLS 200-10] For user 'frederic' on host 'xsjfrederic40.xilinx.com' (Linux_x86_64 version 4.4.0-142-generic) on Mon Jul 22 17:32:34 PDT 2019
+INFO: [HLS 200-10] On os Ubuntu 16.04.6 LTS
+INFO: [HLS 200-10] In directory '/group/swmktg/test_fr/hlsdesigns/githubenterprise/HLS-Tiny-Tutorials/memories_rom_init'
+Sourcing Tcl script './run_hls.tcl'
+INFO: [HLS 200-10] Opening and resetting project '/group/swmktg/test_fr/hlsdesigns/githubenterprise/HLS-Tiny-Tutorials/memories_rom_init/proj_rom_init_c'.
+INFO: [HLS 200-10] Adding design file 'hamming_window.c' to the project
+INFO: [HLS 200-10] Adding test bench file 'hamming_window_test.c' to the project
+INFO: [HLS 200-10] Opening and resetting solution '/group/swmktg/test_fr/hlsdesigns/githubenterprise/HLS-Tiny-Tutorials/memories_rom_init/proj_rom_init_c/solution1'.
+INFO: [HLS 200-10] Cleaning up the solution database.
+INFO: [HLS 200-10] Setting target device to 'xcvu9p-flga2104-2-i'
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 5ns.
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+   Compiling(apcc) ../../../../hamming_window_test.c in debug mode
+INFO: [HLS 200-10] Running '/proj/xbuilds/SWIP/2019.2_0721_2011/installs/lin64/Vivado/2019.2/bin/unwrapped/lnx64.o/apcc'
+INFO: [HLS 200-10] For user 'frederic' on host 'xsjfrederic40.xilinx.com' (Linux_x86_64 version 4.4.0-142-generic) on Mon Jul 22 17:32:44 PDT 2019
+INFO: [HLS 200-10] On os Ubuntu 16.04.6 LTS
+INFO: [HLS 200-10] In directory '/group/swmktg/test_fr/hlsdesigns/githubenterprise/HLS-Tiny-Tutorials/memories_rom_init/proj_rom_init_c/solution1/csim/build'
+INFO: [APCC 202-3] Tmp directory is /tmp/apcc_db_frederic/274021563841964881011
+INFO: [APCC 202-1] APCC is done.
+   Compiling(apcc) ../../../../hamming_window.c in debug mode
+INFO: [HLS 200-10] Running '/proj/xbuilds/SWIP/2019.2_0721_2011/installs/lin64/Vivado/2019.2/bin/unwrapped/lnx64.o/apcc'
+INFO: [HLS 200-10] For user 'frederic' on host 'xsjfrederic40.xilinx.com' (Linux_x86_64 version 4.4.0-142-generic) on Mon Jul 22 17:32:56 PDT 2019
+INFO: [HLS 200-10] On os Ubuntu 16.04.6 LTS
+INFO: [HLS 200-10] In directory '/group/swmktg/test_fr/hlsdesigns/githubenterprise/HLS-Tiny-Tutorials/memories_rom_init/proj_rom_init_c/solution1/csim/build'
+INFO: [APCC 202-3] Tmp directory is /tmp/apcc_db_frederic/275841563841976299234
+INFO: [APCC 202-1] APCC is done.
+   Generating csim.exe
+make: Warning: File 'csim.mk' has modification time 0.0052 s in the future
+make: warning:  Clock skew detected.  Your build may be incomplete.
+Running DUT...done.
+Testing DUT results
+................................................................
+................................................................
+................................................................
+................................................................
+*** Test Passed ***
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [Common 17-206] Exiting scout_hls at Mon Jul 22 17:33:02 2019...

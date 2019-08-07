@@ -1,9 +1,9 @@
 # *******************************************************************************
 # Vendor: Xilinx 
 # Associated Filename: run_hls.tcl
-# Purpose: Tcl commands to setupVivado HLS Coding Style example 
+# Purpose: Tcl commands to setupVivado HLSexample project
 # Device: All 
-# Revision History: May 30, 2008 - initial release
+# Revision History: March 13, 2012 - initial release
 #                                                 
 # *******************************************************************************
 #-  (c) Copyright 2011-2019 Xilinx, Inc. All rights reserved.
@@ -90,30 +90,28 @@
 
 #*******************************************************************************
 # Create a project
-open_project -reset proj_mem_bottleneck_resolved
+open_project -reset proj_rom_init_c
 
 # Add design files
-add_files mem_bottleneck_resolved.cpp
+add_files hamming_window.c
 # Add test bench & files
-add_files -tb mem_bottleneck_resolved_test.cpp
-add_files -tb result.golden.dat
+add_files -tb hamming_window_test.c
 
 # Set the top-level function
-set_top mem_bottleneck_resolved
+set_top hamming_window
 
 # ########################################################
 # Create a solution
 open_solution -reset solution1
 # Define technology and clock rate
 set_part  {xcvu9p-flga2104-2-i}
-create_clock -period 4
+create_clock -period 5
 
 # Source x_hls.tcl to determine which steps to execute
 source x_hls.tcl
 csim_design
-
 # Set any optimization directives
-set_directive_pipeline mem_bottleneck_resolved/SUM_LOOP
+
 # End of directives
 
 if {$hls_exec == 1} {
@@ -133,8 +131,8 @@ if {$hls_exec == 1} {
 	export_design
 } else {
 	# Default is to exit after setup
-	csynth_design
 }
 
 exit
+
 

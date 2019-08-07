@@ -1,0 +1,25 @@
+#include "hls_design_meta.h"
+const Port_Property HLS_Design_Meta::port_props[]={
+	Port_Property("ap_clk", 1, hls_in, -1, "", "", 1),
+	Port_Property("ap_rst", 1, hls_in, -1, "", "", 1),
+	Port_Property("ap_start", 1, hls_in, -1, "", "", 1),
+	Port_Property("ap_done", 1, hls_out, -1, "", "", 1),
+	Port_Property("ap_idle", 1, hls_out, -1, "", "", 1),
+	Port_Property("ap_ready", 1, hls_out, -1, "", "", 1),
+	Port_Property("mem_Addr_A", 32, hls_out, 0, "bram", "MemPortADDR2", 1),
+	Port_Property("mem_EN_A", 1, hls_out, 0, "bram", "MemPortCE2", 1),
+	Port_Property("mem_WEN_A", 1, hls_out, 0, "bram", "MemPortWE2", 1),
+	Port_Property("mem_Din_A", 8, hls_out, 0, "bram", "MemPortDIN2", 1),
+	Port_Property("mem_Dout_A", 8, hls_in, 0, "bram", "MemPortDOUT2", 1),
+	Port_Property("mem_Clk_A", 1, hls_out, 0, "bram", "mem_clk", 1),
+	Port_Property("mem_Rst_A", 1, hls_out, 0, "bram", "mem_rst", 1),
+	Port_Property("mem_Addr_B", 32, hls_out, 0, "bram", "MemPortADDR2", 1),
+	Port_Property("mem_EN_B", 1, hls_out, 0, "bram", "MemPortCE2", 1),
+	Port_Property("mem_WEN_B", 1, hls_out, 0, "bram", "MemPortWE2", 1),
+	Port_Property("mem_Din_B", 8, hls_out, 0, "bram", "MemPortDIN2", 1),
+	Port_Property("mem_Dout_B", 8, hls_in, 0, "bram", "MemPortDOUT2", 1),
+	Port_Property("mem_Clk_B", 1, hls_out, 0, "bram", "mem_clk", 1),
+	Port_Property("mem_Rst_B", 1, hls_out, 0, "bram", "mem_rst", 1),
+	Port_Property("ap_return", 10, hls_out, -1, "", "", 1),
+};
+const char* HLS_Design_Meta::dut_name = "array_mem_perform";

@@ -1,7 +1,7 @@
 # *******************************************************************************
 # Vendor: Xilinx 
-# Associated Filename: run_hls.tcl
-# Purpose: Tcl commands to setupVivado HLS Coding Style example 
+# Associated Filename: x_hls.tcl
+# Purpose: Tcl file used to determine what steps run_hls.tcl executes
 # Device: All 
 # Revision History: May 30, 2008 - initial release
 #                                                 
@@ -89,52 +89,13 @@
 # ALL TIMES.
 
 #*******************************************************************************
-# Create a project
-open_project -reset proj_mem_bottleneck_resolved
 
-# Add design files
-add_files mem_bottleneck_resolved.cpp
-# Add test bench & files
-add_files -tb mem_bottleneck_resolved_test.cpp
-add_files -tb result.golden.dat
+# Set to 0: to run setup
+# Set to 1: to run setup and synthesis
+# Set to 2: to run setup, synthesis and RTL simulation
+# Set to 3: to run setup, synthesis, RTL simulation and RTL synthesis
+# Any other value will run setup only
+ 
+set hls_exec 0
 
-# Set the top-level function
-set_top mem_bottleneck_resolved
-
-# ########################################################
-# Create a solution
-open_solution -reset solution1
-# Define technology and clock rate
-set_part  {xcvu9p-flga2104-2-i}
-create_clock -period 4
-
-# Source x_hls.tcl to determine which steps to execute
-source x_hls.tcl
-csim_design
-
-# Set any optimization directives
-set_directive_pipeline mem_bottleneck_resolved/SUM_LOOP
-# End of directives
-
-if {$hls_exec == 1} {
-	# Run Synthesis and Exit
-	csynth_design
-	
-} elseif {$hls_exec == 2} {
-	# Run Synthesis, RTL Simulation and Exit
-	csynth_design
-	
-	cosim_design
-} elseif {$hls_exec == 3} { 
-	# Run Synthesis, RTL Simulation, RTL implementation and Exit
-	csynth_design
-	
-	cosim_design
-	export_design
-} else {
-	# Default is to exit after setup
-	csynth_design
-}
-
-exit
 
