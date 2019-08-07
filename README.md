@@ -7,13 +7,13 @@
 Each includes code sources for top function and testbench, a README, Tcl files.  They are organized in categories denoted by the prefix of the directory in which they reside:
 * **_Coding_**: Common coding styles for pointers, loops, arrays, etc...
 <details>
-  <summary>**_Coding_**</summary>
+  <summary>Click to expand examples!</summary>
   
-  ## Heading
-  1. A numbered
-  2. list
-     * With some
-     * Sub bullets
+  ## Pointers
+  1. Simple
+  2. Double reference
+     * hierarchical
+     * dataflow
 </details>
 
 * **_Algorithms_**: Math and DSP examples
