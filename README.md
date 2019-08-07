@@ -16,9 +16,9 @@ Each includes code sources for top function and testbench, a README, Tcl files. 
      * dataflow
 </details>
 
-* **_Algorithms_**: Math and DSP examples
+* **_Algorithm_**: Math and DSP examples
 * **_Interface_**: Manage block connectivity to other blocks
-* **_Libraries_**: Using libraries included in HLS
+* **_Library_**: Using libraries included in HLS
 * **_Misc._**: Other examples such are RTL blackboxes
 
 ## Running the examples
