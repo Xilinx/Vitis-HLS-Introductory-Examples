@@ -6,20 +6,35 @@
 
 Each includes code sources for top function and testbench, a README, Tcl files.  They are organized in categories denoted by the prefix of the directory in which they reside:
 * **_Coding_**: Common coding styles for pointers, loops, arrays, etc...
-<details>
-  <summary>Click to expand examples!</summary>
-  
-  ## Pointers
-  1. Simple
-  2. Double reference
-     * hierarchical
-     * dataflow
-</details>
-
 * **_Algorithm_**: Math and DSP examples
 * **_Interface_**: Manage block connectivity to other blocks
 * **_Library_**: Using libraries included in HLS
 * **_Misc._**: Other examples such are RTL blackboxes
+<details>
+  <summary>Click for examples details!</summary>
+  
+  ## Coding
+  1. Pointers
+  2. Loops
+     * Pipeline
+     * Unroll
+  ## Algorithm
+  1. DSP
+  2. Loops
+     * Pipeline
+     * Unroll
+ ## Interface
+  1. DSP
+  2. Loops
+     * Pipeline
+     * Unroll
+ ## Library
+  1. DSP
+  2. Loops
+     * Pipeline
+     * Unroll
+</details>
+
 
 ## Running the examples
 Two Tcl files are provided:
