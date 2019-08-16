@@ -90,22 +90,22 @@
 
 #*******************************************************************************
 # Create a project
-open_project -reset proj_memory_porting_and_ii
+open_project -reset proj_implicit_unroll
 
 # Add design files
-add_files matrixmul.cpp
+add_files example.cpp
 # Add test bench & files
-add_files -tb matrixmul_test.cpp -cflags "-DHW_COSIM"
+add_files -tb example_test.cpp -cflags "-DHW_COSIM"
 
 # Set the top-level function
-set_top matrixmul
+set_top example
 
 # ########################################################
 # Create a solution
 open_solution -reset solution1
 # Define technology and clock rate
 set_part  {xcvu9p-flga2104-2-i}
-create_clock -period "75MHz"
+create_clock -period "200MHz"
 
 # Source x_hls.tcl to determine which steps to execute
 source x_hls.tcl
@@ -113,7 +113,7 @@ csim_design
 # Set any optimization directives
 # Pipeline the J_LOOP for increased performance
 # This directive has the effect of unrolling the J_LOOP
-set_directive_pipeline "matrixmul/J_LOOP"
+set_directive_pipeline "example/J_LOOP"
 # End of directives
 
 if {$hls_exec == 1} {
@@ -141,7 +141,7 @@ if {$hls_exec == 1} {
 open_solution -reset solution2
 # Define technology and clock rate
 set_part  {xcvu9p-flga2104-2-i}
-create_clock -period "75MHz"
+create_clock -period "200MHz"
 
 # Source x_hls.tcl to determine which steps to execute
 source x_hls.tcl
@@ -149,13 +149,13 @@ source x_hls.tcl
 # Set any optimization directives
 # Pipeline the J_LOOP for increased performance
 # This directive has the effect of unrolling the J_LOOP
-set_directive_pipeline "matrixmul/J_LOOP"
+set_directive_pipeline "example/J_LOOP"
 
 # Merge the columns of a into a single element. 1 element per row
-set_directive_array_reshape -type complete -dim 2 "matrixmul" a
+set_directive_array_reshape -type complete -dim 2 "example" a
 
 # Separate the rows of b into independent memory banks
-set_directive_array_partition -type complete -dim 1 "matrixmul" b
+set_directive_array_partition -type complete -dim 1 "example" b
 # End of directives
 
 if {$hls_exec == 1} {
