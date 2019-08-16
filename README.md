@@ -8,7 +8,6 @@ Each includes code sources for top function and testbench, a README, Tcl files. 
 * **_Coding_**: Common coding styles for pointers, loops, arrays, etc...
 * **_Algorithm_**: Math and DSP examples
 * **_Interface_**: Manage block connectivity to other blocks
-* **_Library_**: Using libraries included in HLS
 * **_Misc._**: Other examples such are RTL blackboxes
 <details>
   <summary>Click for examples details!</summary>
