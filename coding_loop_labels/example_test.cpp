@@ -1,7 +1,7 @@
 /*******************************************************************************
 Vendor: Xilinx 
-Associated Filename: matrixmul.h
-Purpose: Matrix multiplication example for AutoESL
+Associated Filename: example_test.cpp
+Purpose: Using loop labels in Vivado HLS
 Revision History: February 13, 2012 - initial release
                                                 
 *******************************************************************************
@@ -88,30 +88,35 @@ THIS COPYRIGHT NOTICE AND DISCLAIMER MUST BE RETAINED AS PART OF THIS FILE AT
 ALL TIMES.
 
 *******************************************************************************/
-#ifndef __MATRIXMUL_H__
-#define __MATRIXMUL_H__
+#include <stdio.h>
 
-#include <cmath>
-using namespace std;
 
-// Uncomment this line to compare TB vs HW C-model and/or RTL
-//#define HW_COSIM
+void example_no_label(int A[50], int B[50]); 
+void example_label(int A[50], int B[50]);
 
-#define MAT_A_ROWS 3
-#define MAT_A_COLS 3
-#define MAT_B_ROWS 3
-#define MAT_B_COLS 3
+int main()
+{
+  int i;
+  int A[50];
+  int B[50];
+  int C[50];
 
-typedef char mat_a_t;
-typedef char mat_b_t;
-typedef short result_t;
 
-// Prototype of top level function for C-synthesis
-void matrixmul(
-      mat_a_t a[MAT_A_ROWS][MAT_A_COLS],
-      mat_b_t b[MAT_B_ROWS][MAT_B_COLS],
-      result_t res[MAT_A_ROWS][MAT_B_COLS]);
+  for(i=0; i < 50; i++){
+    A[i] = i;
+  }
 
-#endif // __MATRIXMUL_H__ not defined
+  example_no_label(A,B);
+  example_label(A,C);
 
+  for(i=0; i < 50; i++){
+    if(B[i] != C[i]){
+      printf("ERROR: example_label and example_no_label mismatch\n");
+      return 1;
+    }
+  }
+
+  printf("Success: results from both functions match\n");
+  return 0;
+}
 
