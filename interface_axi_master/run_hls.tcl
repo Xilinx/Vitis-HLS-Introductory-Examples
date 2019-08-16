@@ -104,8 +104,8 @@ set_top example
 # Create a solution
 open_solution -reset solution1
 # Define technology and clock rate
-set_part zynq
-create_clock -period "75MHz"
+set_part  {xcvu9p-flga2104-2-i}
+create_clock -period "200MHz"
 
 # Source x_hls.tcl to determine which steps to execute
 source x_hls.tcl

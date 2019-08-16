@@ -59,7 +59,7 @@ set_top lookup_math
 # Create a solution
 open_solution -reset solution1
 # Define technology and clock rate
-set_part  {xc7k160tfbg484-1}
+set_part  {xcvu9p-flga2104-2-i}
 create_clock -period 4
 
 # Source x_hls.tcl to determine which steps to execute
