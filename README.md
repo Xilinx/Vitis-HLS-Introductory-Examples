@@ -1,6 +1,6 @@
 <img src="./images/logo.gif" alt="logo" width="200"/>
 
-# Examples for Xilinx Vitis HLS
+# Examples for Xilinx HLS
 
 ## C/C++ synthesizable examples
 
@@ -8,32 +8,7 @@ Each includes code sources for top function and testbench, a README, Tcl files. 
 * **_Coding_**: Common coding styles for pointers, loops, arrays, etc...
 * **_Algorithm_**: Math and DSP examples
 * **_Interface_**: Manage block connectivity to other blocks
-* **_Misc._**: Other examples such are RTL blackboxes
-<details>
-  <summary>Click for examples details!</summary>
-  
-  ## Coding
-  1. Pointers
-  2. Loops
-     * Pipeline
-     * Unroll
-  ## Algorithm
-  1. DSP
-  2. Loops
-     * Pipeline
-     * Unroll
- ## Interface
-  1. DSP
-  2. Loops
-     * Pipeline
-     * Unroll
- ## Library
-  1. DSP
-  2. Loops
-     * Pipeline
-     * Unroll
-</details>
-
+* **_Misc._**: Other examples such are RTL blackbox in C++
 
 ## Running the examples
 Two Tcl files are provided:
@@ -41,6 +16,6 @@ Two Tcl files are provided:
 * _run_hls.tcl_: Sets up the project and sources x_hls.tcl mentioned above
 
 To run at the command line, navigate to the example directory, type:
-`vitis_hls -f run_hls.tcl`
+`<hls_command> -f run_hls.tcl`
 
-To load the design into the Vitis HLS GUI, "Open"->"Project file" and select the project directory
+To load the design into the HLS GUI, "Open"->"Project file" and select the project directory
