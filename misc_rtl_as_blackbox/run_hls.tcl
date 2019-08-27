@@ -96,6 +96,7 @@ open_project -reset proj_rtl_as_blackbox
 add_files example.cpp
 # Add test bench & files
 add_files -tb example_test.cpp
+add_files -tb result.golden.dat
 # JSON file
 add_files -blackbox rtl_model.json
 

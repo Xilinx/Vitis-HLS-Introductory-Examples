@@ -89,12 +89,11 @@ THIS COPYRIGHT NOTICE AND DISCLAIMER MUST BE RETAINED AS PART OF THIS FILE AT
 ALL TIMES.
 
 *******************************************************************************/
-#include "apint_promotion.h"
+#include "arbitrary_precision_casting.h"
 
-dout_t apint_promotion(din_t a,din_t b) {
-  dout_t  tmp;
+dout_t arbitrary_precision_casting(din_t a,din_t b) {
   
-  tmp = (dout_t)a * (dout_t)b;
-  return tmp;
+  return (dout_t)a * (dout_t)b;
+
 }
 

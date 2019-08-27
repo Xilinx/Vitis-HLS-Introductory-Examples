@@ -1,6 +1,6 @@
 /*******************************************************************************
 Vendor: Xilinx 
-Associated Filename: apint_promotion_test.c
+Associated Filename: arbitrary_precision_casting.cpp
 Purpose:Vivado HLS Coding Style example 
 Device: All 
 Revision History: May 30, 2008 - initial release
@@ -89,42 +89,38 @@ THIS COPYRIGHT NOTICE AND DISCLAIMER MUST BE RETAINED AS PART OF THIS FILE AT
 ALL TIMES.
 
 *******************************************************************************/
-#include "apint_promotion.h"
+#include "arbitrary_precision_casting.h"
  
 int main () {
-	din_t A, B;
-	dout_t RES;
-	int i, retval=0;
-	FILE        *fp;
+  din_t A, B;
+  dout_t RES;
+  int i, retval=0;
+  ofstream FILE;
 
-	// Save the results to a file
-	fp=fopen("result.dat","w");
+  // Save the results to a file
+  FILE.open ("result.dat");
 
-	// Call the function
-	A=65536;
-	B=65536;
-	for(i=0; i<(20);++i) {
-    RES=apint_promotion(A,B);
-#ifndef __MINGW32__
-        fprintf(fp, "%lld \n", RES);
-#else
-        fprintf(fp, "%I64d \n", RES);
-#endif
-		A=A+1024;
-		B=B-2047;
-	}
-	fclose(fp);
-
-	// Compare the results file with the golden results
-	retval = system("diff --brief -w result.dat result.golden.dat");
-	if (retval != 0) {
-		printf("Test failed  !!!\n"); 
-		retval=1;
-	} else {
-		printf("Test passed !\n");
+  // Call the function
+  A=65536;
+  B=65536;
+  for(i=0; i<20;++i) {
+    RES=arbitrary_precision_casting(A,B);
+    FILE << RES << endl;
+    A=A+1024;
+    B=B-2047;
+  }
+  FILE.close();
+  
+ // Compare the results file with the golden results
+  retval = system("diff --brief -w result.dat result.golden.dat");
+  if (retval != 0) {
+    cout << "Test failed  !!!" << endl; 
+    retval=1;
+  } else {
+    cout << "Test passed !" << endl;
   }
 
-	// Return 0 if the test passes
+  // Return 0 if the test passes
   return retval;
 }
 

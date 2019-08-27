@@ -89,16 +89,19 @@ THIS COPYRIGHT NOTICE AND DISCLAIMER MUST BE RETAINED AS PART OF THIS FILE AT
 ALL TIMES.
 
 *******************************************************************************/
-#ifndef _APINT_PROMOTION_H_
-#define _APINT_PROMOTION_H_
+#ifndef _ARBITRARY_PRECISION_CASTING_H_
+#define _ARBITRARY_PRECISION_CASTING_H_
 
-#include <stdio.h>
-#include "ap_cint.h"
+#include <iostream>
+#include <fstream>
+using namespace std;
 
-typedef int18 din_t;
-typedef int36 dout_t;
+#include "ap_int.h"
 
-dout_t apint_promotion(din_t a,din_t b);
+typedef ap_int<18> din_t;
+typedef ap_int<36> dout_t;
+
+dout_t arbitrary_precision_casting(din_t a,din_t b);
 
 #endif
 
