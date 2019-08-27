@@ -9,7 +9,7 @@ README
 
 Running the Design (edit x_hls.tcl to specific run steps)
 =========================================================
-vitis_hls -f run_hls.tcl
+vivado_hls -f run_hls.tcl
 
 This design is discussed in the Vivado HLS UltraFAST Methodology in the section "Writing Hardware Efficient C Code".
 The attributes of this design which ensure an implementation with high Quality of Results are:
