@@ -90,16 +90,16 @@
 
 #*******************************************************************************
 # Create a project
-open_project -reset proj_apint_promotion
+open_project -reset proj_arbitrary_precision_casting
 
 # Add design files
-add_files apint_promotion.c
+add_files arbitrary_precision_casting.cpp
 # Add test bench & files
-add_files -tb apint_promotion_test.c
+add_files -tb arbitrary_precision_casting_test.cpp
 add_files -tb result.golden.dat
 
 # Set the top-level function
-set_top apint_promotion
+set_top arbitrary_precision_casting
 
 # ########################################################
 # Create a solution

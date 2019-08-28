@@ -27,8 +27,8 @@ connect:
 //-----------------------------------------------
 void filter(data_t x[FRM], coef_t coef[TAP], sum_t &y)
 {
-#pragma HLS INTERFACE ap_fifo port=x
-#pragma HLS INTERFACE ap_fifo port=y
+#pragma HLS INTERFACE ap_fifo depth=8 port=x
+#pragma HLS INTERFACE ap_fifo depth=8 port=y
 #pragma HLS INTERFACE ap_fifo port=coef
 #pragma HLS PIPELINE
 
