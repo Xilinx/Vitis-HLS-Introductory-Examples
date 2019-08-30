@@ -98,26 +98,30 @@ void example(hls::stream<ap_axis<32,2,5,6> > &A, hls::stream<ap_axis<32,2,5,6> >
 int main()
 {
   int i=100;
-  hls::stream<ap_axis<32,2,5,6> > A;
-  hls::stream<ap_axis<32,2,5,6> > B;
+  hls::stream<ap_axis<32,2,5,6> > A, B;
+  ap_axis<32,2,5,6> tmp1, tmp2;
 
-  A.data = i;
-  A.keep = 1;
-  A.strb = 1;
-  A.user = 1;
-  A.last = 0;
-  A.id = 0;
-  A.dest = 1;
-  
+  tmp1.data = i;
+  tmp1.keep = 1;
+  tmp1.strb = 1;
+  tmp1.user = 1;
+  tmp1.last = 0;
+  tmp1.id = 0;
+  tmp1.dest = 1;
+
+  A.write(tmp1);
   example(A,B);
+  B.read(tmp2);
 
-
-  if (B[i].data.to_int() != 100){
-    cout << "ERROR: HW and SW results mismatch\n" << endl;
+  if (tmp2.data.to_int() != 105)
+  {
+    cout << "ERROR: results mismatch" << endl;
     return 1;
   }
-  
-  cout << "Success: HW and SW results match\n" << endl;
-  return 0;
+  else
+  {
+    cout << "Success: results match" << endl;
+    return 0;
+  }
 }
 
