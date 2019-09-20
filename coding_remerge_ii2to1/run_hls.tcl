@@ -1,9 +1,9 @@
 # *******************************************************************************
 # Vendor: Xilinx 
 # Associated Filename: run_hls.tcl
-# Purpose: Tcl commands to setup Vivado HLS Coding Style example 
+# Purpose: Tcl commands to setupVivado HLS Coding Style example 
 # Device: All 
-# Revision History: April 9, 2019 - initial release
+# Revision History: May 30, 2008 - initial release
 #                                                 
 # *******************************************************************************
 #-  (c) Copyright 2011-2019 Xilinx, Inc. All rights reserved.
@@ -90,23 +90,23 @@
 
 #*******************************************************************************
 # Create a project
-open_project -reset proj_filter_frame
+open_project -reset proj_example
 
 # Add design files
-add_files filter_frame.cpp
+add_files example.cpp
 # Add test bench & files
-add_files -tb filter_frame_test.cpp
-add_files -tb result.golden.dat
+add_files -tb example_test.cpp
+#add_files -tb result.golden.dat
 
 # Set the top-level function
-set_top filter
+set_top example
 
 # ########################################################
 # Create a solution
 open_solution -reset solution1
 # Define technology and clock rate
 set_part  {xcvu9p-flga2104-2-i}
-create_clock -period 3
+create_clock -period 5
 
 # Source x_hls.tcl to determine which steps to execute
 source x_hls.tcl
@@ -115,17 +115,15 @@ csim_design
 if {$hls_exec == 1} {
 	# Run Synthesis and Exit
 	csynth_design
-	
 } elseif {$hls_exec == 2} {
 	# Run Synthesis, RTL Simulation and Exit
 	csynth_design
-	
 	cosim_design
 } elseif {$hls_exec == 3} { 
 	# Run Synthesis, RTL Simulation, RTL implementation and Exit
 	csynth_design
 	cosim_design
-	export_design -rtl verilog -flow impl
+	export_design
 } else {
 	# Default is to exit after setup
 	csynth_design

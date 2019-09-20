@@ -3,7 +3,7 @@
 # Associated Filename: x_hls.tcl
 # Purpose: Tcl file used to determine what steps run_hls.tcl executes
 # Device: All 
-# Revision History: April 9, 2019 - initial release
+# Revision History: May 30, 2008 - initial release
 #                                                 
 # *******************************************************************************
 #-  (c) Copyright 2011-2019 Xilinx, Inc. All rights reserved.
@@ -96,4 +96,6 @@
 # Set to 3: to run setup, synthesis, RTL simulation and RTL synthesis
 # Any other value will run setup only
  
-set hls_exec 1
+set hls_exec 0
+
+
