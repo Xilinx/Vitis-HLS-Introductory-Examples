@@ -1,6 +1,6 @@
 <img src="./images/logo.gif" alt="logo" width="200"/>
 
-# Examples for Xilinx HLS
+# Examples for Vitis HLS
 
 ## C/C++ synthesizable examples
 
@@ -16,6 +16,6 @@ Two Tcl files are provided:
 * _run_hls.tcl_: Sets up the project and sources x_hls.tcl mentioned above
 
 To run at the command line, navigate to the example directory, type:
-`<hls_command> -f run_hls.tcl`
+`vitis_hls -f run_hls.tcl`
 
 To load the design into the HLS GUI, "Open"->"Project file" and select the project directory
