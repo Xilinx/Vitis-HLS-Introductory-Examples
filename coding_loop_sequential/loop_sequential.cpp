@@ -91,7 +91,7 @@ ALL TIMES.
 *******************************************************************************/
 #include "loop_sequential.h"
 
-void loop_sequential(din_t A[N], din_t B[N], dout_t X[N], dout_t Y[N], dsel_t xlimit, dsel_t ylimit) {  
+void loop_sequential(din_t A[N], din_t B[N], dout_t X[N], dout_t Y[N], dsel_t xlimit, dsel_t ylimit) {
 
   dout_t X_accum=0;
   dout_t Y_accum=0;
