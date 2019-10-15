@@ -16,7 +16,7 @@
 
 #include "cpp_template.h"
 
-//Tail recursive call
+// Tail recursive call
 template<data_t N> 
 	struct fibon_s {
     template<typename T>
