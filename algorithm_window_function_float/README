@@ -49,5 +49,4 @@ README             - this file
 
 Running the Design
 =================================================
-autoesl -f run_hls.tcl
-
+vitis_hls -f run_hls.tcl
