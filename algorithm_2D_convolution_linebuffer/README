@@ -1,0 +1,19 @@
+Example C code for implementing an 2D convolution in HLS
+
+Files Included in this Package
+==============================
+convolution_test.cpp
+convolution.cpp
+README
+
+Running the Design (edit x_hls.tcl to specific run steps)
+=========================================================
+vitis_hls -f run_hls.tcl
+
+This design is discussed in the Vivado HLS UltraFAST Methodology in the section "Writing Hardware Efficient C Code".
+The attributes of this design which ensure an implementation with high Quality of Results are:
+- the optimal design is filter11x11_strm
+- It makes uses of streams: this helps you write code which will implement well in hardware
+- it performs a comparison against the more intuative coding style in filter11x11_orig
+- it shows an example of using a line buffer to save on storage
+- It uses assewrt statements to state the know limit of loop bounds

@@ -1,0 +1,119 @@
+{
+"c_function_name"     : "rtl_model",
+"rtl_top_module_name" : "rtl_model",
+"c_files" : [{ 
+              "c_file" : "rtl_model.cpp",
+              "cflag" : ""
+            }],
+"rtl_files" : [
+                "rtl_model.v"
+              ],
+"c_parameters" : [{
+                   "c_name" : "a1",
+                   "c_port_direction" : "in",
+                   "rtl_ports" : {
+                                  "data_read_in" : "a1"
+                                 }
+                  },
+                  {
+                   "c_name" : "a2",
+                   "c_port_direction" : "in",
+                   "rtl_ports" : {
+                                  "data_read_in" : "a2"
+                                 }
+                  },
+                  {
+                   "c_name" : "a3",
+                   "c_port_direction" : "in",
+                   "rtl_ports" : {
+                                  "data_read_in" : "a3"
+                                 }
+                  },
+                  {
+                   "c_name" : "a4",
+                   "c_port_direction" : "in",
+                   "rtl_ports" : {
+                                  "data_read_in" : "a4"
+                                 }
+                  },{
+                   "c_name" : "b1",
+                   "c_port_direction" : "in",
+                   "rtl_ports" : {
+                                  "data_read_in" : "b1"
+                                 }
+                  },
+                  {
+                   "c_name" : "b2",
+                   "c_port_direction" : "in",
+                   "rtl_ports" : {
+                                  "data_read_in" : "b2"
+                                 }
+                  },
+                  {
+                   "c_name" : "b3",
+                   "c_port_direction" : "in",
+                   "rtl_ports" : {
+                                  "data_read_in" : "b3"
+                                 }
+                  },
+                  {
+                   "c_name" : "b4",
+                   "c_port_direction" : "in",
+                   "rtl_ports" : {
+                                  "data_read_in" : "b4"
+                                 }
+                  },
+                  {
+                   "c_name" : "z1",
+                   "c_port_direction" : "out",
+                   "rtl_ports" : {
+                                  "data_write_out"   : "z1",
+		                  "data_write_valid" : "z1_ap_vld"
+                                 }
+                  },
+                  {
+                   "c_name" : "z2",
+                   "c_port_direction" : "out",
+                   "rtl_ports" : {
+                                  "data_write_out"   : "z2",
+	                          "data_write_valid" : "z2_ap_vld"
+                                 }
+                  },
+                  {
+                   "c_name" : "z3",
+                   "c_port_direction" : "out",
+                   "rtl_ports" : {
+                                  "data_write_out"   : "z3",
+	                          "data_write_valid" : "z3_ap_vld"
+                                 }
+                  },
+                  {
+                   "c_name" : "z4",
+                   "c_port_direction" : "out",
+                   "rtl_ports" : {
+                                  "data_write_out"   : "z4",
+	                          "data_write_valid" : "z4_ap_vld"
+                                 }
+                  }],
+"rtl_common_signal" : {
+                        "module_clock"                    : "ap_clk",
+                        "module_reset"                    : "ap_rst",
+                        "module_clock_enable"             : "ap_ce",
+                        "ap_ctrl_chain_protocol_idle"     : "ap_idle",
+                        "ap_ctrl_chain_protocol_start"    : "ap_start",
+                        "ap_ctrl_chain_protocol_ready"    : "ap_ready",
+                        "ap_ctrl_chain_protocol_done"     : "ap_done",
+                        "ap_ctrl_chain_protocol_continue" : "ap_continue"
+                      },
+"rtl_performance" : {
+                     "latency" : "2",
+                     "II"      : "1"
+                    },
+"rtl_resource_usage" : {
+                        "FF"   :   "0",
+                        "LUT"  :   "0",
+                        "BRAM" :   "0",
+                        "URAM" :   "0",
+                        "DSP"  :   "1"
+                       }
+}
