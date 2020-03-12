@@ -32,4 +32,4 @@ Two Tcl files are provided:
 To run at the command line, navigate to the example directory, type:
 `vitis_hls -f run_hls.tcl`
 
-To load the design into the HLS GUI, "Open"->"Project file" and select the project directory
+To load the design into the Vitis HLS GUI, from the "Welcome" screen ("Help"->"Welcome..."), click on "Open Example" and select the example project of interest
