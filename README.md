@@ -25,11 +25,15 @@ Each includes code sources for top function and testbench, a README, Tcl files. 
 * **_Misc._**: Other examples such are RTL blackbox in C++
 
 ## Running the examples
+
 Two Tcl files are provided:
-* _x_hls.tcl_: Specifies what steps of the flow will be executed (by default only C simulation and C synthesis are run).  By changing the value of hls_exec it's possible to run C-RTL co-simulation and Vivado implementation
+* _x_hls.tcl_: Short script sourced in run_hls.tcl to specify the steps of the flow which will be executed (by default only C simulation and C synthesis are run).  By changing the value of the variable hls_exec it's possible to run C-RTL co-simulation and launch a Vivado implementation
 * _run_hls.tcl_: Sets up the project and sources x_hls.tcl mentioned above
 
 To run at the command line, navigate to the example directory, type:
 `vitis_hls -f run_hls.tcl`
 
-To load the design into the Vitis HLS GUI, from the "Welcome" screen ("Help"->"Welcome..."), click on "Open Example" and select the example project of interest
+To load an example design into the Vitis HLS GUI:
+* From the "Welcome" screen ("Help"->"Welcome..."), click on "Clone Examples" and clone this repository
+* Next, in the "Git Repositories" window pane in the lower left of the GUI, expand the "Working Tree"
+* Right click on the example of interest and select "Run and Open HLS project"
