@@ -25,8 +25,8 @@ using namespace std;
 
 #define MAX_BYTESTRM_LEN 1488
 
-// Convert a stream of bytes (uint8_t) to a stream of arbitrary width
-// (on byte boundaries) words
+// Convert a stream of bytes (uint8_t) to a stream of arbitrary width words
+// (operates on byte boundaries)
 template<typename T, uint8_t NB, bool BS>
 void strm_bytes2words(
       hls::stream<T> &words_out,
