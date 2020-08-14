@@ -1,5 +1,5 @@
 /*
- * Example C code for implementing an AXI4-master interface in Vivado HLS
+ * Example C++ code for implementing an AXI4-master interface in Vitis HLS
  */
 
 Files Included in this Package
