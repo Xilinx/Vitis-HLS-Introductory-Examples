@@ -1,13 +1,12 @@
 Files Included in this Package
 ==================================================
-fp_mul_pow2.c  - Implementation source file (top-level for example)
-fp_mul_pow2.h    - Header file w/ function prototypes
-fp_mul_pow2_test.cpp - test program which for SW model validation & RTL co-sim
-run_hls.tcl        - HLS run script
-x_hls.tcl          - auxilary script setting run-level
-README             - this file
+fp_mul_pow2.c        - Implementation source file (top-level for example)
+fp_mul_pow2.h        - Header file w/ function prototypes
+fp_mul_pow2_test.cpp - Test program which for SW model validation & RTL co-sim
+run_hls.tcl          - HLS run script
+x_hls.tcl            - Auxilary script setting run-level
+README               - This file
 
-Running the Design
+Running the design
 =================================================
-vivado_hls -f run_hls.tcl
-
+vitis_hls -f run_hls.tcl

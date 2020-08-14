@@ -1,5 +1,5 @@
 /*
- * Example C code for implementing an AXI stream interface in Vivado HLS using
+ * Example C++ code for implementing an AXI stream interface in Vitis HLS using
  * all side channels.
  */
 
@@ -11,4 +11,4 @@ README
 
 Running the Design (edit x_hls.tcl to run synthesis)
 =================================================
-vivado_hls -f run_hls.tcl
+vitis_hls -f run_hls.tcl

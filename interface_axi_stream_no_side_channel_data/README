@@ -1,5 +1,5 @@
 /*
- * Example C code for implementing an AXI stream interface in Vivado HLS using
+ * Example C++ code for implementing an AXI stream interface in Vitis HLS using
  * only the TDATA field and AXI handshake signals.
  */
 

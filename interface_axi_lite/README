@@ -1,5 +1,5 @@
 /*
- * Example C code for implementing an AXI4-lite interface in Vitis HLS
+ * Example C++ code for implementing an AXI4-lite interface in Vitis HLS
  */
 
 Files included in this package
