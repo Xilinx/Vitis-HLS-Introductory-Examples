@@ -82,4 +82,3 @@ WORDS2BYTES_LOOP:
 }
 
 #endif // BYTESTRM_UTIL_H_ not defined
-
