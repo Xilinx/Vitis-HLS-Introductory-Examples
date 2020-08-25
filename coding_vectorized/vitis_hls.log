@@ -1,0 +1,437 @@
+INFO: [HLS 200-10] Running '/proj/xbuilds/SWIP/2020.2_0823_2002/installs/lin64/Vitis_HLS/2020.2/bin/unwrapped/lnx64.o/vitis_hls'
+INFO: [HLS 200-10] For user 'frederic' on host 'xsjfrederic40' (Linux_x86_64 version 3.10.0-957.el7.x86_64) on Mon Aug 24 18:15:09 PDT 2020
+INFO: [HLS 200-10] On os "CentOS Linux release 7.6.1810 (Core) "
+INFO: [HLS 200-10] In directory '/group/swmktg/test_fr/essai/HLS-Tiny-Tutorials/coding_vectorized'
+Sourcing Tcl script '/group/swmktg/test_fr/essai/HLS-Tiny-Tutorials/coding_vectorized/proj_example/solution1/cosim.tcl'
+INFO: [HLS 200-1510] Running: open_project proj_example 
+INFO: [HLS 200-10] Opening project '/group/swmktg/test_fr/essai/HLS-Tiny-Tutorials/coding_vectorized/proj_example'.
+INFO: [HLS 200-1510] Running: set_top example 
+INFO: [HLS 200-1510] Running: add_files example.cpp 
+INFO: [HLS 200-10] Adding design file 'example.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files -tb example_test.cpp -cflags -std=gnu++14 -Wno-unknown-pragmas -csimflags -Wno-unknown-pragmas 
+INFO: [HLS 200-10] Adding test bench file 'example_test.cpp' to the project
+INFO: [HLS 200-1510] Running: open_solution solution1 -flow_target vivado 
+INFO: [HLS 200-10] Opening solution '/group/swmktg/test_fr/essai/HLS-Tiny-Tutorials/coding_vectorized/proj_example/solution1'.
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 5ns.
+INFO: [HLS 200-10] Setting target device to 'xcvu9p-flga2104-2-i'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see www.xilinx.com/html_docs/xilinx2020_2/hls-guidance/200-1505.html
+INFO: [HLS 200-1510] Running: set_part xcvu9p-flga2104-2-i 
+INFO: [HLS 200-1510] Running: create_clock -period 5 -name default 
+INFO: [HLS 200-1510] Running: cosim_design 
+INFO: [COSIM 212-47] Using XSIM for RTL simulation.
+INFO: [COSIM 212-14] Instrumenting C test bench ...
+WARNING: [COSIM 212-369] AXI_master port 'res' has a depth of '1000'. Insufficient depth may result in simulation mismatch or freeze.
+WARNING: [COSIM 212-369] AXI_master port 'lhs' has a depth of '1000'. Insufficient depth may result in simulation mismatch or freeze.
+WARNING: [COSIM 212-369] AXI_master port 'gmem1' has a depth of '1000'. Insufficient depth may result in simulation mismatch or freeze.
+   Build using "/proj/xbuilds/SWIP/2020.2_0823_2002/installs/lin64/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/bin/g++"
+   Compiling example_test.cpp_pre.cpp.tb.cpp
+   Compiling example.cpp_pre.cpp.tb.cpp
+   Compiling apatb_example.cpp
+   Compiling apatb_example_ir.ll
+   Generating cosim.tv.exe
+INFO: [COSIM 212-302] Starting C TB testing ... 
+The output value for res[1][1] should be 2.2 and is 2.2
+INFO: [COSIM 212-333] Generating C post check test bench ...
+INFO: [COSIM 212-12] Generating RTL test bench ...
+
+****** Vivado v2020.2.0 (64-bit)
+  **** SW Build 2975169 on Sun Aug 23 20:17:13 MDT 2020
+  **** IP Build 2975089 on Sun Aug 23 23:54:00 MDT 2020
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+source run_vivado_gen_ip.tcl -notrace
+create_project: Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 2300.551 ; gain = 2.020 ; free physical = 38433 ; free virtual = 103099
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/proj/xbuilds/SWIP/2020.2_0823_2002/installs/lin64/Vivado/2020.2/data/ip'.
+WARNING: [IP_Flow 19-4832] The IP name 'example_ap_fadd_3_full_dsp_32' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues.
+create_ip: Time (s): cpu = 00:00:02 ; elapsed = 00:00:06 . Memory (MB): peak = 2343.547 ; gain = 42.996 ; free physical = 38298 ; free virtual = 103028
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'example_ap_fadd_3_full_dsp_32'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'example_ap_fadd_3_full_dsp_32'...
+INFO: [Common 17-206] Exiting Vivado at Mon Aug 24 18:16:00 2020...
+INFO: [COSIM 212-1] *** C/RTL co-simulation file generation completed. ***
+INFO: [COSIM 212-323] Starting verilog simulation. 
+INFO: [COSIM 212-15] Starting XSIM ...
+Vivado Simulator 2020.2
+Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
+Running: /proj/xbuilds/SWIP/2020.2_0823_2002/installs/lin64/Vivado/2020.2/bin/unwrapped/lnx64.o/xelab xil_defaultlib.apatb_example_top glbl -prj example.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver -L xpm -L floating_point_v7_0_18 -L floating_point_v7_1_11 --lib ieee_proposed=./ieee_proposed -s example 
+Multi-threading is on. Using 10 slave threads.
+Determining compilation order of HDL files.
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/group/swmktg/test_fr/essai/HLS-Tiny-Tutorials/coding_vectorized/proj_example/solution1/sim/verilog/ip/xil_defaultlib/example_ap_fadd_3_full_dsp_32.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module example_ap_fadd_3_full_dsp_32
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/group/swmktg/test_fr/essai/HLS-Tiny-Tutorials/coding_vectorized/proj_example/solution1/sim/verilog/glbl.v" into library work
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/group/swmktg/test_fr/essai/HLS-Tiny-Tutorials/coding_vectorized/proj_example/solution1/sim/verilog/example.autotb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module apatb_example_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/group/swmktg/test_fr/essai/HLS-Tiny-Tutorials/coding_vectorized/proj_example/solution1/sim/verilog/AESL_axi_master_gmem0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_axi_master_gmem0
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/group/swmktg/test_fr/essai/HLS-Tiny-Tutorials/coding_vectorized/proj_example/solution1/sim/verilog/AESL_axi_master_gmem1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_axi_master_gmem1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/group/swmktg/test_fr/essai/HLS-Tiny-Tutorials/coding_vectorized/proj_example/solution1/sim/verilog/AESL_axi_slave_control.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_axi_slave_control
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/group/swmktg/test_fr/essai/HLS-Tiny-Tutorials/coding_vectorized/proj_example/solution1/sim/verilog/AESL_deadlock_detection_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_deadlock_detect_unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/group/swmktg/test_fr/essai/HLS-Tiny-Tutorials/coding_vectorized/proj_example/solution1/sim/verilog/AESL_deadlock_report_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_deadlock_report_unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/group/swmktg/test_fr/essai/HLS-Tiny-Tutorials/coding_vectorized/proj_example/solution1/sim/verilog/AESL_deadlock_detector.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_deadlock_detector
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/group/swmktg/test_fr/essai/HLS-Tiny-Tutorials/coding_vectorized/proj_example/solution1/sim/verilog/example_dataflow_in_loop_VITIS_LOOP_56_1_entry6.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module example_dataflow_in_loop_VITIS_LOOP_56_1_entry6
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/group/swmktg/test_fr/essai/HLS-Tiny-Tutorials/coding_vectorized/proj_example/solution1/sim/verilog/example_load_32_float_vector_16_3.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module example_load_32_float_vector_16_3
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/group/swmktg/test_fr/essai/HLS-Tiny-Tutorials/coding_vectorized/proj_example/solution1/sim/verilog/example_load_32_float_vector_16_s.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module example_load_32_float_vector_16_s
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/group/swmktg/test_fr/essai/HLS-Tiny-Tutorials/coding_vectorized/proj_example/solution1/sim/verilog/example_compute_32_float_vector_16_float_vector_16_s.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module example_compute_32_float_vector_16_float_vector_16_s
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/group/swmktg/test_fr/essai/HLS-Tiny-Tutorials/coding_vectorized/proj_example/solution1/sim/verilog/example_store_32_float_vector_16_s.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module example_store_32_float_vector_16_s
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/group/swmktg/test_fr/essai/HLS-Tiny-Tutorials/coding_vectorized/proj_example/solution1/sim/verilog/example_dataflow_in_loop_VITIS_LOOP_56_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module example_dataflow_in_loop_VITIS_LOOP_56_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/group/swmktg/test_fr/essai/HLS-Tiny-Tutorials/coding_vectorized/proj_example/solution1/sim/verilog/example.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module example
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/group/swmktg/test_fr/essai/HLS-Tiny-Tutorials/coding_vectorized/proj_example/solution1/sim/verilog/AESL_FPSim_pkg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ACMP_fadd_comb
+INFO: [VRFC 10-311] analyzing module ACMP_fadd
+INFO: [VRFC 10-311] analyzing module ACMP_fsub_comb
+INFO: [VRFC 10-311] analyzing module ACMP_fsub
+INFO: [VRFC 10-311] analyzing module ACMP_faddfsub_comb
+INFO: [VRFC 10-311] analyzing module ACMP_faddfsub
+INFO: [VRFC 10-311] analyzing module ACMP_fmul_comb
+INFO: [VRFC 10-311] analyzing module ACMP_fmul
+INFO: [VRFC 10-311] analyzing module ACMP_fdiv_comb
+INFO: [VRFC 10-311] analyzing module ACMP_fdiv
+INFO: [VRFC 10-311] analyzing module ACMP_fsqrt_comb
+INFO: [VRFC 10-311] analyzing module ACMP_fsqrt
+INFO: [VRFC 10-311] analyzing module ACMP_frsqrt_comb
+INFO: [VRFC 10-311] analyzing module ACMP_frsqrt
+INFO: [VRFC 10-311] analyzing module ACMP_frecip_comb
+INFO: [VRFC 10-311] analyzing module ACMP_frecip
+INFO: [VRFC 10-311] analyzing module ACMP_flog_comb
+INFO: [VRFC 10-311] analyzing module ACMP_flog
+INFO: [VRFC 10-311] analyzing module ACMP_fexp_comb
+INFO: [VRFC 10-311] analyzing module ACMP_fexp
+INFO: [VRFC 10-311] analyzing module ACMP_dadd_comb
+INFO: [VRFC 10-311] analyzing module ACMP_dadd
+INFO: [VRFC 10-311] analyzing module ACMP_dsub_comb
+INFO: [VRFC 10-311] analyzing module ACMP_dsub
+INFO: [VRFC 10-311] analyzing module ACMP_dadddsub_comb
+INFO: [VRFC 10-311] analyzing module ACMP_dadddsub
+INFO: [VRFC 10-311] analyzing module ACMP_dmul_comb
+INFO: [VRFC 10-311] analyzing module ACMP_dmul
+INFO: [VRFC 10-311] analyzing module ACMP_ddiv_comb
+INFO: [VRFC 10-311] analyzing module ACMP_ddiv
+INFO: [VRFC 10-311] analyzing module ACMP_dsqrt_comb
+INFO: [VRFC 10-311] analyzing module ACMP_dsqrt
+INFO: [VRFC 10-311] analyzing module ACMP_drsqrt_comb
+INFO: [VRFC 10-311] analyzing module ACMP_drsqrt
+INFO: [VRFC 10-311] analyzing module ACMP_drecip_comb
+INFO: [VRFC 10-311] analyzing module ACMP_drecip
+INFO: [VRFC 10-311] analyzing module ACMP_dlog_comb
+INFO: [VRFC 10-311] analyzing module ACMP_dlog
+INFO: [VRFC 10-311] analyzing module ACMP_dexp_comb
+INFO: [VRFC 10-311] analyzing module ACMP_dexp
+INFO: [VRFC 10-311] analyzing module ACMP_fcmp_comb
+INFO: [VRFC 10-311] analyzing module ACMP_fcmp
+INFO: [VRFC 10-311] analyzing module ACMP_dcmp_comb
+INFO: [VRFC 10-311] analyzing module ACMP_dcmp
+INFO: [VRFC 10-311] analyzing module ACMP_fptosi_comb
+INFO: [VRFC 10-311] analyzing module ACMP_fptosi
+INFO: [VRFC 10-311] analyzing module ACMP_dptosi_comb
+INFO: [VRFC 10-311] analyzing module ACMP_dptosi
+INFO: [VRFC 10-311] analyzing module ACMP_sitofp_comb
+INFO: [VRFC 10-311] analyzing module ACMP_sitofp
+INFO: [VRFC 10-311] analyzing module ACMP_sitodp_comb
+INFO: [VRFC 10-311] analyzing module ACMP_sitodp
+INFO: [VRFC 10-311] analyzing module ACMP_fptoui_comb
+INFO: [VRFC 10-311] analyzing module ACMP_fptoui
+INFO: [VRFC 10-311] analyzing module ACMP_dptoui_comb
+INFO: [VRFC 10-311] analyzing module ACMP_dptoui
+INFO: [VRFC 10-311] analyzing module ACMP_uitofp_comb
+INFO: [VRFC 10-311] analyzing module ACMP_uitofp
+INFO: [VRFC 10-311] analyzing module ACMP_uitodp_comb
+INFO: [VRFC 10-311] analyzing module ACMP_uitodp
+INFO: [VRFC 10-311] analyzing module ACMP_fpext_comb
+INFO: [VRFC 10-311] analyzing module ACMP_fpext
+INFO: [VRFC 10-311] analyzing module ACMP_fptrunc_comb
+INFO: [VRFC 10-311] analyzing module ACMP_fptrunc
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/group/swmktg/test_fr/essai/HLS-Tiny-Tutorials/coding_vectorized/proj_example/solution1/sim/verilog/example_fadd_32ns_32ns_32_5_full_dsp_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module example_fadd_32ns_32ns_32_5_full_dsp_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/group/swmktg/test_fr/essai/HLS-Tiny-Tutorials/coding_vectorized/proj_example/solution1/sim/verilog/example_dataflow_in_loop_VITIS_LOOP_56_1_lhs_buf1_memcore.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module example_dataflow_in_loop_VITIS_LOOP_56_1_lhs_buf1_memcore_ram
+INFO: [VRFC 10-311] analyzing module example_dataflow_in_loop_VITIS_LOOP_56_1_lhs_buf1_memcore
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/group/swmktg/test_fr/essai/HLS-Tiny-Tutorials/coding_vectorized/proj_example/solution1/sim/verilog/example_dataflow_in_loop_VITIS_LOOP_56_1_lhs_buf1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module example_dataflow_in_loop_VITIS_LOOP_56_1_lhs_buf1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/group/swmktg/test_fr/essai/HLS-Tiny-Tutorials/coding_vectorized/proj_example/solution1/sim/verilog/example_fifo_w64_d2_S.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module example_fifo_w64_d2_S_shiftReg
+INFO: [VRFC 10-311] analyzing module example_fifo_w64_d2_S
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/group/swmktg/test_fr/essai/HLS-Tiny-Tutorials/coding_vectorized/proj_example/solution1/sim/verilog/example_fifo_w27_d2_S.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module example_fifo_w27_d2_S_shiftReg
+INFO: [VRFC 10-311] analyzing module example_fifo_w27_d2_S
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/group/swmktg/test_fr/essai/HLS-Tiny-Tutorials/coding_vectorized/proj_example/solution1/sim/verilog/example_fifo_w64_d4_S.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module example_fifo_w64_d4_S_shiftReg
+INFO: [VRFC 10-311] analyzing module example_fifo_w64_d4_S
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/group/swmktg/test_fr/essai/HLS-Tiny-Tutorials/coding_vectorized/proj_example/solution1/sim/verilog/example_fifo_w27_d3_S.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module example_fifo_w27_d3_S_shiftReg
+INFO: [VRFC 10-311] analyzing module example_fifo_w27_d3_S
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/group/swmktg/test_fr/essai/HLS-Tiny-Tutorials/coding_vectorized/proj_example/solution1/sim/verilog/example_control_s_axi.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module example_control_s_axi
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/group/swmktg/test_fr/essai/HLS-Tiny-Tutorials/coding_vectorized/proj_example/solution1/sim/verilog/example_gmem0_m_axi.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module example_gmem0_m_axi
+INFO: [VRFC 10-311] analyzing module example_gmem0_m_axi_reg_slice
+INFO: [VRFC 10-311] analyzing module example_gmem0_m_axi_fifo
+INFO: [VRFC 10-311] analyzing module example_gmem0_m_axi_buffer
+INFO: [VRFC 10-311] analyzing module example_gmem0_m_axi_decoder
+INFO: [VRFC 10-311] analyzing module example_gmem0_m_axi_throttle
+INFO: [VRFC 10-311] analyzing module example_gmem0_m_axi_read
+INFO: [VRFC 10-311] analyzing module example_gmem0_m_axi_write
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/group/swmktg/test_fr/essai/HLS-Tiny-Tutorials/coding_vectorized/proj_example/solution1/sim/verilog/example_gmem1_m_axi.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module example_gmem1_m_axi
+INFO: [VRFC 10-311] analyzing module example_gmem1_m_axi_reg_slice
+INFO: [VRFC 10-311] analyzing module example_gmem1_m_axi_fifo
+INFO: [VRFC 10-311] analyzing module example_gmem1_m_axi_buffer
+INFO: [VRFC 10-311] analyzing module example_gmem1_m_axi_decoder
+INFO: [VRFC 10-311] analyzing module example_gmem1_m_axi_throttle
+INFO: [VRFC 10-311] analyzing module example_gmem1_m_axi_read
+INFO: [VRFC 10-311] analyzing module example_gmem1_m_axi_write
+INFO: [VRFC 10-163] Analyzing VHDL file "/group/swmktg/test_fr/essai/HLS-Tiny-Tutorials/coding_vectorized/proj_example/solution1/sim/verilog/ieee_FP_pkg/fixed_float_types_c.vhd" into library ieee_proposed
+INFO: [VRFC 10-163] Analyzing VHDL file "/group/swmktg/test_fr/essai/HLS-Tiny-Tutorials/coding_vectorized/proj_example/solution1/sim/verilog/ieee_FP_pkg/fixed_pkg_c.vhd" into library ieee_proposed
+INFO: [VRFC 10-163] Analyzing VHDL file "/group/swmktg/test_fr/essai/HLS-Tiny-Tutorials/coding_vectorized/proj_example/solution1/sim/verilog/ieee_FP_pkg/float_pkg_c.vhd" into library ieee_proposed
+INFO: [VRFC 10-163] Analyzing VHDL file "/group/swmktg/test_fr/essai/HLS-Tiny-Tutorials/coding_vectorized/proj_example/solution1/sim/verilog/ieee_FP_pkg/aesl_fp_wrapper.vhd" into library ieee_proposed
+INFO: [VRFC 10-3107] analyzing entity 'AESL_WP_FAdd'
+INFO: [VRFC 10-3107] analyzing entity 'AESL_WP_FSub'
+INFO: [VRFC 10-3107] analyzing entity 'AESL_WP_FAddFSub'
+INFO: [VRFC 10-3107] analyzing entity 'AESL_WP_FMul'
+INFO: [VRFC 10-3107] analyzing entity 'AESL_WP_FDiv'
+INFO: [VRFC 10-3107] analyzing entity 'AESL_WP_FSqrt'
+INFO: [VRFC 10-3107] analyzing entity 'AESL_WP_FRSqrt'
+INFO: [VRFC 10-3107] analyzing entity 'AESL_WP_FRecip'
+INFO: [VRFC 10-3107] analyzing entity 'AESL_WP_FLog'
+INFO: [VRFC 10-3107] analyzing entity 'AESL_WP_FExp'
+INFO: [VRFC 10-3107] analyzing entity 'AESL_WP_DAdd'
+INFO: [VRFC 10-3107] analyzing entity 'AESL_WP_DSub'
+INFO: [VRFC 10-3107] analyzing entity 'AESL_WP_DAddDSub'
+INFO: [VRFC 10-3107] analyzing entity 'AESL_WP_DMul'
+INFO: [VRFC 10-3107] analyzing entity 'AESL_WP_DDiv'
+INFO: [VRFC 10-3107] analyzing entity 'AESL_WP_DSqrt'
+INFO: [VRFC 10-3107] analyzing entity 'AESL_WP_DRSqrt'
+INFO: [VRFC 10-3107] analyzing entity 'AESL_WP_DRecip'
+INFO: [VRFC 10-3107] analyzing entity 'AESL_WP_DLog'
+INFO: [VRFC 10-3107] analyzing entity 'AESL_WP_DExp'
+INFO: [VRFC 10-3107] analyzing entity 'AESL_WP_FCmp'
+INFO: [VRFC 10-3107] analyzing entity 'AESL_WP_DCmp'
+INFO: [VRFC 10-3107] analyzing entity 'AESL_WP_SPToSI'
+INFO: [VRFC 10-3107] analyzing entity 'AESL_WP_DPToSI'
+INFO: [VRFC 10-3107] analyzing entity 'AESL_WP_SIToSP'
+INFO: [VRFC 10-3107] analyzing entity 'AESL_WP_SIToDP'
+INFO: [VRFC 10-3107] analyzing entity 'AESL_WP_SPToUI'
+INFO: [VRFC 10-3107] analyzing entity 'AESL_WP_DPToUI'
+INFO: [VRFC 10-3107] analyzing entity 'AESL_WP_UIToSP'
+INFO: [VRFC 10-3107] analyzing entity 'AESL_WP_UIToDP'
+INFO: [VRFC 10-3107] analyzing entity 'AESL_WP_SPToDP'
+INFO: [VRFC 10-3107] analyzing entity 'AESL_WP_DPToSP'
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package floating_point_v7_1_11.floating_point_v7_1_11_viv_comp
+Compiling package ieee.numeric_std
+Compiling package xbip_utils_v3_0_10.xbip_utils_v3_0_10_pkg
+Compiling package axi_utils_v2_0_6.axi_utils_v2_0_6_pkg
+Compiling package floating_point_v7_1_11.floating_point_v7_1_11_consts
+Compiling package ieee.math_real
+Compiling package floating_point_v7_1_11.floating_point_v7_1_11_exp_table...
+Compiling package mult_gen_v12_0_16.mult_gen_v12_0_16_pkg
+Compiling package ieee.std_logic_arith
+Compiling package ieee.std_logic_signed
+Compiling package floating_point_v7_1_11.floating_point_v7_1_11_pkg
+Compiling package floating_point_v7_1_11.flt_utils
+Compiling package xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv_comp
+Compiling package unisim.vcomponents
+Compiling package ieee.vital_timing
+Compiling package ieee.vital_primitives
+Compiling package unisim.vpkg
+Compiling module xil_defaultlib.example_control_s_axi
+Compiling module xil_defaultlib.example_gmem0_m_axi_reg_slice(N=...
+Compiling module xil_defaultlib.example_gmem0_m_axi_fifo(DATA_BI...
+Compiling module xil_defaultlib.example_gmem0_m_axi_buffer(DATA_...
+Compiling module xil_defaultlib.example_gmem0_m_axi_fifo(DEPTH=5...
+Compiling module xil_defaultlib.example_gmem0_m_axi_fifo(DATA_BI...
+Compiling module xil_defaultlib.example_gmem0_m_axi_fifo(DATA_BI...
+Compiling module xil_defaultlib.example_gmem0_m_axi_write(NUM_WR...
+Compiling module xil_defaultlib.example_gmem0_m_axi_buffer(DATA_...
+Compiling module xil_defaultlib.example_gmem0_m_axi_reg_slice(N=...
+Compiling module xil_defaultlib.example_gmem0_m_axi_read(NUM_REA...
+Compiling module xil_defaultlib.example_gmem0_m_axi_throttle(ADD...
+Compiling module xil_defaultlib.example_gmem0_m_axi(NUM_READ_OUT...
+Compiling module xil_defaultlib.example_gmem1_m_axi_reg_slice(N=...
+Compiling module xil_defaultlib.example_gmem1_m_axi_fifo(DATA_BI...
+Compiling module xil_defaultlib.example_gmem1_m_axi_buffer(DATA_...
+Compiling module xil_defaultlib.example_gmem1_m_axi_fifo(DEPTH=5...
+Compiling module xil_defaultlib.example_gmem1_m_axi_fifo(DATA_BI...
+Compiling module xil_defaultlib.example_gmem1_m_axi_fifo(DATA_BI...
+Compiling module xil_defaultlib.example_gmem1_m_axi_write(NUM_WR...
+Compiling module xil_defaultlib.example_gmem1_m_axi_buffer(DATA_...
+Compiling module xil_defaultlib.example_gmem1_m_axi_reg_slice(N=...
+Compiling module xil_defaultlib.example_gmem1_m_axi_read(NUM_REA...
+Compiling module xil_defaultlib.example_gmem1_m_axi_throttle(ADD...
+Compiling module xil_defaultlib.example_gmem1_m_axi(NUM_READ_OUT...
+Compiling module xil_defaultlib.example_dataflow_in_loop_VITIS_L...
+Compiling module xil_defaultlib.example_dataflow_in_loop_VITIS_L...
+Compiling module xil_defaultlib.example_dataflow_in_loop_VITIS_L...
+Compiling module xil_defaultlib.example_dataflow_in_loop_VITIS_L...
+Compiling module xil_defaultlib.example_load_32_float_vector_16_...
+Compiling module xil_defaultlib.example_load_32_float_vector_16_...
+Compiling architecture muxcy_v of entity unisim.MUXCY [muxcy_default]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_has_ce=1...]
+Compiling architecture rtl of entity floating_point_v7_1_11.delay [\delay(width=7,length=0)\]
+Compiling architecture struct of entity floating_point_v7_1_11.carry_chain [\carry_chain(c_xdevicefamily="vi...]
+Compiling architecture synth of entity floating_point_v7_1_11.compare_eq_im [\compare_eq_im(c_xdevicefamily="...]
+Compiling architecture xorcy_v of entity unisim.XORCY [xorcy_default]
+Compiling architecture struct of entity floating_point_v7_1_11.carry_chain [\carry_chain(c_xdevicefamily="vi...]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_has_ce=1...]
+Compiling architecture rtl of entity floating_point_v7_1_11.delay [\delay(length=0)\]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_has_ce=1...]
+Compiling architecture rtl of entity floating_point_v7_1_11.delay [\delay(width=24,length=0,fast_in...]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_has_ce=1...]
+Compiling architecture rtl of entity floating_point_v7_1_11.delay [\delay(width=16,length=0)\]
+Compiling architecture dsp48e1_v of entity unisim.DSP48E1 [\DSP48E1(acascreg=0,adreg=0,alum...]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_has_ce=1...]
+Compiling architecture rtl of entity floating_point_v7_1_11.delay [\delay(width=4,length=0)\]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_has_ce=1...]
+Compiling architecture rtl of entity floating_point_v7_1_11.delay [\delay(width=48,length=0)\]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_has_ce=1...]
+Compiling architecture rtl of entity floating_point_v7_1_11.delay [\delay(width=24,length=0)\]
+Compiling architecture rtl of entity floating_point_v7_1_11.dsp48e1_wrapper [\dsp48e1_wrapper(c_part="xcvu9p-...]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_latency=...]
+Compiling architecture rtl of entity floating_point_v7_1_11.delay [delay_default]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_has_ce=1...]
+Compiling architecture rtl of entity floating_point_v7_1_11.delay [\delay(width=13,length=0)\]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_has_ce=1...]
+Compiling architecture rtl of entity floating_point_v7_1_11.delay [\delay(width=27,length=0)\]
+Compiling architecture synth of entity floating_point_v7_1_11.align_add_dsp48e1_sgl [\align_add_dsp48e1_sgl(c_xdevice...]
+Compiling architecture lut5_v of entity unisim.LUT5 [\LUT5(init="00000000000000001111...]
+Compiling architecture lut5_v of entity unisim.LUT5 [\LUT5(init="00000000000000000000...]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_has_ce=1...]
+Compiling architecture rtl of entity floating_point_v7_1_11.delay [\delay(width=5,length=0)\]
+Compiling architecture rtl of entity floating_point_v7_1_11.lead_zero_encode_shift [\lead_zero_encode_shift(ab_fw=24...]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_has_ce=1...]
+Compiling architecture rtl of entity floating_point_v7_1_11.delay [\delay(width=3,length=0)\]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="11111110010101001011...]
+Compiling architecture lut5_v of entity unisim.LUT5 [\LUT5(init="00010001010111110000...]
+Compiling architecture lut5_v of entity unisim.LUT5 [\LUT5(init="11101110101000001111...]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_latency=...]
+Compiling architecture rtl of entity floating_point_v7_1_11.delay [\delay(width=2)\]
+Compiling architecture dsp48e1_v of entity unisim.DSP48E1 [\DSP48E1(adreg=0,alumodereg=0,ca...]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_has_ce=1...]
+Compiling architecture rtl of entity floating_point_v7_1_11.delay [\delay(width=25,length=0)\]
+Compiling architecture rtl of entity floating_point_v7_1_11.dsp48e1_wrapper [\dsp48e1_wrapper(a_width=24,c_wi...]
+Compiling architecture rtl of entity floating_point_v7_1_11.norm_and_round_dsp48e1_sgl [\norm_and_round_dsp48e1_sgl(c_mu...]
+Compiling architecture lut5_v of entity unisim.LUT5 [\LUT5(init="10011001100110011001...]
+Compiling architecture lut5_v of entity unisim.LUT5 [\LUT5(init="11111111000000001111...]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_has_ce=1...]
+Compiling architecture rtl of entity floating_point_v7_1_11.delay [\delay(width=9,length=0)\]
+Compiling architecture struct of entity floating_point_v7_1_11.carry_chain [\carry_chain(c_xdevicefamily="vi...]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_has_ce=1...]
+Compiling architecture rtl of entity floating_point_v7_1_11.delay [\delay(width=8,length=0)\]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_latency=...]
+Compiling architecture rtl of entity floating_point_v7_1_11.delay [\delay(width=10)\]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_has_ce=1...]
+Compiling architecture rtl of entity floating_point_v7_1_11.delay [\delay(width=4,length=0,fast_inp...]
+Compiling architecture fdre_v of entity unisim.FDRE [fdre_default]
+Compiling architecture fde_v of entity unisim.FDE [fde_default]
+Compiling architecture struct of entity floating_point_v7_1_11.carry_chain [\carry_chain(c_xdevicefamily="vi...]
+Compiling architecture synth of entity floating_point_v7_1_11.compare_eq_im [\compare_eq_im(c_xdevicefamily="...]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_latency=...]
+Compiling architecture rtl of entity floating_point_v7_1_11.delay [\delay(fast_input=true)\]
+Compiling architecture rtl of entity floating_point_v7_1_11.special_detect [\special_detect(c_xdevicefamily=...]
+Compiling architecture struct of entity floating_point_v7_1_11.carry_chain [\carry_chain(c_xdevicefamily="vi...]
+Compiling architecture synth of entity floating_point_v7_1_11.compare_gt [\compare_gt(c_xdevicefamily="vir...]
+Compiling architecture synth of entity floating_point_v7_1_11.compare [\compare(c_xdevicefamily="virtex...]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_latency=...]
+Compiling architecture rtl of entity floating_point_v7_1_11.delay [\delay(width=8)\]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_latency=...]
+Compiling architecture rtl of entity floating_point_v7_1_11.delay [\delay(width=9)\]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_latency=...]
+Compiling architecture rtl of entity floating_point_v7_1_11.delay [\delay(width=2,length=2,fast_inp...]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_latency=...]
+Compiling architecture rtl of entity floating_point_v7_1_11.delay [\delay(length=2,fast_input=true)...]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_has_ce=1...]
+Compiling architecture rtl of entity floating_point_v7_1_11.delay [\delay(length=0,fast_input=true)...]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_has_ce=1...]
+Compiling architecture rtl of entity floating_point_v7_1_11.delay [\delay(width=2,length=0,fast_inp...]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_has_ce=1...]
+Compiling architecture rtl of entity floating_point_v7_1_11.delay [\delay(width=12,length=0)\]
+Compiling architecture rtl of entity floating_point_v7_1_11.flt_add_exp_sp [\flt_add_exp_sp(c_xdevicefamily=...]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_latency=...]
+Compiling architecture rtl of entity floating_point_v7_1_11.delay [\delay(width=23)\]
+Compiling architecture synth of entity floating_point_v7_1_11.flt_dec_op [\flt_dec_op(c_xdevicefamily="vir...]
+Compiling architecture rtl of entity floating_point_v7_1_11.flt_add_dsp [\flt_add_dsp(c_xdevicefamily="vi...]
+Compiling architecture rtl of entity floating_point_v7_1_11.flt_add [\flt_add(c_xdevicefamily="virtex...]
+Compiling module unisims_ver.x_lut1_mux2
+Compiling module unisims_ver.LUT1
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_latency=...]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_has_ce=1...]
+Compiling architecture rtl of entity floating_point_v7_1_11.delay [\delay(width=32,length=0)\]
+Compiling architecture xilinx of entity floating_point_v7_1_11.floating_point_v7_1_11_viv [\floating_point_v7_1_11_viv(c_xd...]
+Compiling architecture xilinx of entity floating_point_v7_1_11.floating_point_v7_1_11 [\floating_point_v7_1_11(c_xdevic...]
+Compiling module xil_defaultlib.example_ap_fadd_3_full_dsp_32
+Compiling module xil_defaultlib.example_fadd_32ns_32ns_32_5_full...
+Compiling module xil_defaultlib.example_compute_32_float_vector_...
+Compiling module xil_defaultlib.example_store_32_float_vector_16...
+Compiling module xil_defaultlib.example_fifo_w64_d2_S_shiftReg
+Compiling module xil_defaultlib.example_fifo_w64_d2_S
+Compiling module xil_defaultlib.example_fifo_w27_d2_S_shiftReg
+Compiling module xil_defaultlib.example_fifo_w27_d2_S
+Compiling module xil_defaultlib.example_fifo_w64_d4_S_shiftReg
+Compiling module xil_defaultlib.example_fifo_w64_d4_S
+Compiling module xil_defaultlib.example_fifo_w27_d3_S_shiftReg
+Compiling module xil_defaultlib.example_fifo_w27_d3_S
+Compiling module xil_defaultlib.example_dataflow_in_loop_VITIS_L...
+Compiling module xil_defaultlib.example
+Compiling module xil_defaultlib.AESL_axi_master_gmem0
+Compiling module xil_defaultlib.AESL_axi_master_gmem1
+Compiling module xil_defaultlib.AESL_axi_slave_control
+Compiling module xil_defaultlib.AESL_deadlock_detect_unit(PROC_N...
+Compiling module xil_defaultlib.AESL_deadlock_detect_unit(PROC_N...
+Compiling module xil_defaultlib.AESL_deadlock_detect_unit(PROC_N...
+Compiling module xil_defaultlib.AESL_deadlock_detect_unit(PROC_N...
+Compiling module xil_defaultlib.AESL_deadlock_detect_unit(PROC_N...
+Compiling module xil_defaultlib.AESL_deadlock_report_unit(PROC_N...
+Compiling module xil_defaultlib.AESL_deadlock_detector_1
+Compiling module xil_defaultlib.apatb_example_top
+Compiling module work.glbl
+Built simulation snapshot example
+
+****** xsim v2020.2.0 (64-bit)
+  **** SW Build 2975169 on Sun Aug 23 20:17:13 MDT 2020
+  **** IP Build 2975089 on Sun Aug 23 23:54:00 MDT 2020
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+source xsim.dir/example/xsim_script.tcl
+# xsim {example} -autoloadwcfg -tclbatch {example.tcl}
+Vivado Simulator 2020.2
+Time resolution is 1 ps
+source example.tcl
+## run all
+////////////////////////////////////////////////////////////////////////////////////
+// Inter-Transaction Progress: Completed Transaction / Total Transaction
+// Intra-Transaction Progress: Measured Latency / Latency Estimation * 100%
+//
+// RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
+////////////////////////////////////////////////////////////////////////////////////
+// RTL Simulation : 0 / 1 [n/a] @ "613000"
+// RTL Simulation : 1 / 1 [n/a] @ "2198000"
+////////////////////////////////////////////////////////////////////////////////////
+$finish called at time : 2217500 ps : File "/group/swmktg/test_fr/essai/HLS-Tiny-Tutorials/coding_vectorized/proj_example/solution1/sim/verilog/example.autotb.v" Line 711
+## quit
+INFO: [Common 17-206] Exiting xsim at Mon Aug 24 18:16:27 2020...
+INFO: [COSIM 212-316] Starting C post checking ...
+The output value for res[1][1] should be 2.2 and is 2.2
+INFO: [COSIM 212-1000] *** C/RTL co-simulation finished: PASS ***
+INFO: [COSIM 212-211] II is measurable only when transaction number is greater than 1 in RTL simulation. Otherwise, they will be marked as all NA. If user wants to calculate them, please make sure there are at least 2 transactions in RTL simulation.
