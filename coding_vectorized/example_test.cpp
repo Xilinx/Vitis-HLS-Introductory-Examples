@@ -17,17 +17,17 @@
 #include <vector>
 #include <iostream>
 
-typedef float float8 __attribute__((vector_size(64)));
+typedef float float16 __attribute__((vector_size(64)));
 
 extern "C"
-void example(float8*res, const float8 *lhs, const float8 *rhs, int n);
+void example(float16*res, const float16 *lhs, const float16 *rhs, int n);
 
 int main(int, char**) {
-  std::vector<float8> lhs(1000);
-  std::vector<float8> rhs(1000);
-  std::vector<float8> res(1000);
+  std::vector<float16> lhs(1000);
+  std::vector<float16> rhs(1000);
+  std::vector<float16> res(1000);
 
-  float8 temp = {3.2, 1.1, 1.1, 1.1, 1.1, 1.1, 1.1, 1.1, 3.2, 1.1, 1.1, 1.1, 1.1, 1.1, 1.1, 1.1};
+  float16 temp = {3.2, 1.1, 1.1, 1.1, 1.1, 1.1, 1.1, 1.1, 3.2, 1.1, 1.1, 1.1, 1.1, 1.1, 1.1, 1.1};
  
   lhs[1] = temp; 
   rhs[1] = temp;
