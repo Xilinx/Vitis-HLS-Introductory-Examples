@@ -26,7 +26,7 @@ void resource_uram(bool wren, bool rden,
 #pragma HLS DEPENDENCE variable=buffer inter WAR false
 #pragma HLS BIND_STORAGE variable=buffer type=ram_2p impl=uram
 
-//  if (rden)
+  if (rden)
       *dataout = buffer[AddrR];
 
   if (wren)
