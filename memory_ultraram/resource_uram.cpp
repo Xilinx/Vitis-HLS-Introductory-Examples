@@ -24,7 +24,7 @@ void resource_uram(bool wren, bool rden,
 
   static data_t buffer[NWORDS];
 #pragma HLS DEPENDENCE variable=buffer inter WAR false
-#pragma HLS RESOURCE variable=buffer core=RAM_T2P_URAM latency=3
+#pragma HLS BIND_STORAGE variable=buffer type=ram_2p impl=uram
 
 //  if (rden)
       *dataout = buffer[AddrR];
