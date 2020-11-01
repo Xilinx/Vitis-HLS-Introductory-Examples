@@ -25,9 +25,9 @@ Each includes code sources for top function and testbench, a README, Tcl files. 
 * **_Misc._**: Other examples such are RTL blackbox in C++
 
 ## New examples in v2020.2
-* Vector data types with (./coding_vectorized)
-* ECC memories (./memory_ecc_flags)
-* Free running pipeline (./coding_free_running_pipeline)
+* Vector data types with [](./coding_vectorized)
+* ECC memories [](./memory_ecc_flags)
+* Free running pipeline [](./coding_free_running_pipeline)
 
 ## Running the examples
 
