@@ -71,7 +71,7 @@ coding_loop_perfect|Using a maximum bounds to allow loops be unrolled.
 coding_loop_pipeline|Example of loop pipelining.
 coding_loop_sequential|Sequential loops.
 coding_loop_sequential_assert|Using assert statements.
-coding_loop_sequential_dataflow|
+coding_loop_sequential_dataflow| Loop and dataflow (task parallelism)
 coding_loop_variable_bound|A loop with variable bounds.
 coding_malloc_removed|Example on removing mallocs from the code.
 coding_pointer_arith| Pointer and arithmetic
