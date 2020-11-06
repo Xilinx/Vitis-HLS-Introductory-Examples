@@ -42,3 +42,59 @@ To load an example design into the Vitis HLS GUI:
 * From the "Welcome" screen ("Help"->"Welcome..."), click on "Clone Examples" and clone this repository
 * Next, in the "Git Repositories" window pane in the lower left of the GUI, expand the "Working Tree"
 * Right click on the example of interest and select "Run and Open HLS project"
+
+## List of examples
+Examples | Description
+---------|------------
+algorithm_2D_convolution_linebuffer|2D convolution implemented using hls::streams and a line buffer to conserve resources.
+algorithm_fir_systolic_scalar|
+algorithm_fixed_point_sqrt|
+algorithm_floating_mult_power_of_2|
+algorithm_template_fir_filter|
+algorithm_window_function_fixed_point|
+algorithm_window_function_float|
+coding_arbitrary_precision_arith|
+coding_arbitrary_precision_casting|
+coding_C++_templates|
+coding_dataflow_rewind|
+coding_fixed_point|
+coding_free_running_pipeline|
+coding_hierarchy_func|
+coding_hierarchy_func2|
+coding_hierarchy_func3|
+coding_hierarchy_func4|
+coding_loop_functions|
+coding_loop_imperfect|
+coding_loop_labels|
+coding_loop_max_bound_trick|
+coding_loop_perfect|
+coding_loop_pipeline|
+coding_loop_sequential|
+coding_loop_sequential_assert|
+coding_loop_sequential_dataflow|
+coding_loop_variable_bound|
+coding_malloc_removed|
+coding_pointer_arith|
+coding_pointer_basic|
+coding_pointer_cast_native|
+coding_pointer_double|
+coding_pointer_multi|
+coding_pointer_stream_better|
+coding_pointer_stream_good|
+coding_remerge_ii2to1|
+coding_vectorized|
+interface_axi_lite|
+interface_axi_master|
+interface_axi_stream_no_side_channel_data|
+interface_axi_stream_side_channel_data|
+interface_hls_stream|
+memory_bottleneck|
+memory_bottleneck_resolved|
+memory_ecc_flags|
+memory_rom_coef_filter|
+memory_rom_lookup_table|
+memory_rom_lookup_table_math|
+memory_ultraram|
+misc_rtl_as_blackbox|
+
+
