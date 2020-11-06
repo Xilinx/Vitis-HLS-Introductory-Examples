@@ -47,7 +47,7 @@ To load an example design into the Vitis HLS GUI:
 Examples | Description
 ---------|------------
 algorithm_2D_convolution_linebuffer|2D convolution implemented using hls::streams and a line buffer to conserve resources.
-algorithm_fir_systolic_scalar|
+algorithm_fir_systolic_scalar| systolic fir filter
 algorithm_fixed_point_sqrt|
 algorithm_floating_mult_power_of_2|
 algorithm_template_fir_filter|
@@ -59,18 +59,18 @@ coding_C++_templates|
 coding_dataflow_rewind|
 coding_fixed_point|
 coding_free_running_pipeline|
-coding_hierarchy_func|
-coding_hierarchy_func2|
-coding_hierarchy_func3|
-coding_hierarchy_func4|
-coding_loop_functions|
-coding_loop_imperfect|
+coding_hierarchy_func|An example of adding files as test bench and design files.
+coding_hierarchy_func2|An example of adding files as test bench and design files. An example of synthesizing a lower-level block in the hierarchy.
+coding_hierarchy_func3|An example of combining test bench and design functions into the same file.
+coding_hierarchy_func4|Using the pre-defined macro __SYNTHESIS__ to prevent code being synthesized.Only use the __SYNTHESIS__ macro in the code to be synthesized. Do not use this macro in the test bench,because it is not obeyed by C simulation or C RTL co-simulation.
+coding_loop_functions|Converting loops into functions for parallel execution.
+coding_loop_imperfect|An imperfect loop example.
 coding_loop_labels|
-coding_loop_max_bound_trick|
-coding_loop_perfect|
-coding_loop_pipeline|
-coding_loop_sequential|
-coding_loop_sequential_assert|
+coding_loop_max_bound_trick|Using a maximum bounds to allow loops be unrolled.
+coding_loop_perfect|Using a maximum bounds to allow loops be unrolled.
+coding_loop_pipeline|Using a maximum bounds to allow loops be unrolled.
+coding_loop_sequential|Using a maximum bounds to allow loops be unrolled.
+coding_loop_sequential_assert|Using a maximum bounds to allow loops be unrolled.
 coding_loop_sequential_dataflow|
 coding_loop_variable_bound|
 coding_malloc_removed|
