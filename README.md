@@ -65,7 +65,7 @@ coding_hierarchy_func3|An example of combining test bench and design functions i
 coding_hierarchy_func4|Using the pre-defined macro SYNTHESIS to prevent code being synthesized.Only use the SYNTHESIS macro in the code to be synthesized. Do not use this macro in the test bench,because it is not obeyed by C simulation or C RTL co-simulation.
 coding_loop_functions|Converting loops into functions for parallel execution.
 coding_loop_imperfect|An imperfect loop example.
-coding_loop_labels|
+coding_loop_labels|Using labels to tag loops.
 coding_loop_max_bound_trick|Using a maximum bounds to allow loops be unrolled.
 coding_loop_perfect|Using a maximum bounds to allow loops be unrolled.
 coding_loop_pipeline|Using a maximum bounds to allow loops be unrolled.
