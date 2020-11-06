@@ -74,27 +74,27 @@ coding_loop_sequential_assert|Using assert statements.
 coding_loop_sequential_dataflow|
 coding_loop_variable_bound|A loop with variable bounds.
 coding_malloc_removed|Example on removing mallocs from the code.
-coding_pointer_arith|
-coding_pointer_basic|
-coding_pointer_cast_native|
-coding_pointer_double|
-coding_pointer_multi|
-coding_pointer_stream_better|
-coding_pointer_stream_good|
-coding_remerge_ii2to1|
-coding_vectorized|
-interface_axi_lite|
-interface_axi_master|
-interface_axi_stream_no_side_channel_data|
-interface_axi_stream_side_channel_data|
-interface_hls_stream|
-memory_bottleneck|
-memory_bottleneck_resolved|
-memory_ecc_flags|
-memory_rom_coef_filter|
-memory_rom_lookup_table|
-memory_rom_lookup_table_math|
-memory_ultraram|
-misc_rtl_as_blackbox|
+coding_pointer_arith| Pointer and arithmetic
+coding_pointer_basic| Basic use of pointer
+coding_pointer_cast_native| Pointer casting
+coding_pointer_double| Double pointer
+coding_pointer_multi| Multi pointer
+coding_pointer_stream_better| Pointer on stream
+coding_pointer_stream_good| Pointer on stream
+coding_remerge_ii2to1| Coding trick to recoup II of 1 based on 2 sources with II of 2
+coding_vectorized| Load-compute-store based on vector data types using the vector_size attribute
+interface_axi_lite| AXI-4 Lite on C ports
+interface_axi_master| AXI-4 Master memory mapped on C ports
+interface_axi_stream_no_side_channel_data| Regular stream without sideband signals
+interface_axi_stream_side_channel_data| Adding side-band signals for streams
+interface_hls_stream| stream on the C ports
+memory_bottleneck| Array accesses that prevent full throughput
+memory_bottleneck_resolved| Offers a solution to memory_bottleneck
+memory_ecc_flags| Setting a memory to genarate ECC flags for 1-bit nd 2-bit errors
+memory_rom_coef_filter| Loading filter coefficients into a memory
+memory_rom_lookup_table| Using an array filled with constants as a lookup
+memory_rom_lookup_table_math| Presetting a memory with pre-calculated content
+memory_ultraram| Inference of an UltraRAM block (URAM)
+misc_rtl_as_blackbox| A user supplied Verilog module is swapped for a C function
 
 
