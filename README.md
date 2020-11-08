@@ -69,7 +69,7 @@ Examples | Description
 [coding_loop_max_bound_trick](./coding_loop_max_bound_trick)|Using a maximum bounds to allow loops be unrolled.
 [coding_loop_perfect](./coding_loop_perfect)|Using a maximum bounds to allow loops be unrolled.
 [coding_loop_pipeline](./coding_loop_pipeline)|Example of loop pipelining.
-[coding_loop_sequential](./coding_loop_sequential)|Sequential loops.
+[coding_loop_sequential](./coding_loop_sequential)|Two accumulators described one after another in 2 loops.  Try making them execute in parallel using `dataflow`
 [coding_loop_sequential_assert](./coding_loop_sequential_assert)|Using assert statements.
 [coding_loop_sequential_dataflow](./coding_loop_sequential_dataflow)| Loop and dataflow (task parallelism)
 [coding_loop_variable_bound](./coding_loop_variable_bound)|A loop with variable bounds.
