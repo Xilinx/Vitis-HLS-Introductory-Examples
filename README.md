@@ -43,7 +43,7 @@ To load an example design into the Vitis HLS GUI:
 * Next, in the "Git Repositories" window pane in the lower left of the GUI, expand the "Working Tree"
 * Right click on the example of interest and select "Run and Open HLS project"
 
-## List of examples
+## List and description of the examples
 Examples | Description
 ---------|------------
 [algorithm_2D_convolution_linebuffer](./algorithm_2D_convolution_linebuffer)|2D convolution implemented using `hls::streams` and a line buffer to conserve resources.
@@ -70,7 +70,7 @@ Examples | Description
 [coding_loop_perfect](./coding_loop_perfect)|Using a maximum bounds to allow loops be unrolled.
 [coding_loop_pipeline](./coding_loop_pipeline)|Example of loop pipelining.
 [coding_loop_sequential](./coding_loop_sequential)|Two accumulators described one after another in 2 loops.  Try making them execute in parallel using `dataflow`
-[coding_loop_sequential_assert](./coding_loop_sequential_assert)|Using assert statements.
+[coding_loop_sequential_assert](./coding_loop_sequential_assert)|Same example as above but using `assert` statements.
 [coding_loop_sequential_dataflow](./coding_loop_sequential_dataflow)| Loop and dataflow (task parallelism)
 [coding_loop_variable_bound](./coding_loop_variable_bound)|A loop with variable bounds.
 [coding_malloc_removed](./coding_malloc_removed)|Example on removing mallocs from the code.
