@@ -46,7 +46,7 @@ To load an example design into the Vitis HLS GUI:
 ## List of examples
 Examples | Description
 ---------|------------
-algorithm_2D_convolution_linebuffer|2D convolution implemented using hls::streams and a line buffer to conserve resources.
+[algorithm_2D_convolution_linebuffer](./algorithm_2D_convolution_linebuffer)|2D convolution implemented using hls::streams and a line buffer to conserve resources.
 algorithm_fir_systolic_scalar| systolic fir filter
 algorithm_fixed_point_sqrt| square root function based on fixed-point data types
 algorithm_floating_mult_power_of_2| floating-point power of 2
