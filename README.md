@@ -65,7 +65,7 @@ Examples | Description
 [coding_hierarchy_func4](./coding_hierarchy_func4)|Using the pre-defined macro `__SYNTHESIS__` to prevent code being synthesized.Only use the `__SYNTHESIS__` macro in the code to be synthesized. Do not use this macro in the test bench,because it is not obeyed by C simulation or C RTL co-simulation.
 [coding_loop_functions](./coding_loop_functions)|Converting loops into functions for parallel execution.
 [coding_loop_imperfect](./coding_loop_imperfect)|An imperfect loop example.
-[coding_loop_labels](./coding_loop_labels)|Using labels to tag loops.
+[coding_loop_labels](./coding_loop_labels)|Using labels to tag loops and helps find them in the reports.  Note that without a label Vitis HLS still assigns a machine generated label in the reports
 [coding_loop_max_bound_trick](./coding_loop_max_bound_trick)|Using a maximum bounds to allow loops be unrolled.
 [coding_loop_perfect](./coding_loop_perfect)|Using a maximum bounds to allow loops be unrolled.
 [coding_loop_pipeline](./coding_loop_pipeline)|Example of loop pipelining.
