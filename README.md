@@ -46,20 +46,20 @@ To load an example design into the Vitis HLS GUI:
 ## List of examples
 Examples | Description
 ---------|------------
-[algorithm_2D_convolution_linebuffer](./algorithm_2D_convolution_linebuffer)|2D convolution implemented using hls::streams and a line buffer to conserve resources.
+[algorithm_2D_convolution_linebuffer](./algorithm_2D_convolution_linebuffer)|2D convolution implemented using `hls::streams` and a line buffer to conserve resources.
 [algorithm_fir_systolic_scalar](./algorithm_fir_systolic_scalar)| systolic fir filter
 [algorithm_fixed_point_sqrt](./algorithm_fixed_point_sqrt)| square root function based on fixed-point data types
 [algorithm_floating_mult_power_of_2](./algorithm_floating_mult_power_of_2)| floating-point power of 2
 [algorithm_template_fir_filter](./algorithm_template_fir_filter)| FIR filter using C++ template parameters
 [algorithm_window_function_fixed_point](./algorithm_window_function_fixed_point)| Using fixed-point data types
 [algorithm_window_function_float](./algorithm_window_function_float)| Using floating point data types
-[coding_arbitrary_precision_arith](./coding_arbitrary_precision_arith)| Defining arbitrary precision number through the ap_int.h library
-[coding_arbitrary_precision_casting](./coding_arbitrary_precision_casting)| Casting to/from arbitrary precision data types
+[coding_arbitrary_precision_arith](./coding_arbitrary_precision_arith)| Defining arbitrary precision variables through the `ap_int.h` library
+[coding_arbitrary_precision_casting](./coding_arbitrary_precision_casting)| Casting to/from arbitrary precision data types defined through `ap_int.h`
 [coding_C++_templates](./coding_C++_templates)| C++ templates
-[coding_dataflow_rewind](./coding_dataflow_rewind)| Task parallelism woth the dataflow pragma
+[coding_dataflow_rewind](./coding_dataflow_rewind)| Task parallelism woth the `dataflow` pragma
 [coding_fixed_point](./coding_fixed_point)| Fixed-point arithmetic
-[coding_free_running_pipeline](./coding_free_running_pipeline)| Free running pipeline logic for lower fanout signals in Vivado
-[coding_hierarchy_func](./coding_hierarchy_func)|An example of adding files as test bench and design files.
+[coding_free_running_pipeline](./coding_free_running_pipeline)| Free running pipeline logic for lower fanout signals during implemetation in Vivado
+[coding_hierarchy_func](./coding_hierarchy_func)|An example of adding files as testbench and design files.
 [coding_hierarchy_func2](./coding_hierarchy_func2)|An example of adding files as test bench and design files. An example of synthesizing a lower-level block in the hierarchy.
 [coding_hierarchy_func3](./coding_hierarchy_func3)|An example of combining test bench and design functions into the same file.
 [coding_hierarchy_func4](./coding_hierarchy_func4)|Using the pre-defined macro `__SYNTHESIS__` to prevent code being synthesized.Only use the `__SYNTHESIS__` macro in the code to be synthesized. Do not use this macro in the test bench,because it is not obeyed by C simulation or C RTL co-simulation.
