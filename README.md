@@ -79,8 +79,8 @@ Examples | Description
 [coding_pointer_cast_native](./coding_pointer_cast_native)| Pointer casting
 [coding_pointer_double](./coding_pointer_double)| Double pointer
 [coding_pointer_multi](./coding_pointer_multi)| Multi pointer
-[coding_pointer_stream_better](./coding_pointer_stream_better)| Pointer on stream
-[coding_pointer_stream_good](./coding_pointer_stream_good)| Pointer on stream
+[coding_pointer_stream_better](./coding_pointer_stream_better)| Pointer access on `volatile` inputs without specifying the index
+[coding_pointer_stream_good](./coding_pointer_stream_good)| Same as above but updating the point position
 [coding_remerge_ii2to1](./coding_remerge_ii2to1)| Coding trick to recoup II of 1 based on 2 sources with II of 2
 [coding_vectorized](./coding_vectorized)| Load-compute-store based on vector data types using the vector_size attribute
 [interface_axi_lite](./interface_axi_lite)| AXI-4 Lite on C ports
