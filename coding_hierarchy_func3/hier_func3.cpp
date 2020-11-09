@@ -15,8 +15,8 @@
  */
 
 /*******************************************************************************
-Vendor: Xilinx 
-Associated Filename: hier_func.c
+ Vendor: Xilinx 
+Associated Filename: hier_func3.c
 Purpose:Vivado HLS Coding Style example 
 Device: All 
 Revision History: May 30, 2008 - initial release
@@ -59,7 +59,13 @@ THIS COPYRIGHT NOTICE AND DISCLAIMER MUST BE RETAINED AS PART OF THIS FILE AT
 ALL TIMES.
 
 *******************************************************************************/
-#include "hier_func.h"
+#include <stdio.h>
+
+#define NUM_TRANS 40
+
+typedef int din_t;
+typedef int dint_t;
+typedef int dout_t;
 
 void sumsub_func(din_t *in1, din_t *in2, dint_t *outSum, dint_t *outSub)
 {
@@ -73,7 +79,7 @@ void shift_func(dint_t *in1, dint_t *in2, dout_t *outA, dout_t *outB)
     *outB = *in2 >> 2;
 }
 
-void hier_func(din_t A, din_t B, dout_t *C, dout_t *D)
+void hier_func3(din_t A, din_t B, dout_t *C, dout_t *D)
 {
     dint_t apb, amb;
 
@@ -81,4 +87,86 @@ void hier_func(din_t A, din_t B, dout_t *C, dout_t *D)
     shift_func(&apb,&amb,C,D);
 }
 
+int main() {
+	// Data storage
+	int a[NUM_TRANS], b[NUM_TRANS];
+	int c_expected[NUM_TRANS], d_expected[NUM_TRANS];
+	int c[NUM_TRANS], d[NUM_TRANS];
+	
+	//Function data (to/from function)
+	int a_actual, b_actual;
+	int c_actual, d_actual;
+	
+	// Misc
+	int	retval=0, i, i_trans, tmp;
+	FILE *fp;
+
+	// Load input data from files
+	fp=fopen("tb_data/inA.dat","r");
+	for (i=0; i<NUM_TRANS; i++){
+		fscanf(fp, "%d", &tmp);
+		a[i] = tmp;
+	} 
+	fclose(fp);
+
+	fp=fopen("tb_data/inB.dat","r");
+	for (i=0; i<NUM_TRANS; i++){
+		fscanf(fp, "%d", &tmp);
+		b[i] = tmp;
+	} 
+	fclose(fp);
+
+	// Execute the function multiple times (multiple transactions)
+	for(i_trans=0; i_trans<NUM_TRANS-1; i_trans++){
+		
+		//Apply next data values
+		a_actual = a[i_trans];
+		b_actual = b[i_trans];
+		
+    hier_func3(a_actual, b_actual, &c_actual, &d_actual);
+    
+    //Store outputs
+			c[i_trans] = c_actual;
+			d[i_trans] = d_actual;
+	}
+	
+	// Load expected output data from files
+	fp=fopen("tb_data/outC.golden.dat","r");
+	for (i=0; i<NUM_TRANS; i++){
+		fscanf(fp, "%d", &tmp);
+		c_expected[i] = tmp;
+	} 
+	fclose(fp);
+
+	fp=fopen("tb_data/outD.golden.dat","r");
+	for (i=0; i<NUM_TRANS; i++){
+		fscanf(fp, "%d", &tmp);
+		d_expected[i] = tmp;
+	} 
+	fclose(fp);
+	
+	// Check outputs against expected
+	for (i = 0; i < NUM_TRANS-1; ++i) {
+		if(c[i] != c_expected[i]){
+			retval = 1;
+		}
+		if(d[i] != d_expected[i]){
+			retval = 1;
+		}
+	}
+
+	// Print Results		
+	if(retval == 0){
+		printf("    *** *** *** *** \n"); 
+		printf("    Results are good \n"); 
+		printf("    *** *** *** *** \n"); 
+	} else {
+		printf("    *** *** *** *** \n"); 
+		printf("    Mismatch: retval=%d \n", retval); 
+		printf("    *** *** *** *** \n"); 
+	}
+
+	// Return 0 if outputs are correct
+	return retval;
+}
 

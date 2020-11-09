@@ -20,5 +20,3 @@
 # Any other value will run setup only
  
 set hls_exec 0
-
-

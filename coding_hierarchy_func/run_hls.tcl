@@ -17,9 +17,9 @@
 open_project -reset proj_hier_func
 
 # Add design files
-add_files hier_func.c
+add_files hier_func.cpp
 # Add test bench & files
-add_files -tb hier_func_test.c
+add_files -tb hier_func_test.cpp
 add_files -tb tb_data
 
 # Set the top-level function
