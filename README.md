@@ -51,8 +51,8 @@ Examples | Description
 [algorithm_fixed_point_sqrt](./algorithm_fixed_point_sqrt)| square root function based on fixed-point data types
 [algorithm_floating_mult_power_of_2](./algorithm_floating_mult_power_of_2)| Advanced floating-point power of 2 with bounds checking and defining an helper typedefs to allow easy parsing of the IEEE-754 floating point fields
 [algorithm_template_fir_filter](./algorithm_template_fir_filter)| FIR filter using C++ template parameters
-[algorithm_window_function_fixed_point](./algorithm_window_function_fixed_point)| Using fixed-point data types
-[algorithm_window_function_float](./algorithm_window_function_float)| Using floating point data types
+[algorithm_window_function_fixed_point](./algorithm_window_function_fixed_point)| Using fixed-point data types. Window convolution using rectangle, Hann, Hamming and gaussian window.
+[algorithm_window_function_float](./algorithm_window_function_float)| Using floating point data types. Window convolution using rectangle, Hann, Hamming and gaussian window.
 [coding_arbitrary_precision_arith](./coding_arbitrary_precision_arith)| Defining arbitrary precision variables through the `ap_int.h` library
 [coding_arbitrary_precision_casting](./coding_arbitrary_precision_casting)| Casting to/from arbitrary precision data types defined through `ap_int.h`
 [coding_C++_templates](./coding_C++_templates)| C++ templatized struct to implement a tail-recursion Fibonacci algorithm
