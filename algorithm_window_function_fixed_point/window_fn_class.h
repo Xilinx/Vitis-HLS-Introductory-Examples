@@ -99,7 +99,7 @@ void window_fn<TI,TO,TC,SZ,FT>::apply(TO *outdata, TI *indata)
    init_coef_tab<TC,SZ,FT>(coeff_tab);
 winfn_loop:
    for (unsigned i = 0; i < SZ; i++) {
-//#pragma AP PIPELINE // implemented as TCL directive in this example
+      // PIPELINE is implemented as TCL directive in this example
       outdata[i] = coeff_tab[i] * indata[i];
    }
 }
@@ -107,5 +107,3 @@ winfn_loop:
 }; // namespace xhls_window_fn
 
 #endif // WINDOW_FN_CLASS_H_
-
-
