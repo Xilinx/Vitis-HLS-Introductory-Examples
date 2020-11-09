@@ -49,7 +49,7 @@ Examples | Description
 [algorithm_2D_convolution_linebuffer](./algorithm_2D_convolution_linebuffer)|2D convolution implemented using `hls::streams` and a line buffer to conserve resources.
 [algorithm_fir_systolic_scalar](./algorithm_fir_systolic_scalar)| systolic fir filter
 [algorithm_fixed_point_sqrt](./algorithm_fixed_point_sqrt)| square root function based on fixed-point data types
-[algorithm_floating_mult_power_of_2](./algorithm_floating_mult_power_of_2)| floating-point power of 2
+[algorithm_floating_mult_power_of_2](./algorithm_floating_mult_power_of_2)| Advanced floating-point power of 2 with bounds checking and defining an helper typedefs to allow easy parsing of the IEEE-754 floating point fields
 [algorithm_template_fir_filter](./algorithm_template_fir_filter)| FIR filter using C++ template parameters
 [algorithm_window_function_fixed_point](./algorithm_window_function_fixed_point)| Using fixed-point data types
 [algorithm_window_function_float](./algorithm_window_function_float)| Using floating point data types
