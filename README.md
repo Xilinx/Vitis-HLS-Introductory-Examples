@@ -55,7 +55,7 @@ Examples | Description
 [algorithm_window_function_float](./algorithm_window_function_float)| Using floating point data types
 [coding_arbitrary_precision_arith](./coding_arbitrary_precision_arith)| Defining arbitrary precision variables through the `ap_int.h` library
 [coding_arbitrary_precision_casting](./coding_arbitrary_precision_casting)| Casting to/from arbitrary precision data types defined through `ap_int.h`
-[coding_C++_templates](./coding_C++_templates)| C++ templates
+[coding_C++_templates](./coding_C++_templates)| C++ templatized struct to implement a tail-recursion Fibonacci algorithm
 [coding_dataflow_rewind](./coding_dataflow_rewind)| Task parallelism with the `dataflow` pragma. Also uses `pipeline` with `rewind` and `unroll` with `factor`
 [coding_fixed_point](./coding_fixed_point)| Fixed-point arithmetic
 [coding_free_running_pipeline](./coding_free_running_pipeline)| Free running pipeline logic for lower fanout signals during implemetation in Vivado
