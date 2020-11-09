@@ -12,7 +12,7 @@
  * - code reuse/parameterization via C++ templates
  * - basic floating point HLS support - a CoreGen FPO will be instantiated
  *
- * In addition to features demostrated by the "window_fn_fxpt" example:
+ * In addition to features demonstrated by the "window_fn_fxpt" example:
  * - C+ coding style for ROM inference - init functions must be global-scope
  * - use of <cmath> functions to init ROMs - no HW created by HLS
  * - top level wrapper function for HLS of class objets cand methods
