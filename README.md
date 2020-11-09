@@ -95,6 +95,6 @@ Examples | Description
 [memory_rom_lookup_table](./memory_rom_lookup_table)| Using an array filled with constants as a lookup
 [memory_rom_lookup_table_math](./memory_rom_lookup_table_math)| Presetting a memory with pre-calculated content
 [memory_ultraram](./memory_ultraram)| Inference of an UltraRAM block (URAM).  Uses the `BIND_STORAGE` and applies the `DEPENDENCE` pragma to obtain an II of 1.
-[misc_rtl_as_blackbox](./misc_rtl_as_blackbox)| A user supplied Verilog module is swapped for a C function
+[misc_rtl_as_blackbox](./misc_rtl_as_blackbox)| A user supplied Verilog module is swapped for a C function.  The RTL infers a DSP block in its intrinsic SIMD mode.
 
 
