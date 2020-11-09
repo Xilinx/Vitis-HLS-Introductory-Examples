@@ -25,9 +25,9 @@ Each includes code sources for top function and testbench, a README, Tcl files. 
 * **_Misc._**: Other examples such are RTL blackbox in C++
 
 ## New examples in v2020.2
-* Vector data types for SIMD programming (load, compute, store with m_axi): [./coding_vectorized](./coding_vectorized)
-* Generation of block RAM ECC flags for single and dual errors: [./memory_ecc_flags](./memory_ecc_flags)
-* Advanced option to simplify control logic for pipeline control and remove some high fanout nets [./coding_free_running_pipeline](./coding_free_running_pipeline)
+* Vector data types for SIMD programming (load, compute, store with m_axi): [coding_vectorized](./coding_vectorized)
+* Generation of block RAM ECC flags for single and dual errors: [memory_ecc_flags](./memory_ecc_flags)
+* Advanced option to simplify control logic for pipeline control and remove some high fanout nets [coding_free_running_pipeline](./coding_free_running_pipeline)
 
 ## Running the examples
 
