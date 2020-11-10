@@ -28,7 +28,6 @@ set_top hier_func4
 # ########################################################
 # Create a solution
 open_solution -reset solution1
-# Define technology and clock rate
 set_part  {xcvu9p-flga2104-2-i}
 create_clock -period 4
 
@@ -59,4 +58,3 @@ if {$hls_exec == 1} {
 }
 
 exit
-
