@@ -26,6 +26,7 @@ Each includes code sources for top function and testbench, a README, Tcl files. 
 
 ## New examples in 2020.2
 * Vector data types for SIMD programming (load, compute, store with m_axi): [coding_vectorized](./coding_vectorized)
+* Vector data types with hls_vector.h (Celsius to Fahrenheit conversion): [interface_axi_stream_vector](./interface_axi_stream_vector)
 * Generation of block RAM ECC flags for single and dual errors: [memory_ecc_flags](./memory_ecc_flags)
 * Advanced option to simplify control logic for pipeline control and remove some high fanout nets [coding_free_running_pipeline](./coding_free_running_pipeline)
 
@@ -85,6 +86,7 @@ Examples | Description
 [coding_vectorized](./coding_vectorized)| Load-compute-store based on vector data types using the vector_size attribute
 [interface_axi_lite](./interface_axi_lite)| AXI-4 Lite on C ports
 [interface_axi_master](./interface_axi_master)| AXI-4 Master memory mapped on C ports
+[interface_axi_stream_vector](./interface_axi_stream_vector)| Computing temperature formula (Celsius to Fahrenheit) on vectorized types
 [interface_axi_stream_no_side_channel_data](./interface_axi_stream_no_side_channel_data)| Regular stream without sideband signals
 [interface_axi_stream_side_channel_data](./interface_axi_stream_side_channel_data)| Adding side-band signals for streams
 [interface_hls_stream](./interface_hls_stream)| stream on the C ports
@@ -96,5 +98,3 @@ Examples | Description
 [memory_rom_lookup_table_math](./memory_rom_lookup_table_math)| Presetting a memory with pre-calculated content
 [memory_ultraram](./memory_ultraram)| Inference of an UltraRAM block (URAM).  Uses the `BIND_STORAGE` and applies the `DEPENDENCE` pragma to obtain an II of 1.
 [misc_rtl_as_blackbox](./misc_rtl_as_blackbox)| A user supplied Verilog module is swapped for a C function.  The RTL infers a DSP block in its intrinsic SIMD mode.
-
-
