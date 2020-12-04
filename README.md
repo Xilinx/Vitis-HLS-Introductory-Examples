@@ -90,7 +90,7 @@ Examples | Description
 [interface_hls_stream](./interface_hls_stream)| stream on the C ports
 [memory_bottleneck](./memory_bottleneck)| Array accesses that prevent full throughput
 [memory_bottleneck_resolved](./memory_bottleneck_resolved)| Offers a solution to memory_bottleneck
-[memory_ecc_flags](./memory_ecc_flags)| Setting up a memory (an UltraRAM in this example) to generate error correction flags for 1-bit nd 2-bit errors.  This is accomplished via the `BIND_STORAGE`pragma.
+[memory_ecc_flags](./memory_ecc_flags)| Setting up a memory (an UltraRAM in this example) to generate error correction flags for 1 bit corrected errors and 2 bits uncorrected errors.  This is accomplished via the `BIND_STORAGE`pragma.
 [memory_rom_coef_filter](./memory_rom_coef_filter)| Loading filter coefficients into a memory
 [memory_rom_lookup_table](./memory_rom_lookup_table)| Using an array filled with constants as a lookup
 [memory_rom_lookup_table_math](./memory_rom_lookup_table_math)| Presetting a memory with pre-calculated content
