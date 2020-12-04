@@ -1,6 +1,6 @@
 <img src="./images/logo.gif" alt="logo" width="200"/>
 
-# Basic examples for Vitis HLS
+# Basic examples for Vitis HLS (Xilinx high-level synthesis)
 
 Copyright 2020 Xilinx, Inc.
 
