@@ -87,7 +87,7 @@ Examples | Description
 [coding_vectorized](./coding_vectorized)| Load-compute-store based on vector data types using the vector_size attribute
 [interface_axi_lite](./interface_axi_lite)| AXI-4 Lite on C ports
 [interface_axi_master](./interface_axi_master)| AXI-4 Master memory mapped on C ports
-[interface_axi_stream_to_master](./interface_axi_stream_to_master) | Going from stream to master while ensuring burst transfers
+[interface_axi_stream_to_master](./interface_axi_stream_to_master) | Going from stream to master while ensuring burst transfers. Also uses `dataflow`.
 [interface_axi_stream_vector](./interface_axi_stream_vector)| Computing temperature formula (Celsius to Fahrenheit) on vectorized types
 [interface_axi_stream_no_side_channel_data](./interface_axi_stream_no_side_channel_data)| Regular stream without sideband signals
 [interface_axi_stream_side_channel_data](./interface_axi_stream_side_channel_data)| Adding side-band signals for streams
