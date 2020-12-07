@@ -90,7 +90,7 @@ Examples | Description
 [interface_axi_stream_to_master](./interface_axi_stream_to_master) | Going from stream to master while ensuring burst transfers. Also uses `dataflow`.
 [interface_axi_stream_vector](./interface_axi_stream_vector)| Computing temperature formula (Celsius to Fahrenheit) on vectorized types.  The example uses `hls_stream.h` and `hls_vector.h`
 [interface_axi_stream_no_side_channel_data](./interface_axi_stream_no_side_channel_data)| Regular stream without sideband signals
-[interface_axi_stream_side_channel_data](./interface_axi_stream_side_channel_data)| Adding side-band signals for streams
+[interface_axi_stream_side_channel_data](./interface_axi_stream_side_channel_data)| Adding side-band signals for streams. Uses `ap_axi_sdata.h`.
 [interface_hls_stream](./interface_hls_stream)| stream on the C ports
 [memory_bottleneck](./memory_bottleneck)| Array accesses that prevent full throughput
 [memory_bottleneck_resolved](./memory_bottleneck_resolved)| Offers a solution to memory_bottleneck
