@@ -1,6 +1,6 @@
 <img src="./images/logo.gif" alt="logo" width="200"/>
 
-# Basic examples for Vitis HLS (Xilinx high-level synthesis)
+# Basic examples for Vitis HLS
 
 Copyright 2020 Xilinx, Inc.
 
@@ -28,7 +28,6 @@ Each includes code sources for top function and testbench, a README, Tcl files. 
 * Vector data types for SIMD programming (load, compute, store with m_axi): [coding_vectorized](./coding_vectorized)
 * Vector data types with hls_vector.h (Celsius to Fahrenheit conversion): [interface_axi_stream_vector](./interface_axi_stream_vector)
 * Generation of block RAM ECC flags for single and dual errors: [memory_ecc_flags](./memory_ecc_flags)
-* Advanced option to simplify control logic for pipeline control and remove some high fanout nets [coding_free_running_pipeline](./coding_free_running_pipeline)
 
 ## Running the examples
 
@@ -59,11 +58,10 @@ Examples | Description
 [coding_C++_templates](./coding_C++_templates)| C++ templatized struct to implement a tail-recursion Fibonacci algorithm
 [coding_dataflow_rewind](./coding_dataflow_rewind)| Task parallelism with the `dataflow` pragma. Also uses `pipeline` with `rewind` and `unroll` with `factor`
 [coding_fixed_point](./coding_fixed_point)| Fixed-point arithmetic
-[coding_free_running_pipeline](./coding_free_running_pipeline)| Free running pipeline logic for lower fanout signals during implemetation in Vivado
 [coding_hierarchy_func](./coding_hierarchy_func)|An example of adding files as testbench and design files.
 [coding_hierarchy_func2](./coding_hierarchy_func2)|An example of adding files as test bench and design files. An example of synthesizing a lower-level block in the hierarchy.
 [coding_hierarchy_func3](./coding_hierarchy_func3)|An example of combining test bench and design functions into the same file.
-[coding_hierarchy_func4](./coding_hierarchy_func4)|Using the pre-defined macro `__SYNTHESIS__` to prevent code being synthesized.Only use the `__SYNTHESIS__` macro in the code to be synthesized. Do not use this macro in the test bench,because it is not obeyed by C simulation or C RTL co-simulation.
+[coding_hierarchy_func4](./coding_hierarchy_func4)|Using the pre-defined macro `__SYNTHESIS__` to prevent code being synthesized. Only use the `__SYNTHESIS__` macro in the code to be synthesized. Do not use this macro in the test bench,because it is not obeyed by C simulation or C RTL co-simulation.
 [coding_loop_functions](./coding_loop_functions)|Converting loops into functions for parallel execution.
 [coding_loop_imperfect](./coding_loop_imperfect)|An imperfect loop example.
 [coding_loop_labels](./coding_loop_labels)|Using labels to tag loops and helps find them in the reports.  Note that without a label Vitis HLS still assigns a machine generated label in the reports
@@ -92,9 +90,9 @@ Examples | Description
 [interface_hls_stream](./interface_hls_stream)| stream on the C ports
 [memory_bottleneck](./memory_bottleneck)| Array accesses that prevent full throughput
 [memory_bottleneck_resolved](./memory_bottleneck_resolved)| Offers a solution to memory_bottleneck
-[memory_ecc_flags](./memory_ecc_flags)| Setting a memory to genarate error correction flags for 1-bit nd 2-bit errors.  This is done via the `BIND_STORAGE`pragma.
+[memory_ecc_flags](./memory_ecc_flags)| Setting up a memory (an UltraRAM in this example) to generate error correction flags for 1 bit corrected errors and 2 bits uncorrected errors.  This is accomplished via the `BIND_STORAGE`pragma.
 [memory_rom_coef_filter](./memory_rom_coef_filter)| Loading filter coefficients into a memory
 [memory_rom_lookup_table](./memory_rom_lookup_table)| Using an array filled with constants as a lookup
 [memory_rom_lookup_table_math](./memory_rom_lookup_table_math)| Presetting a memory with pre-calculated content
-[memory_ultraram](./memory_ultraram)| Inference of an UltraRAM block (URAM).  Uses the `BIND_STORAGE` and applies the `DEPENDENCE` pragma to obtain an II of 1.
-[misc_rtl_as_blackbox](./misc_rtl_as_blackbox)| A user supplied Verilog module is swapped for a C function.  The RTL infers a DSP block in its intrinsic SIMD mode.
+[memory_ultraram](./memory_ultraram)| Inference of an UltraRAM block (URAM) which is a 288 k-bit memory available in UltraScale+ and Versal devices.  Uses the `BIND_STORAGE` and applies the `DEPENDENCE` pragma to obtain an II of 1.
+[misc_rtl_as_blackbox](./misc_rtl_as_blackbox)| A user supplied Verilog module is swapped for a C function.  That user RTL code then infers in Vivado a DSP block in its intrinsic SIMD mode using 4 adders.
