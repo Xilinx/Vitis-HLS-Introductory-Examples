@@ -29,6 +29,7 @@ Each includes code sources for top function and testbench, a README, Tcl files. 
 * Vector data types with hls_vector.h (Celsius to Fahrenheit conversion): [interface_axi_stream_vector](./interface_axi_stream_vector)
 * Generation of block RAM ECC flags for single and dual errors: [memory_ecc_flags](./memory_ecc_flags)
 * Pragma function_instantiate: [coding_function_instantiate](./coding_function_instantiate)
+* Coding for burst when coming from AXI stream to m_axi: [interface_stream_to_master](./interface_stream_to_master)
 
 ## Running the examples
 
@@ -86,6 +87,7 @@ Examples | Description
 [coding_vectorized](./coding_vectorized)| Load-compute-store based on vector data types using the vector_size attribute
 [interface_axi_lite](./interface_axi_lite)| AXI-4 Lite on C ports
 [interface_axi_master](./interface_axi_master)| AXI-4 Master memory mapped on C ports
+[interface_axi_stream_to_master](./interface_axi_stream_to_master) | Going from stream to master while ensuring burst transfers
 [interface_axi_stream_vector](./interface_axi_stream_vector)| Computing temperature formula (Celsius to Fahrenheit) on vectorized types
 [interface_axi_stream_no_side_channel_data](./interface_axi_stream_no_side_channel_data)| Regular stream without sideband signals
 [interface_axi_stream_side_channel_data](./interface_axi_stream_side_channel_data)| Adding side-band signals for streams
