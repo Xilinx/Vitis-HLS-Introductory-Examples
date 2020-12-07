@@ -28,6 +28,7 @@ Each includes code sources for top function and testbench, a README, Tcl files. 
 * Vector data types for SIMD programming (load, compute, store with m_axi): [coding_vectorized](./coding_vectorized)
 * Vector data types with hls_vector.h (Celsius to Fahrenheit conversion): [interface_axi_stream_vector](./interface_axi_stream_vector)
 * Generation of block RAM ECC flags for single and dual errors: [memory_ecc_flags](./memory_ecc_flags)
+* Pragma function_instantiate: [coding_function_instantiate](./coding_function_instantiate)
 
 ## Running the examples
 
@@ -58,6 +59,7 @@ Examples | Description
 [coding_C++_templates](./coding_C++_templates)| C++ templatized struct to implement a tail-recursion Fibonacci algorithm
 [coding_dataflow_rewind](./coding_dataflow_rewind)| Task parallelism with the `dataflow` pragma. Also uses `pipeline` with `rewind` and `unroll` with `factor`
 [coding_fixed_point](./coding_fixed_point)| Fixed-point arithmetic
+[coding_function_instantiate](./coding_function_instantiate) | Illustrates the use of the pragma `function_instantiate` to optimize independently instances of a function based on its inputs
 [coding_hierarchy_func](./coding_hierarchy_func)|An example of adding files as testbench and design files.
 [coding_hierarchy_func2](./coding_hierarchy_func2)|An example of adding files as test bench and design files. An example of synthesizing a lower-level block in the hierarchy.
 [coding_hierarchy_func3](./coding_hierarchy_func3)|An example of combining test bench and design functions into the same file.
