@@ -24,12 +24,12 @@ void example(hls::stream<trans_pkt >& inStreamTop,
 	   ap_uint<64> outTop[1024] ) ;
 
 // Expects max bandwidth at 64 beats burst (for 64-bit data)
-static constexpr size_t MAX_BURST_LENGTH = 64;
-static constexpr size_t BUFFER_FACTOR = 64;
+static constexpr int MAX_BURST_LENGTH = 64;
+static constexpr int BUFFER_FACTOR = 64;
 
 // Buffer sizes
-static constexpr size_t DATA_DEPTH = MAX_BURST_LENGTH * BUFFER_FACTOR;
-static constexpr size_t COUNT_DEPTH = BUFFER_FACTOR;
+static constexpr int DATA_DEPTH = MAX_BURST_LENGTH * BUFFER_FACTOR;
+static constexpr int COUNT_DEPTH = BUFFER_FACTOR;
 
 struct data {
 	ap_int<64> data_filed;
