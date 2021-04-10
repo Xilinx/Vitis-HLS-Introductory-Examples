@@ -20,8 +20,8 @@
 void streamtoparallelwithburst(hls::stream<data> &in_stream, hls::stream<int> &in_counts, ap_uint<64>  *out_memory) {
   data  in_val;
   do {
-    size_t count = in_counts.read();
-    for (size_t i = 0; i < count; ++i) {
+    int count = in_counts.read();
+    for (int i = 0; i < count; ++i) {
     #pragma HLS PIPELINE
       in_val = in_stream.read();
       out_memory[i] = in_val.data_filed;
@@ -33,7 +33,7 @@ void streamtoparallelwithburst(hls::stream<data> &in_stream, hls::stream<int> &i
 void getinstream(hls::stream<trans_pkt >& in_stream,hls::stream<data > &out_stream,
 	        hls::stream<int>& out_counts)
 {
-      size_t count = 0;
+      int count = 0;
       trans_pkt in_val;
       do {
 #pragma HLS PIPELINE

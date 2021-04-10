@@ -37,7 +37,6 @@ csim_design
 # Set any optimization directives
 set_directive_interface -register fxp_sqrt_top in_val
 set_directive_interface -mode ap_ctrl_hs -register fxp_sqrt_top return
-set_directive_inline fxp_sqrt_top
 set_directive_pipeline fxp_sqrt_top
 
 # End of directives
