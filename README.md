@@ -24,13 +24,6 @@ Each includes code sources for top function and testbench, a README, Tcl files. 
 * **_Interface_**: Manage block connectivity to other blocks
 * **_Misc._**: Other examples such are RTL blackbox in C++
 
-## New examples in 2020.2
-* Vector data types for SIMD programming (load, compute, store with m_axi): [coding_vectorized](./coding_vectorized)
-* Vector data types with hls_vector.h (Celsius to Fahrenheit conversion): [interface_axi_stream_vector](./interface_axi_stream_vector)
-* Generation of block RAM ECC flags for single and dual errors: [memory_ecc_flags](./memory_ecc_flags)
-* Pragma function_instantiate: [coding_function_instantiate](./coding_function_instantiate)
-* Coding for burst when coming from AXI stream to m_axi: [interface_axi_stream_to_master](./interface_axi_stream_to_master)
-
 ## Running the examples
 
 Two Tcl files are provided:
