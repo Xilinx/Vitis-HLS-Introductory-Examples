@@ -18,7 +18,7 @@ limitations under the License.
 
 ## C/C++ synthesizable examples
 
-> If you are looking for a Vitis HLS tutorial rather than a list of examples, go here:  
+> NOTE: If you are looking for a Vitis HLS tutorial rather than a list of examples, go here:  
 > https://github.com/Xilinx/Vitis-Tutorials/tree/master/Getting_Started/Vitis_HLS
 
 Each of the following examples includes code source for top function and testbench, a README, Tcl files.  They are organized in categories denoted by the prefix of the directory in which they reside:
