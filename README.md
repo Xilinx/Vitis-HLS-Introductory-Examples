@@ -22,7 +22,7 @@ Each includes code sources for top function and testbench, a README, Tcl files. 
 * **_Coding_**: Common coding styles for pointers, loops, arrays, etc...
 * **_Algorithm_**: Math and DSP examples
 * **_Interface_**: Manage block connectivity to other blocks
-* **_Misc._**: Other examples such are RTL blackbox in C++
+* **_Misc._**: Other examples, e.g. RTL blackbox in C++
 
 ## Running the examples
 
@@ -53,6 +53,7 @@ Examples | Description
 [coding_C++_templates](./coding_C++_templates)| C++ templatized struct to implement a tail-recursion Fibonacci algorithm
 [coding_dataflow_rewind](./coding_dataflow_rewind)| Task parallelism with the `dataflow` pragma. Also uses `pipeline` with `rewind` and `unroll` with `factor`
 [coding_fixed_point](./coding_fixed_point)| Fixed-point arithmetic
+[coding_free_running_pipeline](./coding_free_running_pipeline) | Alternate control for loops and functions, potentially reducing control logic fanout in Vivado
 [coding_function_instantiate](./coding_function_instantiate) | Illustrates the use of the pragma `function_instantiate` to optimize independently instances of a function based on its inputs
 [coding_hierarchy_func](./coding_hierarchy_func)|An example of adding files as testbench and design files.
 [coding_hierarchy_func2](./coding_hierarchy_func2)|An example of adding files as test bench and design files. An example of synthesizing a lower-level block in the hierarchy.
