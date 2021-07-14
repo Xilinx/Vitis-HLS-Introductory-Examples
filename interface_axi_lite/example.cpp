@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 Xilinx, Inc.
+ * Copyright 2021 Xilinx, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,11 +21,8 @@ void example(char *a, char *b, char *c)
 {
 #pragma HLS INTERFACE s_axilite port=a bundle=BUS_A
 #pragma HLS INTERFACE s_axilite port=b bundle=BUS_A
-#pragma HLS INTERFACE s_axilite port=c register bundle=BUS_A
+#pragma HLS INTERFACE s_axilite port=c bundle=BUS_A
 #pragma HLS INTERFACE s_axilite port=return bundle=BUS_A
 
   *c += *a + *b;
 }
-  
-  
-

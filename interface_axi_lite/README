@@ -1,13 +1,13 @@
 /*
- * Example C code for implementing an AXI4-lite interface in AutoESL
+ * Example C++ code for implementing an AXI4-lite interface in Vitis HLS
  */
 
-Files Included in this Package
+Files included in this package
 ==================================================
 example_test.cpp
 example.cpp
 README
 
-Running the Design (edit x_hls.tcl to run synthesis)
+Running the design (edit x_hls.tcl to run synthesis)
 =================================================
-vivado_hls -f run_hls.tcl
+vitis_hls -f run_hls.tcl

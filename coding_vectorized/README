@@ -1,0 +1,18 @@
+/*
+ * Example C++ code for using vector data type in Vitis HLS.
+ * They can be declared using the C++ attribute vector_size or 
+ * through the hls_vector.h library which also supports HLS arbitrary precision types.
+ * Requires C++14.
+ */
+
+Files Included in this Package
+==================================================
+example_test.cpp
+example.cpp
+README
+run_hls.tcl
+x_hls.tcl
+
+Running the Design (edit x_hls.tcl to run synthesis)
+=================================================
+vitis_hls -f run_hls.tcl

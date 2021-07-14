@@ -1,0 +1,68 @@
+#
+# Copyright 2021 Xilinx, Inc.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# Create a project
+open_project -reset proj_pipelining_frp
+
+# Add design files
+add_files free_pipe_mult.cpp
+# Add test bench & files
+add_files -tb free_pipe_mult_tb.cpp
+add_files -tb result.golden.dat
+
+# Set the top-level function
+set_top free_pipe_mult
+
+# ########################################################
+# Create a solution
+open_solution -reset solution1
+# Define technology and clock rate
+set_part  {xcvu9p-flga2104-2-i}
+create_clock -period 5
+
+# Source x_hls.tcl to determine which steps to execute
+source x_hls.tcl
+csim_design
+
+# Set any optimization directives
+config_dataflow -default_channel fifo -fifo_depth 16
+set_param hls.unified_pipeline_control true
+set_param hls.enable_loop_extract true
+config_compile -pipeline_style frp
+set_directive_interface -mode ap_fifo "free_pipe_mult" B
+set_directive_interface -mode ap_fifo "free_pipe_mult" out
+# End of directives
+
+if {$hls_exec == 1} {
+	# Run Synthesis and Exit
+	csynth_design
+
+} elseif {$hls_exec == 2} {
+	# Run Synthesis, RTL Simulation and Exit
+	csynth_design
+
+	cosim_design
+} elseif {$hls_exec == 3} {
+	# Run Synthesis, RTL Simulation, RTL implementation and Exit
+	csynth_design
+
+	cosim_design
+	export_design
+} else {
+	# Default is to exit after setup
+	csynth_design
+}
+
+exit

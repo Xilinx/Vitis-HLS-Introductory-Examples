@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 Xilinx, Inc.
+ * Copyright 2021 Xilinx, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,7 +21,7 @@ Purpose:Vivado HLSrom_init_c example project
 Revision History: March 13, 2012 - initial release
                                                 
 *******************************************************************************
-#-  (c) Copyright 2011-2019 Xilinx, Inc. All rights reserved.
+#-  (c) Copyright 2011-2021 Xilinx, Inc. All rights reserved.
 #-
 #-  This file contains confidential and proprietary information
 #-  of Xilinx, Inc. and is protected under U.S. and

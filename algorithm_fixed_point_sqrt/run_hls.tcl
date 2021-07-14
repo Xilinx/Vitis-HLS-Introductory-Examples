@@ -1,5 +1,5 @@
 #
-# Copyright 2019 Xilinx, Inc.
+# Copyright 2021 Xilinx, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -37,7 +37,6 @@ csim_design
 # Set any optimization directives
 set_directive_interface -register fxp_sqrt_top in_val
 set_directive_interface -mode ap_ctrl_hs -register fxp_sqrt_top return
-set_directive_inline -region fxp_sqrt_top
 set_directive_pipeline fxp_sqrt_top
 
 # End of directives

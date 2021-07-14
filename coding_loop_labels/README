@@ -1,5 +1,5 @@
 /*
- * Example C code for using loop labels in Vivado HLS
+ * Example C code for using loop labels in Vitis HLS
  */
 
 Files Included in this Package
@@ -10,4 +10,4 @@ README
 
 Running the Design (edit x_hls.tcl to run synthesis)
 =================================================
-vivado_hls -f run_hls.tcl
+vitis_hls -f run_hls.tcl

@@ -1,5 +1,5 @@
 #
-# Copyright 2019 Xilinx, Inc.
+# Copyright 2021 Xilinx, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,10 +17,10 @@
 open_project -reset proj_hier_func2
 
 # Add design files
-add_files hier_func2.c
+add_files hier_func2.cpp
 # Add test bench & files
-add_files -tb hier_func2.c
-add_files -tb hier_func2_test.c
+add_files -tb hier_func2.cpp
+add_files -tb hier_func2_test.cpp
 add_files -tb tb_data
 
 # Set the top-level function

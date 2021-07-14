@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 Xilinx, Inc.
+ * Copyright 2021 Xilinx, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,7 +23,7 @@
 
 float float_mul_pow2(float x, int8_t n)
 {
-#pragma AP inline // Always inline this function
+#pragma HLS inline // Always inline this function
    float_num_t x_num, prod;
 
    x_num.fp_num = x;
@@ -50,7 +50,7 @@ float float_mul_pow2(float x, int8_t n)
 
 double double_mul_pow2(double x, int16_t n)
 {
-#pragma AP inline // Always inline this function
+#pragma HLS inline // Always inline this function
    double_num_t x_num, prod;
 
    x_num.fp_num = x;

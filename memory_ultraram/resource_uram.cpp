@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 Xilinx, Inc.
+ * Copyright 2021 Xilinx, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,9 +24,9 @@ void resource_uram(bool wren, bool rden,
 
   static data_t buffer[NWORDS];
 #pragma HLS DEPENDENCE variable=buffer inter WAR false
-#pragma HLS RESOURCE variable=buffer core=RAM_T2P_URAM latency=3
+#pragma HLS BIND_STORAGE variable=buffer type=ram_2p impl=uram
 
-//  if (rden)
+  if (rden)
       *dataout = buffer[AddrR];
 
   if (wren)

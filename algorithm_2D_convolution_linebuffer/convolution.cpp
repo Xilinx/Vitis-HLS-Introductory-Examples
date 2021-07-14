@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 Xilinx, Inc.
+ * Copyright 2021 Xilinx, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -203,46 +203,40 @@ static void convolution_strm(int width, int height,
     }
 }
 
-void filter11x11_orig(
-        int width, int height,
-        const data_t *src, data_t *dst)
+void filter11x11_orig(int width, int height, const data_t *src, data_t *dst)
 {
-#pragma HLS INTERFACE port=src m_axi depth=32400 // TEST_IMG_SIZE
-#pragma HLS RESOURCE  variable=src core=AXI4M
-#pragma HLS INTERFACE port=dst m_axi depth=32400 // TEST_IMG_SIZE
-#pragma HLS RESOURCE  variable=dst core=AXI4M
-#pragma HLS RESOURCE  variable=return core=AXI4LiteS metadata="-bus_bundle hls_ctrl"
-#pragma HLS RESOURCE  variable=width      core=AXI4LiteS metadata="-bus_bundle hls_ctrl"
-#pragma HLS RESOURCE  variable=height      core=AXI4LiteS metadata="-bus_bundle hls_ctrl"
+#pragma HLS INTERFACE m_axi port=src depth=32400 // TEST_IMG_SIZE
+#pragma HLS INTERFACE m_axi port=dst depth=32400 // TEST_IMG_SIZE
+#pragma HLS INTERFACE s_axilite port=width  bundle=hls_ctrl 
+#pragma HLS INTERFACE s_axilite port=height bundle=hls_ctrl 
+#pragma HLS INTERFACE s_axilite port=return bundle=hls_ctrl 
 
-#pragma HLS INLINE region
+#pragma HLS INLINE
 #pragma HLS DATAFLOW
 
-    const data_t filt11_coeff[11] = {
-            36, 111, 266, 498, 724, 821, 724, 498, 266, 111, 36
-    };
+  const data_t filt11_coeff[11] = {
+    36, 111, 266, 498, 724, 821, 724, 498, 266, 111, 36
+  };
 
-    convolution_orig<data_t, 11>(width, height,
-            src, dst,
-            filt11_coeff, filt11_coeff);
+  convolution_orig<data_t, 11>(width, height,
+			       src, dst,
+			       filt11_coeff, filt11_coeff);
 }
 
-void filter11x11_strm(
-        int width, int height,
-        hls::stream<data_t> &src, hls::stream<data_t> &dst)
+void filter11x11_strm(int width, int height,
+		      hls::stream<data_t> &src, hls::stream<data_t> &dst)
 {
 #pragma HLS INTERFACE axis port=&src 
 #pragma HLS INTERFACE axis port=&dst 
 
 #pragma HLS DATAFLOW
-#pragma HLS INLINE region // bring loops in sub-functions to this DATAFLOW region
+#pragma HLS INLINE // bring loops in sub-functions to this DATAFLOW region
 
-    const data_t filt11_coeff[11] = {
-            36, 111, 266, 498, 724, 821, 724, 498, 266, 111, 36
-    };
+  const data_t filt11_coeff[11] = {
+    36, 111, 266, 498, 724, 821, 724, 498, 266, 111, 36
+  };
 
-    convolution_strm<data_t, 11>(width, height,
-            src, dst,
-            filt11_coeff, filt11_coeff);
+  convolution_strm<data_t, 11>(width, height,
+			       src, dst,
+			       filt11_coeff, filt11_coeff);
 }
-

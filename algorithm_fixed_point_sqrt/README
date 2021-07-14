@@ -23,5 +23,5 @@ README            - this file
 
 Running the Design
 =================================================
-vivado_hls -f run_hls.tcl
+vitis_hls -f run_hls.tcl
 
