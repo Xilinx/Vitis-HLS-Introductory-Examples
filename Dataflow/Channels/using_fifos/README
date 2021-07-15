@@ -1,0 +1,4 @@
+This example shows how to use FIFOs instead of the default PIPOs as the channel type.
+
+This is done by changing the default channel type via the config_dataflow command. 
+
