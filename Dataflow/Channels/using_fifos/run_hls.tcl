@@ -32,8 +32,10 @@ set_part {xcvu9p-flga2104-2-i}
 create_clock -period 5 -name default
 config_dataflow -default_channel fifo -fifo_depth 2
 
-# Source x_hls.tcl to determine which steps to execute
-source x_hls.tcl
+# Set variable to select which steps to execute
+set hls_exec 2
+
+
 csim_design
 # Set any optimization directives
 # End of directives

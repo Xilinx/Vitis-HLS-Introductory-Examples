@@ -32,8 +32,10 @@ open_solution -reset solution1
 set_part  {xcvu9p-flga2104-2-i}
 create_clock -period 3
 
-# Source x_hls.tcl to determine which steps to execute
-source x_hls.tcl
+# Set variable to select which steps to execute
+set hls_exec 2
+
+
 csim_design
 
 if {$hls_exec == 1} {
