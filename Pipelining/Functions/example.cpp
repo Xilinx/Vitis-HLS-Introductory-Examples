@@ -14,21 +14,16 @@
  * limitations under the License.
  */
 
-#ifndef _LOOP_MAX_BOUNDS_H_
-#define _LOOP_MAX_BOUNDS_H_
+char foo(char inval, char incr) {
+#pragma HLS INLINE OFF
+#pragma HLS FUNCTION_INSTANTIATE variable=incr
+ return inval + incr;
+}
 
-#include <iostream>
-#include <fstream>
-using namespace std;
-
-#include "ap_int.h"
-#define N 32
-
-typedef ap_int<8>  din_t;
-typedef ap_int<13> dout_t;
-typedef ap_uint<5> dsel_t;
-
-dout_t loop_max_bounds(din_t A[N], dsel_t width);
-
-#endif
-
+void top(char inval1, char inval2, char inval3,
+ char *outval1, char *outval2, char *outval3)
+{
+ *outval1 = foo(inval1,   0);
+ *outval2 = foo(inval2,   1);
+ *outval3 = foo(inval3, 100);
+}

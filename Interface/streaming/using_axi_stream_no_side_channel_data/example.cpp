@@ -14,18 +14,20 @@
  * limitations under the License.
  */
 
-#include "loop_max_bounds.h"
+#include "ap_axi_sdata.h"
+#include "hls_stream.h"
+#define DWIDTH 32
+#define type ap_int<DWIDTH>
+typedef hls::axis<type, 0, 0, 0> pkt;
+void example(hls::stream<pkt > &A,
+	     hls::stream<pkt> &B)
+{
+#pragma HLS INTERFACE axis port=A
+#pragma HLS INTERFACE axis port=B
 
-dout_t loop_max_bounds(din_t A[N], dsel_t width) {  
-
-  dout_t out_accum=0;
-  dsel_t x;
-  
-  LOOP_X:for (x=0;x<N-1; x++) {
-    if (x<width) {
-      out_accum += A[x];
-    }
-  }
-
-  return out_accum;
+	pkt tmp;
+    pkt t1;
+	A.read(tmp);
+	t1.data = tmp.data + 5;
+	B.write(t1);
 }

@@ -14,30 +14,31 @@
 # limitations under the License.
 
 # Create a project
-open_project -reset proj_loop_label
+open_project -reset proj_function_instantiate
 
 # Add design files
 add_files example.cpp
 # Add test bench & files
 add_files -tb example_test.cpp
+add_files -tb result.golden.dat
 
 # Set the top-level function
-set_top example_label
+set_top top
 
 # ########################################################
 # Create a solution
 open_solution -reset solution1
 # Define technology and clock rate
 set_part  {xcvu9p-flga2104-2-i}
-create_clock -period "75MHz"
+create_clock -period 5
 
 # Set variable to select which steps to execute
 set hls_exec 2
 
 
 csim_design
-
 # Set any optimization directives
+
 # End of directives
 
 if {$hls_exec == 1} {
@@ -61,5 +62,4 @@ if {$hls_exec == 1} {
 }
 
 exit
-
 

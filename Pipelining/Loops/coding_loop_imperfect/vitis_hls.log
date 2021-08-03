@@ -1,0 +1,165 @@
+INFO: [HLS 200-10] Running '/proj/xbuilds/SWIP/2021.1_0610_2318/installs/lin64/Vitis_HLS/2021.1/bin/unwrapped/lnx64.o/vitis_hls'
+/proj/xbuilds/SWIP/2021.1_0610_2318/installs/lin64/Vitis_HLS/2021.1/tps/tcl/tcl8.5/tzdata/America/Los_Angeles can't be opened.
+INFO: [HLS 200-10] For user 'aayyagar' on host 'xsjaayyagar40x.xlnx.xilinx.com' (Linux_x86_64 version 3.10.0-693.el7.x86_64) on Mon Aug 02 16:08:50 PDT 2021
+INFO: [HLS 200-10] On os "CentOS Linux release 7.4.1708 (Core) "
+INFO: [HLS 200-10] In directory '/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/coding_loop_imperfect'
+Sourcing Tcl script '/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/coding_loop_imperfect/proj_loop_imperfect/solution1/cosim.tcl'
+INFO: [HLS 200-1510] Running: open_project proj_loop_imperfect 
+INFO: [HLS 200-10] Opening project '/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/coding_loop_imperfect/proj_loop_imperfect'.
+INFO: [HLS 200-1510] Running: set_top loop_imperfect 
+INFO: [HLS 200-1510] Running: add_files loop_imperfect.cpp 
+INFO: [HLS 200-10] Adding design file 'loop_imperfect.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files -tb result.golden.dat -cflags -Wno-unknown-pragmas -csimflags -Wno-unknown-pragmas 
+INFO: [HLS 200-10] Adding test bench file 'result.golden.dat' to the project
+INFO: [HLS 200-1510] Running: add_files -tb loop_imperfect_test.cpp -cflags -Wno-unknown-pragmas -csimflags -Wno-unknown-pragmas 
+INFO: [HLS 200-10] Adding test bench file 'loop_imperfect_test.cpp' to the project
+INFO: [HLS 200-1510] Running: open_solution solution1 -flow_target vivado 
+INFO: [HLS 200-10] Opening solution '/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/coding_loop_imperfect/proj_loop_imperfect/solution1'.
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 25ns.
+INFO: [HLS 200-1611] Setting target device to 'xcvu9p-flga2104-2-i'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see www.xilinx.com/cgi-bin/docs/rdoc?v=2021.1;t=hls+guidance;d=200-1505.html
+INFO: [HLS 200-1510] Running: set_part xcvu9p-flga2104-2-i 
+INFO: [HLS 200-1510] Running: create_clock -period 25 -name default 
+INFO: [HLS 200-1510] Running: set_directive_pipeline loop_imperfect/LOOP_J 
+INFO: [HLS 200-1510] Running: cosim_design -trace_level all 
+INFO: [COSIM 212-47] Using XSIM for RTL simulation.
+INFO: [COSIM 212-14] Instrumenting C test bench ...
+   Build using "/proj/xbuilds/SWIP/2021.1_0610_2318/installs/lin64/Vitis_HLS/2021.1/tps/lnx64/gcc-6.2.0/bin/g++"
+   Compiling apatb_loop_imperfect.cpp
+   Compiling loop_imperfect.cpp_pre.cpp.tb.cpp
+   Compiling loop_imperfect_test.cpp_pre.cpp.tb.cpp
+   Compiling apatb_loop_imperfect_ir.ll
+   Generating cosim.tv.exe
+INFO: [COSIM 212-302] Starting C TB testing ... 
+Test passed !
+INFO: [COSIM 212-333] Generating C post check test bench ...
+INFO: [COSIM 212-12] Generating RTL test bench ...
+INFO: [COSIM 212-1] *** C/RTL co-simulation file generation completed. ***
+INFO: [COSIM 212-323] Starting verilog simulation. 
+INFO: [COSIM 212-15] Starting XSIM ...
+Vivado Simulator v2021.1
+Copyright 1986-1999, 2001-2021 Xilinx, Inc. All Rights Reserved.
+Running: /proj/xbuilds/SWIP/2021.1_0610_2318/installs/lin64/Vivado/2021.1/bin/unwrapped/lnx64.o/xelab xil_defaultlib.apatb_loop_imperfect_top glbl -Oenable_linking_all_libraries -prj loop_imperfect.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver -L xpm -L floating_point_v7_0_19 -L floating_point_v7_1_12 --lib ieee_proposed=./ieee_proposed -s loop_imperfect -debug wave 
+Multi-threading is on. Using 2 slave threads.
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/coding_loop_imperfect/proj_loop_imperfect/solution1/sim/verilog/glbl.v" into library work
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/coding_loop_imperfect/proj_loop_imperfect/solution1/sim/verilog/loop_imperfect.autotb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module apatb_loop_imperfect_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/coding_loop_imperfect/proj_loop_imperfect/solution1/sim/verilog/AESL_automem_A.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_A
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/coding_loop_imperfect/proj_loop_imperfect/solution1/sim/verilog/AESL_automem_B.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_B
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/coding_loop_imperfect/proj_loop_imperfect/solution1/sim/verilog/loop_imperfect_loop_imperfect_Pipeline_LOOP_J.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module loop_imperfect_loop_imperfect_Pipeline_LOOP_J
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/coding_loop_imperfect/proj_loop_imperfect/solution1/sim/verilog/loop_imperfect.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module loop_imperfect
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/coding_loop_imperfect/proj_loop_imperfect/solution1/sim/verilog/loop_imperfect_flow_control_loop_pipe_sequential_init.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module loop_imperfect_flow_control_loop_pipe_sequential_init
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/coding_loop_imperfect/proj_loop_imperfect/solution1/sim/verilog/loop_imperfect_mac_muladd_5ns_5s_12s_12_4_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module loop_imperfect_mac_muladd_5ns_5s_12s_12_4_1_DSP48_0
+INFO: [VRFC 10-311] analyzing module loop_imperfect_mac_muladd_5ns_5s_12s_12_4_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/coding_loop_imperfect/proj_loop_imperfect/solution1/sim/verilog/loop_imperfect_mul_mul_12s_13ns_26_4_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module loop_imperfect_mul_mul_12s_13ns_26_4_1_DSP48_1
+INFO: [VRFC 10-311] analyzing module loop_imperfect_mul_mul_12s_13ns_26_4_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/coding_loop_imperfect/proj_loop_imperfect/solution1/sim/verilog/dataflow_monitor.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dataflow_monitor
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package xil_defaultlib.$unit_dataflow_monitor_sv
+Compiling module xil_defaultlib.loop_imperfect_mac_muladd_5ns_5s...
+Compiling module xil_defaultlib.loop_imperfect_mac_muladd_5ns_5s...
+Compiling module xil_defaultlib.loop_imperfect_flow_control_loop...
+Compiling module xil_defaultlib.loop_imperfect_loop_imperfect_Pi...
+Compiling module xil_defaultlib.loop_imperfect_mul_mul_12s_13ns_...
+Compiling module xil_defaultlib.loop_imperfect_mul_mul_12s_13ns_...
+Compiling module xil_defaultlib.loop_imperfect
+Compiling module xil_defaultlib.AESL_automem_A
+Compiling module xil_defaultlib.AESL_automem_B
+Compiling module xil_defaultlib.nodf_module_intf
+Compiling module xil_defaultlib.seq_loop_intf(FSM_WIDTH=7)
+Compiling module xil_defaultlib.upc_loop_intf(FSM_WIDTH=1)
+Compiling module xil_defaultlib.dataflow_monitor_1
+Compiling module xil_defaultlib.apatb_loop_imperfect_top
+Compiling module work.glbl
+Built simulation snapshot loop_imperfect
+
+****** xsim v2021.1 (64-bit)
+  **** SW Build 3247384 on Thu Jun 10 19:36:07 MDT 2021
+  **** IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
+    ** Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+
+source xsim.dir/loop_imperfect/xsim_script.tcl
+# xsim {loop_imperfect} -view {{loop_imperfect_dataflow_ana.wcfg}} -tclbatch {loop_imperfect.tcl} -protoinst {loop_imperfect.protoinst}
+INFO: [Wavedata 42-565] Reading protoinst file loop_imperfect.protoinst
+INFO: [Wavedata 42-564]   Found protocol instance at /apatb_loop_imperfect_top/AESL_inst_loop_imperfect//AESL_inst_loop_imperfect_activity
+INFO: [Wavedata 42-564]   Found protocol instance at /apatb_loop_imperfect_top/AESL_inst_loop_imperfect/grp_loop_imperfect_Pipeline_LOOP_J_fu_92/grp_loop_imperfect_Pipeline_LOOP_J_fu_92_activity
+Time resolution is 1 ps
+open_wave_config loop_imperfect_dataflow_ana.wcfg
+source loop_imperfect.tcl
+## log_wave -r /
+WARNING: [Simtcl 6-197] One or more HDL objects could not be logged because of object type or size limitations.  To see details please rerun the command with -verbose (-v).
+## set designtopgroup [add_wave_group "Design Top Signals"]
+## set coutputgroup [add_wave_group "C Outputs" -into $designtopgroup]
+## set return_group [add_wave_group return(memory) -into $coutputgroup]
+## add_wave /apatb_loop_imperfect_top/AESL_inst_loop_imperfect/B_d0 -into $return_group -radix hex
+## add_wave /apatb_loop_imperfect_top/AESL_inst_loop_imperfect/B_we0 -into $return_group -color #ffff00 -radix hex
+## add_wave /apatb_loop_imperfect_top/AESL_inst_loop_imperfect/B_ce0 -into $return_group -color #ffff00 -radix hex
+## add_wave /apatb_loop_imperfect_top/AESL_inst_loop_imperfect/B_address0 -into $return_group -radix hex
+## set cinputgroup [add_wave_group "C Inputs" -into $designtopgroup]
+## set return_group [add_wave_group return(memory) -into $cinputgroup]
+## add_wave /apatb_loop_imperfect_top/AESL_inst_loop_imperfect/A_q0 -into $return_group -radix hex
+## add_wave /apatb_loop_imperfect_top/AESL_inst_loop_imperfect/A_ce0 -into $return_group -color #ffff00 -radix hex
+## add_wave /apatb_loop_imperfect_top/AESL_inst_loop_imperfect/A_address0 -into $return_group -radix hex
+## set blocksiggroup [add_wave_group "Block-level IO Handshake" -into $designtopgroup]
+## add_wave /apatb_loop_imperfect_top/AESL_inst_loop_imperfect/ap_start -into $blocksiggroup
+## add_wave /apatb_loop_imperfect_top/AESL_inst_loop_imperfect/ap_done -into $blocksiggroup
+## add_wave /apatb_loop_imperfect_top/AESL_inst_loop_imperfect/ap_idle -into $blocksiggroup
+## add_wave /apatb_loop_imperfect_top/AESL_inst_loop_imperfect/ap_ready -into $blocksiggroup
+## set resetgroup [add_wave_group "Reset" -into $designtopgroup]
+## add_wave /apatb_loop_imperfect_top/AESL_inst_loop_imperfect/ap_rst -into $resetgroup
+## set clockgroup [add_wave_group "Clock" -into $designtopgroup]
+## add_wave /apatb_loop_imperfect_top/AESL_inst_loop_imperfect/ap_clk -into $clockgroup
+## set testbenchgroup [add_wave_group "Test Bench Signals"]
+## set tbinternalsiggroup [add_wave_group "Internal Signals" -into $testbenchgroup]
+## set tb_simstatus_group [add_wave_group "Simulation Status" -into $tbinternalsiggroup]
+## set tb_portdepth_group [add_wave_group "Port Depth" -into $tbinternalsiggroup]
+## add_wave /apatb_loop_imperfect_top/AUTOTB_TRANSACTION_NUM -into $tb_simstatus_group -radix hex
+## add_wave /apatb_loop_imperfect_top/ready_cnt -into $tb_simstatus_group -radix hex
+## add_wave /apatb_loop_imperfect_top/done_cnt -into $tb_simstatus_group -radix hex
+## add_wave /apatb_loop_imperfect_top/LENGTH_A -into $tb_portdepth_group -radix hex
+## add_wave /apatb_loop_imperfect_top/LENGTH_B -into $tb_portdepth_group -radix hex
+## set tbcoutputgroup [add_wave_group "C Outputs" -into $testbenchgroup]
+## set tb_return_group [add_wave_group return(memory) -into $tbcoutputgroup]
+## add_wave /apatb_loop_imperfect_top/B_d0 -into $tb_return_group -radix hex
+## add_wave /apatb_loop_imperfect_top/B_we0 -into $tb_return_group -color #ffff00 -radix hex
+## add_wave /apatb_loop_imperfect_top/B_ce0 -into $tb_return_group -color #ffff00 -radix hex
+## add_wave /apatb_loop_imperfect_top/B_address0 -into $tb_return_group -radix hex
+## set tbcinputgroup [add_wave_group "C Inputs" -into $testbenchgroup]
+## set tb_return_group [add_wave_group return(memory) -into $tbcinputgroup]
+## add_wave /apatb_loop_imperfect_top/A_q0 -into $tb_return_group -radix hex
+## add_wave /apatb_loop_imperfect_top/A_ce0 -into $tb_return_group -color #ffff00 -radix hex
+## add_wave /apatb_loop_imperfect_top/A_address0 -into $tb_return_group -radix hex
+## save_wave_config loop_imperfect.wcfg
+## run all
+////////////////////////////////////////////////////////////////////////////////////
+// Inter-Transaction Progress: Completed Transaction / Total Transaction
+// Intra-Transaction Progress: Measured Latency / Latency Estimation * 100%
+//
+// RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
+////////////////////////////////////////////////////////////////////////////////////
+// RTL Simulation : 0 / 1 [0.00%] @ "163000"
+// RTL Simulation : 1 / 1 [100.00%] @ "14238000"
+////////////////////////////////////////////////////////////////////////////////////
+$finish called at time : 14387500 ps : File "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/coding_loop_imperfect/proj_loop_imperfect/solution1/sim/verilog/loop_imperfect.autotb.v" Line 263
+## quit
+INFO: [Common 17-206] Exiting xsim at Mon Aug  2 16:09:19 2021...
+INFO: [COSIM 212-316] Starting C post checking ...
+Test passed !
+INFO: [COSIM 212-1000] *** C/RTL co-simulation finished: PASS ***
+INFO: [COSIM 212-211] II is measurable only when transaction number is greater than 1 in RTL simulation. Otherwise, they will be marked as all NA. If user wants to calculate them, please make sure there are at least 2 transactions in RTL simulation.
+INFO: [HLS 200-111] Finished Command cosim_design CPU user time: 22.35 seconds. CPU system time: 2.7 seconds. Elapsed time: 26.37 seconds; current allocated memory: 323.152 MB.
