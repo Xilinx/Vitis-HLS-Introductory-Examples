@@ -16,8 +16,6 @@
 
 #include "cpp_template.h"
 
-// Define class CStim to for input stimuli
-
 int main()
   {
     ofstream result;

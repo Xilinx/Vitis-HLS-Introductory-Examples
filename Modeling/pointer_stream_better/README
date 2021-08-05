@@ -1,0 +1,3 @@
+This example shows an alternative to ap_fifo mode for pointers in the interface and uses
+ap_hs as the mode instead. 
+
