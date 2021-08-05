@@ -1,0 +1,2 @@
+This example shows how to rewrite without using explicit mallocs in the C/C++ code.
+
