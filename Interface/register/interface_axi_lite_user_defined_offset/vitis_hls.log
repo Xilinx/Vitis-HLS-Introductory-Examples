@@ -1,0 +1,184 @@
+
+****** Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2021.1 (64-bit)
+  **** SW Build 3247384 on Thu Jun 10 19:36:07 MDT 2021
+  **** IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
+    ** Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+
+source /proj/xbuilds/SWIP/2021.1_0610_2318/installs/lin64/Vitis_HLS/2021.1/scripts/vitis_hls/hls.tcl -notrace
+INFO: [HLS 200-10] Running '/proj/xbuilds/SWIP/2021.1_0610_2318/installs/lin64/Vitis_HLS/2021.1/bin/unwrapped/lnx64.o/vitis_hls'
+/proj/xbuilds/SWIP/2021.1_0610_2318/installs/lin64/Vitis_HLS/2021.1/tps/tcl/tcl8.5/tzdata/America/Los_Angeles can't be opened.
+INFO: [HLS 200-10] For user 'aayyagar' on host 'xsjaayyagar40x.xlnx.xilinx.com' (Linux_x86_64 version 3.10.0-693.el7.x86_64) on Thu Jul 29 16:49:29 PDT 2021
+INFO: [HLS 200-10] On os "CentOS Linux release 7.4.1708 (Core) "
+INFO: [HLS 200-10] In directory '/wrk/xsjhdnobkup3/aayyagar/Documents/TSR/TSC/saxilite_offset/HLS-Tiny-Tutorials/interface_axi_lite'
+Sourcing Tcl script 'run_hls.tcl'
+INFO: [HLS 200-1510] Running: open_project -reset proj_axi_lite 
+INFO: [HLS 200-10] Creating and opening project '/wrk/xsjhdnobkup3/aayyagar/Documents/TSR/TSC/saxilite_offset/HLS-Tiny-Tutorials/interface_axi_lite/proj_axi_lite'.
+INFO: [HLS 200-1510] Running: add_files example.cpp 
+INFO: [HLS 200-10] Adding design file 'example.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files -tb example_test.cpp 
+INFO: [HLS 200-10] Adding test bench file 'example_test.cpp' to the project
+INFO: [HLS 200-1510] Running: set_top example 
+INFO: [HLS 200-1510] Running: open_solution -reset solution1 
+INFO: [HLS 200-10] Creating and opening solution '/wrk/xsjhdnobkup3/aayyagar/Documents/TSR/TSC/saxilite_offset/HLS-Tiny-Tutorials/interface_axi_lite/proj_axi_lite/solution1'.
+INFO: [HLS 200-10] Cleaning up the solution database.
+WARNING: [HLS 200-40] No /wrk/xsjhdnobkup3/aayyagar/Documents/TSR/TSC/saxilite_offset/HLS-Tiny-Tutorials/interface_axi_lite/proj_axi_lite/solution1/solution1.aps file found.
+INFO: [HLS 200-1505] Using default flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see www.xilinx.com/cgi-bin/docs/rdoc?v=2021.1;t=hls+guidance;d=200-1505.html
+INFO: [HLS 200-1510] Running: set_part xcvu9p-flga2104-2-i 
+INFO: [HLS 200-1611] Setting target device to 'xcvu9p-flga2104-2-i'
+INFO: [HLS 200-1510] Running: create_clock -period 200MHz 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 5ns.
+INFO: [HLS 200-1510] Running: csim_design 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+   Compiling ../../../../example_test.cpp in debug mode
+   Compiling ../../../../example.cpp in debug mode
+   Generating csim.exe
+HLS AXI-Lite Example
+Function c += a + b
+Initial values a = 5, b = 10, c = 0
+HW result = 15
+SW result = 15
+Success SW and HW results match
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 0.11 seconds. CPU system time: 0.21 seconds. Elapsed time: 0.45 seconds; current allocated memory: 316.509 MB.
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 316.729 MB.
+INFO: [HLS 200-10] Analyzing design file 'example.cpp' ... 
+WARNING: [HLS 207-5528] Ignore interface attribute or pragma which is not used in top function: example.cpp:25:9
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 0.22 seconds. CPU system time: 0.27 seconds. Elapsed time: 0.64 seconds; current allocated memory: 318.047 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
+INFO: [HLS 214-279] Initial Interval estimation mode is set into default.
+INFO: [HLS 214-284] Auto array partition mode is set into default.
+INFO: [HLS 214-270] Starting automatic array partition analysis...
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 3.99 seconds. CPU system time: 0.49 seconds. Elapsed time: 4.85 seconds; current allocated memory: 319.422 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 319.427 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 320.406 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 319.777 MB.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'a' (example.cpp:20) as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'b' (example.cpp:20) as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'c' (example.cpp:20) as it is incompatible with its interface mode 's_axilite'.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0.02 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.03 seconds; current allocated memory: 339.814 MB.
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 331.577 MB.
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'example' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'example' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.01 seconds. CPU system time: 0.03 seconds. Elapsed time: 0.06 seconds; current allocated memory: 331.843 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 331.973 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'example' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Design contains AXI ports. Reset is fixed to synchronous and active low.
+INFO: [RTGEN 206-500] Setting interface mode on port 'example/a' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'example/b' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'example/c' to 's_axilite & ap_ovld'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'example' to 's_axilite & ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Bundling port 'a', 'b', 'c' to AXI-Lite port BUS_A.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'example'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 332.254 MB.
+INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 0.19 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.29 seconds; current allocated memory: 334.898 MB.
+INFO: [HLS 200-111] Finished Updating report files: CPU user time: 0.29 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.38 seconds; current allocated memory: 338.066 MB.
+INFO: [VHDL 208-304] Generating VHDL RTL for example.
+INFO: [VLOG 209-307] Generating Verilog RTL for example.
+INFO: [HLS 200-789] **** Estimated Fmax: 352.36 MHz
+INFO: [HLS 200-111] Finished Command csynth_design CPU user time: 4.78 seconds. CPU system time: 0.84 seconds. Elapsed time: 6.4 seconds; current allocated memory: 338.052 MB.
+INFO: [HLS 200-1510] Running: cosim_design 
+INFO: [COSIM 212-47] Using XSIM for RTL simulation.
+INFO: [COSIM 212-14] Instrumenting C test bench ...
+   Build using "/proj/xbuilds/SWIP/2021.1_0610_2318/installs/lin64/Vitis_HLS/2021.1/tps/lnx64/gcc-6.2.0/bin/g++"
+   Compiling example_test.cpp_pre.cpp.tb.cpp
+   Compiling example.cpp_pre.cpp.tb.cpp
+   Compiling apatb_example.cpp
+   Compiling apatb_example_ir.ll
+   Generating cosim.tv.exe
+INFO: [COSIM 212-302] Starting C TB testing ... 
+HLS AXI-Lite Example
+Function c += a + b
+Initial values a = 5, b = 10, c = 0
+HW result = 15
+SW result = 15
+Success SW and HW results match
+INFO: [COSIM 212-333] Generating C post check test bench ...
+INFO: [COSIM 212-12] Generating RTL test bench ...
+INFO: [COSIM 212-1] *** C/RTL co-simulation file generation completed. ***
+INFO: [COSIM 212-323] Starting verilog simulation. 
+INFO: [COSIM 212-15] Starting XSIM ...
+Vivado Simulator v2021.1
+Copyright 1986-1999, 2001-2021 Xilinx, Inc. All Rights Reserved.
+Running: /proj/xbuilds/SWIP/2021.1_0610_2318/installs/lin64/Vivado/2021.1/bin/unwrapped/lnx64.o/xelab xil_defaultlib.apatb_example_top glbl -Oenable_linking_all_libraries -prj example.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver -L xpm -L floating_point_v7_0_19 -L floating_point_v7_1_12 --lib ieee_proposed=./ieee_proposed -s example 
+Multi-threading is on. Using 2 slave threads.
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/TSR/TSC/saxilite_offset/HLS-Tiny-Tutorials/interface_axi_lite/proj_axi_lite/solution1/sim/verilog/glbl.v" into library work
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/TSR/TSC/saxilite_offset/HLS-Tiny-Tutorials/interface_axi_lite/proj_axi_lite/solution1/sim/verilog/example.autotb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module apatb_example_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/TSR/TSC/saxilite_offset/HLS-Tiny-Tutorials/interface_axi_lite/proj_axi_lite/solution1/sim/verilog/AESL_axi_slave_BUS_A.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_axi_slave_BUS_A
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/TSR/TSC/saxilite_offset/HLS-Tiny-Tutorials/interface_axi_lite/proj_axi_lite/solution1/sim/verilog/example.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module example
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/TSR/TSC/saxilite_offset/HLS-Tiny-Tutorials/interface_axi_lite/proj_axi_lite/solution1/sim/verilog/example_BUS_A_s_axi.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module example_BUS_A_s_axi
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/TSR/TSC/saxilite_offset/HLS-Tiny-Tutorials/interface_axi_lite/proj_axi_lite/solution1/sim/verilog/dataflow_monitor.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dataflow_monitor
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package xil_defaultlib.$unit_dataflow_monitor_sv
+Compiling module xil_defaultlib.example_BUS_A_s_axi
+Compiling module xil_defaultlib.example
+Compiling module xil_defaultlib.AESL_axi_slave_BUS_A
+Compiling module xil_defaultlib.nodf_module_intf
+Compiling module xil_defaultlib.dataflow_monitor_1
+Compiling module xil_defaultlib.apatb_example_top
+Compiling module work.glbl
+Built simulation snapshot example
+
+****** xsim v2021.1 (64-bit)
+  **** SW Build 3247384 on Thu Jun 10 19:36:07 MDT 2021
+  **** IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
+    ** Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+
+source xsim.dir/example/xsim_script.tcl
+# xsim {example} -autoloadwcfg -tclbatch {example.tcl}
+Time resolution is 1 ps
+source example.tcl
+## run all
+////////////////////////////////////////////////////////////////////////////////////
+// Inter-Transaction Progress: Completed Transaction / Total Transaction
+// Intra-Transaction Progress: Measured Latency / Latency Estimation * 100%
+//
+// RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
+////////////////////////////////////////////////////////////////////////////////////
+// RTL Simulation : 0 / 1 [n/a] @ "113000"
+// RTL Simulation : 1 / 1 [n/a] @ "413000"
+////////////////////////////////////////////////////////////////////////////////////
+$finish called at time : 442500 ps : File "/wrk/xsjhdnobkup3/aayyagar/Documents/TSR/TSC/saxilite_offset/HLS-Tiny-Tutorials/interface_axi_lite/proj_axi_lite/solution1/sim/verilog/example.autotb.v" Line 280
+## quit
+INFO: [Common 17-206] Exiting xsim at Thu Jul 29 16:49:56 2021...
+INFO: [COSIM 212-316] Starting C post checking ...
+HLS AXI-Lite Example
+Function c += a + b
+Initial values a = 5, b = 10, c = 0
+HW result = 15
+SW result = 15
+Success SW and HW results match
+INFO: [COSIM 212-1000] *** C/RTL co-simulation finished: PASS ***
+INFO: [COSIM 212-210] Design is translated to an combinational logic. II and Latency will be marked as all 0.
+INFO: [HLS 200-111] Finished Command cosim_design CPU user time: 14.51 seconds. CPU system time: 2.04 seconds. Elapsed time: 16.93 seconds; current allocated memory: 341.779 MB.
+[2Kvitis_hls> [11C[2Kvitis_hls> q[12C[2Kvitis_hls> qu[13C[2Kvitis_hls> qui[14C[2Kvitis_hls> quit[15C
+INFO: [HLS 200-112] Total CPU user time: 22.97 seconds. Total CPU system time: 4.28 seconds. Total elapsed time: 30.44 seconds; peak allocated memory: 339.814 MB.
+INFO: [Common 17-206] Exiting vitis_hls at Thu Jul 29 16:49:59 2021...

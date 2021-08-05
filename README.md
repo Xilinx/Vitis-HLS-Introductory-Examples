@@ -26,9 +26,9 @@ Each includes code sources for top function and testbench, a README, Tcl files. 
 * Misc: Other examples such as RTL blackbox in C++
 
 ## Running the examples
-Two Tcl files are provided:
-* _x_hls.tcl_: Specifies what steps of the flow will be executed (by default only C simulation and C synthesis are run).  By changing the value of hls_exec it's possible to run C-RTL co-simulation and Vivado implementation
-* _run_hls.tcl_: Sets up the project and sources x_hls.tcl mentioned above
+A Tcl file is provided:
+* _run_hls.tcl_: Sets up the project and specifies what steps of the flow will be executed (by default only C simulation and C synthesis are run).  
+  By changing the value of hls_exec it's possible to run C-RTL co-simulation and Vivado implementation
 
 To run at the command line, navigate to the example directory, type:
 `vitis_hls -f run_hls.tcl`

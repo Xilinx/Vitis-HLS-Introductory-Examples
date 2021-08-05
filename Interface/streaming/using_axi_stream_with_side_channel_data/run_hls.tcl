@@ -14,7 +14,7 @@
 # limitations under the License.
 
 # Create a project
-open_project -reset proj_loop_label
+open_project -reset proj_axi_stream_side_channel_data
 
 # Add design files
 add_files example.cpp
@@ -22,14 +22,14 @@ add_files example.cpp
 add_files -tb example_test.cpp
 
 # Set the top-level function
-set_top example_label
+set_top example
 
 # ########################################################
 # Create a solution
 open_solution -reset solution1
 # Define technology and clock rate
 set_part  {xcvu9p-flga2104-2-i}
-create_clock -period "75MHz"
+create_clock -period "200MHz"
 
 # Set variable to select which steps to execute
 set hls_exec 2
@@ -54,7 +54,7 @@ if {$hls_exec == 1} {
 	csynth_design
 	
 	cosim_design
-	export_design
+	export_design -format ip_catalog
 } else {
 	# Default is to exit after setup
 	csynth_design
