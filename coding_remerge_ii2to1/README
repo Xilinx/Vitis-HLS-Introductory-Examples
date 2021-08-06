@@ -1,0 +1,10 @@
+This example illustrates coding example of achieving II=1 based on two sources using De-Mux/Mux mechanism.
+
+Note the following interface #prgama used:
+
+#pragma HLS PIPELINE II=1
+#pragma HLS DATAFLOW
+#pragma HLS STREAM variable = inter depth = 16
+#pragma HLS STREAM variable = mux_in depth = 16
+
+

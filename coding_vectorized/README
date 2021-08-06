@@ -1,18 +1,10 @@
-/*
- * Example C++ code for using vector data type in Vitis HLS.
- * They can be declared using the C++ attribute vector_size or 
- * through the hls_vector.h library which also supports HLS arbitrary precision types.
- * Requires C++14.
- */
+This example illustrates using Load-Compute-Store using a vector datatype.
 
-Files Included in this Package
-==================================================
-example_test.cpp
-example.cpp
-README
-run_hls.tcl
-x_hls.tcl
+Note the following interface #prgama used:
 
-Running the Design (edit x_hls.tcl to run synthesis)
-=================================================
-vitis_hls -f run_hls.tcl
+#pragma HLS pipeline
+#pragma HLS INTERFACE m_axi port=lhs offset=slave bundle=gmem0 depth=1000 // wordsize=64
+#pragma HLS INTERFACE m_axi port=rhs offset=slave bundle=gmem1 depth=1000 // wordsize=64
+#pragma HLS INTERFACE m_axi port=res offset=slave bundle=gmem0 depth=1000 // wordsize=64
+#pragma HLS DATAFLOW
+
