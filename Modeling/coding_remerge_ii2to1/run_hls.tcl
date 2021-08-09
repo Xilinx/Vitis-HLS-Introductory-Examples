@@ -18,16 +18,16 @@ open_project -reset proj_example
 
 # Add design files
 add_files example.cpp
-
 # Add test bench & files
-add_files -tb example_test.cpp -cflags "-std=gnu++14"
+add_files -tb example_test.cpp
+#add_files -tb result.golden.dat
 
 # Set the top-level function
 set_top example
 
 # ########################################################
 # Create a solution
-open_solution -reset solution1
+open_solution -reset solution1 -flow_target vitis
 # Define technology and clock rate
 set_part  {xcvu9p-flga2104-2-i}
 create_clock -period 5

@@ -14,20 +14,21 @@
 # limitations under the License.
 
 # Create a project
-open_project -reset proj_lookup
+open_project -reset proj_mem_bottleneck_resolved
 
 # Add design files
-add_files lookup.cpp
+add_files mem_bottleneck_resolved.cpp
 # Add test bench & files
-add_files -tb lookup_test.cpp
+add_files -tb mem_bottleneck_resolved_test.cpp
 add_files -tb result.golden.dat
 
 # Set the top-level function
-set_top lookup
+set_top mem_bottleneck_resolved
 
 # ########################################################
 # Create a solution
-open_solution -reset solution1
+open_solution -reset solution1 -flow_target vitis
+
 # Define technology and clock rate
 set_part  {xcvu9p-flga2104-2-i}
 create_clock -period 4
@@ -37,7 +38,9 @@ set hls_exec 2
 
 
 csim_design
+
 # Set any optimization directives
+set_directive_pipeline mem_bottleneck_resolved/SUM_LOOP
 # End of directives
 
 if {$hls_exec == 1} {
@@ -61,5 +64,4 @@ if {$hls_exec == 1} {
 }
 
 exit
-
 
