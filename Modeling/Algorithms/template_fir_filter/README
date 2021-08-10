@@ -1,0 +1,11 @@
+FIR filter using C++ template parameters
+
+File content:
+cpp_FIR.cpp
+cpp_FIR.h
+cpp_FIR.inc
+cpp_FIR_test.cpp
+proj_cpp_FIR
+result.golden.dat
+run_hls.tcl
+README
