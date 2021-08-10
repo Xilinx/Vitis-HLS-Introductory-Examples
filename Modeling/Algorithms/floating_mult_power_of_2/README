@@ -4,7 +4,7 @@ Files Included in this Package
 ==================================================
 fp_mul_pow2.c        - Implementation source file (top-level for example)
 fp_mul_pow2.h        - Header file w/ function prototypes
-fp_mul_pow2_test.cpp - Test program which for SW model validation & RTL co-sim
+fp_mul_pow2_test.cpp - Test program which for C-simulation model & RTL co-sim
 run_hls.tcl          - HLS run script
 README               - This file
 
