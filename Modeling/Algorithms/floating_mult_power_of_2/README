@@ -1,3 +1,5 @@
+Multiplies a floating point number by a power of 2.
+
 Files Included in this Package
 ==================================================
 fp_mul_pow2.c        - Implementation source file (top-level for example)
