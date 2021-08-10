@@ -2,11 +2,12 @@ Example C code for implementing an 2D convolution in HLS
 
 Files Included in this Package
 ==============================
-convolution_test.cpp
 convolution.cpp
+convolution.h
+convolution_test.cpp
 README
 
-Running the Design (edit x_hls.tcl to specific run steps)
+Running the Design (edit run_hls.tcl to set $hls_exec and enable specific run steps)
 =========================================================
 vitis_hls -f run_hls.tcl
 

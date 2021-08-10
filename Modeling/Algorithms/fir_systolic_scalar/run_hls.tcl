@@ -27,7 +27,7 @@ set_top filter
 
 # ########################################################
 # Create a solution
-open_solution -reset solution1
+open_solution -reset solution1 -flow_target vivado
 # Define technology and clock rate
 set_part  {xcvu9p-flga2104-2-i}
 create_clock -period 3
