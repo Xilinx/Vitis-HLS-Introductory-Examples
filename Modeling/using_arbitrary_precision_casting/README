@@ -1,2 +1,14 @@
 This simple test illustrates how to cast between arbitrary precision ap_int/ap_uint data types. 
 
+Files Included in this Package
+==============================
+cpp_ap_int_arith.cpp
+cpp_ap_int_arith.h
+cpp_ap_int_arith_test.cpp
+result.golden.dat
+run_hls.tcl
+README
+
+Running the Design (edit run_hls.tcl to enable specific run steps)
+=========================================================
+vitis_hls -f run_hls.tcl
