@@ -68,7 +68,7 @@ set_top filter11x11_strm
 add_files convolution.cpp
 add_files -tb convolution_tb.cpp
 
-open_solution "solution1"
+open_solution "solution1" -flow_target vitis
 set_part {xcvu9p-flga2104-2-i}
 create_clock -period 6.66 -name default
 
