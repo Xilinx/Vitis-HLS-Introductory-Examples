@@ -1,7 +1,7 @@
 /*
  * Example code for a floating-point "window function" based on a template class.
  *
- * *** NOTE: This project is largely the same as the "window_fn_fxpt" example,
+ * *** NOTE: This project is largely the same as the "window_function_fixed_point" example,
  * *** except that this one implements a single-precision floating point
  * *** window function core. The key point here is the code reuse and IP
  * *** parameterization capability provided by HLS and C++ templates.
@@ -12,7 +12,7 @@
  * - code reuse/parameterization via C++ templates
  * - basic floating point HLS support - a CoreGen FPO will be instantiated
  *
- * In addition to features demonstrated by the "window_fn_fxpt" example:
+ * In addition to features demonstrated by the "window_function_fixed_point" example:
  * - C+ coding style for ROM inference - init functions must be global-scope
  * - use of <cmath> functions to init ROMs - no HW created by HLS
  * - top level wrapper function for HLS of class objets cand methods
@@ -27,7 +27,6 @@ window_fn_top.h    - top level header with function prototype, typedefs, etc
 window_fn_class.h  - header file for window function class
 window_fn_test.cpp - test program which for SW model validation & RTL co-sim
 run_hls.tcl        - HLS run script
-x_hls.tcl          - auxilary script setting run-level
 README             - this file
 
 Running the Design

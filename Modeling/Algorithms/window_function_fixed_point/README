@@ -18,7 +18,6 @@ window_fn_top.h    - top level header with function prototype, typedefs, etc
 window_fn_class.h  - header file for window function class
 window_fn_test.cpp - test program which for SW model validation & RTL co-sim
 run_hls.tcl        - HLS run script
-x_hls.tcl          - auxilary script setting run-level
 README             - this file
 
 Running the Design

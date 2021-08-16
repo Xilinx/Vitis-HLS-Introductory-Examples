@@ -30,9 +30,10 @@ void diamond(hls::stream<data_t> &vecIn, hls::stream<data_t> &vecOut) {
 
 void funcA(hls::stream<data_t> &in, hls::stream_of_blocks<block_data_t> &out1,
            hls::stream_of_blocks<block_data_t> &out2) {
+#pragma HLS INLINE off
 
 funcA_Loop0: for (int i = 0; i < N/NUM_BLOCKS; i++) {
-#pragma HLS pipeline rewind
+#pragma HLS pipeline II=10
         
         // Obtain write locks for the two output channels
         hls::write_lock<block_data_t> out1L(out1);
@@ -48,9 +49,10 @@ funcA_Loop0: for (int i = 0; i < N/NUM_BLOCKS; i++) {
 }
 
 void funcB(hls::stream_of_blocks<block_data_t> &in, hls::stream_of_blocks<block_data_t> &out) {
+#pragma HLS INLINE off
 
 funcB_Loop0: for (int i = 0; i < N/NUM_BLOCKS; i++) {
-#pragma HLS pipeline rewind
+#pragma HLS pipeline II=5
         
         // Obtain a read lock on the input channel
         // and a write lock for the output channel
@@ -62,10 +64,11 @@ funcB_Loop0: for (int i = 0; i < N/NUM_BLOCKS; i++) {
 }
 
 void funcC(hls::stream_of_blocks<block_data_t> &in, hls::stream_of_blocks<block_data_t> &out) {
+#pragma HLS INLINE off
 
 Loop0:
   for (data_t i = 0; i < N/NUM_BLOCKS; i++) {
-#pragma HLS pipeline rewind
+#pragma HLS pipeline II=5
 
       // Obtain a read lock on the input channel
       // and a write lock for the output channel
@@ -78,10 +81,11 @@ Loop0:
 
 void funcD(hls::stream_of_blocks<block_data_t> &in1, hls::stream_of_blocks<block_data_t> &in2,
            hls::stream<data_t> &out) {
+#pragma HLS INLINE off
 
 Loop0:
   for (int i = 0; i < N/NUM_BLOCKS; i++) {
-#pragma HLS pipeline rewind
+#pragma HLS pipeline II=10
 
       // Obtain two read locks on the input channels
       hls::read_lock<block_data_t> in1L(in1);
