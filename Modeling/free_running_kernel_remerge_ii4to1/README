@@ -1,5 +1,5 @@
 This example illustrates coding example of achieving II=1 based on two sources using De-Mux/Mux mechanism.
-
+It also uses a ap_ctrl_none which shows the free-running kernel behavior 
 
 Files Included in this Package
 ==============================
