@@ -1,0 +1,1 @@
+This is a common DATAFLOW issue, where the channels inside the DATAFLOW are not feed-forward and bypass the tasks which causes a degradation in performance. This example shows both teh problem and solution 

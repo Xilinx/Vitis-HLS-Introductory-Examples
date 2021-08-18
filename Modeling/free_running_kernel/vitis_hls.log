@@ -1,0 +1,191 @@
+INFO: [HLS 200-10] Running '/proj/xbuilds/SWIP/2021.1_0610_2318/installs/lin64/Vitis_HLS/2021.1/bin/unwrapped/lnx64.o/vitis_hls'
+/proj/xbuilds/SWIP/2021.1_0610_2318/installs/lin64/Vitis_HLS/2021.1/tps/tcl/tcl8.5/tzdata/America/Los_Angeles can't be opened.
+INFO: [HLS 200-10] For user 'aayyagar' on host 'xsjaayyagar40x.xlnx.xilinx.com' (Linux_x86_64 version 3.10.0-693.el7.x86_64) on Tue Aug 03 16:48:27 PDT 2021
+INFO: [HLS 200-10] On os "CentOS Linux release 7.4.1708 (Core) "
+INFO: [HLS 200-10] In directory '/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Modeling/free_running_kernel'
+Sourcing Tcl script '/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Modeling/free_running_kernel/proj_example/solution1/cosim.tcl'
+INFO: [HLS 200-1510] Running: open_project proj_example 
+INFO: [HLS 200-10] Opening project '/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Modeling/free_running_kernel/proj_example'.
+INFO: [HLS 200-1510] Running: set_top example 
+INFO: [HLS 200-1510] Running: add_files example.cpp 
+INFO: [HLS 200-10] Adding design file 'example.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files -tb example_test.cpp -cflags -Wno-unknown-pragmas -csimflags -Wno-unknown-pragmas 
+INFO: [HLS 200-10] Adding test bench file 'example_test.cpp' to the project
+INFO: [HLS 200-1510] Running: open_solution solution1 -flow_target vivado 
+INFO: [HLS 200-10] Opening solution '/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Modeling/free_running_kernel/proj_example/solution1'.
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 5ns.
+INFO: [HLS 200-1611] Setting target device to 'xcvu9p-flga2104-2-i'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see www.xilinx.com/cgi-bin/docs/rdoc?v=2021.1;t=hls+guidance;d=200-1505.html
+INFO: [HLS 200-1510] Running: set_part xcvu9p-flga2104-2-i 
+INFO: [HLS 200-1510] Running: create_clock -period 5 -name default 
+INFO: [HLS 200-1510] Running: set_directive_top -name example example 
+INFO: [HLS 200-1510] Running: cosim_design -enable_dataflow_profiling -trace_level all 
+INFO: [COSIM 212-47] Using XSIM for RTL simulation.
+INFO: [COSIM 212-14] Instrumenting C test bench ...
+   Build using "/proj/xbuilds/SWIP/2021.1_0610_2318/installs/lin64/Vitis_HLS/2021.1/tps/lnx64/gcc-6.2.0/bin/g++"
+   Compiling example_test.cpp_pre.cpp.tb.cpp
+   Compiling apatb_example_util.cpp
+   Compiling example.cpp_pre.cpp.tb.cpp
+   Compiling apatb_example.cpp
+   Compiling apatb_example_ir.ll
+   Generating cosim.tv.exe
+INFO: [COSIM 212-302] Starting C TB testing ... 
+INFO: [COSIM 212-333] Generating C post check test bench ...
+INFO: [COSIM 212-12] Generating RTL test bench ...
+INFO: [COSIM 212-1] *** C/RTL co-simulation file generation completed. ***
+INFO: [COSIM 212-323] Starting verilog simulation. 
+INFO: [COSIM 212-15] Starting XSIM ...
+Vivado Simulator v2021.1
+Copyright 1986-1999, 2001-2021 Xilinx, Inc. All Rights Reserved.
+Running: /proj/xbuilds/SWIP/2021.1_0610_2318/installs/lin64/Vivado/2021.1/bin/unwrapped/lnx64.o/xelab xil_defaultlib.apatb_example_top glbl -Oenable_linking_all_libraries -prj example.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver -L xpm -L floating_point_v7_0_19 -L floating_point_v7_1_12 --lib ieee_proposed=./ieee_proposed -s example -debug wave 
+Multi-threading is on. Using 2 slave threads.
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Modeling/free_running_kernel/proj_example/solution1/sim/verilog/glbl.v" into library work
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Modeling/free_running_kernel/proj_example/solution1/sim/verilog/example.autotb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module apatb_example_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Modeling/free_running_kernel/proj_example/solution1/sim/verilog/AESL_autofifo_in_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_autofifo_in_V
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Modeling/free_running_kernel/proj_example/solution1/sim/verilog/AESL_autofifo_out_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_autofifo_out_V
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Modeling/free_running_kernel/proj_example/solution1/sim/verilog/AESL_deadlock_detection_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_deadlock_detect_unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Modeling/free_running_kernel/proj_example/solution1/sim/verilog/AESL_deadlock_report_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_deadlock_report_unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Modeling/free_running_kernel/proj_example/solution1/sim/verilog/AESL_deadlock_detector.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_deadlock_detector
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Modeling/free_running_kernel/proj_example/solution1/sim/verilog/example_demux.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module example_demux
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Modeling/free_running_kernel/proj_example/solution1/sim/verilog/example_proc_0_s.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module example_proc_0_s
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Modeling/free_running_kernel/proj_example/solution1/sim/verilog/example_proc_1_3.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module example_proc_1_3
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Modeling/free_running_kernel/proj_example/solution1/sim/verilog/example_mux.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module example_mux
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Modeling/free_running_kernel/proj_example/solution1/sim/verilog/example.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module example
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Modeling/free_running_kernel/proj_example/solution1/sim/verilog/example_flow_control_loop_pipe.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module example_flow_control_loop_pipe
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Modeling/free_running_kernel/proj_example/solution1/sim/verilog/example_fifo_w32_d16_S.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module example_fifo_w32_d16_S_shiftReg
+INFO: [VRFC 10-311] analyzing module example_fifo_w32_d16_S
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Modeling/free_running_kernel/proj_example/solution1/sim/verilog/example_start_for_proc_0_U0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module example_start_for_proc_0_U0_shiftReg
+INFO: [VRFC 10-311] analyzing module example_start_for_proc_0_U0
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Modeling/free_running_kernel/proj_example/solution1/sim/verilog/example_start_for_proc_1_3_U0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module example_start_for_proc_1_3_U0_shiftReg
+INFO: [VRFC 10-311] analyzing module example_start_for_proc_1_3_U0
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Modeling/free_running_kernel/proj_example/solution1/sim/verilog/example_start_for_mux_U0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module example_start_for_mux_U0_shiftReg
+INFO: [VRFC 10-311] analyzing module example_start_for_mux_U0
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Modeling/free_running_kernel/proj_example/solution1/sim/verilog/dataflow_monitor.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dataflow_monitor
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package xil_defaultlib.$unit_dataflow_monitor_sv
+Compiling module xil_defaultlib.example_flow_control_loop_pipe
+Compiling module xil_defaultlib.example_demux
+Compiling module xil_defaultlib.example_proc_0_s
+Compiling module xil_defaultlib.example_proc_1_3
+Compiling module xil_defaultlib.example_mux
+Compiling module xil_defaultlib.example_fifo_w32_d16_S_shiftReg
+Compiling module xil_defaultlib.example_fifo_w32_d16_S
+Compiling module xil_defaultlib.example_start_for_proc_0_U0_shif...
+Compiling module xil_defaultlib.example_start_for_proc_0_U0
+Compiling module xil_defaultlib.example_start_for_proc_1_3_U0_sh...
+Compiling module xil_defaultlib.example_start_for_proc_1_3_U0
+Compiling module xil_defaultlib.example_start_for_mux_U0_shiftRe...
+Compiling module xil_defaultlib.example_start_for_mux_U0
+Compiling module xil_defaultlib.example
+Compiling module xil_defaultlib.AESL_autofifo_in_V
+Compiling module xil_defaultlib.AESL_autofifo_out_V
+Compiling module xil_defaultlib.AESL_deadlock_detect_unit(OUT_CH...
+Compiling module xil_defaultlib.AESL_deadlock_detect_unit(PROC_I...
+Compiling module xil_defaultlib.AESL_deadlock_detect_unit(PROC_I...
+Compiling module xil_defaultlib.AESL_deadlock_detect_unit(PROC_I...
+Compiling module xil_defaultlib.AESL_deadlock_report_unit_1
+Compiling module xil_defaultlib.AESL_deadlock_detector_1
+Compiling module xil_defaultlib.df_fifo_intf
+Compiling module xil_defaultlib.df_process_intf
+Compiling module xil_defaultlib.nodf_module_intf
+Compiling module xil_defaultlib.upc_loop_intf(FSM_WIDTH=1)
+Compiling module xil_defaultlib.dataflow_monitor_1
+Compiling module xil_defaultlib.apatb_example_top
+Compiling module work.glbl
+Built simulation snapshot example
+
+****** xsim v2021.1 (64-bit)
+  **** SW Build 3247384 on Thu Jun 10 19:36:07 MDT 2021
+  **** IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
+    ** Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+
+source xsim.dir/example/xsim_script.tcl
+# xsim {example} -view {{example_dataflow_ana.wcfg}} -tclbatch {example.tcl} -protoinst {example.protoinst}
+INFO: [Wavedata 42-565] Reading protoinst file example.protoinst
+INFO: [Wavedata 42-564]   Found protocol instance at /apatb_example_top/AESL_inst_example/demux_U0/demux_U0_activity
+INFO: [Wavedata 42-564]   Found protocol instance at /apatb_example_top/AESL_inst_example/mux_U0/mux_U0_activity
+INFO: [Wavedata 42-564]   Found protocol instance at /apatb_example_top/AESL_inst_example/proc_0_U0/proc_0_U0_activity
+INFO: [Wavedata 42-564]   Found protocol instance at /apatb_example_top/AESL_inst_example/proc_1_3_U0/proc_1_3_U0_activity
+Time resolution is 1 ps
+open_wave_config example_dataflow_ana.wcfg
+source example.tcl
+## log_wave -r /
+WARNING: [Simtcl 6-197] One or more HDL objects could not be logged because of object type or size limitations.  To see details please rerun the command with -verbose (-v).
+## set designtopgroup [add_wave_group "Design Top Signals"]
+## set coutputgroup [add_wave_group "C Outputs" -into $designtopgroup]
+## set return_group [add_wave_group return(fifo) -into $coutputgroup]
+## add_wave /apatb_example_top/AESL_inst_example/out_V_write -into $return_group -color #ffff00 -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/out_V_full_n -into $return_group -color #ffff00 -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/out_V_din -into $return_group -radix hex
+## set cinputgroup [add_wave_group "C Inputs" -into $designtopgroup]
+## set return_group [add_wave_group return(fifo) -into $cinputgroup]
+## add_wave /apatb_example_top/AESL_inst_example/in_V_read -into $return_group -color #ffff00 -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/in_V_empty_n -into $return_group -color #ffff00 -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/in_V_dout -into $return_group -radix hex
+## set resetgroup [add_wave_group "Reset" -into $designtopgroup]
+## add_wave /apatb_example_top/AESL_inst_example/ap_rst -into $resetgroup
+## set clockgroup [add_wave_group "Clock" -into $designtopgroup]
+## add_wave /apatb_example_top/AESL_inst_example/ap_clk -into $clockgroup
+## set testbenchgroup [add_wave_group "Test Bench Signals"]
+## set tbinternalsiggroup [add_wave_group "Internal Signals" -into $testbenchgroup]
+## set tb_simstatus_group [add_wave_group "Simulation Status" -into $tbinternalsiggroup]
+## set tb_portdepth_group [add_wave_group "Port Depth" -into $tbinternalsiggroup]
+## add_wave /apatb_example_top/AUTOTB_TRANSACTION_NUM -into $tb_simstatus_group -radix hex
+## add_wave /apatb_example_top/ready_cnt -into $tb_simstatus_group -radix hex
+## add_wave /apatb_example_top/done_cnt -into $tb_simstatus_group -radix hex
+## add_wave /apatb_example_top/ap_c_n_tvin_trans_num_in_V -into $tb_simstatus_group -radix hex
+## add_wave /apatb_example_top/ap_c_n_tvout_trans_num_out_V -into $tb_simstatus_group -radix hex
+## add_wave /apatb_example_top/LENGTH_in_V -into $tb_portdepth_group -radix hex
+## add_wave /apatb_example_top/LENGTH_out_V -into $tb_portdepth_group -radix hex
+## set tbcoutputgroup [add_wave_group "C Outputs" -into $testbenchgroup]
+## set tb_return_group [add_wave_group return(fifo) -into $tbcoutputgroup]
+## add_wave /apatb_example_top/out_V_write -into $tb_return_group -color #ffff00 -radix hex
+## add_wave /apatb_example_top/out_V_full_n -into $tb_return_group -color #ffff00 -radix hex
+## add_wave /apatb_example_top/out_V_din -into $tb_return_group -radix hex
+## set tbcinputgroup [add_wave_group "C Inputs" -into $testbenchgroup]
+## set tb_return_group [add_wave_group return(fifo) -into $tbcinputgroup]
+## add_wave /apatb_example_top/in_V_read -into $tb_return_group -color #ffff00 -radix hex
+## add_wave /apatb_example_top/in_V_empty_n -into $tb_return_group -color #ffff00 -radix hex
+## add_wave /apatb_example_top/in_V_dout -into $tb_return_group -radix hex
+## save_wave_config example.wcfg
+## run all
+////////////////////////////////////////////////////////////////////////////////////
+// Inter-Transaction Progress: Completed Transaction / Total Transaction
+// Intra-Transaction Progress: Measured Latency / Latency Estimation * 100%
+//
+// RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
+////////////////////////////////////////////////////////////////////////////////////
+// RTL Simulation : 0 / 1 [0.00%] @ "113000"
+// RTL Simulation : 1 / 1 [100.00%] @ "498000"
+////////////////////////////////////////////////////////////////////////////////////
+$finish called at time : 527500 ps : File "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Modeling/free_running_kernel/proj_example/solution1/sim/verilog/example.autotb.v" Line 243
+## quit
+INFO: [Common 17-206] Exiting xsim at Tue Aug  3 16:48:59 2021...
+INFO: [COSIM 212-316] Starting C post checking ...
+INFO: [COSIM 212-1000] *** C/RTL co-simulation finished: PASS ***
+INFO: [COSIM 212-211] II is measurable only when transaction number is greater than 1 in RTL simulation. Otherwise, they will be marked as all NA. If user wants to calculate them, please make sure there are at least 2 transactions in RTL simulation.
+INFO: [HLS 200-111] Finished Command cosim_design CPU user time: 25.27 seconds. CPU system time: 2.75 seconds. Elapsed time: 28.02 seconds; current allocated memory: 323.689 MB.

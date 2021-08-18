@@ -1,6 +1,5 @@
 /*
- * Example C++ code for implementing an AXI stream interface in Vitis HLS using
- * only the TDATA field and AXI handshake signals.
+ * Example C++ code for implementing an AXI array to stream with no side channels .
  */
 
 Files Included in this Package

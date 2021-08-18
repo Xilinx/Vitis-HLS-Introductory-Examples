@@ -1,0 +1,59 @@
+
+****** Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2021.1 (64-bit)
+  **** SW Build 3247384 on Thu Jun 10 19:36:07 MDT 2021
+  **** IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
+    ** Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+
+source /proj/xbuilds/SWIP/2021.1_0610_2318/installs/lin64/Vitis_HLS/2021.1/scripts/vitis_hls/hls.tcl -notrace
+INFO: [HLS 200-10] Running '/proj/xbuilds/SWIP/2021.1_0610_2318/installs/lin64/Vitis_HLS/2021.1/bin/unwrapped/lnx64.o/vitis_hls'
+/proj/xbuilds/SWIP/2021.1_0610_2318/installs/lin64/Vitis_HLS/2021.1/tps/tcl/tcl8.5/tzdata/America/Los_Angeles can't be opened.
+INFO: [HLS 200-10] For user 'aayyagar' on host 'xsjaayyagar40x.xlnx.xilinx.com' (Linux_x86_64 version 3.10.0-693.el7.x86_64) on Tue Aug 03 17:08:42 PDT 2021
+INFO: [HLS 200-10] On os "CentOS Linux release 7.4.1708 (Core) "
+INFO: [HLS 200-10] In directory '/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Modeling/free_running_kernel_variable_latency'
+Sourcing Tcl script 'run_hls.tcl'
+INFO: [HLS 200-1510] Running: open_project -reset proj_example 
+INFO: [HLS 200-10] Opening and resetting project '/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Modeling/free_running_kernel_variable_latency/proj_example'.
+WARNING: [HLS 200-40] No /wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Modeling/free_running_kernel_variable_latency/proj_example/solution1/solution1.aps file found.
+INFO: [HLS 200-1510] Running: add_files example.cpp 
+INFO: [HLS 200-10] Adding design file 'example.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files -tb example_test.cpp 
+INFO: [HLS 200-10] Adding test bench file 'example_test.cpp' to the project
+INFO: [HLS 200-1510] Running: set_top example 
+INFO: [HLS 200-1510] Running: open_solution -reset solution1 
+INFO: [HLS 200-10] Creating and opening solution '/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Modeling/free_running_kernel_variable_latency/proj_example/solution1'.
+INFO: [HLS 200-10] Cleaning up the solution database.
+WARNING: [HLS 200-40] No /wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Modeling/free_running_kernel_variable_latency/proj_example/solution1/solution1.aps file found.
+INFO: [HLS 200-1505] Using default flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see www.xilinx.com/cgi-bin/docs/rdoc?v=2021.1;t=hls+guidance;d=200-1505.html
+INFO: [HLS 200-1510] Running: set_part xcvu9p-flga2104-2-i 
+INFO: [HLS 200-1611] Setting target device to 'xcvu9p-flga2104-2-i'
+INFO: [HLS 200-1510] Running: create_clock -period 5 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 5ns.
+INFO: [HLS 200-1510] Running: csim_design 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+   Compiling ../../../../example_test.cpp in debug mode
+   Compiling ../../../../example.cpp in debug mode
+../../../../example.cpp: In function ‘void example(hls::stream<int, 0>&, hls::stream<int, 0>&, hls::stream<int, 0>&)’:
+../../../../example.cpp:86:32: error: no matching function for call to ‘proc_0(hls::stream<int, 16>&, hls::stream<int, 16>&)’
+     proc_0(inter[0], mux_in_lat);
+                                ^
+../../../../example.cpp:27:6: note: candidate: template<int ID> void proc_0(hls::stream<int, 16>&, hls::stream<int, 16>&)
+ void proc_0(stream<int,16> &in, stream<int,16> &out)
+      ^~~~~~
+../../../../example.cpp:27:6: note:   template argument deduction/substitution failed:
+../../../../example.cpp:86:32: note:   couldn't deduce template parameter ‘ID’
+     proc_0(inter[0], mux_in_lat);
+                                ^
+make: *** [obj/example.o] Error 1
+ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s).
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 2.38 seconds. CPU system time: 0.58 seconds. Elapsed time: 5.7 seconds; current allocated memory: 316.541 MB.
+4
+    while executing
+"source run_hls.tcl"
+    ("uplevel" body line 1)
+    invoked from within
+"uplevel \#0 [list source $arg] "
+
+INFO: [Common 17-206] Exiting vitis_hls at Tue Aug  3 17:08:51 2021...

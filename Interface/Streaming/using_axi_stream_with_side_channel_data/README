@@ -1,6 +1,5 @@
 /*
- * Example C++ code for implementing an AXI stream interface in Vitis HLS using
- * all side channels.
+ * Example C++ code for implementing an AXI stream interface in Vitis HLS using all side channels.
  */
 
 Files Included in this Package
