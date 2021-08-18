@@ -27,11 +27,21 @@ int main()
   hls::stream<ap_axis<32,2,5,6> > A, B;
   ap_axis<32,2,5,6> tmp1, tmp2;
 
+ for(int j=0;j<100;j++)
+{
   tmp1.data = i;
   tmp1.keep = 1;
   tmp1.strb = 1;
   tmp1.user = 1;
+ if(j=99)
+{
+  tmp1.last = 1;
+ 
+}
+else
+{
   tmp1.last = 0;
+}
   tmp1.id = 0;
   tmp1.dest = 1;
 
@@ -44,10 +54,9 @@ int main()
     cout << "ERROR: results mismatch" << endl;
     return 1;
   }
-  else
-  {
+
+}
     cout << "Success: results match" << endl;
     return 0;
-  }
 }
 

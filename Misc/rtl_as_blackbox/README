@@ -1,0 +1,19 @@
+This examaple uses the RTL blackbox feature. 
+The RTL blackbox enables the use of existing RTL IP in an HLS project. This lets you add RTL code to your C/C++ code for synthesis of the project by Vitis HLS.
+
+
+Files Included in this Package
+==================================================
+example.h
+example.cpp
+example_test.cpp
+rtl_model.cpp
+result.golden.dat
+rtl_model.json
+rtl_model.v
+run_hls.tcl
+
+
+Running the Design (edit x_hls.tcl to run synthesis)
+=================================================
+vitis_hls -f run_hls.tcl

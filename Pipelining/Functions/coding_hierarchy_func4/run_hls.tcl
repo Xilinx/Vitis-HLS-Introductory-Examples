@@ -14,50 +14,44 @@
 # limitations under the License.
 
 # Create a project
-open_project -reset proj_pipelining_frp
+open_project -reset proj_hier_func4
 
 # Add design files
-add_files free_pipe_mult.cpp
+add_files hier_func4.cpp
 # Add test bench & files
-add_files -tb free_pipe_mult_tb.cpp
-add_files -tb result.golden.dat
+add_files -tb hier_func4_test.cpp
+add_files -tb tb_data
 
 # Set the top-level function
-set_top free_pipe_mult
+set_top hier_func4
 
 # ########################################################
 # Create a solution
 open_solution -reset solution1
-# Define technology and clock rate
 set_part  {xcvu9p-flga2104-2-i}
-create_clock -period 5
+create_clock -period 4
 
 # Set variable to select which steps to execute
 set hls_exec 2
 
 
 csim_design
-
 # Set any optimization directives
-config_dataflow -default_channel fifo -fifo_depth 16
-config_compile -pipeline_style frp
-set_directive_interface -mode ap_fifo "free_pipe_mult" B
-set_directive_interface -mode ap_fifo "free_pipe_mult" out
 # End of directives
 
 if {$hls_exec == 1} {
 	# Run Synthesis and Exit
 	csynth_design
-
+	
 } elseif {$hls_exec == 2} {
 	# Run Synthesis, RTL Simulation and Exit
 	csynth_design
-
+	
 	cosim_design
-} elseif {$hls_exec == 3} {
+} elseif {$hls_exec == 3} { 
 	# Run Synthesis, RTL Simulation, RTL implementation and Exit
 	csynth_design
-
+	
 	cosim_design
 	export_design
 } else {

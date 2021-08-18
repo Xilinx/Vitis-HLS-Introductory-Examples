@@ -1,5 +1,6 @@
 /*
- * Example C++ code for implementing an AXI array to stream with no side channels .
+ *
+ :Example C++ code for implementing an AXI array to stream with no side channels .
  */
 
 Files Included in this Package

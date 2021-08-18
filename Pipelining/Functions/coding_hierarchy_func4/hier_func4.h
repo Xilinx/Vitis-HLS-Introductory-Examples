@@ -14,27 +14,18 @@
  * limitations under the License.
  */
 
-#include "ap_axi_sdata.h"
-#include "hls_stream.h"
+#ifndef _hier_func4_H_
+#define _hier_func4_H_
 
+#include <stdio.h>
 
-void example(hls::stream< ap_axis<32,2,5,6> > &A,
-	     hls::stream< ap_axis<32,2,5,6> > &B)
-{
-#pragma HLS INTERFACE axis port=A
-#pragma HLS INTERFACE axis port=B
+#define NUM_TRANS 40
 
-	ap_axis<32,2,5,6> tmp;
-    while(1)
-    {
-	A.read(tmp);
-	tmp.data = tmp.data.to_int() + 5;
-	B.write(tmp);
-     if(tmp.last)
-     {
-         break;
-     }
-    }
-    
+typedef int din_t;
+typedef int dint_t;
+typedef int dout_t;
 
-}
+void hier_func4(din_t A, din_t B, dout_t *C, dout_t *D);
+
+#endif
+
