@@ -1,12 +1,12 @@
-This example shows how to rewrite without using explicit mallocs in the C/C++ code.
+This example shows how to use native C type casts in a synthesizable design.
 
 Files Included in this Package
 ==============================
-README
-malloc_removed.c
-malloc_removed.h
-malloc_removed_test.c
-result.golden.dat
+README  
+pointer_cast_native.c  
+pointer_cast_native.h  
+pointer_cast_native_test.c  
+result.golden.dat  
 run_hls.tcl
 
 Running the Design (edit run_hls.tcl to set $hls_exec and enable specific run steps)
