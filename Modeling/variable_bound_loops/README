@@ -19,5 +19,4 @@ Note the following directives that are applied on the variable bounded loop:
 
 # Specified in run_hls.tcl
 set_directive_unroll loop_var/LOOP_X
-set_directive_loop_tripcount -max 32 loop_var/LOOP_X
 
