@@ -1,0 +1,17 @@
+The example shows an imperfect loop which does not follow the loop flatten pre-conditions. 
+
+
+ Included in this Package
+ ==============================
+loop_imperfect.h
+loop_imperfect.cpp      
+loop_imperfect_test.cpp  
+run_hls.tcl
+result.golden.dat
+ README
+
+ Running the Design (edit run_hls.tcl to set $hls_exec and enable specific run steps)
+ =========================================================
+ vitis_hls -f run_hls.tcl
+
+

@@ -1,0 +1,25 @@
+/*
+ * Example code for a fixed-point "window function" based on a template class.
+ * This example demonstrates several Xilinx High Level Synthesis (HLS) C++
+ * language support features, ehancements and coding style techniques including:
+ * - C+ coding style for ROM inference - init functions must be global-scope
+ * - use of <cmath> functions to init ROMs - no HW created by HLS
+ * - use of the ap_fixed<> data type in both HLS and C++ functional modeling
+ * - code reuse/parameterization via C++ templates
+ * - top level wrapper function for HLS of class objets cand methods
+ * - TCL directive syntax for a class member (see run_hls.tcl)
+ * - namespaces to control visibility and prevent naming clashes
+ */
+
+Files Included in this Package
+==================================================
+window_fn_top.cpp  - top level wrapper function
+window_fn_top.h    - top level header with function prototype, typedefs, etc
+window_fn_class.h  - header file for window function class
+window_fn_test.cpp - test program which for SW model validation & RTL co-sim
+run_hls.tcl        - HLS run script
+README             - this file
+
+Running the Design
+=================================================
+vitis_hls -f run_hls.tcl

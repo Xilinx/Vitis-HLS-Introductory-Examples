@@ -1,0 +1,14 @@
+This simple example shows how to use C++ templatized structs, used to implement a tail-recursion Fibonacci algorithm for example
+
+Files included in this package:
+===============================
+cpp_template.cpp
+cpp_template.h
+cpp_template_test.cpp
+result.golden.dat
+run_hls.tcl
+README
+
+Running the Design (edit run_hls.tcl to enable specific run steps)
+=========================================================
+vitis_hls -f run_hls.tcl

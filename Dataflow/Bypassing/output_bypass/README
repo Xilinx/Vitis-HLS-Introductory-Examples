@@ -1,0 +1,14 @@
+This is a common DATAFLOW issue, where the channels inside the DATAFLOW does not follow the feed-forward which causes degradation in performance. This example shows both the problem and solution 
+
+Files Included in this Package
+==============================
+dut.cpp  
+dut_sol.cpp
+test_dut.cpp
+run_hls.tcl
+README
+
+Running the Design (edit run_hls.tcl to set $hls_exec and enable specific run steps)
+=========================================================
+vitis_hls -f run_hls.tcl
+

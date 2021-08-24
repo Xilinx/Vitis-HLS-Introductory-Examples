@@ -1,0 +1,378 @@
+INFO: [HLS 200-10] Running '/proj/xbuilds/SWIP/2020.2_1118_1232/installs/lin64/Vitis_HLS/2020.2/bin/unwrapped/lnx64.o/vitis_hls'
+/proj/xbuilds/SWIP/2020.2_1118_1232/installs/lin64/Vitis_HLS/2020.2/tps/tcl/tcl8.5/tzdata/America/Los_Angeles can't be opened.
+INFO: [HLS 200-10] For user 'aayyagar' on host 'xsjaayyagar40x.xlnx.xilinx.com' (Linux_x86_64 version 3.10.0-693.el7.x86_64) on Thu Aug 12 12:26:24 PDT 2021
+INFO: [HLS 200-10] On os "CentOS Linux release 7.4.1708 (Core) "
+INFO: [HLS 200-10] In directory '/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Interface/axi_stream_to_master'
+Sourcing Tcl script '/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Interface/axi_stream_to_master/proj/solution1/cosim.tcl'
+INFO: [HLS 200-1510] Running: open_project proj 
+INFO: [HLS 200-10] Opening project '/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Interface/axi_stream_to_master/proj'.
+INFO: [HLS 200-1510] Running: set_top example 
+INFO: [HLS 200-1510] Running: add_files example.cpp 
+INFO: [HLS 200-10] Adding design file 'example.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files -tb example_test.cpp -cflags -Wno-unknown-pragmas -csimflags -Wno-unknown-pragmas 
+INFO: [HLS 200-10] Adding test bench file 'example_test.cpp' to the project
+INFO: [HLS 200-1510] Running: open_solution solution1 -flow_target vivado 
+INFO: [HLS 200-10] Opening solution '/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Interface/axi_stream_to_master/proj/solution1'.
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 5ns.
+INFO: [HLS 200-10] Setting target device to 'xcvu9p-flga2104-2-i'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see www.xilinx.com/cgi-bin/docs/rdoc?v=2020.2;t=hls+guidance;d=200-1505.html
+INFO: [HLS 200-1510] Running: set_part xcvu9p-flga2104-2-i 
+INFO: [HLS 200-1510] Running: create_clock -period 5 -name default 
+INFO: [HLS 200-1510] Running: set_directive_top -name example example 
+INFO: [HLS 200-1510] Running: cosim_design -trace_level all 
+INFO: [COSIM 212-47] Using XSIM for RTL simulation.
+INFO: [COSIM 212-14] Instrumenting C test bench ...
+   Build using "/proj/xbuilds/SWIP/2020.2_1118_1232/installs/lin64/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/bin/g++"
+   Compiling example_test.cpp_pre.cpp.tb.cpp
+   Compiling apatb_example_util.cpp
+   Compiling example.cpp_pre.cpp.tb.cpp
+   Compiling apatb_example.cpp
+   Compiling apatb_example_ir.ll
+   Generating cosim.tv.exe
+INFO: [COSIM 212-302] Starting C TB testing ... 
+The maximum depth reached by any of the 2 hls::stream() instances in the design is 1024
+The maximum depth reached by any of the 1 hls::stream() instances in the design is 1024
+INFO: [COSIM 212-333] Generating C post check test bench ...
+INFO: [COSIM 212-12] Generating RTL test bench ...
+INFO: [COSIM 212-1] *** C/RTL co-simulation file generation completed. ***
+INFO: [COSIM 212-323] Starting verilog simulation. 
+INFO: [COSIM 212-15] Starting XSIM ...
+Vivado Simulator 2020.2
+Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
+Running: /proj/xbuilds/SWIP/2020.2_1118_1232/installs/lin64/Vivado/2020.2/bin/unwrapped/lnx64.o/xelab xil_defaultlib.apatb_example_top glbl -prj example.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver -L xpm -L floating_point_v7_0_18 -L floating_point_v7_1_11 --lib ieee_proposed=./ieee_proposed -s example -debug wave 
+Multi-threading is on. Using 2 slave threads.
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Interface/axi_stream_to_master/proj/solution1/sim/verilog/glbl.v" into library work
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Interface/axi_stream_to_master/proj/solution1/sim/verilog/example.autotb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module apatb_example_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Interface/axi_stream_to_master/proj/solution1/sim/verilog/AESL_fifo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fifo
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Interface/axi_stream_to_master/proj/solution1/sim/verilog/AESL_axi_s_inStreamTop.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_axi_s_inStreamTop
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Interface/axi_stream_to_master/proj/solution1/sim/verilog/AESL_axi_master_gmem0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_axi_master_gmem0
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Interface/axi_stream_to_master/proj/solution1/sim/verilog/AESL_axi_slave_control.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_axi_slave_control
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Interface/axi_stream_to_master/proj/solution1/sim/verilog/AESL_deadlock_detection_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_deadlock_detect_unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Interface/axi_stream_to_master/proj/solution1/sim/verilog/AESL_deadlock_report_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_deadlock_report_unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Interface/axi_stream_to_master/proj/solution1/sim/verilog/AESL_deadlock_detector.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_deadlock_detector
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Interface/axi_stream_to_master/proj/solution1/sim/verilog/example_getinstream3.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module example_getinstream3
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Interface/axi_stream_to_master/proj/solution1/sim/verilog/example_streamtoparallelwithburst.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module example_streamtoparallelwithburst
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Interface/axi_stream_to_master/proj/solution1/sim/verilog/example.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module example
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Interface/axi_stream_to_master/proj/solution1/sim/verilog/example_regslice_both.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module example_regslice_both
+INFO: [VRFC 10-311] analyzing module example_regslice_both_w1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Interface/axi_stream_to_master/proj/solution1/sim/verilog/example_fifo_w128_d4096_A.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module example_fifo_w128_d4096_A_ram
+INFO: [VRFC 10-311] analyzing module example_fifo_w128_d4096_A
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Interface/axi_stream_to_master/proj/solution1/sim/verilog/example_fifo_w32_d64_A.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module example_fifo_w32_d64_A_ram
+INFO: [VRFC 10-311] analyzing module example_fifo_w32_d64_A
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Interface/axi_stream_to_master/proj/solution1/sim/verilog/example_fifo_w64_d2_S.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module example_fifo_w64_d2_S_shiftReg
+INFO: [VRFC 10-311] analyzing module example_fifo_w64_d2_S
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Interface/axi_stream_to_master/proj/solution1/sim/verilog/example_start_for_streamtoparallelwithburst_U0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module example_start_for_streamtoparallelwithburst_U0_shiftReg
+INFO: [VRFC 10-311] analyzing module example_start_for_streamtoparallelwithburst_U0
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Interface/axi_stream_to_master/proj/solution1/sim/verilog/example_control_s_axi.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module example_control_s_axi
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Interface/axi_stream_to_master/proj/solution1/sim/verilog/example_gmem0_m_axi.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module example_gmem0_m_axi
+INFO: [VRFC 10-311] analyzing module example_gmem0_m_axi_reg_slice
+INFO: [VRFC 10-311] analyzing module example_gmem0_m_axi_fifo
+INFO: [VRFC 10-311] analyzing module example_gmem0_m_axi_buffer
+INFO: [VRFC 10-311] analyzing module example_gmem0_m_axi_decoder
+INFO: [VRFC 10-311] analyzing module example_gmem0_m_axi_throttle
+INFO: [VRFC 10-311] analyzing module example_gmem0_m_axi_read
+INFO: [VRFC 10-311] analyzing module example_gmem0_m_axi_write
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Interface/axi_stream_to_master/proj/solution1/sim/verilog/df_fifo_interface.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Interface/axi_stream_to_master/proj/solution1/sim/verilog/df_process_interface.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Interface/axi_stream_to_master/proj/solution1/sim/verilog/nodf_module_interface.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Interface/axi_stream_to_master/proj/solution1/sim/verilog/dump_file_agent.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Interface/axi_stream_to_master/proj/solution1/sim/verilog/csv_file_dump.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Interface/axi_stream_to_master/proj/solution1/sim/verilog/sample_agent.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Interface/axi_stream_to_master/proj/solution1/sim/verilog/df_fifo_monitor.sv" into library xil_defaultlib
+WARNING: [VRFC 10-3609] overwriting previous definition of interface 'df_fifo_intf' [df_fifo_interface.sv:4]
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Interface/axi_stream_to_master/proj/solution1/sim/verilog/df_process_monitor.sv" into library xil_defaultlib
+WARNING: [VRFC 10-3609] overwriting previous definition of interface 'df_process_intf' [df_process_interface.sv:4]
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Interface/axi_stream_to_master/proj/solution1/sim/verilog/nodf_module_monitor.sv" into library xil_defaultlib
+WARNING: [VRFC 10-3609] overwriting previous definition of interface 'nodf_module_intf' [nodf_module_interface.sv:4]
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Interface/axi_stream_to_master/proj/solution1/sim/verilog/sample_manager.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Interface/axi_stream_to_master/proj/solution1/sim/verilog/dataflow_monitor.sv" into library xil_defaultlib
+WARNING: [VRFC 10-3609] overwriting previous definition of interface 'df_fifo_intf' [df_fifo_interface.sv:4]
+WARNING: [VRFC 10-3609] overwriting previous definition of interface 'df_process_intf' [df_process_interface.sv:4]
+WARNING: [VRFC 10-3609] overwriting previous definition of interface 'nodf_module_intf' [nodf_module_interface.sv:4]
+INFO: [VRFC 10-311] analyzing module dataflow_monitor
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package xil_defaultlib.$unit_dataflow_monitor_sv
+Compiling module xil_defaultlib.example_control_s_axi
+Compiling module xil_defaultlib.example_gmem0_m_axi_reg_slice(N=...
+Compiling module xil_defaultlib.example_gmem0_m_axi_fifo(DATA_BI...
+Compiling module xil_defaultlib.example_gmem0_m_axi_buffer(DATA_...
+Compiling module xil_defaultlib.example_gmem0_m_axi_fifo(DEPTH=1...
+Compiling module xil_defaultlib.example_gmem0_m_axi_fifo(DATA_BI...
+Compiling module xil_defaultlib.example_gmem0_m_axi_write(NUM_WR...
+Compiling module xil_defaultlib.example_gmem0_m_axi_buffer(DATA_...
+Compiling module xil_defaultlib.example_gmem0_m_axi_reg_slice(N=...
+Compiling module xil_defaultlib.example_gmem0_m_axi_read(NUM_REA...
+Compiling module xil_defaultlib.example_gmem0_m_axi_throttle(ADD...
+Compiling module xil_defaultlib.example_gmem0_m_axi(NUM_READ_OUT...
+Compiling module xil_defaultlib.example_regslice_both(DataWidth=...
+Compiling module xil_defaultlib.example_regslice_both(DataWidth=...
+Compiling module xil_defaultlib.example_regslice_both(DataWidth=...
+Compiling module xil_defaultlib.example_getinstream3
+Compiling module xil_defaultlib.example_streamtoparallelwithburs...
+Compiling module xil_defaultlib.example_fifo_w128_d4096_A_ram
+Compiling module xil_defaultlib.example_fifo_w128_d4096_A
+Compiling module xil_defaultlib.example_fifo_w32_d64_A_ram
+Compiling module xil_defaultlib.example_fifo_w32_d64_A
+Compiling module xil_defaultlib.example_fifo_w64_d2_S_shiftReg
+Compiling module xil_defaultlib.example_fifo_w64_d2_S
+Compiling module xil_defaultlib.example_start_for_streamtoparall...
+Compiling module xil_defaultlib.example_start_for_streamtoparall...
+Compiling module xil_defaultlib.example
+Compiling module xil_defaultlib.fifo(DEPTH=1024,WIDTH=64)
+Compiling module xil_defaultlib.fifo(DEPTH=1024)
+Compiling module xil_defaultlib.fifo(DEPTH=1024,WIDTH=1)
+Compiling module xil_defaultlib.AESL_axi_s_inStreamTop
+Compiling module xil_defaultlib.AESL_axi_master_gmem0
+Compiling module xil_defaultlib.AESL_axi_slave_control
+Compiling module xil_defaultlib.AESL_deadlock_detect_unit(PROC_N...
+Compiling module xil_defaultlib.AESL_deadlock_detect_unit(PROC_N...
+Compiling module xil_defaultlib.AESL_deadlock_report_unit(PROC_N...
+Compiling module xil_defaultlib.AESL_deadlock_detector_1
+Compiling module xil_defaultlib.df_fifo_intf
+Compiling module xil_defaultlib.df_process_intf
+Compiling module xil_defaultlib.nodf_module_intf
+Compiling module xil_defaultlib.dataflow_monitor_1
+Compiling module xil_defaultlib.apatb_example_top
+Compiling module work.glbl
+Built simulation snapshot example
+
+****** xsim v2020.2 (64-bit)
+  **** SW Build 3064766 on Wed Nov 18 09:12:47 MST 2020
+  **** IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+source xsim.dir/example/xsim_script.tcl
+# xsim {example} -view {{example_dataflow_ana.wcfg}} -tclbatch {example.tcl} -protoinst {example.protoinst}
+Vivado Simulator 2020.2
+INFO: [Wavedata 42-565] Reading protoinst file example.protoinst
+INFO: [Wavedata 42-564]   Found protocol instance at /apatb_example_top/AESL_inst_example//AESL_inst_example_activity
+INFO: [Wavedata 42-564]   Found protocol instance at /apatb_example_top/AESL_inst_example/getinstream3_U0/getinstream3_U0_activity
+INFO: [Wavedata 42-564]   Found protocol instance at /apatb_example_top/AESL_inst_example/streamtoparallelwithburst_U0/streamtoparallelwithburst_U0_activity
+Time resolution is 1 ps
+open_wave_config example_dataflow_ana.wcfg
+source example.tcl
+## log_wave -r /
+WARNING: [Simtcl 6-197] One or more HDL objects could not be logged because of object type or size limitations.  To see details please rerun the command with -verbose (-v).
+## set designtopgroup [add_wave_group "Design Top Signals"]
+## set cinoutgroup [add_wave_group "C InOuts" -into $designtopgroup]
+## set outTop__return_group [add_wave_group outTop__return(axi_slave) -into $cinoutgroup]
+## add_wave /apatb_example_top/AESL_inst_example/interrupt -into $outTop__return_group -color #ffff00 -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/s_axi_control_BRESP -into $outTop__return_group -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/s_axi_control_BREADY -into $outTop__return_group -color #ffff00 -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/s_axi_control_BVALID -into $outTop__return_group -color #ffff00 -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/s_axi_control_RRESP -into $outTop__return_group -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/s_axi_control_RDATA -into $outTop__return_group -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/s_axi_control_RREADY -into $outTop__return_group -color #ffff00 -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/s_axi_control_RVALID -into $outTop__return_group -color #ffff00 -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/s_axi_control_ARREADY -into $outTop__return_group -color #ffff00 -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/s_axi_control_ARVALID -into $outTop__return_group -color #ffff00 -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/s_axi_control_ARADDR -into $outTop__return_group -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/s_axi_control_WSTRB -into $outTop__return_group -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/s_axi_control_WDATA -into $outTop__return_group -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/s_axi_control_WREADY -into $outTop__return_group -color #ffff00 -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/s_axi_control_WVALID -into $outTop__return_group -color #ffff00 -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/s_axi_control_AWREADY -into $outTop__return_group -color #ffff00 -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/s_axi_control_AWVALID -into $outTop__return_group -color #ffff00 -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/s_axi_control_AWADDR -into $outTop__return_group -radix hex
+## set coutputgroup [add_wave_group "C Outputs" -into $designtopgroup]
+## set outTop_group [add_wave_group outTop(axi_master) -into $coutputgroup]
+## set rdata_group [add_wave_group "Read Channel" -into $outTop_group]
+## set wdata_group [add_wave_group "Write Channel" -into $outTop_group]
+## set ctrl_group [add_wave_group "Handshakes" -into $outTop_group]
+## add_wave /apatb_example_top/AESL_inst_example/m_axi_gmem0_BUSER -into $wdata_group -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/m_axi_gmem0_BID -into $wdata_group -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/m_axi_gmem0_BRESP -into $wdata_group -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/m_axi_gmem0_BREADY -into $ctrl_group -color #ffff00 -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/m_axi_gmem0_BVALID -into $ctrl_group -color #ffff00 -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/m_axi_gmem0_RRESP -into $rdata_group -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/m_axi_gmem0_RUSER -into $rdata_group -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/m_axi_gmem0_RID -into $rdata_group -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/m_axi_gmem0_RLAST -into $ctrl_group -color #ffff00 -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/m_axi_gmem0_RDATA -into $rdata_group -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/m_axi_gmem0_RREADY -into $ctrl_group -color #ffff00 -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/m_axi_gmem0_RVALID -into $ctrl_group -color #ffff00 -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/m_axi_gmem0_ARUSER -into $rdata_group -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/m_axi_gmem0_ARREGION -into $rdata_group -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/m_axi_gmem0_ARQOS -into $rdata_group -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/m_axi_gmem0_ARPROT -into $rdata_group -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/m_axi_gmem0_ARCACHE -into $rdata_group -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/m_axi_gmem0_ARLOCK -into $rdata_group -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/m_axi_gmem0_ARBURST -into $rdata_group -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/m_axi_gmem0_ARSIZE -into $rdata_group -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/m_axi_gmem0_ARLEN -into $rdata_group -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/m_axi_gmem0_ARID -into $rdata_group -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/m_axi_gmem0_ARADDR -into $rdata_group -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/m_axi_gmem0_ARREADY -into $ctrl_group -color #ffff00 -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/m_axi_gmem0_ARVALID -into $ctrl_group -color #ffff00 -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/m_axi_gmem0_WUSER -into $wdata_group -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/m_axi_gmem0_WID -into $wdata_group -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/m_axi_gmem0_WLAST -into $ctrl_group -color #ffff00 -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/m_axi_gmem0_WSTRB -into $wdata_group -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/m_axi_gmem0_WDATA -into $wdata_group -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/m_axi_gmem0_WREADY -into $ctrl_group -color #ffff00 -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/m_axi_gmem0_WVALID -into $ctrl_group -color #ffff00 -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/m_axi_gmem0_AWUSER -into $wdata_group -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/m_axi_gmem0_AWREGION -into $wdata_group -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/m_axi_gmem0_AWQOS -into $wdata_group -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/m_axi_gmem0_AWPROT -into $wdata_group -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/m_axi_gmem0_AWCACHE -into $wdata_group -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/m_axi_gmem0_AWLOCK -into $wdata_group -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/m_axi_gmem0_AWBURST -into $wdata_group -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/m_axi_gmem0_AWSIZE -into $wdata_group -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/m_axi_gmem0_AWLEN -into $wdata_group -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/m_axi_gmem0_AWID -into $wdata_group -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/m_axi_gmem0_AWADDR -into $wdata_group -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/m_axi_gmem0_AWREADY -into $ctrl_group -color #ffff00 -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/m_axi_gmem0_AWVALID -into $ctrl_group -color #ffff00 -radix hex
+## set cinputgroup [add_wave_group "C Inputs" -into $designtopgroup]
+## set inStreamTop_group [add_wave_group inStreamTop(axis) -into $cinputgroup]
+## add_wave /apatb_example_top/AESL_inst_example/inStreamTop_TREADY -into $inStreamTop_group -color #ffff00 -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/inStreamTop_TVALID -into $inStreamTop_group -color #ffff00 -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/inStreamTop_TLAST -into $inStreamTop_group -color #ffff00 -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/inStreamTop_TSTRB -into $inStreamTop_group -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/inStreamTop_TKEEP -into $inStreamTop_group -radix hex
+## add_wave /apatb_example_top/AESL_inst_example/inStreamTop_TDATA -into $inStreamTop_group -radix hex
+## set blocksiggroup [add_wave_group "Block-level IO Handshake(internal)" -into $designtopgroup]
+## add_wave /apatb_example_top/AESL_inst_example/ap_done -into $blocksiggroup
+## add_wave /apatb_example_top/AESL_inst_example/ap_idle -into $blocksiggroup
+## add_wave /apatb_example_top/AESL_inst_example/ap_ready -into $blocksiggroup
+## add_wave /apatb_example_top/AESL_inst_example/ap_start -into $blocksiggroup
+## set resetgroup [add_wave_group "Reset" -into $designtopgroup]
+## add_wave /apatb_example_top/AESL_inst_example/ap_rst_n -into $resetgroup
+## set clockgroup [add_wave_group "Clock" -into $designtopgroup]
+## add_wave /apatb_example_top/AESL_inst_example/ap_clk -into $clockgroup
+## set testbenchgroup [add_wave_group "Test Bench Signals"]
+## set tbinternalsiggroup [add_wave_group "Internal Signals" -into $testbenchgroup]
+## set tb_simstatus_group [add_wave_group "Simulation Status" -into $tbinternalsiggroup]
+## set tb_portdepth_group [add_wave_group "Port Depth" -into $tbinternalsiggroup]
+## add_wave /apatb_example_top/AUTOTB_TRANSACTION_NUM -into $tb_simstatus_group -radix hex
+## add_wave /apatb_example_top/ready_cnt -into $tb_simstatus_group -radix hex
+## add_wave /apatb_example_top/done_cnt -into $tb_simstatus_group -radix hex
+## add_wave /apatb_example_top/LENGTH_gmem0 -into $tb_portdepth_group -radix hex
+## add_wave /apatb_example_top/LENGTH_inStreamTop_V_data_V -into $tb_portdepth_group -radix hex
+## add_wave /apatb_example_top/LENGTH_inStreamTop_V_keep_V -into $tb_portdepth_group -radix hex
+## add_wave /apatb_example_top/LENGTH_inStreamTop_V_strb_V -into $tb_portdepth_group -radix hex
+## add_wave /apatb_example_top/LENGTH_inStreamTop_V_last_V -into $tb_portdepth_group -radix hex
+## add_wave /apatb_example_top/LENGTH_outTop -into $tb_portdepth_group -radix hex
+## set tbcinoutgroup [add_wave_group "C InOuts" -into $testbenchgroup]
+## set tb_outTop__return_group [add_wave_group outTop__return(axi_slave) -into $tbcinoutgroup]
+## add_wave /apatb_example_top/control_INTERRUPT -into $tb_outTop__return_group -color #ffff00 -radix hex
+## add_wave /apatb_example_top/control_BRESP -into $tb_outTop__return_group -radix hex
+## add_wave /apatb_example_top/control_BREADY -into $tb_outTop__return_group -color #ffff00 -radix hex
+## add_wave /apatb_example_top/control_BVALID -into $tb_outTop__return_group -color #ffff00 -radix hex
+## add_wave /apatb_example_top/control_RRESP -into $tb_outTop__return_group -radix hex
+## add_wave /apatb_example_top/control_RDATA -into $tb_outTop__return_group -radix hex
+## add_wave /apatb_example_top/control_RREADY -into $tb_outTop__return_group -color #ffff00 -radix hex
+## add_wave /apatb_example_top/control_RVALID -into $tb_outTop__return_group -color #ffff00 -radix hex
+## add_wave /apatb_example_top/control_ARREADY -into $tb_outTop__return_group -color #ffff00 -radix hex
+## add_wave /apatb_example_top/control_ARVALID -into $tb_outTop__return_group -color #ffff00 -radix hex
+## add_wave /apatb_example_top/control_ARADDR -into $tb_outTop__return_group -radix hex
+## add_wave /apatb_example_top/control_WSTRB -into $tb_outTop__return_group -radix hex
+## add_wave /apatb_example_top/control_WDATA -into $tb_outTop__return_group -radix hex
+## add_wave /apatb_example_top/control_WREADY -into $tb_outTop__return_group -color #ffff00 -radix hex
+## add_wave /apatb_example_top/control_WVALID -into $tb_outTop__return_group -color #ffff00 -radix hex
+## add_wave /apatb_example_top/control_AWREADY -into $tb_outTop__return_group -color #ffff00 -radix hex
+## add_wave /apatb_example_top/control_AWVALID -into $tb_outTop__return_group -color #ffff00 -radix hex
+## add_wave /apatb_example_top/control_AWADDR -into $tb_outTop__return_group -radix hex
+## set tbcoutputgroup [add_wave_group "C Outputs" -into $testbenchgroup]
+## set tb_outTop_group [add_wave_group outTop(axi_master) -into $tbcoutputgroup]
+## set rdata_group [add_wave_group "Read Channel" -into $tb_outTop_group]
+## set wdata_group [add_wave_group "Write Channel" -into $tb_outTop_group]
+## set ctrl_group [add_wave_group "Handshakes" -into $tb_outTop_group]
+## add_wave /apatb_example_top/gmem0_BUSER -into $wdata_group -radix hex
+## add_wave /apatb_example_top/gmem0_BID -into $wdata_group -radix hex
+## add_wave /apatb_example_top/gmem0_BRESP -into $wdata_group -radix hex
+## add_wave /apatb_example_top/gmem0_BREADY -into $ctrl_group -color #ffff00 -radix hex
+## add_wave /apatb_example_top/gmem0_BVALID -into $ctrl_group -color #ffff00 -radix hex
+## add_wave /apatb_example_top/gmem0_RRESP -into $rdata_group -radix hex
+## add_wave /apatb_example_top/gmem0_RUSER -into $rdata_group -radix hex
+## add_wave /apatb_example_top/gmem0_RID -into $rdata_group -radix hex
+## add_wave /apatb_example_top/gmem0_RLAST -into $ctrl_group -color #ffff00 -radix hex
+## add_wave /apatb_example_top/gmem0_RDATA -into $rdata_group -radix hex
+## add_wave /apatb_example_top/gmem0_RREADY -into $ctrl_group -color #ffff00 -radix hex
+## add_wave /apatb_example_top/gmem0_RVALID -into $ctrl_group -color #ffff00 -radix hex
+## add_wave /apatb_example_top/gmem0_ARUSER -into $rdata_group -radix hex
+## add_wave /apatb_example_top/gmem0_ARREGION -into $rdata_group -radix hex
+## add_wave /apatb_example_top/gmem0_ARQOS -into $rdata_group -radix hex
+## add_wave /apatb_example_top/gmem0_ARPROT -into $rdata_group -radix hex
+## add_wave /apatb_example_top/gmem0_ARCACHE -into $rdata_group -radix hex
+## add_wave /apatb_example_top/gmem0_ARLOCK -into $rdata_group -radix hex
+## add_wave /apatb_example_top/gmem0_ARBURST -into $rdata_group -radix hex
+## add_wave /apatb_example_top/gmem0_ARSIZE -into $rdata_group -radix hex
+## add_wave /apatb_example_top/gmem0_ARLEN -into $rdata_group -radix hex
+## add_wave /apatb_example_top/gmem0_ARID -into $rdata_group -radix hex
+## add_wave /apatb_example_top/gmem0_ARADDR -into $rdata_group -radix hex
+## add_wave /apatb_example_top/gmem0_ARREADY -into $ctrl_group -color #ffff00 -radix hex
+## add_wave /apatb_example_top/gmem0_ARVALID -into $ctrl_group -color #ffff00 -radix hex
+## add_wave /apatb_example_top/gmem0_WUSER -into $wdata_group -radix hex
+## add_wave /apatb_example_top/gmem0_WID -into $wdata_group -radix hex
+## add_wave /apatb_example_top/gmem0_WLAST -into $ctrl_group -color #ffff00 -radix hex
+## add_wave /apatb_example_top/gmem0_WSTRB -into $wdata_group -radix hex
+## add_wave /apatb_example_top/gmem0_WDATA -into $wdata_group -radix hex
+## add_wave /apatb_example_top/gmem0_WREADY -into $ctrl_group -color #ffff00 -radix hex
+## add_wave /apatb_example_top/gmem0_WVALID -into $ctrl_group -color #ffff00 -radix hex
+## add_wave /apatb_example_top/gmem0_AWUSER -into $wdata_group -radix hex
+## add_wave /apatb_example_top/gmem0_AWREGION -into $wdata_group -radix hex
+## add_wave /apatb_example_top/gmem0_AWQOS -into $wdata_group -radix hex
+## add_wave /apatb_example_top/gmem0_AWPROT -into $wdata_group -radix hex
+## add_wave /apatb_example_top/gmem0_AWCACHE -into $wdata_group -radix hex
+## add_wave /apatb_example_top/gmem0_AWLOCK -into $wdata_group -radix hex
+## add_wave /apatb_example_top/gmem0_AWBURST -into $wdata_group -radix hex
+## add_wave /apatb_example_top/gmem0_AWSIZE -into $wdata_group -radix hex
+## add_wave /apatb_example_top/gmem0_AWLEN -into $wdata_group -radix hex
+## add_wave /apatb_example_top/gmem0_AWID -into $wdata_group -radix hex
+## add_wave /apatb_example_top/gmem0_AWADDR -into $wdata_group -radix hex
+## add_wave /apatb_example_top/gmem0_AWREADY -into $ctrl_group -color #ffff00 -radix hex
+## add_wave /apatb_example_top/gmem0_AWVALID -into $ctrl_group -color #ffff00 -radix hex
+## set tbcinputgroup [add_wave_group "C Inputs" -into $testbenchgroup]
+## set tb_inStreamTop_group [add_wave_group inStreamTop(axis) -into $tbcinputgroup]
+## add_wave /apatb_example_top/inStreamTop_TREADY -into $tb_inStreamTop_group -color #ffff00 -radix hex
+## add_wave /apatb_example_top/inStreamTop_TVALID -into $tb_inStreamTop_group -color #ffff00 -radix hex
+## add_wave /apatb_example_top/inStreamTop_TLAST -into $tb_inStreamTop_group -color #ffff00 -radix hex
+## add_wave /apatb_example_top/inStreamTop_TSTRB -into $tb_inStreamTop_group -radix hex
+## add_wave /apatb_example_top/inStreamTop_TKEEP -into $tb_inStreamTop_group -radix hex
+## add_wave /apatb_example_top/inStreamTop_TDATA -into $tb_inStreamTop_group -radix hex
+## save_wave_config example.wcfg
+## run all
+////////////////////////////////////////////////////////////////////////////////////
+// Inter-Transaction Progress: Completed Transaction / Total Transaction
+// Intra-Transaction Progress: Measured Latency / Latency Estimation * 100%
+//
+// RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
+////////////////////////////////////////////////////////////////////////////////////
+// RTL Simulation : 0 / 1 [n/a] @ "113000"
+// RTL Simulation : 1 / 1 [n/a] @ "7498000"
+////////////////////////////////////////////////////////////////////////////////////
+$finish called at time : 7517500 ps : File "/wrk/xsjhdnobkup3/aayyagar/Documents/collateral/tiny_tutorials/HLS-Tiny-Tutorials/Interface/axi_stream_to_master/proj/solution1/sim/verilog/example.autotb.v" Line 484
+## quit
+INFO: [Common 17-206] Exiting xsim at Thu Aug 12 12:26:59 2021...
+INFO: [COSIM 212-316] Starting C post checking ...
+The maximum depth reached by any of the 1 hls::stream() instances in the design is 1024
+INFO: [COSIM 212-1000] *** C/RTL co-simulation finished: PASS ***
+INFO: [COSIM 212-211] II is measurable only when transaction number is greater than 1 in RTL simulation. Otherwise, they will be marked as all NA. If user wants to calculate them, please make sure there are at least 2 transactions in RTL simulation.
+INFO: [HLS 200-111] Finished Command cosim_design CPU user time: 30.78 seconds. CPU system time: 2.48 seconds. Elapsed time: 32.18 seconds; current allocated memory: 249.187 MB.

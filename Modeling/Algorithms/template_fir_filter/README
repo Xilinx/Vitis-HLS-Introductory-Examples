@@ -1,0 +1,15 @@
+FIR filter using C++ template parameters
+
+Files Included in this Package
+==================================================
+cpp_FIR.cpp       - Top-level function
+cpp_FIR.h         - Header file providing function template
+cpp_FIR.inc       - Provides values used for test input
+cpp_FIR_test.cpp  - Testbench for use in C-simulation and RTL Co-simulation
+result.golden.dat - Test results used for comparison
+run_hls.tcl       - HLS run script
+README            - this file
+
+Running the Design
+=================================================
+vitis_hls -f run_hls.tcl

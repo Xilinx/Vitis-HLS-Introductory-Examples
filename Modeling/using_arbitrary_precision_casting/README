@@ -1,0 +1,14 @@
+This simple test illustrates casting to/from arbitrary precision data types defined through ap_int.h
+
+Files Included in this Package
+==============================
+arbitrary_precision_casting.cpp
+arbitrary_precision_casting.h
+arbitrary_precision_casting_test.cpp
+result.golden.dat
+run_hls.tcl
+README
+
+Running the Design (edit run_hls.tcl to enable specific run steps)
+=========================================================
+vitis_hls -f run_hls.tcl

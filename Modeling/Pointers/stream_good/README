@@ -1,0 +1,19 @@
+This example shows how to model using pointers and how to map pointers to streams.
+
+Files Included in this Package
+==============================
+README  
+pointer_stream_good.c  
+pointer_stream_good.h  
+pointer_stream_good_test.c  
+result.golden.dat  
+run_hls.tcl
+
+Running the Design (edit run_hls.tcl to set $hls_exec and enable specific run steps)
+=========================================================
+vitis_hls -f run_hls.tcl
+
+Note the following directives in run_hls.tcl:
+set_directive_interface -depth 4 -mode ap_fifo "pointer_stream_good" d_i
+set_directive_interface -depth 2 -mode ap_fifo "pointer_stream_good" d_o
+

@@ -1,0 +1,3 @@
+This example shows how an example can be modified to achive II=1 by removing redundant memory accesses in the code. 
+
+Refer to the mem_bottleneck.cpp in "original" and "modified" directory 

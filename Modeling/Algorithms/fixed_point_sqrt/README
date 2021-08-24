@@ -1,0 +1,26 @@
+/*
+ * Example code for template function that implements a fixed point square-
+ * root algorithm for HLS.
+ *
+ * While the <math.h> (or <cmath>) square-root (sqrt(), sqrtf(), etc) are
+ * supported for HLS, they are always implemented as floating point operations
+ * and result in the instantiation of a CoreGen Floating Point Operator core
+ * in the final RTL, regardless of the types passed.  This template function
+ * can result in a more efficient implementation for fixed point (and integer)
+ * data types while maintaining precision of results (see comments in 
+ * fxp_sqrt.h for more details).
+ */
+
+Files Included in this Package
+==================================================
+fxp_sqrt.h        - Header file w/ fxp_sqrt template function implementation
+fxp_sqrt_top.c    - Implementation source file (top-level for example)
+fxp_sqrt_top.h    - Header file w/ function prototype and params for top-level
+fxp_sqrt_test.cpp - test program which for SW model validation & RTL co-sim
+run_hls.tcl       - HLS run script
+README            - this file
+
+Running the Design
+=================================================
+vitis_hls -f run_hls.tcl
+

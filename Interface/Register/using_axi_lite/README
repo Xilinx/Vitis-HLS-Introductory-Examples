@@ -1,0 +1,17 @@
+This example illustrates how an input argument of top level function can be mapped to AXI4-lite
+
+Files included in this package
+==================================================
+README  
+example.cpp  
+example_test.cpp  
+run_hls.tcl
+
+Running the design (edit x_hls.tcl to run synthesis)
+=================================================
+vitis_hls -f run_hls.tcl
+
+Note the following interface pragma used:
+
+#pragma HLS INTERFACE s_axilite port=a bundle=BUS_A
+
