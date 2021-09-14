@@ -1,0 +1,15 @@
+This example shows that auto burst inference failure as the size is unknown at compile time. 
+Manual burst can be used to improve the performance. 
+
+Files Included in this Package
+==============================
+README  
+example.cpp  
+example.h  
+example_test.cpp  
+run_hls.tcl
+
+Running the Design (edit run_hls.tcl to set $hls_exec and enable specific run steps)
+=========================================================
+vitis_hls -f run_hls.tcl
+
