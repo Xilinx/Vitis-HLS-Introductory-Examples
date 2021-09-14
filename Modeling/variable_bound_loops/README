@@ -1,0 +1,22 @@
+This example shows how to write a loop which has a variable bound and apply
+pragmas/directives on such a loop. 
+
+Files Included in this Package
+==============================
+README
+loop_var.cpp
+loop_var.h
+loop_var_test.cpp
+result.golden.dat
+run_hls.tcl
+
+Running the Design (edit run_hls.tcl to set $hls_exec and enable specific run steps)
+=========================================================
+vitis_hls -f run_hls.tcl
+
+
+Note the following directives that are applied on the variable bounded loop:
+
+# Specified in run_hls.tcl
+set_directive_unroll loop_var/LOOP_X
+

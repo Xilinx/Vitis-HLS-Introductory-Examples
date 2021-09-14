@@ -1,0 +1,16 @@
+This example shows how manual bursting can be used even if there are
+memory accesses that are guarded by conditional expressions.  
+
+
+ Included in this Package
+ ==============================
+ README  
+ example.cpp  
+ example.h  
+ example_test.cpp  
+ run_hls.tcl
+
+ Running the Design (edit run_hls.tcl to set $hls_exec and enable specific run steps)
+ =========================================================
+ vitis_hls -f run_hls.tcl
+

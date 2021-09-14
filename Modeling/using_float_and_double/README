@@ -1,0 +1,13 @@
+Advanced floating-point power of 2 with bounds checking and defining an helper typedefs to allow easy parsing of the IEEE-754 floating point fields.
+
+Files Included in this Package
+==================================================
+fp_mul_pow2.c        - Implementation source file (top-level for example)
+fp_mul_pow2.h        - Header file w/ function prototypes
+fp_mul_pow2_test.cpp - Test program which for C-simulation model & RTL co-sim
+run_hls.tcl          - HLS run script
+README               - This file
+
+Running the design
+=================================================
+vitis_hls -f run_hls.tcl

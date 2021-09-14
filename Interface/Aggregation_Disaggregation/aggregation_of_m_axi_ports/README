@@ -1,0 +1,21 @@
+In this simple example, the size of the m_axi interface port "arr" is 3 bytes (or 24 bits) but due to the 
+specification of the aggregate pragma, the size of the port will be aligned to 4 bytes (or 32 bits) as this 
+is the closest power of 2. 
+
+Files Included in this Package
+==============================
+README  
+example.cpp  
+example.h  
+example_test.cpp  
+run_hls.tcl
+
+Running the Design (edit run_hls.tcl to set $hls_exec and enable specific run steps)
+=========================================================
+vitis_hls -f run_hls.tcl
+
+Vitis HLS will issue the following message in the log file:
+
+INFO: [HLS 214-241] Aggregating maxi variable 'arr' with compact=none mode in 32-bits (example.cpp:19:0)
+
+Note that the above message is only issued if the pragma is defined. But even without the pragma definition, the Vitis HLS compiler will aggregate and pad the interface port arr to 4 bytes as it is an AXI interface port.

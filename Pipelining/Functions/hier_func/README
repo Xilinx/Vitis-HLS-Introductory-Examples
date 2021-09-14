@@ -1,0 +1,16 @@
+using the pre-defined macro __SYNTHESIS__ to prevent code being synthesized. Only use the __SYNTHESIS__ macro in the code to be synthesized. Do not use this macro in the test bench,because it is not obeyed by C simulation or C RTL co-simulation.
+
+
+Files included in this package
+==================================================
+hier_func4.h
+hier_func4.c
+hier_func4_test.c
+hier_func4.cpp      
+hier_func4_test.cpp 
+README
+run_hls.tcl
+
+Running the design (edit x_hls.tcl to run synthesis)
+=================================================
+vitis_hls -f run_hls.tcl

@@ -1,0 +1,23 @@
+The Pipeline architecture can be implemented in 3 modes:
+-FRP( free-ruuning pipeline)
+- FLP( flushable pipeline)
+- STP ( stall pipeline)
+
+This example uses a FRP mode to configure the pipeline architecture using a global command. This is useful in reducing control logic fanout in vivado.
+
+
+
+ Included in this Package
+ ==============================
+ free_pipe_mult.h
+ free_pipe_mult.cpp
+ free_pipe_mult_tb.cpp
+ run_hls.tcl
+ result.golden.dat
+ README
+
+ Running the Design (edit run_hls.tcl to set $hls_exec and enable specific run steps)
+ =========================================================
+ vitis_hls -f run_hls.tcl
+
+

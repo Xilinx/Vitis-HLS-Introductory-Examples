@@ -1,0 +1,33 @@
+In this example, the aggregation algorithm will create a port of size
+104 bits for ports a, and c as the compact=byte option was specified
+in the aggregate pragma but the compact=bit default option is used for
+port b and its packed size will be 97 bits. The nested structures S
+and T are aggregated to encompass three 32 bit member variables (p, m,
+and n) and one bit/byte member variable (o).
+
+Note that this example uses the default flow target setting of Vivado
+IP to illustrate the aggregation behavior. In Vitis kernel flow, port
+b will be automatically inferred as an m_axi port and will not allow
+the compact=bit setting.
+
+Files Included in this Package
+==============================
+README  
+example.cpp  
+example.h  
+example_test.cpp  
+run_hls.tcl
+
+Running the Design (edit run_hls.tcl to set $hls_exec and enable specific run steps)
+=========================================================
+vitis_hls -f run_hls.tcl
+
+Vitis HLS will issue the following message in the log file:
+
+INFO: [HLS 214-241] Aggregating bram variable 'b' with compact=bit mode in 97-bits (example.cpp:19:0)
+INFO: [HLS 214-241] Aggregating bram variable 'a' with compact=byte mode in 104-bits (example.cpp:19:0)
+INFO: [HLS 214-241] Aggregating bram variable 'c' with compact=byte mode in 104-bits (example.cpp:19:0)
+
+
+
+
