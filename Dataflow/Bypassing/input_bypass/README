@@ -1,0 +1,17 @@
+This example shows a common issue with in a DATAFLOW Pipeline where the input arguments bypass the first function which causes performance degradation in the DATAFLOW pipeline. The example shows both the problem and solution
+
+
+Files Included in this Package
+==============================
+dut.cpp  
+dut_sol.cpp  
+test_dut.cpp  
+run_hls.tcl
+README
+
+Running the Design (edit run_hls.tcl to set $hls_exec and enable specific run steps)
+=========================================================
+vitis_hls -f run_hls.tcl
+
+
+

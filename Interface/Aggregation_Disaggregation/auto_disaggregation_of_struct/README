@@ -1,0 +1,27 @@
+Using a hls::stream object inside a structure that is used in the
+interface will cause the struct port to be automatically disaggregated
+by the Vitis HLS compiler. The generated RTL interface will contain
+separate RTL ports for the hls::stream object s_in (named d_s_in_*)
+and separate RTL ports for the array arr (named d_arr_*).
+
+
+Files Included in this Package
+==============================
+README  
+example.cpp  
+example.h  
+example_test.cpp  
+run_hls.tcl
+
+Running the Design (edit run_hls.tcl to set $hls_exec and enable specific run steps)
+=========================================================
+vitis_hls -f run_hls.tcl
+
+Vitis HLS will issue the following messages in the log file:
+
+INFO: [HLS 214-210] Disaggregating variable 'd'
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'd_s_in' with compact=bit mode in 32-bits
+
+
+
+

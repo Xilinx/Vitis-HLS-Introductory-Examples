@@ -1,0 +1,20 @@
+The example shows the correct coding guidlenes for nested loops to be flattened automatically by the tool
+
+
+
+
+Included in this Package
+ ==============================
+
+loop_perfect.h
+loop_perfect.cpp
+loop_perfect_test.cpp
+run_hls.tcl
+result.golden.dat
+ README
+
+ Running the Design (edit run_hls.tcl to set $hls_exec and enable specific run steps)
+ =========================================================
+ vitis_hls -f run_hls.tcl
+
+

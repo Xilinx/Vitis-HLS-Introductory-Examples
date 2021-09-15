@@ -1,0 +1,16 @@
+This simple example show how a pointer can be made to point to different arrays
+in a synthesizeable design. 
+
+Files Included in this Package
+==============================
+README  
+pointer_multi.c  
+pointer_multi.h  
+pointer_multi_test.c  
+result.golden.dat  
+run_hls.tcl
+
+Running the Design (edit run_hls.tcl to set $hls_exec and enable specific run steps)
+=========================================================
+vitis_hls -f run_hls.tcl
+

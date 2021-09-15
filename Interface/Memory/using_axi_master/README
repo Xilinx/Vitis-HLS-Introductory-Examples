@@ -1,0 +1,19 @@
+This example illustrates how an input argument of top level function can be mapped to AXI4-MEM
+
+Files included in this package
+==================================================
+README  
+example.cpp  
+example_test.cpp  
+run_hls.tcl
+
+Running the design (edit x_hls.tcl to run synthesis)
+=================================================
+vitis_hls -f run_hls.tcl
+
+Block of Data read from the Device memory using AXI4 memory port, added and written back 
+to Device memory using AXI4 memory port. All of these operations are done sequentially.
+
+Note the following interface #pragma used:
+
+#pragma HLS INTERFACE m_axi port=a depth=50

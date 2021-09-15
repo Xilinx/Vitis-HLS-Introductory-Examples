@@ -1,0 +1,16 @@
+This example shows an alternative to ap_fifo mode for pointers in the interface and uses
+ap_hs as the mode instead. 
+
+Files Included in this Package
+==============================
+README  
+pointer_stream_better.c  
+pointer_stream_better.h  
+pointer_stream_better_test.c  
+result.golden.dat  
+run_hls.tcl
+
+Running the Design (edit run_hls.tcl to set $hls_exec and enable specific run steps)
+=========================================================
+vitis_hls -f run_hls.tcl
+

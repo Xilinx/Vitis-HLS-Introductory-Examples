@@ -1,0 +1,23 @@
+This example uses the same design as using_pipos and using_fifos designs to illustrate how the
+same design can be converted to use stream of blocks (SOB) as the channel type.
+
+Files Included in this Package
+==============================
+diamond.cpp  
+diamond.h  
+diamond_test.cpp  
+result.golden.dat  
+run_hls.tcl
+README
+
+Running the Design (edit run_hls.tcl to set $hls_exec and enable specific run steps)
+=========================================================
+vitis_hls -f run_hls.tcl
+
+For optimal performance with stream of blocks, the application should exhibit the following behavior:
+   * when you have some data that is written and read partially sequentially (which can be streamed) and 
+     partially randomly (which requires direct access). This is where this type of synchronization flexibility really helps.
+   * Another case is when you have blocks that may or may not be generated, like for example, if in the diamond example, 
+     it requires some data packets (modeled by SOB blocks) to be handled by funcB and some by funcC, irregularly. 
+     This cannot be done with PIPOs.
+
