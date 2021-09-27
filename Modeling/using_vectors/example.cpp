@@ -13,17 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-#include <ap_int.h>
-
-typedef float float16 __attribute__((vector_size(64)));
+#include <iostream>
+#include "example.h"
 
 template<int N, typename T>
 void load(T (&out)[N], const T *in, int o) {
 #pragma HLS INLINE off
   for (int i = 0; i < N; ++i) {
 #pragma HLS pipeline
-    out[i] = in[i+N*o];
+    out[i] = in[i];
   }
 }
 
@@ -32,7 +30,7 @@ void store(T *out, const T (&in)[N] , int o) {
 #pragma HLS INLINE off
   for (int i = 0; i < N; ++i) {
 #pragma HLS pipeline
-    out[i+o*N] = in[i];
+    out[i] = in[i];
   }
 }
 
@@ -45,18 +43,17 @@ void compute(T (&res)[N], const S (&lhs)[N], const S (&rhs)[N]) {
   }
 }
 
-#define N 32
 
 extern "C"
 void example(float16* res, const float16 *lhs, const float16 *rhs, int n) {
-#pragma HLS INTERFACE m_axi port=lhs offset=slave bundle=gmem0 depth=1000 // wordsize=64
-#pragma HLS INTERFACE m_axi port=rhs offset=slave bundle=gmem1 depth=1000 // wordsize=64
-#pragma HLS INTERFACE m_axi port=res offset=slave bundle=gmem0 depth=1000 // wordsize=64
+#pragma HLS INTERFACE m_axi port=lhs offset=slave bundle=gmem0 depth=32 
+#pragma HLS INTERFACE m_axi port=rhs offset=slave bundle=gmem1 depth=32
+#pragma HLS INTERFACE m_axi port=res offset=slave bundle=gmem0 depth=32
 
   for(int i = 0; i < n; ++i) {
-    float16 lhs_buf[N];
-    float16 rhs_buf[N];
-    float16 res_buf[N];
+    float16 lhs_buf[NUM];
+    float16 rhs_buf[NUM];
+    float16 res_buf[NUM];
 
 #pragma HLS DATAFLOW
     load(lhs_buf, lhs, i);
