@@ -17,7 +17,7 @@
 #include "example.h"
 
 template<int N, typename T>
-void load(T (&out)[N], const T *in, int o) {
+void load(T (&out)[N], const T *in) {
 #pragma HLS INLINE off
   for (int i = 0; i < N; ++i) {
 #pragma HLS pipeline
@@ -26,7 +26,7 @@ void load(T (&out)[N], const T *in, int o) {
 }
 
 template<int N, typename T>
-void store(T *out, const T (&in)[N] , int o) {
+void store(T *out, const T (&in)[N]) {
 #pragma HLS INLINE off
   for (int i = 0; i < N; ++i) {
 #pragma HLS pipeline
@@ -56,9 +56,9 @@ void example(float16* res, const float16 *lhs, const float16 *rhs, int n) {
     float16 res_buf[NUM];
 
 #pragma HLS DATAFLOW
-    load(lhs_buf, lhs, i);
-    load(rhs_buf, rhs, i);
+    load(lhs_buf, lhs);
+    load(rhs_buf, rhs);
     compute(res_buf, lhs_buf, rhs_buf);
-    store(res, res_buf, i);
+    store(res, res_buf);
   }
 }
