@@ -1,0 +1,15 @@
+The example shows the coding guidlenes for HLS Kernel optimized code, export to Vitis to build the xclbin by the tool
+
+
+Included in this Package
+=========================
+
+krnl_vmult.hpp
+krnl_vmult.cpp
+krnl_vmult_test.cpp
+run_hls.tcl
+README
+
+Running the Design (edit run_hls.tcl to set $hls_exec and enable specific run steps)
+====================================================================================
+vitis_hls -f run_hls.tcl
