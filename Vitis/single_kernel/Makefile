@@ -4,7 +4,7 @@ TARGET:= hw
 DSA := xilinx_u250_gen3x16_xdma_3_1_202020_1
 
 # sources
-HOST_SRC := ./host/host.cpp ./host/cmdparser/cmdlineparser.cpp ./host/logger/logger.cpp
+HOST_SRC := ./host/host.cpp ../common/cmdparser/cmdlineparser.cpp ../common/logger/logger.cpp
 KRNL_SRC := ./vadd_kernel/krnl_vadd.cpp
 
 # kernel targets
@@ -22,7 +22,7 @@ VPP_OPTS += --temp_dir ./all_builds/$(TARGET)
 VPP_OPTS += --report_dir ./all_logs/$(TARGET)
 VPP_OPTS += --log_dir ./all_logs/$(TARGET)
 
-CFLAGS := -g -std=c++1y -I$(XILINX_XRT)/include -I./host/cmdparser -I./host/logger
+CFLAGS := -g -std=c++1y -I$(XILINX_XRT)/include -I../common/cmdparser -I../common/logger
 LFLAGS := -L$(XILINX_XRT)/lib -lOpenCL -lxrt_coreutil -lrt -luuid
 
 # run time args
