@@ -3,10 +3,6 @@ EMCONFIGUTIL := $(XILINX_VITIS)/bin/emconfigutil
 TARGET:= hw
 DSA := xilinx_u250_gen3x16_xdma_3_1_202020_1
 
-# sources
-HOST_SRC := ./host/host.cpp ../common/cmdparser/cmdlineparser.cpp ../common/logger/logger.cpp
-KRNL_SRC := ./vadd_kernel/krnl_vadd.cpp
-
 # kernel targets
 KRNL_VADD_XO := krnl_vadd.$(TARGET).xo
 KRNL_VMULT_XO := krnl_vmult.$(TARGET).xo
@@ -23,11 +19,11 @@ VPP_OPTS += --temp_dir ./all_builds/$(TARGET)
 VPP_OPTS += --report_dir ./all_logs/$(TARGET)
 VPP_OPTS += --log_dir ./all_logs/$(TARGET)
 
-CFLAGS := -g -std=c++1y -I$(XILINX_XRT)/include -I../common/cmdparser -I../common/logger
+CFLAGS := -g -std=c++1y -I$(XILINX_XRT)/include 
 LFLAGS := -L$(XILINX_XRT)/lib -lOpenCL -lxrt_coreutil -lrt -luuid
 
 # run time args
-EXE_OPT := -x kernel.${TARGET}.xclbin
+CMD_ARGS:= kernel.${TARGET}.xclbin
 
 # primary build targets
 .PHONY: xclbin host all
@@ -56,7 +52,7 @@ $(XCLBIN): $(KRNL_VADD_XO) $(KRNL_VMULT_XO)
 	$(VPP) $(VPP_OPTS) -l -o $@ $(KRNL_XO) $+ 
 
 # host rules
-$(HOST_EXE): $(HOST_SRC)
+$(HOST_EXE): ./host/host.cpp 
 	g++ $(CFLAGS) -o $@ $+ $(LFLAGS)
 	@echo 'Compiled Host Executable: $(HOST_EXE)'
 
@@ -64,4 +60,4 @@ $(EMCONFIG_FILE):
 	$(EMCONFIGUTIL) --nd 1 --od . --platform $(DSA)
 
 run: $(XCLBIN) $(HOST_EXE) $(EMCONFIG_FILE)
-	XCL_EMULATION_MODE=${TARGET} ./$(HOST_EXE) $(EXE_OPT)
+	XCL_EMULATION_MODE=${TARGET} ./$(HOST_EXE) $(CMD_ARGS)

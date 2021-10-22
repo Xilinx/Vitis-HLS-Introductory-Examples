@@ -1,0 +1,20 @@
+The example shows the coding guidlenes for multiple kernels and steps to build the xclbin using Vitis
+
+Included in this Package
+=========================
+host/host.cpp
+vadd_kernel/krnl_vadd.hpp
+vadd_kernel/krnl_vadd.cpp
+vadd_kernel/krnl_vadd_test.cpp
+vadd_kernel/run_hls.tcl
+vadd_kernel/README
+vmult_kernel/krnl_vmult.hpp
+vmult_kernel/krnl_vmult.cpp
+vmult_kernel/krnl_vmult_test.cpp
+vmult_kernel/run_hls.tcl
+vmult_kernel/README
+Makefile
+
+Running the Design 
+===================
+make run TARGET=<sw_emu/hw_emu/hw> DEVICE=<platform xpfm path>

@@ -14,7 +14,6 @@
 * under the License.
 */
 
-#include "cmdlineparser.h"
 #include <iostream>
 #include <cstring>
 
@@ -25,22 +24,14 @@
 
 #define DATA_SIZE 4096
 
-int main(int argc, char** argv) {
-    // Command Line Parser
-    sda::utils::CmdLineParser parser;
-
-    // Switches
-    //**************//"<Full Arg>",  "<Short Arg>", "<Description>", "<Default>"
-    parser.addSwitch("--xclbin_file", "-x", "input binary file string", "");
-    parser.addSwitch("--device_id", "-d", "device index", "0");
-    parser.parse(argc, argv);
+int main(int argc, char** argv) {    
 
     // Read settings
-    std::string binaryFile = parser.value("xclbin_file");
-    int device_index = stoi(parser.value("device_id"));
+    std::string binaryFile = argv[1]; 
+    int device_index = 0;
 
-    if (argc < 3) {
-        parser.printHelp();
+    if (argc != 2) {
+        std::cout << "Usage: " << argv[0] << " <XCLBIN File>" << std::endl;
         return EXIT_FAILURE;
     }
 
