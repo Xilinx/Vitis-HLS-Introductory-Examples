@@ -18,18 +18,18 @@
 
 int main() {
     
-  uint32_t in1[DATA_SIZE], in2[DATA_SIZE];
-  uint32_t out[DATA_SIZE], res[DATA_SIZE];
-  for (int i = 0; i < DATA_SIZE; ++i){
+  uint32_t in1[size], in2[size];
+  uint32_t out[size], res[size];
+  for (int i = 0; i < size; ++i){
     in1[i] = i;
     in2[i] = i;
     out[i] = 0;
     res[i] = in1[i] + in2[i];
   }
 
-  krnl_vadd(in1, in2, out, DATA_SIZE);
+  krnl_vadd(in1, in2, out, size);
 
-  for (int i = 0; i < DATA_SIZE; ++i){
+  for (int i = 0; i < size; ++i){
     if (res[i] != out[i])
       return EXIT_FAILURE;
     }

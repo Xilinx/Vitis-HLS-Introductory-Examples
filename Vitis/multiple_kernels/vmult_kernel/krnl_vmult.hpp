@@ -22,10 +22,7 @@
 #include <ap_int.h>
 #include <hls_stream.h>
 
-#define DATA_SIZE 4096
-
-// TRIPCOUNT identifier
-const int c_size = DATA_SIZE;
+const int size = 4096;
 
 extern "C" {
 void krnl_vmult(uint32_t* input1, uint32_t* input2, uint32_t* output, int size);
