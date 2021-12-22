@@ -17,11 +17,11 @@
 #include "krnl_vadd.hpp"
 
 // Read Data from Global Memory and write into Stream inStream
-static void read_input(uint32_t* in, hls::stream<uint32_t>& inStream, int size) {
+static void read_input(uint32_t* in, hls::stream<uint32_t>& inStream, int vSize) {
 // Auto-pipeline is going to apply pipeline to this loop
 mem_rd:
-    for (int i = 0; i < size; i++) {
-#pragma HLS LOOP_TRIPCOUNT min = c_size max = c_size
+    for (int i = 0; i < vSize; i++) {
+#pragma HLS LOOP_TRIPCOUNT min = size max = size
         // Blocking write command to inStream
         inStream << in[i];
     }
@@ -31,11 +31,11 @@ mem_rd:
 static void compute_add(hls::stream<uint32_t>& inStream1,
                         hls::stream<uint32_t>& inStream2,
                         hls::stream<uint32_t>& outStream,
-                        int size) {
+                        int vSize) {
 // Auto-pipeline is going to apply pipeline to this loop
 execute:
-    for (int i = 0; i < size; i++) {
-#pragma HLS LOOP_TRIPCOUNT min = c_size max = c_size
+    for (int i = 0; i < vSize; i++) {
+#pragma HLS LOOP_TRIPCOUNT min = size max = size
         // Blocking read command from inStream and Blocking write command
         // to outStream
         outStream << (inStream1.read() + inStream2.read());
@@ -43,11 +43,11 @@ execute:
 }
 
 // Read result from outStream and write the result to Global Memory
-static void write_result(uint32_t* out, hls::stream<uint32_t>& outStream, int size) {
+static void write_result(uint32_t* out, hls::stream<uint32_t>& outStream, int vSize) {
 // Auto-pipeline is going to apply pipeline to this loop
 mem_wr:
-    for (int i = 0; i < size; i++) {
-#pragma HLS LOOP_TRIPCOUNT min = c_size max = c_size
+    for (int i = 0; i < vSize; i++) {
+#pragma HLS LOOP_TRIPCOUNT min = size max = size
         // Blocking read command to inStream
         out[i] = outStream.read();
     }
@@ -60,9 +60,9 @@ extern "C" {
         in1   (input)  --> Input Vector 1
         in2   (input)  --> Input Vector 2
         out  (output) --> Output Vector
-        size (input)  --> Size of Vector in Integer
+        vSize (input)  --> Size of Vector in Integer
    */
-void krnl_vadd(uint32_t* in1, uint32_t* in2, uint32_t* out, int size) {
+void krnl_vadd(uint32_t* in1, uint32_t* in2, uint32_t* out, int vSize) {
     static hls::stream<uint32_t> inStream1("input_stream_1");
     static hls::stream<uint32_t> inStream2("input_stream_2");
     static hls::stream<uint32_t> outStream("output_stream");
@@ -72,9 +72,9 @@ void krnl_vadd(uint32_t* in1, uint32_t* in2, uint32_t* out, int size) {
 
 #pragma HLS dataflow
     // dataflow pragma instruct compiler to run following three APIs in parallel
-    read_input(in1, inStream1, size);
-    read_input(in2, inStream2, size);
-    compute_add(inStream1, inStream2, outStream, size);
-    write_result(out, outStream, size);
+    read_input(in1, inStream1, vSize);
+    read_input(in2, inStream2, vSize);
+    compute_add(inStream1, inStream2, outStream, vSize);
+    write_result(out, outStream, vSize);
 }
 }
