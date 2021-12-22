@@ -51,7 +51,7 @@ void getinstream(hls::stream<trans_pkt >& in_stream,hls::stream<data > &out_stre
 
 void example(hls::stream<trans_pkt >& inStreamTop, ap_uint<64> outTop[1024] ) {
 #pragma HLS INTERFACE axis register_mode=both register port=inStreamTop
-#pragma HLS INTERFACE m_axi max_write_burst_length=512 latency=10 depth=1024 bundle=gmem0 port=outTop
+#pragma HLS INTERFACE m_axi max_write_burst_length=256 latency=10 depth=1024 bundle=gmem0 port=outTop
 #pragma HLS INTERFACE s_axilite port = outTop bundle = control
 #pragma HLS INTERFACE s_axilite port = return bundle = control
 
