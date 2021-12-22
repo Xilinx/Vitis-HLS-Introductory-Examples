@@ -25,7 +25,7 @@
 const int size = 4096;
 
 extern "C" {
-void krnl_vadd(uint32_t* input1, uint32_t* input2, uint32_t* output, int size);
+void krnl_vadd(uint32_t* input1, uint32_t* input2, uint32_t* output, int vSize);
 }
 
 #endif
