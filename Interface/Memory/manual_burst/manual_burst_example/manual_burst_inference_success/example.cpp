@@ -4,7 +4,7 @@
 void transfer_kernel(hls::burst_maxi<int> in,hls::burst_maxi<int> out, const int size )
 {
   #pragma HLS INTERFACE m_axi port=in depth=512 latency=32 offset=slave bundle=bundle1
-  #pragma HLS INTERFACE m_axi port=out depth=512 offset=slave latency=32 bundle=bundle2
+  #pragma HLS INTERFACE m_axi port=out depth=5120 offset=slave latency=32 bundle=bundle2
 
         int buf[8192];
         in.read_request(0, size);
