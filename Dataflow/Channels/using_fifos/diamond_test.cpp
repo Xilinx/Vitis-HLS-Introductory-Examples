@@ -22,17 +22,28 @@ using namespace std;
 int main()
 {
 
-  data_t test[N];
-  data_t outcome[N];
+  int totalNumWords = 512;
+  std::vector<vecOf16Words> test(32);
+  std::vector<vecOf16Words> outcome(32);
 
   int retval = 0;
   ofstream FILE;
 
   // Init test vector
-  for (int i = 0; i < N; i++)
+  for (int i = 0; i < totalNumWords/16; i++)
   {
-    test[i] = (data_t)i;
+    for (int j=0; j< 16; j++) {
+	test[i][j] = (data_t)j;
+    }
   }
+  cout << "Init: " ;
+  for (int i = 0; i < totalNumWords/16; i++) {
+    for (int j=0; j< 16; j++) {
+    cout << "  "  << test[i][j]; 
+    }
+    cout << endl;
+  }
+
   // Save the results to a file
     FILE.open ("result.dat");
 
@@ -40,15 +51,16 @@ int main()
   for (int iter = 0; iter < 3; iter++)
   {
     // Execute DUT
-    diamond(test, outcome);
+    diamond(test.data(), outcome.data(),totalNumWords/16);
 
     // Display the results
-    for (int i = 0; i < N; i++)
-    {
-      cout << "Series " << iter;
-      cout << " Outcome: " << (int)outcome[i] << endl;
-      FILE << (int)outcome[i] << endl;
+  cout << "Outcome: " ;
+  for (int i = 0; i < totalNumWords/16; i++) {
+    for (int j=0; j< 16; j++) {
+    FILE << "  "  << outcome[i][j]; 
     }
+    FILE << endl;
+  }
     FILE.close();
   }
 

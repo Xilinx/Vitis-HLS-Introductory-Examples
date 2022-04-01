@@ -14,14 +14,30 @@
  * limitations under the License.
  */
 
-#define N 100
-typedef unsigned char data_t;
+typedef unsigned int data_t;
+#include <vector>
+#include<hls_vector.h>
+#include<hls_stream.h>
+#include <iostream>
 
+#define NUM_WORDS 16
+
+// Each vector will be 64 bytes (16 x 4 bytes) 
+typedef hls::vector<uint32_t, NUM_WORDS> vecOf16Words;
+
+
+
+extern "C" {
 // Top function
-void diamond(data_t vecIn[N], data_t vecOut[N]);
+void diamond(vecOf16Words *vecIn, vecOf16Words *vecOut, int size);
+}
 
 // Sub functions
-void funcA(data_t f1In[N], data_t f1Out[N], data_t f1bisOut[N]);
-void funcB(data_t f2In[N], data_t f2Out[N]);
-void funcC(data_t f3In[N], data_t f3Out[N]);
-void funcD(data_t f4In[N], data_t f4bisIn[N], data_t f4Out[N]);
+
+void load(vecOf16Words *in, hls::stream<vecOf16Words> & out, int vSize);
+void compute_A(hls::stream<vecOf16Words>& in, hls::stream<vecOf16Words >& out1, hls::stream<vecOf16Words >& out2, int vSize);
+void compute_B(hls::stream<vecOf16Words >& in, hls::stream<vecOf16Words >& out, int vSize);
+void compute_C(hls::stream<vecOf16Words >& in, hls::stream<vecOf16Words >& out, int vSize);
+void compute_D(hls::stream<vecOf16Words >& in1, hls::stream<vecOf16Words >& in2, hls::stream<vecOf16Words >& out, int vSize);
+void store(hls::stream<vecOf16Words >& in, vecOf16Words *out, int vSize);
+

@@ -33,7 +33,7 @@ create_clock -period 5 -name default
 config_dataflow -default_channel fifo -fifo_depth 2
 
 # Set variable to select which steps to execute
-set hls_exec 2
+set hls_exec 3
 
 
 csim_design
@@ -51,10 +51,10 @@ if {$hls_exec == 1} {
 	cosim_design
 } elseif {$hls_exec == 3} { 
 	# Run Synthesis, RTL Simulation, RTL implementation and Exit
-	csynth_design
+	# csynth_design
 	
-	cosim_design
-	export_design
+	# cosim_design
+	config_export -format xo -output /wrk/xsjhdnobkup5/ravic/work/GitEnt/work/Channels/using_fifos
 } else {
 	# Default is to exit after setup
 	csynth_design
