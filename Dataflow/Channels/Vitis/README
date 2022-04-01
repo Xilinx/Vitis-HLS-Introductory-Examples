@@ -1,0 +1,14 @@
+This example shows how to use FIFOs instead of the default PIPOs as the channel type.
+
+Files Included in this Package
+==============================
+diamond_host.cpp  
+Makefile  
+options.cfg  
+types.h  
+xrt.ini
+README  
+
+Building and Running the Application 
+=========================================================
+make run TARGET=hw 
