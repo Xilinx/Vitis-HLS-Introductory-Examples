@@ -15,63 +15,88 @@
  */
 
 #include "diamond.h"
+#define NUM_WORDS 16
+extern "C" {
 
-void diamond(data_t vecIn[N], data_t vecOut[N])
+void diamond(vecOf16Words* vecIn, vecOf16Words* vecOut, int size)
 {
-  data_t c1[N], c2[N], c3[N], c4[N];
-#pragma HLS dataflow
-  funcA(vecIn, c1, c2);
-  funcB(c1, c3);
-  funcC(c2, c4);
-  funcD(c3, c4, vecOut);
+  hls::stream<vecOf16Words> c0, c1, c2, c3, c4, c5;
+  assert(size % 16 == 0);
+
+  #pragma HLS dataflow
+  load(vecIn, c0, size);
+  compute_A(c0, c1, c2, size);
+  compute_B(c1, c3, size);
+  compute_C(c2, c4, size);
+  compute_D(c3, c4,c5, size);
+  store(c5, vecOut, size);
+}
 }
 
-void funcA(data_t *in, data_t *out1, data_t *out2)
+void load(vecOf16Words *in, hls::stream<vecOf16Words >& out, int size)
 {
-Loop0:
-  for (int i = 0; i < N; i++)
+Loop_Ld:
+  for (int i = 0; i < size; i++)
   {
-#pragma HLS pipeline II=1 rewind
-//#pragma HLS pipeline rewind
-//#pragma HLS unroll factor = 2
-    data_t t = in[i] * 3;
-    out1[i] = t;
-    out2[i] = t;
+    #pragma HLS performance target_ti=32
+    #pragma HLS LOOP_TRIPCOUNT max=32
+    out.write(in[i]);
   }
 }
 
-void funcB(data_t *in, data_t *out)
+void compute_A(hls::stream<vecOf16Words >& in, hls::stream<vecOf16Words >& out1, hls::stream<vecOf16Words >& out2, int size)
 {
-Loop0:
-  for (int i = 0; i < N; i++)
+Loop_A:
+  for (int i = 0; i < size; i++)
   {
-#pragma HLS pipeline II=1 rewind
-//#pragma HLS pipeline rewind
-//#pragma HLS unroll factor = 2
-    out[i] = in[i] + 25;
+    #pragma HLS performance target_ti=32
+    #pragma HLS LOOP_TRIPCOUNT max=32
+    vecOf16Words t = in.read();
+    out1.write(t * 3);
+    out2.write(t * 3);
   }
 }
 
-void funcC(data_t *in, data_t *out)
+void compute_B(hls::stream<vecOf16Words >& in, hls::stream<vecOf16Words >& out, int size)
 {
-Loop0:
-  for (data_t i = 0; i < N; i++)
+Loop_B:
+  for (int i = 0; i < size; i++)
   {
-#pragma HLS pipeline II=1 rewind
-//#pragma HLS pipeline rewind
-//#pragma HLS unroll factor = 2
-    out[i] = in[i] * 2;
+    #pragma HLS performance target_ti=32
+    #pragma HLS LOOP_TRIPCOUNT max=32
+    out.write(in.read() + 25);
   }
 }
 
-void funcD(data_t *in1, data_t *in2, data_t *out)
+
+void compute_C(hls::stream<vecOf16Words >& in, hls::stream<vecOf16Words >& out, int size)
 {
-Loop0:
-  for (int i = 0; i < N; i++)
+Loop_C:
+  for (data_t i = 0; i < size; i++)
   {
-#pragma HLS pipeline II=1 rewind
-//#pragma HLS pipeline rewind
-//#pragma HLS unroll factor = 2
-    out[i] = in1[i] + in2[i] * 2;
+    #pragma HLS performance target_ti=32
+    #pragma HLS LOOP_TRIPCOUNT max=32
+    out.write(in.read() * 2);
+  }
+}
+void compute_D(hls::stream<vecOf16Words >& in1, hls::stream<vecOf16Words >& in2, hls::stream<vecOf16Words >& out, int size)
+{
+Loop_D:
+  for (data_t i = 0; i < size; i++)
+  {
+    #pragma HLS performance target_ti=32
+    #pragma HLS LOOP_TRIPCOUNT max=32
+    out.write(in1.read() + in2.read());
+  }
+}
+
+void store(hls::stream<vecOf16Words >& in, vecOf16Words *out, int size)
+{
+Loop_St:
+  for (int i = 0; i < size; i++)
+  {
+    #pragma HLS performance target_ti=32
+    #pragma HLS LOOP_TRIPCOUNT max=32
+    out[i] = in.read();
   }
 }

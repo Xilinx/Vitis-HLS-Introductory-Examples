@@ -1,0 +1,15 @@
+This is a reference design for Vitis HLS user to demonstrate integration of HLS kernel into Vitis flow to build xclbin and run the design on board or emulation flow.
+
+Included in this Package
+=========================
+host/host.cpp
+vadd_kernel/krnl_vadd.hpp
+vadd_kernel/krnl_vadd.cpp
+vadd_kernel/krnl_vadd_test.cpp
+vadd_kernel/run_hls.tcl
+vadd_kernel/README
+Makefile
+
+Running the Design 
+===================
+make run TARGET=<sw_emu/hw_emu/hw> DEVICE=<platform xpfm path>

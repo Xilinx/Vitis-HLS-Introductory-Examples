@@ -23,7 +23,6 @@
 
 float float_mul_pow2(float x, int8_t n)
 {
-#pragma HLS inline // Always inline this function
    float_num_t x_num, prod;
 
    x_num.fp_num = x;
@@ -50,7 +49,6 @@ float float_mul_pow2(float x, int8_t n)
 
 double double_mul_pow2(double x, int16_t n)
 {
-#pragma HLS inline // Always inline this function
    double_num_t x_num, prod;
 
    x_num.fp_num = x;

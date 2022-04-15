@@ -14,30 +14,30 @@
 # limitations under the License.
 
 # Create a project
-open_project proj -reset
+open_project -reset proj_vadd_kernel
 
 # Add design files
-add_files diamond.cpp
+add_files krnl_vadd.cpp
 # Add test bench & files
-add_files -tb diamond_test.cpp
-add_files -tb result.golden.dat
+add_files -tb krnl_vadd_test.cpp
+
 # Set the top-level function
-set_top diamond
+set_top krnl_vadd 
 
 # ########################################################
 # Create a solution
-open_solution -reset solution1 -flow_target vitis
+open_solution -reset solution1
 # Define technology and clock rate
-set_part {xcvu9p-flga2104-2-i}
-create_clock -period 5 -name default
-config_dataflow -default_channel fifo -fifo_depth 2
+set_part  {xcu250-figd2104-2L-e}
+create_clock -period 25
 
 # Set variable to select which steps to execute
-set hls_exec 3
+set hls_exec 2
 
 
 csim_design
 # Set any optimization directives
+#set_directive_pipeline krnl_vadd/mem_rd
 # End of directives
 
 if {$hls_exec == 1} {
@@ -51,13 +51,14 @@ if {$hls_exec == 1} {
 	cosim_design
 } elseif {$hls_exec == 3} { 
 	# Run Synthesis, RTL Simulation, RTL implementation and Exit
-	# csynth_design
+	csynth_design
 	
-	# cosim_design
-	config_export -format xo -output /wrk/xsjhdnobkup5/ravic/work/GitEnt/work/Channels/using_fifos
+	cosim_design
+	export_design
 } else {
 	# Default is to exit after setup
 	csynth_design
 }
 
 exit
+
