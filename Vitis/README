@@ -1,0 +1,6 @@
+This section contains reference designs for Vitis HLS user to demonstrate integration of HLS kernel into Vitis flow.
+
+Examples in this section
+=========================
+single_kernel
+multiple_kernels

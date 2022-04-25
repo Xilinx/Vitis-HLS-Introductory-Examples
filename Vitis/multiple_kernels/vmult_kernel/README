@@ -1,0 +1,13 @@
+This is a reference design for Vitis HLS user to demonstrate integration of a HLS kernel into Vitis flow to build xclbin and run the design on board or emulation flow.
+
+Included in this Package
+=========================
+krnl_vmult.hpp
+krnl_vmult.cpp
+krnl_vmult_test.cpp
+run_hls.tcl
+README
+
+Running the Design (edit run_hls.tcl to set $hls_exec and enable specific run steps)
+====================================================================================
+vitis_hls -f run_hls.tcl
