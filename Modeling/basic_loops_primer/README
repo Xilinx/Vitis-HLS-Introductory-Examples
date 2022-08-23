@@ -1,0 +1,22 @@
+This example shows how to write a loop and apply variables optimizations to this loop.
+
+Files Included in this Package
+==============================
+README
+test.cpp
+test.h
+test_tb.cpp
+result.golden.dat
+run_hls.tcl
+
+Running the Design (edit run_hls.tcl to set $hls_exec and enable specific run steps)
+=========================================================
+vitis_hls -f run_hls.tcl
+
+
+Note the following directives that are applied on the loop:
+
+# Specified in run_hls.tcl
+set_directive_pipeline -off test/LOOP_1
+set_directive_unroll -factor=2 test/LOOP_1
+
