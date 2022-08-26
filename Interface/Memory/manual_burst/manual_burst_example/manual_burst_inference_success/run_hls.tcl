@@ -1,7 +1,7 @@
 ############################################################
 ## This file is generated automatically by Vitis HLS.
 ## Please DO NOT edit it.
-## Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+## Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ############################################################
 open_project -reset manual_burst
 set_top transfer_kernel
