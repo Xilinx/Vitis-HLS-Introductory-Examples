@@ -20,6 +20,10 @@ extern "C" {
 
 void diamond(vecOf16Words* vecIn, vecOf16Words* vecOut, int size)
 {
+// The depth setting is required for pointer to array in the interface.
+#pragma HLS INTERFACE m_axi port=vecIn depth=32
+#pragma HLS INTERFACE m_axi port=vecOut depth=32
+
   hls::stream<vecOf16Words> c0, c1, c2, c3, c4, c5;
   assert(size % 16 == 0);
 
