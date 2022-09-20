@@ -1,0 +1,83 @@
+This example shows how static arrays are mapped to RAMs with different implementations 
+and how they are initialized as well as how they are reset.
+
+
+Included in this Package
+==============================
+test.h
+test.cpp
+test_tb.cpp
+run_hls.tcl
+README
+
+Running the Design (edit run_hls.tcl to set $hls_exec and enable specific run steps)
+=========================================================
+vitis_hls -f run_hls.tcl
+
+Things to note:
+----------------
+[A] In solution_A, you can see that for BRAM/LUTRAM/URAM, the following structure is 
+    generated in the RTL to initialize the static RAM arrays:
+    
+    proj/solution_A/syn/verilog/test_A_V_RAM_2P_BRAM_1R1W.v:
+    initial begin
+        $readmemh("./test_A_V_RAM_2P_BRAM_1R1W.dat", ram);
+    end
+
+    proj/solution_A/syn/verilog/test_B_V_RAM_2P_LUTRAM_1R1W.v:
+    initial begin
+        $readmemh("./test_B_V_RAM_2P_LUTRAM_1R1W.dat", rom0);
+    end
+
+    proj/solution_A/syn/verilog/test_C_V_RAM_2P_URAM_1R1W.v:
+    initial begin
+        $readmemh("./test_C_V_RAM_2P_URAM_1R1W.dat", ram);
+    end 
+
+
+    The *.dat files contain the initial values for the respective arrays.
+
+[B] In solution_B, you can see the structure that is generatd for BRAM/LUTRAM/URAM when
+    they are reset:
+
+    When the reset directive/pragma is applied to the static arrays (A/B/C), you will see 
+    that in the generated RTL, both a ROM and a RAM are used to implement each memory. 
+    The initial value is loaded to the ROM only (as in solution_A). But each time after the 
+    reset signal is asserted, if an address is not written, the value read from the address 
+    is from the ROM, otherwise it is read from the RAM. That means the memory is reset back 
+    to the initialized value after each reset. The same structure below can be seen for all 
+    three arrays A/B/C.
+
+    proj/solution_B/syn/verilog/test_A_V_RAM_2P_BRAM_1R1W.v:
+    //------------------------Instantiation------------------
+    test_A_V_RAM_2P_BRAM_1R1W_ram #(
+        .DataWidth(DataWidth),
+        .AddressWidth(AddressWidth),
+        .AddressRange(AddressRange))
+    test_A_V_RAM_2P_BRAM_1R1W_ram_u(
+        .address0       ( address0 ),
+        .ce0            ( ce0 ),
+        .q0             ( q0_ram ),
+        .address1       ( address1 ),
+        .ce1            ( ce1 ),
+        .we1            ( we1 ),
+        .d1             ( d1 ),
+        .clk            ( clk ),
+        .reset          ( reset )
+     );
+     test_A_V_RAM_2P_BRAM_1R1W_rom #(
+        .DataWidth(DataWidth),
+        .AddressWidth(AddressWidth),
+        .AddressRange(AddressRange))
+     test_A_V_RAM_2P_BRAM_1R1W_rom_u(
+        .ce0      ( ce0 ),
+        .address0 ( address0 ),
+        .q0       ( q0_rom ),
+        .clk      ( clk ),
+        .reset    ( reset )
+     );
+     //------------------------Body---------------------------
+     assign q0     = q0_sel? q0_ram : q0_rom;
+
+[C] In solution_C, you can see the same structure as solution_B. Only difference is that we used
+    a "config_rtl -reset state" command instead of the reset pragmas/directives. 
