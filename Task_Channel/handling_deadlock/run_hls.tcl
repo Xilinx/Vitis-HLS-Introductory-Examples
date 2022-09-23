@@ -31,6 +31,13 @@ open_solution -reset solution1 -flow_target vivado
 set_part {xcvu9p-flga2104-2-i}
 create_clock -period 5 -name default
 
-csim_design
+if { [catch {csim_design} err] } {
+  puts "PASS: catch error."
+  close_project 
+  exit 0
+} else {
+  puts "ERROR: did not catch error."
+  close_project
+  exit 1 
+}
 
-exit
