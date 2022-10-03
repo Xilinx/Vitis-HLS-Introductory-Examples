@@ -1,4 +1,5 @@
-This example shows how to use both Task-Channel and Dataflow models in the same design.
+This example shows how to use both Control-driven and Data-driven Task-level parallelism 
+models in the same design.
 
 Files Included in this Package
 ==============================
