@@ -34,9 +34,9 @@ void write_out(hls::stream<int> &in, int *out, int n) {
 }
 
 void dut(int in[N], int out[N], int n) {
+  hls_thread_local hls::split::round_robin<int, NP> split1; 
+  hls_thread_local hls::merge::round_robin<int, NP> merge1;
 #pragma HLS dataflow
-  hls::split::round_robin<int, NP> split1; 
-  hls::merge::round_robin<int, NP> merge1;
 
   read_in(in, n, split1.in);
 
