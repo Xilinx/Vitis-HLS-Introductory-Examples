@@ -1,0 +1,31 @@
+This example shows how to debug a data-driven task-level parallelsim model that deadlocks when
+running C simulation.
+
+Files Included in this Package
+==============================
+test.cpp  
+test.h  
+test_tb.cpp  
+run_hls.tcl
+README
+
+Running the Design (edit run_hls.tcl to set $hls_exec and enable specific run steps)
+=========================================================
+vitis_hls -f run_hls.tcl
+
+Steps to debug the resulting deadlock error that is reported by csim_design command:
+====================================================================================
+[1] Open Vitis HLS GUI (vitis_hls -p proj)
+[2] In the Flow Navigator Window, Click on "Run C Simulation" link
+[3] In the window (titled "C Simulation Dialog") that pops up, select 
+    the "Launch Debugger" option and click "OK".
+[4] The debugging process is currently stopped in the main() function. Click on 
+    the "Resume" icon (Top Left-most Green Triangle Icon) to continue the simulation.
+[5] Click "Resume" causes the simulation to run and you will see the 
+    "deadlock detected when simulating hls::tasks" in the Console window.  
+[6] In the Debug window, you can see all the task Threads that are Suspended state. 
+    Step into each thread and select the line in the user code to see where each 
+    thread is stalled. Look for the function names to identify each thread. 
+[7] Stepping through the threads, you will see two tasks t3_1 and t3_2 
+    (usually Thread #5 and #6 but this could be different on your machine but
+    both running function func3) stuck reading their input streams.

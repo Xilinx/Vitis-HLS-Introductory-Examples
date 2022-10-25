@@ -1,0 +1,34 @@
+This example shows how static arrays are mapped to ROMs with different implementations 
+and how they are initialized.
+
+
+Included in this Package
+==============================
+test.h
+test.cpp
+test_tb.cpp
+run_hls.tcl
+README
+
+Running the Design (edit run_hls.tcl to set $hls_exec and enable specific run steps)
+=========================================================
+vitis_hls -f run_hls.tcl
+
+Things to note:
+----------------
+[A] In solution_A, you can see that for both BRAM/LUTRAM, the following structure is generated in the RTL
+    to initialize the static ROM array:
+    
+    proj/solution_A/syn/verilog/test_A_V_ROM_1P_BRAM_1R.v:
+    initial begin
+        $readmemh("./test_A_V_ROM_1P_BRAM_1R.dat", rom0);
+    end
+
+    proj/solution_A/syn/verilog/test_B_V_ROM_1P_LUTRAM_1R.v
+    initial begin
+        $readmemh("./test_B_V_ROM_1P_LUTRAM_1R.dat", rom0);
+    end
+
+    The *.dat files contain the initial values for the respective arrays. Also note that URAM is not a supported
+    implementation type for ROMs. 
+
