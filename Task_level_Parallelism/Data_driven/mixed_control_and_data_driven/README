@@ -1,0 +1,14 @@
+This example shows how to use both Control-driven and Data-driven Task-level parallelism 
+models in the same design.
+
+Files Included in this Package
+==============================
+test.cpp  
+test.h  
+test_tb.cpp  
+run_hls.tcl
+README
+
+Running the Design (edit run_hls.tcl to set $hls_exec and enable specific run steps)
+=========================================================
+vitis_hls -f run_hls.tcl

@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 Xilinx, Inc.
+ * Copyright 2022 Xilinx, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,7 +22,7 @@ Device: All
 Revision History: May 30, 2008 - initial release
                                                 
 *******************************************************************************
-#-  (c) Copyright 2011-2021 Xilinx, Inc. All rights reserved.
+#-  (c) Copyright 2011-2022 Xilinx, Inc. All rights reserved.
 #-
 #-  This file contains confidential and proprietary information
 #-  of Xilinx, Inc. and is protected under U.S. and

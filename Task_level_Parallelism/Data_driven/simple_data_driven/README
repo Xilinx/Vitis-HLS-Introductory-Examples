@@ -1,0 +1,13 @@
+This example shows how to use the data-driven task-level parallelism model in a design. 
+
+Files Included in this Package
+==============================
+test.cpp  
+test.h  
+test_tb.cpp  
+run_hls.tcl
+README
+
+Running the Design (edit run_hls.tcl to set $hls_exec and enable specific run steps)
+=========================================================
+vitis_hls -f run_hls.tcl
