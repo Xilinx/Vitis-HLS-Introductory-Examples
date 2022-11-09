@@ -9,7 +9,7 @@ void krnl_transfer(int* in,int* out, const int size ) {
 		buf[i] = in[i];
 		}
 	    
-        for (int i = 0; i < NT; i++) {
+        for (int i = 0; i < NUM; i++) {
 	        for (int j = 0; j < size; j++) {
 #pragma HLS PIPELINE II=1
 	            out[j+size*i] = buf[j];

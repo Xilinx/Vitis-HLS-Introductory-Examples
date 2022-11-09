@@ -13,9 +13,9 @@ void transfer_kernel(hls::burst_maxi<int> in,hls::burst_maxi<int> out, const int
 			buf[i] = in.read();
 		}
 
-		out.write_request(0, size*NT);
+		out.write_request(0, size*NUM);
 
-	    for (int i = 0; i < NT; i++) {
+	    for (int i = 0; i < NUM; i++) {
 	        for (int j = 0; j < size; j++) {
 #pragma HLS PIPELINE II=1
 	        	int a = buf[j];
