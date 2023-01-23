@@ -1,10 +1,9 @@
+This example uses a FRP (free-ruuning pipeline) mode to configure the pipeline architecture using a global command which is useful in reducing control logic fanout in vivado.
+
 The Pipeline architecture can be implemented in 3 modes:
--FRP( free-ruuning pipeline)
-- FLP( flushable pipeline)
-- STP ( stall pipeline)
-
-This example uses a FRP mode to configure the pipeline architecture using a global command. This is useful in reducing control logic fanout in vivado.
-
+- FRP (free-ruuning pipeline)
+- FLP (flushable pipeline)
+- STP (stall pipeline)
 
 
  Included in this Package
