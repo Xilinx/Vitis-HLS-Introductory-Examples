@@ -1,6 +1,4 @@
-/*
- * Example C++ code for the FUNCTION_INSTANTIATE pragma in Vitis HLS
-*/
+Example C++ code for the FUNCTION_INSTANTIATE pragma in Vitis HLS
 
 Files included in this package
 ==================================================
