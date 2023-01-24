@@ -1,0 +1,5 @@
+{
+  "name": "static_array_ROM",
+  "description": "This example shows how static arrays are mapped to ROMs with different implementations and how they are initialized",
+  "hls": {"config": "hls_config.cfg"}
+}

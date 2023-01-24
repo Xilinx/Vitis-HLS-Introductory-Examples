@@ -1,0 +1,5 @@
+{
+  "name": "disaggregation_of_axis_port",
+  "description": "In this disaggregation example, a struct port is mapped to an AXI stream and then disaggregated causing the Vitis HLS compiler to create two AXI stream ports - one for each member (c and i) of the struct A",
+  "hls": {"config": "hls_config.cfg"}
+}
