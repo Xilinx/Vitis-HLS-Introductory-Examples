@@ -1,0 +1,5 @@
+{
+  "name": "stream_good",
+  "description": "This example shows how to model using pointers and how to map pointers to streams.",
+  "hls": {"config": "hls_config.cfg"}
+}

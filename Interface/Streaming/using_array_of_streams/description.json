@@ -1,0 +1,5 @@
+{
+  "name": "using_array_of_streams",
+  "description": "This example illustrates how to define and use an array of streams in the interface",
+  "hls": {"config": "hls_config.cfg"}
+}

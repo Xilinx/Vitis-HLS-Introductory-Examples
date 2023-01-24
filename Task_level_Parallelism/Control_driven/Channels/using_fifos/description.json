@@ -1,0 +1,5 @@
+{
+  "name": "using_fifos",
+  "description": "This example shows how to use FIFOs instead of the default PIPOs as the channel type.",
+  "hls": {"config": "hls_config.cfg"}
+}

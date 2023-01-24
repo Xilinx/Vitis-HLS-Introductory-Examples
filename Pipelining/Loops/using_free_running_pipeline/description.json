@@ -1,0 +1,5 @@
+{
+  "name": "using_free_running_pipeline",
+  "description": "This example uses a FRP (free-ruuning pipeline) mode to configure the pipeline architecture using a global command which is useful in reducing control logic fanout in vivado",
+  "hls": {"config": "hls_config.cfg"}
+}

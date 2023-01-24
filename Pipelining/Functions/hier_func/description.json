@@ -1,0 +1,5 @@
+{
+  "name": "hier_func",
+  "description": "Use the pre-defined macro __SYNTHESIS__ to prevent code being synthesized",
+  "hls": {"config": "hls_config.cfg"}
+}
