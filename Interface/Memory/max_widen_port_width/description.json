@@ -1,0 +1,5 @@
+{
+  "name": "max_widen_port_width",
+  "description": "This example shows how to enable automatic port widening for m_axi ports in the Vivado IP flow",
+  "hls": {"config": "hls_config.cfg"}
+}

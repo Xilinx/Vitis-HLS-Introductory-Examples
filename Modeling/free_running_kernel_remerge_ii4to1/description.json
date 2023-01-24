@@ -1,0 +1,5 @@
+{
+  "name": "free_running_kernel_remerge_ii4to1",
+  "description": "This example illustrates coding example of achieving II=1 based on two sources using De-Mux\/Mux mechanism",
+  "hls": {"config": "hls_config.cfg"}
+}

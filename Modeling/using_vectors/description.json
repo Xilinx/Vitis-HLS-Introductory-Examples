@@ -1,0 +1,5 @@
+{
+  "name": "using_vectors",
+  "description": "This example illustrates using Load-Compute-Store using a vector datatype",
+  "hls": {"config": "hls_config.cfg"}
+}

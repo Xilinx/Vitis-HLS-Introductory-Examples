@@ -1,0 +1,5 @@
+{
+  "name": "ecc_flags",
+  "description": "This example illustrates how to infer an error code correction ultra-RAM using BIND_STORAGE",
+  "hls": {"config": "hls_config.cfg"}
+}

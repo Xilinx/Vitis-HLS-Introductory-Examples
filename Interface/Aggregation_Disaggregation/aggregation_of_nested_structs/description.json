@@ -1,0 +1,5 @@
+{
+  "name": "aggregation_of_nested_structs",
+  "description": "In this example, the aggregation algorithm will create a port of size 104 bits for ports a, and c as the compact=byte option was specified in the aggregate pragma but the compact=bit default option is used for port b and its packed size will be 97 bits",
+  "hls": {"config": "hls_config.cfg"}
+}

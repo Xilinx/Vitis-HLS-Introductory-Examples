@@ -1,0 +1,5 @@
+{
+  "name": "split_round_robin",
+  "description": "This example shows how to use the round robin scheduling strategy with a split channel.",
+  "hls": {"config": "hls_config.cfg"}
+}

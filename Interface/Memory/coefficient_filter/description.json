@@ -1,0 +1,5 @@
+{
+  "name": "coefficient_filter",
+  "description": "Example code for a scaled-integer fixed-point Hamming window function",
+  "hls": {"config": "hls_config.cfg"}
+}

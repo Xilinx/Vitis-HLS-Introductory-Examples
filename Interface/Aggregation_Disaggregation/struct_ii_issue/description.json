@@ -1,0 +1,5 @@
+{
+  "name": "struct_ii_issue",
+  "description": "This example illustrates the effect of misaligned data in the interface",
+  "hls": {"config": "hls_config.cfg"}
+}

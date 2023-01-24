@@ -1,0 +1,5 @@
+{
+  "name": "using_arbitrary_precision_casting",
+  "description": "This simple test illustrates casting to\/from arbitrary precision data types defined through ap_int.h",
+  "hls": {"config": "hls_config.cfg"}
+}

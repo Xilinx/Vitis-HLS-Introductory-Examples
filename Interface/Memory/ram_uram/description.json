@@ -1,0 +1,5 @@
+{
+  "name": "ram_uram",
+  "description": "This example illustrates how to infer a RAM using BIND_STORAGE",
+  "hls": {"config": "hls_config.cfg"}
+}

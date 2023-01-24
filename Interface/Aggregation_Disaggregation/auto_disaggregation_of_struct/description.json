@@ -1,0 +1,5 @@
+{
+  "name": "auto_disaggregation_of_struct",
+  "description": "Using a hls::stream object inside a structure that is used in the interface will cause the struct port to be automatically disaggregated by the Vitis HLS compiler",
+  "hls": {"config": "hls_config.cfg"}
+}

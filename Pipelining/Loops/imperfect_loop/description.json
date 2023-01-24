@@ -1,0 +1,5 @@
+{
+  "name": "imperfect_loop",
+  "description": "The example shows an imperfect loop which does not follow the loop flatten pre-conditions.",
+  "hls": {"config": "hls_config.cfg"}
+}

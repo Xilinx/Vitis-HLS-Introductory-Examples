@@ -1,0 +1,5 @@
+{
+  "name": "malloc_removed",
+  "description": "This example shows how to rewrite without using explicit mallocs in the C\/C++ code.",
+  "hls": {"config": "hls_config.cfg"}
+}

@@ -1,0 +1,5 @@
+{
+  "name": "merge_round_robin",
+  "description": "This example shows how to use the round robin scheduling strategy with a merge channel.",
+  "hls": {"config": "hls_config.cfg"}
+}

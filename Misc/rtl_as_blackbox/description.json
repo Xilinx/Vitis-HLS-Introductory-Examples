@@ -1,0 +1,5 @@
+{
+  "name": "rtl_as_blackbox",
+  "description": "This examaple uses the RTL blackbox feature",
+  "hls": {"config": "hls_config.cfg"}
+}
