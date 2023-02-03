@@ -47,7 +47,7 @@ void inner(data_t A[SZ], hls::stream< data_t > &stream_in, data_t* out)
 
   #pragma HLS INTERFACE ap_fifo port=stream_in
   data_t regA[SZ];
-  #pragma ARRAY_PARTITION variable=regA complete
+  #pragma HLS ARRAY_PARTITION variable=regA complete
   for (int i = 0; i < SZ; i++)
   {
       data_t tmp;
