@@ -21,7 +21,7 @@
 #define N 100
 #define NUM_BLOCKS 10
 typedef unsigned char data_t;
-typedef unsigned char block_data_t[NUM_BLOCKS];
+typedef data_t block_data_t[NUM_BLOCKS];
 
 // Top function
 void diamond(hls::stream<data_t> &vecIn, hls::stream<data_t> &vecOut);

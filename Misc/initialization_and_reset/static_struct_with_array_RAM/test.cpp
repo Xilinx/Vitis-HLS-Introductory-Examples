@@ -23,7 +23,9 @@ int test(int i) {
 
 #pragma HLS BIND_STORAGE variable=ts.A type=RAM_2P impl=BRAM
 #pragma HLS BIND_STORAGE variable=ts.B type=RAM_2P impl=LUTRAM
-#pragma HLS BIND_STORAGE variable=ts.C type=RAM_2P impl=URAM
+
+// URAM on non-Versal devices cannot be initialized
+// #pragma HLS BIND_STORAGE variable=ts.C type=RAM_2P impl=URAM
     
      ts.A[i] += ts.B[i] + ts.C[i];
      ts.B[i] += 5;
