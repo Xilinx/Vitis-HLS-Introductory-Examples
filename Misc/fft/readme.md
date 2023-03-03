@@ -17,10 +17,10 @@ in --+--> [inputdatamover]--(xn)-->[myfftwrapper]--(xk)-->[inputdatamover]--+-->
      +----------------------------------------------------------------------+
 ```
 
-The FFT IP instantiation in VHLS supports 2 access modes: via arrays or via hls::stream<>.
-The example design top level function was also created with the 2 possibilities so there are also 2 possible implementations. 
+The FFT IP instantiation in VHLS supports 2 access modes: via arrays or via hls::stream<>; those are the types you can define the variables "xn" and "xk" in the above diagram.
+The example design top level function argument type for the input "in" and output "out" was also created with those 2 possibilities so there are also 2 possible implementations.
 
-Hence there are 4 variations of the design which should help you adapt this example to your design. They are referenced in the table below.
+Hence there are 4 variations of the design which should help you adapt this example to your design. They are referenced in the table below. If you integrate the FFT into a dataflow region you should not need the datamovers.
 
 | Design name             | Top level interfaces | Internal data types |
 |---------------------------------------------|--------|--------|
@@ -45,7 +45,7 @@ ffp_top.h   : header file for the example
 
 run_hls.tcl : script to run synthesis, simulation and export IP
 
-README      : so small readme file which refers to this readme.md
+README      : a small readme file which refers to this readme.md
 
 Running the Example
 ======================
@@ -71,5 +71,5 @@ Points to Note
 - in the tcl script setup -start_fifo_depth 4 is used 
 - a wrapper around the fft call is sometimes used to improve the performance
 
-We are aiming the remove the above 2 restrictiong
+We are aiming the remove the above 2 restrictions
 - for co-simulation we are using the option -svuvm_nostall to remove some cosimulation artifacts which may wrongly show gaps in the input data between 2 runs.
