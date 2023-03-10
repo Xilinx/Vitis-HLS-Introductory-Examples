@@ -112,7 +112,7 @@ set hls_exec 2
 csim_design
 
 # Set any optimization directives
-config_dataflow -default_channel fifo -fifo_depth 1024
+
 # End of directives
 
 if {$hls_exec == 1} {

@@ -19,78 +19,64 @@
 
 void inputdatamover(
     bool direction,
-    config_t* config, 
-    hls::stream<cmpxDataIn> &in,
+    config_t* config,
+    hls::stream<cmpxDataIn>& in,
     cmpxDataIn out[FFT_LENGTH])
 {
     config->setDir(direction);
     config->setSch(0x2AB);
 L0:
-    for (int i=0; i< FFT_LENGTH; i++) {
-//        #pragma HLS pipeline II=1 rewind
+    for (int i = 0; i < FFT_LENGTH; i++) {
         out[i] = in.read();
     }
 }
 
 void outputdatamover(
-//    hls::stream<status_t,8> &status_in_strm,
-    status_t* status_in, 
+    status_t* status_in,
     bool* ovflo,
-//    hls::stream<cmpxDataOut,FFT_LENGTH> &in_strm,
-    cmpxDataOut in[FFT_LENGTH], 
-    hls::stream<cmpxDataOut> &out)
+    cmpxDataOut in[FFT_LENGTH],
+    hls::stream<cmpxDataOut>& out)
 {
-//	#pragma HLS INLINE off
 L0:
-    for (int i=0; i< FFT_LENGTH; i++) {
-//        #pragma HLS pipeline II=1 rewind
+    for (int i = 0; i < FFT_LENGTH; i++) {
         out.write(in[i]);
     }
     *ovflo = status_in->getOvflo() & 0x1;
 }
 
 void myfftwrapper(
-//        hls::stream<complex<data_in_t>,FFT_LENGTH> &xn,
-//hls::stream<complex<data_out_t>,FFT_LENGTH> &xk,
-//hls::stream<status_t,8> &fft_status,
-//hls::stream<config_t,8> &fft_config
-cmpxDataIn xn[FFT_LENGTH], 
-cmpxDataIn xk[FFT_LENGTH],
-status_t &fft_status,
-config_t &fft_config
-) {
-    #pragma HLS dataflow
-    #pragma HLS INLINE recursive
+    cmpxDataIn xn[FFT_LENGTH],
+    cmpxDataIn xk[FFT_LENGTH],
+    status_t& fft_status,
+    config_t& fft_config)
+{
+#pragma HLS dataflow
+#pragma HLS INLINE recursive
     hls::fft<config1>(xn, xk, &fft_status, &fft_config);
 }
 
-
 void fft_top(
     bool direction,
-    hls::stream<cmpxDataIn> &in,
-    hls::stream<cmpxDataOut> &out,
+    hls::stream<cmpxDataIn>& in,
+    hls::stream<cmpxDataOut>& out,
     bool* ovflo)
 {
-#pragma HLS interface ap_hs port=direction
-#pragma HLS interface ap_fifo depth=1 port=ovflo
-#pragma HLS interface ap_fifo depth=FFT_LENGTH port=in,out
-#pragma HLS data_pack variable=in
-#pragma HLS data_pack variable=out
+#pragma HLS interface ap_hs port = direction
+#pragma HLS interface ap_fifo depth = 1 port = ovflo
+#pragma HLS interface ap_fifo depth = FFT_LENGTH port = in, out
+#pragma HLS data_pack variable = in
+#pragma HLS data_pack variable = out
 #pragma HLS dataflow
-//    hls::stream<complex<data_in_t>,FFT_LENGTH> xn;
-//    hls::stream<complex<data_out_t>,FFT_LENGTH> xk;
-//    hls::stream<config_t,8> fft_config;
-//    hls::stream<status_t,8> fft_status;
+
     complex<data_in_t> xn[FFT_LENGTH];
     complex<data_out_t> xk[FFT_LENGTH];
     config_t fft_config;
     status_t fft_status;
-   
+
     inputdatamover(direction, &fft_config, in, xn);
+
     // FFT IP
-//    hls::fft<config1>(xn, xk, &fft_status, &fft_config);
     myfftwrapper(xn, xk, fft_status, fft_config);
 
     outputdatamover(&fft_status, ovflo, xk, out);
 }
-
