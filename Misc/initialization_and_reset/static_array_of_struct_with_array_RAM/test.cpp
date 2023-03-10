@@ -27,7 +27,7 @@ int test(int i) {
 //#pragma HLS BIND_STORAGE variable=ts type=RAM_2P impl=BRAM
 //#pragma HLS BIND_STORAGE variable=ts type=RAM_2P impl=LUTRAM
 // URAMs are not supported for global/static arrays 
-#pragma HLS BIND_STORAGE variable=ts type=RAM_2P impl=URAM
+// #pragma HLS BIND_STORAGE variable=ts type=RAM_2P impl=URAM
 
     int ind = i%2;
     ts[ind].A[i] += ts[ind].B[i] + ts[ind].C[i];
