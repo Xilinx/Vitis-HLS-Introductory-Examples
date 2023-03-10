@@ -17,17 +17,10 @@ in --+--> [inputdatamover]--(xn)-->[myfftwrapper]--(xk)-->[outputdatamover]--+--
      +-----------------------------------------------------------------------+
 ```
 
-<<<<<<< HEAD
-The FFT IP instantiation in VHLS supports 2 access modes: via arrays or via hls::stream<>.
-The example design top level function was also created with the same 2 possibilities: arrays or via hls::stream<>. 
-
-Hence, there are 4 variations of the design which should help you adapt this example to your design. They are referenced in the table below.
-=======
 The FFT IP instantiation in VHLS supports 2 access modes: via arrays or via hls::stream<>; those are the types you can define the variables "xn" and "xk" in the above diagram.
 The example design top level function argument type for the input "in" and output "out" was also created with those 2 possibilities so there are also 2 possible implementations.
 
 Hence there are 4 variations of the design which should help you adapt this example to your design. They are referenced in the table below. If you integrate the FFT into a dataflow region you should not need the datamovers.
->>>>>>> 56fbe12df3a731dbcb13de5e4e3a94446f6f9c68
 
 | Design name             | Top level interfaces | Internal data types |
 |---------------------------------------------|--------|--------|
@@ -125,9 +118,4 @@ We are aiming the remove the above 2 restrictions.
 
 Furthermore, for co-simulation we are using the option -svuvm_nostall to remove some cosimulation artifacts which may wrongly show gaps in the input data between 2 runs, and you will see that the cosimulation succeeds with typical message : `INFO: [COSIM 212-1000] *** C/RTL co-simulation finished: PASS ***`.
 
-<<<<<<< HEAD
 However due to the use of the -svuvm_nostall option, the flow will issue an error message which you can discard : `ERROR: [HLS 200-644] The 'cosim_design -svuvm_nostall' hidden command is not supported.` ... `command 'cosim_design' returned error code while executing "cosim_design -rtl verilog -svuvm_nostall" invoked from within` ...
-=======
-We are aiming the remove the above 2 restrictions
-- for co-simulation we are using the option -svuvm_nostall to remove some cosimulation artifacts which may wrongly show gaps in the input data between 2 runs.
->>>>>>> 56fbe12df3a731dbcb13de5e4e3a94446f6f9c68
