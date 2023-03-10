@@ -73,7 +73,7 @@ Performance
 After running the design example, you can check the throughput in the GUI by opening the co-simulation report and verifying the II numbers for the top-level function fft_top which will be in the range 1024 - 1027 clock cycles which is expected for the 1024 point FFT; you can also open the waveform if you enabled the dump trace option.
 On the command line you can grep the output of the latency report, for example 
 ```
-$ grep THROUGHPUT 2022.2/fft_single_interface_array_internal_stream
+$ grep THROUGHPUT 2022.2/fft_single_interface_array_internal_stream/proj*/solution1/sim/report/verilog/lat.rpt
 $MAX_THROUGHPUT = "1025"
 $MIN_THROUGHPUT = "1024"
 $AVER_THROUGHPUT = "1024"
