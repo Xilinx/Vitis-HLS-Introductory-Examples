@@ -16,7 +16,6 @@
 #
 
 # Project settings
-#open_project proj -reset
 set tool "unknown"
 set version "unknown"
 set parent_dir_name [file tail [file dirname [file normalize [info script]]]]
@@ -30,15 +29,7 @@ foreach toolcheck {vivado_hls vitis_hls} {
 
 puts "*** tool: $tool is version: $version ***"
 
-#puts "*** info script <<[info script]>>"
-#puts "*** file normalize info script <<[file normalize [info script]]>>"
-#puts "*** file dirname file normalize info script <<[file dirname [file normalize [info script]]]>>"
-#puts "*** file tail file dirname file normalize info script <<[file tail [file dirname [file normalize [info script]]]]>>"
-#
-#exit
-
 # Create a project
-#open_project -reset proj_${my_top}_${my_part}
 set proj_name proj_${parent_dir_name}_${tool}_${version}
 open_project -reset ${proj_name}
 
@@ -128,10 +119,9 @@ if {$hls_exec == 1} {
 	# Run Synthesis, RTL Simulation, RTL implementation and Exit
 	csynth_design
 	
-#    cosim_design -rtl verilog -wave_debug -trace_level all
-    cosim_design -rtl verilog -wave_debug -trace_level all -svuvm_nostall
+    cosim_design -rtl verilog -trace_level all -svuvm_nostall
 
-	# export_design
+	export_design
 } else {
 	# Default is to exit after setup
 	csynth_design
