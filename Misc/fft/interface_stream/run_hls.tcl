@@ -16,21 +16,10 @@
 #
 
 # Project settings
-set tool "unknown"
-set version "unknown"
 set parent_dir_name [file tail [file dirname [file normalize [info script]]]]
 
-foreach toolcheck {vivado_hls vitis_hls} {
-    if {[ string first $toolcheck $argv0 ]>=0} {
-        set tool $toolcheck
-        set version "[exec which $toolcheck | sed -e "s:.*\\(20..\\..\\).*:\\1:g" ]"
-    }
-}
-
-puts "*** tool: $tool is version: $version ***"
-
 # Create a project
-set proj_name proj_${parent_dir_name}_${tool}_${version}
+set proj_name proj_${parent_dir_name}
 open_project -reset ${proj_name}
 
 
@@ -114,12 +103,12 @@ if {$hls_exec == 1} {
 	# Run Synthesis, RTL Simulation and Exit
 	csynth_design
 	
-	cosim_design -rtl verilog
+    cosim_design -rtl verilog
 } elseif {$hls_exec == 3} { 
 	# Run Synthesis, RTL Simulation, RTL implementation and Exit
 	csynth_design
 	
-    cosim_design -rtl verilog -trace_level all -svuvm_nostall
+    cosim_design -rtl verilog -trace_level all
 
 	export_design
 } else {
