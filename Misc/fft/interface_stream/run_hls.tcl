@@ -16,11 +16,8 @@
 #
 
 # Project settings
-set parent_dir_name [file tail [file dirname [file normalize [info script]]]]
-
 # Create a project
-set proj_name proj_${parent_dir_name}
-open_project -reset ${proj_name}
+open_project -reset proj_intf_stream
 
 
 # Add the file for synthsis
