@@ -36,7 +36,7 @@ create_clock -period 4
 
 # Set variable to select which steps to execute
 set hls_exec 2
-
+set_directive_interface -mode m_axi resource_uram dataout -depth 1
 
 csim_design
 

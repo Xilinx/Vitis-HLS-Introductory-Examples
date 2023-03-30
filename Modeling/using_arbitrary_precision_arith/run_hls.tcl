@@ -39,6 +39,10 @@ set hls_exec 2
 
 csim_design
 # Set any optimization directives
+set_directive_interface -mode m_axi cpp_ap_int_arith out1 -depth 1
+set_directive_interface -mode m_axi cpp_ap_int_arith out2 -depth 1
+set_directive_interface -mode m_axi cpp_ap_int_arith out3 -depth 1
+set_directive_interface -mode m_axi cpp_ap_int_arith out4 -depth 1
 # End of directives
 
 if {$hls_exec == 1} {

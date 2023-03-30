@@ -39,6 +39,7 @@ set hls_exec 2
 
 csim_design
 # Set any optimization directives
+set_directive_interface -mode m_axi cpp_template out -depth 1
 # End of directives
 
 if {$hls_exec == 1} {
