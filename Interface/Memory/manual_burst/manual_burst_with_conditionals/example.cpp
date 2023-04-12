@@ -68,7 +68,9 @@ void write(hls::burst_maxi<dout_t> RES, dout_t x_aux[N], dout_t y_aux[N]){
 		if(i<N/4) RES.write(x_aux[i] - y_aux[i]);
 		else RES.write(x_aux[N-N/2+i] - y_aux[N-N/2+i]/N);
 	}
+   RES.write_response();   // wait for the write operation to complete
 	RES.write_response();	// wait for the write operation to complete
+   
 }
 
 void process(dout_t x_aux[N], dout_t y_aux[N], din_t factor){
