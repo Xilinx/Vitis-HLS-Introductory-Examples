@@ -13,7 +13,7 @@ duc.h:        DUC header file
 duc_test.cpp: testbench for DUC design
 fir.h:        includes various types of FIR class
 readme.txt:   this file
-run.tcl:      TCL script to create a HLS project
+run_hls.tcl:  TCL script to create a HLS project
 run_2p5.tcl:  sets the clock period and call the run.tcl file
 
 # Running the Example
@@ -21,7 +21,7 @@ run_2p5.tcl:  sets the clock period and call the run.tcl file
 Open a command prompt with vitis tools set up, go into the directory of a given design example and then run the command : 
 
 ```
-$ vitis_hls -f run_hls.tcl
+$ vitis_hls -f run_2p5.tcl
 ```
 If you wish you can open the project with the VHLS GUI :
 
