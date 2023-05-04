@@ -58,8 +58,6 @@ void fft_top(
 #pragma HLS interface ap_hs port = direction
 #pragma HLS interface ap_fifo depth = 1 port = ovflo
 #pragma HLS interface ap_fifo depth = FFT_LENGTH port = in, out
-#pragma HLS data_pack variable = in
-#pragma HLS data_pack variable = out
 #pragma HLS dataflow
 
     hls::stream<complex<data_in_t>> xn;
