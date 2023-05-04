@@ -1,0 +1,5 @@
+{
+  "name": "vadd_kernel",
+  "description": "This is a reference design for Vitis HLS user to demonstrate integration of a HLS kernel into Vitis flow to build xclbin and run the design on board or emulation flow.",
+  "hls": {"config": "hls_config.cfg"}
+}

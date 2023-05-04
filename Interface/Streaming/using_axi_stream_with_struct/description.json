@@ -1,0 +1,5 @@
+{
+  "name": "using_axi_stream_with_struct",
+  "description": "Example C++ code for implementing an AXI stream interface in Vitis HLS using only the TDATA field and AXI handshake signals",
+  "hls": {"config": "hls_config.cfg"}
+}

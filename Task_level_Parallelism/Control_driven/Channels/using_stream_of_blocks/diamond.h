@@ -1,5 +1,6 @@
 /*
- * Copyright 2022 Xilinx, Inc.
+ * Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+ * Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,7 +21,7 @@
 #define N 100
 #define NUM_BLOCKS 10
 typedef unsigned char data_t;
-typedef unsigned char block_data_t[NUM_BLOCKS];
+typedef data_t block_data_t[NUM_BLOCKS];
 
 // Top function
 void diamond(hls::stream<data_t> &vecIn, hls::stream<data_t> &vecOut);

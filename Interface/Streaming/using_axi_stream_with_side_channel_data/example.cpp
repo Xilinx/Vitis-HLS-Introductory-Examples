@@ -1,5 +1,6 @@
 /*
- * Copyright 2022 Xilinx, Inc.
+ * Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+ * Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,27 +15,17 @@
  * limitations under the License.
  */
 
-#include "ap_axi_sdata.h"
-#include "hls_stream.h"
+#include "example.h"
 
-
-void example(hls::stream< ap_axis<32,2,5,6> > &A,
-	     hls::stream< ap_axis<32,2,5,6> > &B)
+void example(hls::stream< packet > &A,
+	     hls::stream< packet > &B)
 {
 #pragma HLS INTERFACE axis port=A
 #pragma HLS INTERFACE axis port=B
 
-	ap_axis<32,2,5,6> tmp;
-    while(1)
-    {
-	A.read(tmp);
-	tmp.data = tmp.data.to_int() + 5;
+	packet tmp = A.read();
+	tmp.data = tmp.data + 5;
 	B.write(tmp);
-     if(tmp.last)
-     {
-         break;
-     }
-    }
-    
 
 }
+

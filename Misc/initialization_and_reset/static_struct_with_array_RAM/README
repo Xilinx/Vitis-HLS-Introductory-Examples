@@ -16,7 +16,7 @@ vitis_hls -f run_hls.tcl
 
 Things to note:
 ----------------
-[A] In solution_A, you can see that for BRAM/LUTRAM/URAM, the following structure is 
+[A] In solution_A, you can see that for BRAM/LUTRAM, the following structure is 
     generated in the RTL to initialize the static RAM arrays:
     
     proj/solution_A/syn/verilog/test_A_V_RAM_2P_BRAM_1R1W.v:
@@ -29,15 +29,9 @@ Things to note:
         $readmemh("./test_B_V_RAM_2P_LUTRAM_1R1W.dat", rom0);
     end
 
-    proj/solution_A/syn/verilog/test_C_V_RAM_2P_URAM_1R1W.v:
-    initial begin
-        $readmemh("./test_C_V_RAM_2P_URAM_1R1W.dat", ram);
-    end 
-
-
     The *.dat files contain the initial values for the respective arrays.
 
-[B] In solution_B, you can see the structure that is generatd for BRAM/LUTRAM/URAM when
+[B] In solution_B, you can see the structure that is generatd for BRAM/LUTRAM when
     they are reset:
 
     When the reset directive/pragma is applied to the static arrays (A/B/C), you will see 
@@ -46,7 +40,7 @@ Things to note:
     reset signal is asserted, if an address is not written, the value read from the address 
     is from the ROM, otherwise it is read from the RAM. That means the memory is reset back 
     to the initialized value after each reset. The same structure below can be seen for all 
-    three arrays A/B/C.
+    two arrays A/B.
 
     proj/solution_B/syn/verilog/test_A_V_RAM_2P_BRAM_1R1W.v:
     //------------------------Instantiation------------------

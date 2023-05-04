@@ -1,0 +1,5 @@
+{
+  "name": "manual_burst_inference_success",
+  "description": "This example shows how to modify a design that failed automatic burst inference with one that succeeds when we use the manual burst flow",
+  "hls": {"config": "hls_config.cfg"}
+}

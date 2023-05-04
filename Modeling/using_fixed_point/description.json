@@ -1,0 +1,5 @@
+{
+  "name": "using_fixed_point",
+  "description": "This simple test illustrates how to use ap_fixed\/ap_ufixed fixed point data types.",
+  "hls": {"config": "hls_config.cfg"}
+}

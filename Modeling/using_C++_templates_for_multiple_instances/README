@@ -1,0 +1,18 @@
+This simple example shows how to use C++ template functions to create
+multiple instances of the same function. This is one way to prevent
+Vitis HLS from creating one module master and then sharing the instance of
+the master across multiple cycles. The template function method can be
+use to create multiple instances of the same function and Vitis HLS would
+treat them as separate unique functions that are not shared. 
+
+Files included in this package:
+===============================
+cpp_template.cpp
+cpp_template.h
+cpp_template_test.cpp
+run_hls.tcl
+README
+
+Running the Design (edit run_hls.tcl to enable specific run steps)
+=========================================================
+vitis_hls -f run_hls.tcl

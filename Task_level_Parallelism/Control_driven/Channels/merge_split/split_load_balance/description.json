@@ -1,0 +1,5 @@
+{
+  "name": "split_load_balance",
+  "description": "This example shows how to use the load balancing scheduling strategy with a split channel.",
+  "hls": {"config": "hls_config.cfg"}
+}

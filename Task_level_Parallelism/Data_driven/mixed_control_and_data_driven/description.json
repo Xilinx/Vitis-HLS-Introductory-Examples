@@ -1,0 +1,5 @@
+{
+  "name": "mixed_control_and_data_driven",
+  "description": "This example shows how to use both Control-driven and Data-driven Task-level parallelism models in the same design",
+  "hls": {"config": "hls_config.cfg"}
+}

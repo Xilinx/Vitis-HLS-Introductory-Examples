@@ -1,0 +1,5 @@
+{
+  "name": "manual_burst_with_conditionals",
+  "description": "This example shows how manual bursting can be used even if there are memory accesses that are guarded by conditional expressions",
+  "hls": {"config": "hls_config.cfg"}
+}

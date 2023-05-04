@@ -1,5 +1,6 @@
 /*
- * Copyright 2022 Xilinx, Inc.
+ * Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+ * Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,13 +19,13 @@
 int test(int i) {
     static TestStruct<10> ts[2] = {{{0, 1, 2, 3, 4, 5, 6, 7, 8, 9},
                                     {9, 8, 7, 6, 5, 4, 3, 2, 1, 0},
-                                    {9, 8, 7, 6, 5, 4, 3, 2, 1, 0}},
+                                    {8, 8, 7, 7, 5, 4, 3, 2, 1, 0}},
                                    {{0, 1, 2, 3, 4, 5, 6, 7, 8, 9},
                                     {9, 8, 7, 6, 5, 4, 3, 2, 1, 0},
-                                    {9, 8, 7, 6, 5, 4, 3, 2, 1, 0}}};
+                                    {9, 9, 8, 6, 5, 4, 3, 2, 1, 0}}};
 
-//#pragma HLS BIND_STORAGE variable=ts type=RAM_2P impl=BRAM
-#pragma HLS BIND_STORAGE variable=ts type=RAM_2P impl=LUTRAM
+#pragma HLS BIND_STORAGE variable=ts type=RAM_2P impl=BRAM
+// #pragma HLS BIND_STORAGE variable=ts type=RAM_2P impl=LUTRAM
 // URAMs are not supported for global/static arrays 
 // #pragma HLS BIND_STORAGE variable=ts type=RAM_2P impl=URAM
 

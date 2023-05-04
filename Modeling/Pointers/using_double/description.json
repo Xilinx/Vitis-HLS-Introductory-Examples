@@ -1,0 +1,5 @@
+{
+  "name": "using_double",
+  "description": "This simple design illustrate the usage of the C native double data type.",
+  "hls": {"config": "hls_config.cfg"}
+}

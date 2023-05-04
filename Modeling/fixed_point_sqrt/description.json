@@ -1,0 +1,5 @@
+{
+  "name": "fixed_point_sqrt",
+  "description": "Example code for template function that implements a fixed point square- root algorithm for HLS",
+  "hls": {"config": "hls_config.cfg"}
+}

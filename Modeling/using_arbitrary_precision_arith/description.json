@@ -1,0 +1,5 @@
+{
+  "name": "using_arbitrary_precision_arith",
+  "description": "This example illustrates defining arbitrary precision variables through the ap_int.h library",
+  "hls": {"config": "hls_config.cfg"}
+}
