@@ -1,0 +1,5 @@
+{
+  "name": "multiple_pointers",
+  "description": "This simple example show how a pointer can be made to point to different arrays in a synthesizeable design",
+  "hls": {"config": "hls_config.cfg"}
+}

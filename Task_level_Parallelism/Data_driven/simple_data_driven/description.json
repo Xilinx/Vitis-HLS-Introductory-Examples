@@ -1,0 +1,5 @@
+{
+  "name": "simple_data_driven",
+  "description": "This example shows how to use the data-driven task-level parallelism model in a design.",
+  "hls": {"config": "hls_config.cfg"}
+}

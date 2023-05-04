@@ -1,0 +1,5 @@
+{
+  "name": "merge_load_balance",
+  "description": "This example shows how to use the load balancing scheduling strategy with a merge channel.",
+  "hls": {"config": "hls_config.cfg"}
+}

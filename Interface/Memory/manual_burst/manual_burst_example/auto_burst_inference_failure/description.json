@@ -1,0 +1,5 @@
+{
+  "name": "auto_burst_inference_failure",
+  "description": "This example shows that auto burst inference failure as the size is unknown at compile time",
+  "hls": {"config": "hls_config.cfg"}
+}

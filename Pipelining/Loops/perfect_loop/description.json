@@ -1,0 +1,5 @@
+{
+  "name": "perfect_loop",
+  "description": "The example shows the correct coding guidlenes for nested loops to be flattened automatically by the tool",
+  "hls": {"config": "hls_config.cfg"}
+}

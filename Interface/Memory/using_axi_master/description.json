@@ -1,0 +1,5 @@
+{
+  "name": "using_axi_master",
+  "description": "This example illustrates how an input argument of top level function can be mapped to AXI4-MEM",
+  "hls": {"config": "hls_config.cfg"}
+}

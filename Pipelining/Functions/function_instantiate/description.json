@@ -1,0 +1,5 @@
+{
+  "name": "function_instantiate",
+  "description": "Example C++ code for the FUNCTION_INSTANTIATE pragma in Vitis HLS",
+  "hls": {"config": "hls_config.cfg"}
+}

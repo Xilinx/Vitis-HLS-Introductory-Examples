@@ -1,0 +1,5 @@
+{
+  "name": "basic_arithmetic",
+  "description": "This simple example illustrates the usage of synthesizeable pointer arithmetic.",
+  "hls": {"config": "hls_config.cfg"}
+}

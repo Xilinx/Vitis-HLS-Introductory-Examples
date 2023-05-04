@@ -1,5 +1,6 @@
 #
-# Copyright 2022 Xilinx, Inc.
+# Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+# Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -38,6 +39,7 @@ set hls_exec 2
 
 csim_design
 # Set any optimization directives
+set_directive_interface -mode m_axi pointer_basic d -depth 1
 # End of directives
 
 # cosim_design option -trace_level all is used to create a VCD waveform file

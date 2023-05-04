@@ -1,0 +1,5 @@
+{
+  "name": "variable_bound_loops",
+  "description": "This example shows how to write a loop which has a variable bound and apply pragmas\/directives on such a loop",
+  "hls": {"config": "hls_config.cfg"}
+}

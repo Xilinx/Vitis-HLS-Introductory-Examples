@@ -1,0 +1,5 @@
+{
+  "name": "aggregation_of_struct",
+  "description": "In this simple example, the aggregation algorithm will create a port of size 119 bits for port arr (which is mapped to ap_fifo which will create a streaming interface)",
+  "hls": {"config": "hls_config.cfg"}
+}

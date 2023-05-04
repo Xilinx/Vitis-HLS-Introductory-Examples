@@ -1,5 +1,6 @@
 /*
- * Copyright 2022 Xilinx, Inc.
+ * Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+ * Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,7 +23,9 @@ int test(int i) {
 
 #pragma HLS BIND_STORAGE variable=ts.A type=RAM_2P impl=BRAM
 #pragma HLS BIND_STORAGE variable=ts.B type=RAM_2P impl=LUTRAM
-#pragma HLS BIND_STORAGE variable=ts.C type=RAM_2P impl=URAM
+
+// URAM on non-Versal devices cannot be initialized
+// #pragma HLS BIND_STORAGE variable=ts.C type=RAM_2P impl=URAM
     
      ts.A[i] += ts.B[i] + ts.C[i];
      ts.B[i] += 5;

@@ -1,0 +1,5 @@
+{
+  "name": "using_stream_of_blocks",
+  "description": "This example uses the same design as using_pipos and using_fifos designs to illustrate how the same design can be converted to use stream of blocks (SOB) as the channel type",
+  "hls": {"config": "hls_config.cfg"}
+}

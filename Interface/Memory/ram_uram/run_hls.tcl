@@ -1,5 +1,6 @@
 #
-# Copyright 2022 Xilinx, Inc.
+# Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+# Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -35,7 +36,7 @@ create_clock -period 4
 
 # Set variable to select which steps to execute
 set hls_exec 2
-
+set_directive_interface -mode m_axi resource_uram dataout -depth 1
 
 csim_design
 

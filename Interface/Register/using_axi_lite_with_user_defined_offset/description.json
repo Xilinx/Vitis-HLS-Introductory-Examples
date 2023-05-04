@@ -1,0 +1,5 @@
+{
+  "name": "using_axi_lite_with_user_defined_offset",
+  "description": "In this example the user uses to define the offset and the range is dependent on the datatype and port protocol it usese. See the saxi lite  documentation which explains the example in more detail",
+  "hls": {"config": "hls_config.cfg"}
+}

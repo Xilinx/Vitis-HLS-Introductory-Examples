@@ -1,5 +1,6 @@
 /*
- * Copyright 2022 Xilinx, Inc.
+ * Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+ * Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,7 +30,7 @@ int main(int, char**) {
     
     float16 tmp1 = {3.2, 1.1, 1.1, 1.1, 1.1, 1.1, 1.1, 1.1, 3.2, 1.1, 1.1, 1.1, 1.1, 1.1, 1.1, 1.1};
     float16 tmp2 = {9.2, 8.1, 9.1, 6.1, 5.3, 3.2, 5.9, 3.8, 3.9, 9.1, 3.3, 4.5, 9.9, 2.1, 2.7, 6.1};
-    for (uint i = 0; i < NUM; i++) {
+    for (int i = 0; i < NUM; i++) {
         lhs[i] = i % 2 ? tmp1 : tmp2;
         rhs[i] = i % 2 ? tmp2 : tmp1;
     }
