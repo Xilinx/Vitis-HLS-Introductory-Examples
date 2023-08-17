@@ -21,7 +21,7 @@
 #include "ap_axi_sdata.h"
 #include "hls_stream.h"
 
-typedef ap_axis<32,2,5,6> packet;=
+typedef ap_axis<32,2,5,6> packet;
 
 #define SIZE 5
 

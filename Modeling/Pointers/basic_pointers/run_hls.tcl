@@ -39,6 +39,7 @@ set hls_exec 2
 
 csim_design
 # Set any optimization directives
+set_directive_interface -mode m_axi pointer_basic d -depth 1
 # End of directives
 
 # cosim_design option -trace_level all is used to create a VCD waveform file
