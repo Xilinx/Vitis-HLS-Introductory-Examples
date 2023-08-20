@@ -1,0 +1,5 @@
+{
+  "name": "using_axi_stream_with_side_channel_data",
+  "description": "Example C++ code for implementing an AXI stream interface in Vitis HLS using all side channels.",
+  "hls": {"config": "hls_config.cfg"}
+}

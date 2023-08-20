@@ -15,32 +15,15 @@
  * limitations under the License.
  */
 
+#pragma once
+
 #include <iostream>
-#include "example.h"
-using namespace std;
+#include "ap_axi_sdata.h"
+#include "hls_stream.h"
 
-void example(hls::stream<pkt > &A,
-	     hls::stream<pkt> &B);
-int main()
-{
-  int i=100;
-  hls::stream<pkt> A, B;
-  pkt tmp1, tmp2;
-  tmp1.data = i;
-  
-  A.write(tmp1);
-  example(A,B);
+typedef hls::axis_user<13, (AXIS_ENABLE_USER | AXIS_ENABLE_LAST)> packet;
 
-  B.read(tmp2);
-  if (tmp2.data != 105)
-  {
-    cout << "ERROR: results mismatch" << endl;
-    return 1;
-  }
-  else
-  {
-    cout << "Success: results match" << endl;
-    return 0;
-  }
-}
+#define SIZE 5
+
+void example(hls::stream<packet > &A, hls::stream<packet > &B);
 

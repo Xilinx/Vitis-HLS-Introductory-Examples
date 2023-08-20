@@ -15,11 +15,8 @@
  * limitations under the License.
  */
 
-#include "ap_axi_sdata.h"
-#include "hls_stream.h"
-#define DWIDTH 32
-#define type ap_int<DWIDTH>
-typedef hls::axis<type, 0, 0, 0> pkt;
+#include "example.h"
+
 void example(hls::stream<pkt > &A,
 	     hls::stream<pkt> &B)
 {

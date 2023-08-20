@@ -15,32 +15,17 @@
  * limitations under the License.
  */
 
-#include <iostream>
 #include "example.h"
-using namespace std;
 
-void example(hls::stream<pkt > &A,
-	     hls::stream<pkt> &B);
-int main()
+void example(hls::stream< packet > &A,
+	     hls::stream< packet > &B)
 {
-  int i=100;
-  hls::stream<pkt> A, B;
-  pkt tmp1, tmp2;
-  tmp1.data = i;
-  
-  A.write(tmp1);
-  example(A,B);
+#pragma HLS INTERFACE axis port=A
+#pragma HLS INTERFACE axis port=B
 
-  B.read(tmp2);
-  if (tmp2.data != 105)
-  {
-    cout << "ERROR: results mismatch" << endl;
-    return 1;
-  }
-  else
-  {
-    cout << "Success: results match" << endl;
-    return 0;
-  }
+	packet tmp = A.read();
+	tmp.set_user(tmp.get_user() + 5);
+	B.write(tmp);
+
 }
 

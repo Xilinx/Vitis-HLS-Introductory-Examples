@@ -15,32 +15,44 @@
  * limitations under the License.
  */
 
-#include <iostream>
 #include "example.h"
+
 using namespace std;
 
-void example(hls::stream<pkt > &A,
-	     hls::stream<pkt> &B);
 int main()
 {
-  int i=100;
-  hls::stream<pkt> A, B;
-  pkt tmp1, tmp2;
-  tmp1.data = i;
-  
-  A.write(tmp1);
-  example(A,B);
 
-  B.read(tmp2);
-  if (tmp2.data != 105)
+  hls::stream<packet> A, B;
+  packet tmp1, tmp2;
+
+  for(int j=0;j<SIZE;j++)
   {
-    cout << "ERROR: results mismatch" << endl;
-    return 1;
+
+	 tmp1.data = j;
+	 if(j==99) {
+		 tmp1.last = 1;
+	}
+	else
+	{
+		tmp1.last = 0;
+	}
+
+	A.write(tmp1);
+	example(A,B);
+	B.read(tmp2);
+
+	if(tmp1.get_data()+5!=tmp2.get_data()) {
+		cout << "ERROR: results mismatch" << endl;
+		cout << "tmp1.data=" << tmp1.data;
+		cout << " != ";
+		cout << "tmp2.data="<< tmp2.data << endl;
+		return 1;
+	}
+
   }
-  else
-  {
+
     cout << "Success: results match" << endl;
     return 0;
-  }
+
 }
 
