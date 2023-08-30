@@ -1,0 +1,13 @@
+This example shows unsynchronized I/O scalars with KPN tasks
+
+
+Files Included in this Package
+==============================
+mt.cpp    
+script.tcl
+README
+
+Running the Design 
+=========================================================
+vitis_hls -f script.tcl
+
