@@ -26,7 +26,7 @@ set_top dut
 
 # ########################################################
 # Create a solution
-open_solution solution -reset -flow_target vitis
+open_solution solution -reset -flow_target vivado
 
 # Define technology and clock rate
 set_part {xcvu9p-flga2104-2-i}
