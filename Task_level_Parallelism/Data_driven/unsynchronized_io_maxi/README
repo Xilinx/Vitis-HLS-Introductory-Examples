@@ -1,0 +1,14 @@
+This example shows unsynchronized I/O MAXI with KPN tasks
+
+
+Files Included in this Package
+==============================
+dut_tb.cpp    
+increment.cpp  
+script.tcl
+README
+
+Running the Design 
+=========================================================
+vitis_hls -f script.tcl
+
