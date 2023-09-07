@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-#include<iostream>
+#include <iostream>
 #define N 10
 
 struct A {
@@ -24,4 +24,4 @@ struct A {
 };
 
 // Top function
-int dut(A* arr);
+int dut(A *arr);

@@ -19,8 +19,7 @@
 
 void example(stream<int> &in, stream<int> &out);
 
-int main()
-{
+int main() {
 
   stream<int> in("in_stream");
   stream<int> out("out_stream");
@@ -31,12 +30,10 @@ int main()
 
   example(in, out);
 
-  for (int p = 0; p < N; p++)
-  {
+  for (int p = 0; p < N; p++) {
     int var;
     out.read(var);
-    if (var != p)
-    {
+    if (var != p) {
       std::cout << "Test pattern failed" << std::endl;
       return 1;
     }

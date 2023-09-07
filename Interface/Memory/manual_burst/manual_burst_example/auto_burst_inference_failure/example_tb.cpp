@@ -19,36 +19,31 @@
 #include <iostream>
 #define iter 10
 
-int main()
-{
+int main() {
 
-	int size = 512;
-	int in[size*iter];
-	int a[size];
+  int size = 512;
+  int in[size * iter];
+  int a[size];
 
-	int out[size*iter];
+  int out[size * iter];
 
-	for(int i=0;i<size;i++)
-	{
-		in[i]= i;
-		a[i] =i;
-	}
+  for (int i = 0; i < size; i++) {
+    in[i] = i;
+    a[i] = i;
+  }
 
-	krnl_transfer(in,out,size);
+  krnl_transfer(in, out, size);
 
-	int var ;
-	for(int j=0; j<iter;j++)
-	{
-	for(int i=0;i<size;i++)
-	{
-		if(out[i] != a[i] )
-        {
-        std::cout <<"design fails" << " i " << i << " out "<< out[i] << " a " << a[i] << std::endl;
-			return 1;
-	
-        }
+  int var;
+  for (int j = 0; j < iter; j++) {
+    for (int i = 0; i < size; i++) {
+      if (out[i] != a[i]) {
+        std::cout << "design fails"
+                  << " i " << i << " out " << out[i] << " a " << a[i]
+                  << std::endl;
+        return 1;
+      }
     }
-	}
-	return 0;
-
+  }
+  return 0;
 }

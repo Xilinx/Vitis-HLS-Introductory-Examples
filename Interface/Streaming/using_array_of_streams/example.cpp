@@ -1,7 +1,7 @@
 /*
  * Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
  * Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -18,18 +18,16 @@
 #include "example.h"
 
 int dut(hls::stream<int> s_in[M], hls::stream<int> s_out[M]) {
-#pragma HLS INTERFACE axis port=s_in
-#pragma HLS INTERFACE axis port=s_out
-    
+#pragma HLS INTERFACE axis port = s_in
+#pragma HLS INTERFACE axis port = s_out
+
   int sum = 0;
   for (unsigned j = 0; j < M; j++) {
-      for (unsigned i = 0; i < 10; i++) {
-          int val = s_in[j].read();
-          s_out[j].write(val + 2);
-          sum += val;
-      }
+    for (unsigned i = 0; i < 10; i++) {
+      int val = s_in[j].read();
+      s_out[j].write(val + 2);
+      sum += val;
+    }
   }
   return sum;
 }
-
-

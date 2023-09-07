@@ -18,7 +18,7 @@
 
 int main() {
   A arr[N];
-  for (unsigned i=0; i<N; i++) {
+  for (unsigned i = 0; i < N; i++) {
     arr[i].foo = i;
     arr[i].bar = i;
   }

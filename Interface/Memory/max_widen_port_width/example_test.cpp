@@ -30,8 +30,6 @@ int main() {
     if (res[i] != i + 100)
       return EXIT_FAILURE;
 
-
   cout << "Test passed.\n";
   return EXIT_SUCCESS;
 }
-

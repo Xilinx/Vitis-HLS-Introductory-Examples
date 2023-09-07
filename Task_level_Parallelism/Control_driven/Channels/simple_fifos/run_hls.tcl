@@ -33,10 +33,10 @@ set_part {xcvu9p-flga2104-2-i}
 create_clock -period 5 -name default
 
 # Set variable to select which steps to execute
-set hls_exec 2
+set hls_exec 3
 
 
-csim_design
+#csim_design
 # Set any optimization directives
 config_dataflow -default_channel fifo -fifo_depth 2
 # End of directives
@@ -52,9 +52,9 @@ if {$hls_exec == 1} {
 	cosim_design
 } elseif {$hls_exec == 3} { 
 	# Run Synthesis, RTL Simulation, RTL implementation and Exit
-	csynth_design
+	#csynth_design
 	
-	cosim_design
+	#cosim_design
 	export_design
 } else {
 	# Default is to exit after setup
