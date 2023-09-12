@@ -4,7 +4,7 @@ void dut(const double *in, // Read-Only Vector 1
          int size          // Size in integer
 ) {
 
-#pragma HLS INTERFACE mode = m_axi bundle = aximm depth =                      \
+#pragma HLS INTERFACE mode = m_axi bundle = aximm2 depth =                      \
     1025 max_read_burst_length = 128 num_read_outstanding = 256 port = in
 #pragma HLS INTERFACE m_axi port = out bundle = aximm depth = 1024
 

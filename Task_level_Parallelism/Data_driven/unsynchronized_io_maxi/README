@@ -1,10 +1,10 @@
-This example shows unsynchronized I/O MAXI with KPN tasks
+This example shows unsynchronized I/O scalars with KPN tasks
 
 
 Files Included in this Package
 ==============================
-dut_tb.cpp    
-increment.cpp  
+dut.cpp    
+dut_tb.cpp
 script.tcl
 README
 
