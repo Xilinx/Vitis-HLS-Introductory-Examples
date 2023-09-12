@@ -5,7 +5,7 @@ void dut(const unsigned int *in, // Read-Only Vector 1
 ) {
 
 #pragma HLS INTERFACE m_axi port = in bundle = aximm depth = 1024
-#pragma HLS INTERFACE m_axi port = out bundle = aximm depth = 1024
+#pragma HLS INTERFACE m_axi port = out bundle = aximm2 depth = 1024
 // new cache pragma
 #pragma HLS cache port = in lines = 8 depth = 128
 
