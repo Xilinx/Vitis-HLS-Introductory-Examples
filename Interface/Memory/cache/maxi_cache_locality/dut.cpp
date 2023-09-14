@@ -6,8 +6,14 @@ extern "C" {
   )
   {
 
+<<<<<<< HEAD
 #pragma HLS INTERFACE mode=m_axi bundle=aximm depth=1025 max_read_burst_length=128 num_read_outstanding=256 port=in
 #pragma HLS INTERFACE m_axi port=out bundle=aximm depth = 1024
+=======
+#pragma HLS INTERFACE mode = m_axi bundle = aximm2 depth =                      \
+    1025 max_read_burst_length = 128 num_read_outstanding = 256 port = in
+#pragma HLS INTERFACE m_axi port = out bundle = aximm depth = 1024
+>>>>>>> 91ac5ad8572ae97b46dbed8a5aa0280dc05ca2c4
 
 #pragma HLS cache port=in lines=1 depth=128
     for(int i = 0; i < size; i++)
