@@ -16,11 +16,11 @@
 #ifndef HAMMING_WINDOW_H_
 #define HAMMING_WINDOW_H_
 
-#include <stdint.h>
 #include <math.h>
+#include <stdint.h>
 
 #ifndef M_PI
-#define M_PI           3.14159265358979323846
+#define M_PI 3.14159265358979323846
 #endif
 
 // If WINDOW_LEN is not defined by the user, define a default value
@@ -41,4 +41,3 @@
 void hamming_window(int32_t outdata[], int16_t indata[]);
 
 #endif // HAMMING_WINDOW_H_ not defined
-
