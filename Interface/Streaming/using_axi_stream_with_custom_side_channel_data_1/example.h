@@ -17,13 +17,14 @@
 
 #pragma once
 
+#include <iostream>
 #include "ap_axi_sdata.h"
 #include "hls_stream.h"
-#include <iostream>
 
 // Only TDATA and TLAST
-typedef hls::axis_data<int, AXIS_ENABLE_LAST> packet;
+typedef hls::axis_data<int,AXIS_ENABLE_LAST> packet;
 
 #define SIZE 5
 
-void example(hls::stream<packet> &A, hls::stream<packet> &B);
+void example(hls::stream<packet > &A, hls::stream<packet > &B);
+

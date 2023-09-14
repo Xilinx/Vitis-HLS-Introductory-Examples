@@ -14,8 +14,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#include "hls_stream.h"
 #include <iostream>
+#include "hls_stream.h"
 
 #define N 10
 

@@ -15,8 +15,8 @@
  * limitations under the License.
  */
 
+#include<iostream>
 #include "ap_int.h"
-#include <iostream>
 
 #define N 10
 
@@ -27,3 +27,4 @@ struct A {
 
 // Top function
 int dut(A arr[N]);
+

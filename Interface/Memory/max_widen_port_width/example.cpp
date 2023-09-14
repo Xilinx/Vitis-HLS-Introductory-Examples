@@ -19,8 +19,7 @@
 using namespace std;
 
 void example(int a[N], int b[N]) {
-#pragma HLS INTERFACE m_axi port = a depth = N bundle =                        \
-    gmem max_widen_bitwidth = MAXWBW
+#pragma HLS INTERFACE m_axi port = a depth = N bundle = gmem max_widen_bitwidth = MAXWBW
 #pragma HLS INTERFACE m_axi port = b depth = N bundle = gmem
   int buff[N];
   for (size_t i = 0; i < N; ++i) {

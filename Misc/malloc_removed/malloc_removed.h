@@ -28,3 +28,4 @@ typedef int dsel_t;
 dout_t malloc_removed(din_t din[N], dsel_t width);
 
 #endif
+

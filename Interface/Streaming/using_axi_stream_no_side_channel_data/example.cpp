@@ -17,13 +17,15 @@
 
 #include "example.h"
 
-void example(hls::stream<pkt> &A, hls::stream<pkt> &B) {
-#pragma HLS INTERFACE axis port = A
-#pragma HLS INTERFACE axis port = B
+void example(hls::stream<pkt > &A,
+	     hls::stream<pkt> &B)
+{
+#pragma HLS INTERFACE axis port=A
+#pragma HLS INTERFACE axis port=B
 
-  pkt tmp;
-  pkt t1;
-  A.read(tmp);
-  t1.data = tmp.data + 5;
-  B.write(t1);
+	pkt tmp;
+    pkt t1;
+	A.read(tmp);
+	t1.data = tmp.data + 5;
+	B.write(t1);
 }

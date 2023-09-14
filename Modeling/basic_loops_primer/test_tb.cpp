@@ -16,34 +16,34 @@
  */
 
 #include "test.h"
-
-int main() {
+ 
+int main () {
   din_t A[N];
-  dsel_t x = 0;
+  dsel_t x=0;
   dout_t accum;
-
-  int i, retval = 0;
+  
+  int i, retval=0;
   ofstream FILE;
 
-  for (i = 0; i < N; ++i) {
-    A[i] = i;
+  for(i=0; i<N;++i) {
+    A[i]=i;
   }
   // Save the results to a file
-  FILE.open("result.dat");
+  FILE.open ("result.dat");
 
   // Call the function
-  for (i = 0; i < 2; ++i) {
-    x = i;
-    accum = test(A);
+  for(i=0; i<2;++i) {
+    x=i;
+    accum = test(A);  
     FILE << accum << endl;
   }
   FILE.close();
-
+  
   // Compare the results file with the golden results
   retval = system("diff --brief -w result.dat result.golden.dat");
   if (retval != 0) {
-    cout << "Test failed  !!!" << endl;
-    retval = 1;
+    cout << "Test failed  !!!" << endl; 
+    retval=1;
   } else {
     cout << "Test passed !" << endl;
   }
@@ -51,3 +51,4 @@ int main() {
   // Return 0 if the test passed
   return retval;
 }
+

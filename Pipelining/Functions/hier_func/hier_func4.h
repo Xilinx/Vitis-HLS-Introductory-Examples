@@ -29,3 +29,4 @@ typedef int dout_t;
 void hier_func4(din_t A, din_t B, dout_t *C, dout_t *D);
 
 #endif
+

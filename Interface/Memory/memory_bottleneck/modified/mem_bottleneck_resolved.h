@@ -18,8 +18,8 @@
 #ifndef _ARRAY_MEM_PERFORM_H_
 #define _ARRAY_MEM_PERFORM_H_
 
-#include <fstream>
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 #include "ap_int.h"

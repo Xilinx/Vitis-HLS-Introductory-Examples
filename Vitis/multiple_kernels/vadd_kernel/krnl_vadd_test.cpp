@@ -18,10 +18,10 @@
 #include "krnl_vadd.hpp"
 
 int main() {
-
+    
   uint32_t in1[size], in2[size];
   uint32_t out[size], res[size];
-  for (int i = 0; i < size; ++i) {
+  for (int i = 0; i < size; ++i){
     in1[i] = i;
     in2[i] = i;
     out[i] = 0;
@@ -30,10 +30,10 @@ int main() {
 
   krnl_vadd(in1, in2, out, size);
 
-  for (int i = 0; i < size; ++i) {
+  for (int i = 0; i < size; ++i){
     if (res[i] != out[i])
       return EXIT_FAILURE;
-  }
+    }
 
   std::cout << "Test passed.\n";
   return EXIT_SUCCESS;

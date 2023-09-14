@@ -1,7 +1,7 @@
 /*
  * Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
  * Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
- *
+ *  
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,13 +19,15 @@
 
 void example(char *a, char *b, char *c);
 
-int main() {
+int main()
+{
 
   char a;
   char b;
   char c;
   char d;
   char sw_result;
+
 
   printf("HLS AXI-Lite Example\n");
   printf("Function c += a + b\n");
@@ -36,17 +38,21 @@ int main() {
   c = 0;
   d = 0;
 
-  example(&a, &b, &c);
+  example(&a,&b,&c);
   d += a + b;
 
-  printf("HW result = %d\n", c);
-  printf("SW result = %d\n", d);
+  printf("HW result = %d\n",c);
+  printf("SW result = %d\n",d);
 
-  if (d == c) {
+  if(d == c){
     printf("Success SW and HW results match\n");
     return 0;
-  } else {
+  }
+  else{
     printf("ERROR SW and HW results mismatch\n");
     return 1;
   }
 }
+  
+ 
+

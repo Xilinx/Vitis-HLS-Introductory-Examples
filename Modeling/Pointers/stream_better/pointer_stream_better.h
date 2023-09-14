@@ -23,6 +23,7 @@
 typedef int din_t;
 typedef int dout_t;
 
-void pointer_stream_better(volatile dout_t *d_o, volatile din_t *d_i);
+void pointer_stream_better ( volatile dout_t *d_o,  volatile din_t *d_i);
 
 #endif
+

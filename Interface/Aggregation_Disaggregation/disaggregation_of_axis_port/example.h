@@ -23,4 +23,4 @@ struct A {
 };
 
 // Top function
-void dut(A in[N], A out[N]);
+void dut(A in[N], A out[N]) ;

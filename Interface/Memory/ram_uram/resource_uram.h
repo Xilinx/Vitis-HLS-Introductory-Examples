@@ -15,9 +15,9 @@
  * limitations under the License.
  */
 
-#include <fstream>
-#include <iomanip>
 #include <iostream>
+#include <iomanip>
+#include <fstream>
 using namespace std;
 
 #define ADDRBITS 14
@@ -34,5 +34,6 @@ typedef ap_uint<DATAWIDTH> data_t;
 typedef ap_uint<ADDRBITS> addr_t;
 #endif
 
-void resource_uram(bool wren, bool rden, addr_t addrW, data_t datain,
+void resource_uram(bool wren, bool rden,
+                   addr_t addrW, data_t datain,
                    addr_t AddrR, data_t *dataout);

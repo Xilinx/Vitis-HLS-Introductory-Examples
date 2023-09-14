@@ -16,12 +16,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#include "ap_int.h"
 #include "hls_np_channel.h"
 #include "hls_stream.h"
+#include "ap_int.h"
 
-void dut(hls::stream<int> &in1, hls::stream<ap_uint<32>> &out1,
-         hls::stream<ap_uint<32>> &out2, hls::stream<ap_uint<32>> &out3,
-         hls::stream<ap_uint<32>> &out4);
+void dut(hls::stream<int> &in1, hls::stream<ap_uint<32> > &out1, hls::stream<ap_uint<32> > &out2,
+         hls::stream<ap_uint<32> > &out3, hls::stream<ap_uint<32> > &out4);
 
 #endif

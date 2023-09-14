@@ -15,26 +15,32 @@
  * limitations under the License.
  */
 
-#include "example.h"
 #include <iostream>
+#include "example.h"
 using namespace std;
 
-void example(hls::stream<pkt> &A, hls::stream<pkt> &B);
-int main() {
-  int i = 100;
+void example(hls::stream<pkt > &A,
+	     hls::stream<pkt> &B);
+int main()
+{
+  int i=100;
   hls::stream<pkt> A, B;
   pkt tmp1, tmp2;
   tmp1.data = i;
-
+  
   A.write(tmp1);
-  example(A, B);
+  example(A,B);
 
   B.read(tmp2);
-  if (tmp2.data != 105) {
+  if (tmp2.data != 105)
+  {
     cout << "ERROR: results mismatch" << endl;
     return 1;
-  } else {
+  }
+  else
+  {
     cout << "Success: results match" << endl;
     return 0;
   }
 }
+

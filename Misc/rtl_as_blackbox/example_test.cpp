@@ -15,22 +15,23 @@
  * limitations under the License.
  */
 
-#include "example.h"
 #include <iostream>
+#include "example.h"
 
-int main() {
+int main()
+{
 
   data_t sum;
-  int i, j, retval = 0;
+  int i, j, retval=0;
   ofstream FILE;
 
   // Save the results to a file
-  FILE.open("result.dat");
-
+  FILE.open ("result.dat");
+  
   // Create input data
-  for (i = 0; i < 10; ++i) {
-    example(i, i - 10, i + 10, i - 20, i, 2 * i, 3 * i, 4 * i, sum);
-    cout << " sum " << (int)sum << endl;
+  for(i=0; i<10;++i) {
+    example(i, i-10, i+10, i-20, i, 2*i, 3*i, 4*i, sum);
+    cout << " sum " << (int)sum <<  endl;
     FILE << sum << endl;
   }
 
@@ -40,8 +41,8 @@ int main() {
   // Compare the results file with the golden results
   retval = system("diff --brief -w result.dat result.golden.dat");
   if (retval != 0) {
-    cout << "Test failed  !!!" << endl;
-    retval = 1;
+    cout << "Test failed  !!!" << endl; 
+    retval=1;
   } else {
     cout << "Test passed !" << endl;
   }

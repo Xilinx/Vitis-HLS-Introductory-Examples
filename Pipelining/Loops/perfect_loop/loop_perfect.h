@@ -18,8 +18,8 @@
 #ifndef _LOOP_PERFECT_H_
 #define _LOOP_PERFECT_H_
 
-#include <fstream>
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 #include "ap_int.h"
@@ -32,3 +32,4 @@ typedef ap_int<6> dout_t;
 void loop_perfect(din_t A[N], dout_t B[N]);
 
 #endif
+
