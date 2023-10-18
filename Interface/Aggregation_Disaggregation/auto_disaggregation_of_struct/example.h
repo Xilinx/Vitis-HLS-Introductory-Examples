@@ -20,9 +20,9 @@
 #define N 10
 
 struct A {
-  hls::stream<int> s_in;
-  long arr[N];
+    hls::stream<int> s_in;
+    long arr[N];
 };
 
 // Top function
-long dut(struct A &d);
+long dut(struct A& d);

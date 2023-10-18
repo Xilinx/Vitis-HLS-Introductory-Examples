@@ -16,53 +16,53 @@
  */
 #include "test.h"
 
-void copy(hls::stream<int> &in, hls::stream<int> &out) {
-  for (int i = 0; i < 8; i++)
-    out.write(in.read());
+void copy(hls::stream<int>& in, hls::stream<int>& out) {
+    for (int i = 0; i < 8; i++)
+        out.write(in.read());
 }
 
-void func(hls::stream<int> &in, hls::stream<int> &out) {
-  int cnt = 0;
-  // This loop is only needed for the persistent variable above
-  while (1) {
+void func(hls::stream<int>& in, hls::stream<int>& out) {
+    int cnt = 0;
+    // This loop is only needed for the persistent variable above
+    while (1) {
 #pragma HLS pipeline off
-    int t = in.read();
-    out.write(t + cnt++);
-  }
+        int t = in.read();
+        out.write(t + cnt++);
+    }
 }
 
 template <typename>
-void mid(hls::stream<int> &in1, hls::stream<int> &out1, hls::stream<int> &in2,
-         hls::stream<int> &out2) {
+void mid(hls::stream<int>& in1, hls::stream<int>& out1, hls::stream<int>& in2,
+         hls::stream<int>& out2) {
 #pragma HLS dataflow
-  HLS_TASK_STREAM<int> in1_t, out1_t, in2_t, out2_t;
-  HLS_TASK t1(func, in1_t, out1_t);
-  HLS_TASK t2(func, in2_t, out2_t);
+    HLS_TASK_STREAM<int> in1_t, out1_t, in2_t, out2_t;
+    HLS_TASK t1(func, in1_t, out1_t);
+    HLS_TASK t2(func, in2_t, out2_t);
 
-  copy(in1, in1_t);
-  copy(in2, in2_t);
-  copy(out1_t, out1);
-  copy(out2_t, out2);
+    copy(in1, in1_t);
+    copy(in2, in2_t);
+    copy(out1_t, out1);
+    copy(out2_t, out2);
 }
 
-void middle(hls::stream<int> &in1, hls::stream<int> &out1,
-            hls::stream<int> &in2, hls::stream<int> &out2,
-            hls::stream<int> &in3, hls::stream<int> &out3,
-            hls::stream<int> &in4, hls::stream<int> &out4) {
-  /* Top level dataflow region that calls a task region uniquely via template
-   * instantiation */
+void middle(hls::stream<int>& in1, hls::stream<int>& out1,
+            hls::stream<int>& in2, hls::stream<int>& out2,
+            hls::stream<int>& in3, hls::stream<int>& out3,
+            hls::stream<int>& in4, hls::stream<int>& out4) {
+    /* Top level dataflow region that calls a task region uniquely via template
+     * instantiation */
 #pragma HLS dataflow
-  mid<class c1>(in1, out1, in2, out2);
-  mid<class c2>(in3, out3, in4, out4);
+    mid<class c1>(in1, out1, in2, out2);
+    mid<class c2>(in3, out3, in4, out4);
 }
 
 /* ************************************************************************ */
 /* ************* TOP LEVEL FUNCTION *************************************** */
 /* ************************************************************************ */
-void top(hls::stream<int> &in1, hls::stream<int> &out1, hls::stream<int> &in2,
-         hls::stream<int> &out2, hls::stream<int> &in3, hls::stream<int> &out3,
-         hls::stream<int> &in4, hls::stream<int> &out4) {
-  /* two calls to the lower level dataflow region */
-  middle(in1, out1, in2, out2, in3, out3, in4, out4);
-  middle(in1, out1, in2, out2, in3, out3, in4, out4);
+void top(hls::stream<int>& in1, hls::stream<int>& out1, hls::stream<int>& in2,
+         hls::stream<int>& out2, hls::stream<int>& in3, hls::stream<int>& out3,
+         hls::stream<int>& in4, hls::stream<int>& out4) {
+    /* two calls to the lower level dataflow region */
+    middle(in1, out1, in2, out2, in3, out3, in4, out4);
+    middle(in1, out1, in2, out2, in3, out3, in4, out4);
 }

@@ -35,7 +35,7 @@ if {$hls_exec == 1} {
 	# Run Synthesis, RTL Simulation and Exit
 	csynth_design
 	
-	cosim_design -enable_tasks_with_m_axi -rtl verilog -trace_level all
+	cosim_design -enable_tasks_with_m_axi 
 } elseif {$hls_exec == 3} { 
 	# Run Synthesis, RTL Simulation, RTL implementation and Exit
 	csynth_design

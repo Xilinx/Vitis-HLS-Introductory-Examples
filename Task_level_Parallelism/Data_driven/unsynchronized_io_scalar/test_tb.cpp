@@ -14,16 +14,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+#include "test.h"
 
-#pragma once
+int main() {
 
-#include "ap_axi_sdata.h"
-#include "hls_stream.h"
-#include <iostream>
+    hls::stream<int> in;
+    hls::stream<int> out;
 
-// Only TDATA and TLAST
-typedef hls::axis_data<int, AXIS_ENABLE_LAST> packet;
+    for (int i = 0; i < N; i++)
+        in.write(i);
+    test(in, out, N);
 
-#define SIZE 5
-
-void example(hls::stream<packet>& A, hls::stream<packet>& B);
+    int sum = 0;
+    for (int i = 0; i < N; i++)
+        sum += out.read();
+    if (sum != 15250)
+        return 1;
+    return 0;
+}

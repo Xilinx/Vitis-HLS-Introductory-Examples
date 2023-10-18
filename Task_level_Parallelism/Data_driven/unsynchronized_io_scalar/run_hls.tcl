@@ -16,8 +16,8 @@
 
 open_project proj
 set_top test
-add_files mt.cpp 
-add_files -tb mt.cpp -cflags "-Wno-unknown-pragmas"
+add_files test.cpp 
+add_files -tb test_tb.cpp -cflags "-Wno-unknown-pragmas"
 open_solution "solution1" -flow_target vitis
 set_part {xc7v585t-ffg1761-2}
 create_clock -period 5 -name default

@@ -35,4 +35,4 @@ typedef ap_uint<ADDRBITS> addr_t;
 #endif
 
 void resource_uram(bool wren, bool rden, addr_t addrW, data_t datain,
-                   addr_t AddrR, data_t *dataout);
+                   addr_t AddrR, data_t* dataout);

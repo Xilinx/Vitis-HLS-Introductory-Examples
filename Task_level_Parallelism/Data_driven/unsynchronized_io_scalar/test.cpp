@@ -14,16 +14,29 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+#include "test.h"
 
-#pragma once
+void sub_task1(hls::stream<int>& in, hls::stream<int>& out) {
+    int c = in.read();
+    out.write(c + 2);
+}
 
-#include "ap_axi_sdata.h"
-#include "hls_stream.h"
-#include <iostream>
+void sub_task2(hls::stream<int>& in, hls::stream<int>& out) {
+    int c = in.read();
+    out.write(c - 1);
+}
 
-// Only TDATA and TLAST
-typedef hls::axis_data<int, AXIS_ENABLE_LAST> packet;
+void task2(hls::stream<int>& in, hls::stream<int>& out, int n) {
+    int c = in.read();
+    out.write(c + 2 + n);
+}
 
-#define SIZE 5
+void test(hls::stream<int>& in, hls::stream<int>& out, int n) {
+#pragma HLS STABLE variable = n
+    HLS_TASK_STREAM<int> s1;
+    HLS_TASK_STREAM<int> s2;
+    HLS_TASK t(task2, s2, out, n);
+    HLS_TASK t1(sub_task1, in, s1);
+    HLS_TASK t2(sub_task2, s1, s2);
+}
 
-void example(hls::stream<packet>& A, hls::stream<packet>& B);
