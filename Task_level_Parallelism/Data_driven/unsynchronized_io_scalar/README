@@ -9,5 +9,5 @@ README
 
 Running the Design 
 =========================================================
-vitis_hls -f script.tcl
+vitis_hls -f run_hls.tcl
 

@@ -14,7 +14,6 @@ void sub_task2(hls::stream<int> &in, hls::stream<int> &out) {
 
 void task2(hls::stream<int> &in, hls::stream<int> &out, int n) {
   int c = in.read();
-  std::cout << " Total value is " << c + 2 + n << std::endl;
   out.write(c + 2 + n);
 }
 
@@ -39,7 +38,6 @@ int main() {
   int sum = 0;
   for (int i = 0; i < N; i++)
     sum += out.read();
-  std::cout << "sum i s" << sum << std::endl;
   if (sum != 15250)
     return 1;
   return 0;
