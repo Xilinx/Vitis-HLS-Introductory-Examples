@@ -21,8 +21,8 @@
 #define N 10
 
 struct A {
-  int foo[3];
-  ap_int<23> bar;
+    int foo[3];
+    ap_int<23> bar;
 };
 
 // Top function

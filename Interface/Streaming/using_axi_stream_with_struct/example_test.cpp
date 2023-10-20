@@ -19,39 +19,39 @@
 #include <stdio.h>
 
 int main() {
-  short int i;
-  mystream A, B, C;
+    short int i;
+    mystream A, B, C;
 
-  printf("HLS AXI-Stream no side-channel data example\n");
+    printf("HLS AXI-Stream no side-channel data example\n");
 
-  // Put data into A Stream
-  for (i = 0; i < SIZE; i++) {
-    data_t tmp;
-    tmp.data = {i, i};
-    tmp.last = (i == (SIZE - 1)) ? 1 : 0;
-    A.write(tmp);
-  }
-
-  // Call the hardware function
-  example(A, B);
-
-  // Run a software version of the hardware function to validate results
-  for (i = 0; i < SIZE; i++) {
-    data_t tmp_c;
-    tmp_c.data.real(i + 5);
-    tmp_c.data.imag(i + 1);
-    C.write(tmp_c);
-  }
-
-  // Compare the results
-  for (i = 0; i < SIZE; i++) {
-    data_t tmp_b = B.read();
-    data_t tmp_c = C.read();
-    if (tmp_b.data != tmp_c.data) {
-      printf("ERROR HW and SW results mismatch\n");
-      return 1;
+    // Put data into A Stream
+    for (i = 0; i < SIZE; i++) {
+        data_t tmp;
+        tmp.data = {i, i};
+        tmp.last = (i == (SIZE - 1)) ? 1 : 0;
+        A.write(tmp);
     }
-  }
-  printf("Success HW and SW results match\n");
-  return 0;
+
+    // Call the hardware function
+    example(A, B);
+
+    // Run a software version of the hardware function to validate results
+    for (i = 0; i < SIZE; i++) {
+        data_t tmp_c;
+        tmp_c.data.real(i + 5);
+        tmp_c.data.imag(i + 1);
+        C.write(tmp_c);
+    }
+
+    // Compare the results
+    for (i = 0; i < SIZE; i++) {
+        data_t tmp_b = B.read();
+        data_t tmp_c = C.read();
+        if (tmp_b.data != tmp_c.data) {
+            printf("ERROR HW and SW results mismatch\n");
+            return 1;
+        }
+    }
+    printf("Success HW and SW results match\n");
+    return 0;
 }

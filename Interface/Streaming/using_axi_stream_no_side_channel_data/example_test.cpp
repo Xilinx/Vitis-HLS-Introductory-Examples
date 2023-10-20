@@ -19,22 +19,22 @@
 #include <iostream>
 using namespace std;
 
-void example(hls::stream<pkt> &A, hls::stream<pkt> &B);
+void example(hls::stream<pkt>& A, hls::stream<pkt>& B);
 int main() {
-  int i = 100;
-  hls::stream<pkt> A, B;
-  pkt tmp1, tmp2;
-  tmp1.data = i;
+    int i = 100;
+    hls::stream<pkt> A, B;
+    pkt tmp1, tmp2;
+    tmp1.data = i;
 
-  A.write(tmp1);
-  example(A, B);
+    A.write(tmp1);
+    example(A, B);
 
-  B.read(tmp2);
-  if (tmp2.data != 105) {
-    cout << "ERROR: results mismatch" << endl;
-    return 1;
-  } else {
-    cout << "Success: results match" << endl;
-    return 0;
-  }
+    B.read(tmp2);
+    if (tmp2.data != 105) {
+        cout << "ERROR: results mismatch" << endl;
+        return 1;
+    } else {
+        cout << "Success: results match" << endl;
+        return 0;
+    }
 }

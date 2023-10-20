@@ -26,4 +26,4 @@ typedef hls::axis_data<int, AXIS_ENABLE_LAST> packet;
 
 #define SIZE 5
 
-void example(hls::stream<packet> &A, hls::stream<packet> &B);
+void example(hls::stream<packet>& A, hls::stream<packet>& B);

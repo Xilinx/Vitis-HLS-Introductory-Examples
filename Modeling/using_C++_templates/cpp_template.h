@@ -28,6 +28,6 @@ using namespace std;
 
 typedef int data_t;
 
-void cpp_template(data_t a, data_t b, data_t &dout);
+void cpp_template(data_t a, data_t b, data_t& dout);
 
 #endif

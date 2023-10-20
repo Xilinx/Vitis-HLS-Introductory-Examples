@@ -28,23 +28,23 @@
 // format fields (sign, biased exponent and mantissa), via C bit-fields, as
 // well as directly manipulating the whole word bitfield ('raw_bits').
 typedef union {
-  float fp_num;
-  uint32_t raw_bits;
-  struct {
-    uint32_t mant : 23;
-    uint32_t bexp : 8;
-    uint32_t sign : 1;
-  };
+    float fp_num;
+    uint32_t raw_bits;
+    struct {
+        uint32_t mant : 23;
+        uint32_t bexp : 8;
+        uint32_t sign : 1;
+    };
 } float_num_t;
 
 typedef union {
-  double fp_num;
-  uint64_t raw_bits;
-  struct {
-    uint64_t mant : 52;
-    uint64_t bexp : 11;
-    uint64_t sign : 1;
-  };
+    double fp_num;
+    uint64_t raw_bits;
+    struct {
+        uint64_t mant : 52;
+        uint64_t bexp : 11;
+        uint64_t sign : 1;
+    };
 } double_num_t;
 
 // These functions implement floating point (single- and double-precision)

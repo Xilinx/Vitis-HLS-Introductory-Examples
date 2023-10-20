@@ -24,21 +24,21 @@ void transfer_kernel(hls::burst_maxi<int> in, hls::burst_maxi<int> out,
 #pragma HLS INTERFACE m_axi port = out depth = 5120 offset = slave latency =   \
     32 bundle = bundle2
 
-  int buf[8192];
-  in.read_request(0, size);
-  for (int i = 0; i < size; i++) {
+    int buf[8192];
+    in.read_request(0, size);
+    for (int i = 0; i < size; i++) {
 #pragma HLS PIPELINE II = 1
-    buf[i] = in.read();
-  }
-
-  out.write_request(0, size * NUM);
-
-  for (int i = 0; i < NUM; i++) {
-    for (int j = 0; j < size; j++) {
-#pragma HLS PIPELINE II = 1
-      int a = buf[j];
-      out.write(a);
+        buf[i] = in.read();
     }
-  }
-  out.write_response();
+
+    out.write_request(0, size * NUM);
+
+    for (int i = 0; i < NUM; i++) {
+        for (int j = 0; j < size; j++) {
+#pragma HLS PIPELINE II = 1
+            int a = buf[j];
+            out.write(a);
+        }
+    }
+    out.write_response();
 }

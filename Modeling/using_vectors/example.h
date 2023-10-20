@@ -25,7 +25,7 @@
 // Each vector will be 64 bytes (16 x 4 bytes)
 typedef hls::vector<float, 16> float16;
 
-extern "C" void example(float16 *res, const float16 *lhs, const float16 *rhs,
+extern "C" void example(float16* res, const float16* lhs, const float16* rhs,
                         int n);
 
 #endif

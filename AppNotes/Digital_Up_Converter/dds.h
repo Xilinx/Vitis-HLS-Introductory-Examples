@@ -58,94 +58,94 @@ typedef ap_fixed<16, 1, AP_RND_CONV, AP_SAT_SYM> dds_t;
 
 template <int N, typename DDS_T, typename OUTPUT_T> class dds_class {
 
-  // tables
-  lut_word_t cos_lut[LUTSIZE];
-  fine_word_t fine_lut[FINESIZE];
+    // tables
+    lut_word_t cos_lut[LUTSIZE];
+    fine_word_t fine_lut[FINESIZE];
 
-  // accumulator
-  acc_t acc;
+    // accumulator
+    acc_t acc;
 
-  // for dithering
-  // ap_uint<1> sr[19];
+    // for dithering
+    // ap_uint<1> sr[19];
 
-public:
-  //_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-  //_ _
-  dds_class() {
-    acc = 0;
-    // sr[19] = {0,0,0,0,  0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,1};
+  public:
+    //_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+    //_ _ _
+    dds_class() {
+        acc = 0;
+        // sr[19] = {0,0,0,0,  0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,1};
 
-    // initialize tables
-    init_cos_lut(cos_lut, LUTSIZE);
-    init_fine_lut(fine_lut, FINESIZE, DELTA);
-  }
-
-  //_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-  //_ _
-  void mix(DDS_T *dds_cos, DDS_T *dds_sin, OUTPUT_T *dout_i, OUTPUT_T *dout_q,
-           OUTPUT_T *dout) {
-
-    // static OUTPUT_T  dout_tmp;
-    OUTPUT_T dout_tmp;
-
-  L1:
-    for (int i = 0; i < N; i++) {
-#pragma HLS pipeline rewind
-      dout[i] = dout_tmp;
-      dout_tmp = dout_i[i] * dds_cos[i] - dout_q[i] * dds_sin[i];
+        // initialize tables
+        init_cos_lut(cos_lut, LUTSIZE);
+        init_fine_lut(fine_lut, FINESIZE, DELTA);
     }
-  }
 
-  //_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-  //_ _
-  void init_cos_lut(lut_word_t cos_lut[LUTSIZE], const int LUTSIZE) {
+    //_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+    //_ _ _
+    void mix(DDS_T* dds_cos, DDS_T* dds_sin, OUTPUT_T* dout_i, OUTPUT_T* dout_q,
+             OUTPUT_T* dout) {
 
-    double cos_double;
+        // static OUTPUT_T  dout_tmp;
+        OUTPUT_T dout_tmp;
+
+    L1:
+        for (int i = 0; i < N; i++) {
+#pragma HLS pipeline rewind
+            dout[i] = dout_tmp;
+            dout_tmp = dout_i[i] * dds_cos[i] - dout_q[i] * dds_sin[i];
+        }
+    }
+
+    //_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+    //_ _ _
+    void init_cos_lut(lut_word_t cos_lut[LUTSIZE], const int LUTSIZE) {
+
+        double cos_double;
 // ofstream fp_dout ("debug.txt");
 
 // #define FULL
 //_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 #ifdef MIDPOINT
 
-    // store single quadrant
-    for (int i = 0; i < LUTSIZE; i++) {
-      // cos_double = cos(2*M_PI*(0.0+(double)i)/(4*LUTSIZE));
-      cos_double = cos(2 * M_PI * (0.5 + (double)i) / (4 * LUTSIZE));
-      cos_lut[i] = cos_double;
-      //      fp_dout << scientific << cos_double <<endl;
-    }
+        // store single quadrant
+        for (int i = 0; i < LUTSIZE; i++) {
+            // cos_double = cos(2*M_PI*(0.0+(double)i)/(4*LUTSIZE));
+            cos_double = cos(2 * M_PI * (0.5 + (double)i) / (4 * LUTSIZE));
+            cos_lut[i] = cos_double;
+            //      fp_dout << scientific << cos_double <<endl;
+        }
 
 #ifdef FULL
-    // store full quadrant
-    ofstream fp_ideal("ideal.txt");
-    for (int i = 0; i < 4 * LUTSIZE; i++) {
-      cos_double = cos(2 * M_PI * (0.5 + (double)i) / (4 * LUTSIZE));
-      fp_ideal << scientific << cos_double << endl;
-    }
+        // store full quadrant
+        ofstream fp_ideal("ideal.txt");
+        for (int i = 0; i < 4 * LUTSIZE; i++) {
+            cos_double = cos(2 * M_PI * (0.5 + (double)i) / (4 * LUTSIZE));
+            fp_ideal << scientific << cos_double << endl;
+        }
 #endif
 
 #else
-    //_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-    // not the mid point
+        //_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+        // not the mid point
 
-    // store single quadrant
-    for (int i = 0; i < LUTSIZE; i++) {
-      cos_double = cos(2 * M_PI * (0.0 + (double)i) / (4 * LUTSIZE));
-      cos_lut[i] = cos_double;
-      // fp_dout << scientific << cos_double <<endl;
-    }
+        // store single quadrant
+        for (int i = 0; i < LUTSIZE; i++) {
+            cos_double = cos(2 * M_PI * (0.0 + (double)i) / (4 * LUTSIZE));
+            cos_lut[i] = cos_double;
+            // fp_dout << scientific << cos_double <<endl;
+        }
 
 #ifdef FULL
-    // store full quadrant
-    ofstream fp_ideal("ideal.txt");
-    for (int i = 0; i < 4 * LUTSIZE; i++) {
-      cos_double = cos(2 * M_PI * (0.0 + (double)i) / (4 * LUTSIZE));
-      fp_ideal << scientific << cos_double << endl;
-    }
+        // store full quadrant
+        ofstream fp_ideal("ideal.txt");
+        for (int i = 0; i < 4 * LUTSIZE; i++) {
+            cos_double = cos(2 * M_PI * (0.0 + (double)i) / (4 * LUTSIZE));
+            fp_ideal << scientific << cos_double << endl;
+        }
 #endif
 
 #endif
-  }
+    }
 
 #if 0
 //_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
@@ -268,122 +268,122 @@ return whole;
 
 #endif
 
-  //_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-  //_ _
-  void init_fine_lut(fine_word_t fine_lut[FINESIZE], const int FINESIZE,
-                     const double delta) {
+    //_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+    //_ _ _
+    void init_fine_lut(fine_word_t fine_lut[FINESIZE], const int FINESIZE,
+                       const double delta) {
 
-    // double fine_double;
-    double sine_double;
-    // ofstream fp_dout ("fine.txt");
+        // double fine_double;
+        double sine_double;
+        // ofstream fp_dout ("fine.txt");
 
-    for (int i = 0; i < FINESIZE; i++) {
-      // fine_double = cos(delta*(double)i);
-      sine_double = sin(delta * (double)i);
-      fine_lut[i] = sine_double;
-      // fp_dout << scientific << fine_double <<", " << scientific <<
-      // sine_double <<endl;
-    }
-  }
-
-  //_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-  //_ _
-  void process(incr_t incr, DDS_T *cos_out, DDS_T *sin_out) {
-
-    fine_adr_t fine_adr;
-    fine_word_t fine_word;
-
-    lut_adr_t full_adr; // cover full quadrant
-    quad_adr_t lsb;     // cover 1/4 quadrant
-    quad_adr_t cos_adr, sin_adr;
-
-    ap_uint<2> msb; // specify which quadrant
-    lut_word_t cos_lut_word;
-    lut_word_t sin_lut_word;
-
-    // phase accumulator
-    acc += incr;
-
-    // look up cos/sine table
-    full_adr = acc(31, 20);
-    msb = full_adr(11, 10);
-    lsb = full_adr(9, 0);
-
-    // right top
-    if (msb == 0) {
-      cos_adr = lsb;
-      cos_lut_word = cos_lut[cos_adr];
-
-      if (lsb == 0)
-        sin_lut_word = 0;
-      else {
-        sin_adr = -lsb;
-        sin_lut_word = cos_lut[sin_adr];
-      }
-
-      // left top
-    } else if (msb == 1) {
-      if (lsb == 0)
-        cos_lut_word = 0;
-      else {
-        cos_adr = -lsb;
-        cos_lut_word = -cos_lut[cos_adr];
-      }
-
-      sin_adr = lsb;
-      sin_lut_word = cos_lut[sin_adr];
-
-      // right bot
-    } else if (msb == 3) {
-      if (lsb == 0)
-        cos_lut_word = 0;
-      else {
-        cos_adr = -lsb;
-        cos_lut_word = cos_lut[cos_adr];
-      }
-      sin_adr = lsb;
-      sin_lut_word = -cos_lut[sin_adr];
-
-      // left bot
-    } else {
-      cos_adr = lsb;
-      cos_lut_word = -cos_lut[cos_adr];
-
-      if (lsb == 0)
-        sin_lut_word = 0;
-      else {
-        sin_adr = -lsb;
-        sin_lut_word = -cos_lut[sin_adr];
-      }
+        for (int i = 0; i < FINESIZE; i++) {
+            // fine_double = cos(delta*(double)i);
+            sine_double = sin(delta * (double)i);
+            fine_lut[i] = sine_double;
+            // fp_dout << scientific << fine_double <<", " << scientific <<
+            // sine_double <<endl;
+        }
     }
 
-    // adjustment w/ fine table
-    fine_adr = acc(19, 11);
-    fine_word = fine_lut[fine_adr];
+    //_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+    //_ _ _
+    void process(incr_t incr, DDS_T* cos_out, DDS_T* sin_out) {
 
-    DDS_T cos_dds, sin_dds;
-    cos_dds = cos_lut_word - sin_lut_word * fine_word;
-    sin_dds = sin_lut_word + cos_lut_word * fine_word;
+        fine_adr_t fine_adr;
+        fine_word_t fine_word;
 
-    *cos_out = cos_dds;
-    *sin_out = sin_dds;
-  }
+        lut_adr_t full_adr; // cover full quadrant
+        quad_adr_t lsb;     // cover 1/4 quadrant
+        quad_adr_t cos_adr, sin_adr;
 
-  //_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-  //_ _
-  void process_frame(incr_t incr, DDS_T *cos_out, DDS_T *sin_out) {
+        ap_uint<2> msb; // specify which quadrant
+        lut_word_t cos_lut_word;
+        lut_word_t sin_lut_word;
 
-    DDS_T dds_cos;
-    DDS_T dds_sin;
+        // phase accumulator
+        acc += incr;
 
-  L1:
-    for (int i = 0; i < N; i++) {
+        // look up cos/sine table
+        full_adr = acc(31, 20);
+        msb = full_adr(11, 10);
+        lsb = full_adr(9, 0);
+
+        // right top
+        if (msb == 0) {
+            cos_adr = lsb;
+            cos_lut_word = cos_lut[cos_adr];
+
+            if (lsb == 0)
+                sin_lut_word = 0;
+            else {
+                sin_adr = -lsb;
+                sin_lut_word = cos_lut[sin_adr];
+            }
+
+            // left top
+        } else if (msb == 1) {
+            if (lsb == 0)
+                cos_lut_word = 0;
+            else {
+                cos_adr = -lsb;
+                cos_lut_word = -cos_lut[cos_adr];
+            }
+
+            sin_adr = lsb;
+            sin_lut_word = cos_lut[sin_adr];
+
+            // right bot
+        } else if (msb == 3) {
+            if (lsb == 0)
+                cos_lut_word = 0;
+            else {
+                cos_adr = -lsb;
+                cos_lut_word = cos_lut[cos_adr];
+            }
+            sin_adr = lsb;
+            sin_lut_word = -cos_lut[sin_adr];
+
+            // left bot
+        } else {
+            cos_adr = lsb;
+            cos_lut_word = -cos_lut[cos_adr];
+
+            if (lsb == 0)
+                sin_lut_word = 0;
+            else {
+                sin_adr = -lsb;
+                sin_lut_word = -cos_lut[sin_adr];
+            }
+        }
+
+        // adjustment w/ fine table
+        fine_adr = acc(19, 11);
+        fine_word = fine_lut[fine_adr];
+
+        DDS_T cos_dds, sin_dds;
+        cos_dds = cos_lut_word - sin_lut_word * fine_word;
+        sin_dds = sin_lut_word + cos_lut_word * fine_word;
+
+        *cos_out = cos_dds;
+        *sin_out = sin_dds;
+    }
+
+    //_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+    //_ _ _
+    void process_frame(incr_t incr, DDS_T* cos_out, DDS_T* sin_out) {
+
+        DDS_T dds_cos;
+        DDS_T dds_sin;
+
+    L1:
+        for (int i = 0; i < N; i++) {
 #pragma HLS pipeline rewind
-      process(incr, &dds_cos, &dds_sin);
-      cos_out[i] = dds_cos;
-      sin_out[i] = dds_sin;
+            process(incr, &dds_cos, &dds_sin);
+            cos_out[i] = dds_cos;
+            sin_out[i] = dds_sin;
+        }
     }
-  }
 
 }; // dds_class
 

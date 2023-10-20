@@ -44,7 +44,7 @@ typedef ap_int<22> dout3_t;
 typedef ap_int<6> dout4_t;
 
 void cpp_ap_int_arith(dinA_t inA, dinB_t inB, dinC_t inC, dinD_t inD,
-                      dout1_t *out1, dout2_t *out2, dout3_t *out3,
-                      dout4_t *out4);
+                      dout1_t* out1, dout2_t* out2, dout3_t* out3,
+                      dout4_t* out4);
 
 #endif

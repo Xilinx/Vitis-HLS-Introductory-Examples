@@ -74,7 +74,7 @@ void duc(DATA_T din_i[L_INPUT], DATA_T din_q[L_INPUT], DATA_T dout[L_OUTPUT],
 
 template <int l_INPUT> class filterStageClass {
 
-public:
+  public:
 #if 0
 // constructor not compiling
 interp2_class<Lsrrc_WHOLE,   l_INPUT,   II_SRRC> srrc(cin_srrc);
@@ -83,37 +83,38 @@ interp2_hb_class<Lhb2_WHOLE, 4*l_INPUT, II_HB2>  hb2(cin_hb2);
 interp2_hb_class<Lhb3_WHOLE, 8*l_INPUT, II_HB3>  hb3(cin_hb3);
 #endif
 
-  interp2_class<Lsrrc_WHOLE, l_INPUT, II_SRRC> srrc;
-  interp2_hb_class<Lhb1_WHOLE, 2 * l_INPUT, II_HB1> hb1;
-  interp2_hb_class<Lhb2_WHOLE, 4 * l_INPUT, II_HB2> hb2;
-  interp2_hb_class<Lhb3_WHOLE, 8 * l_INPUT, II_HB3> hb3;
+    interp2_class<Lsrrc_WHOLE, l_INPUT, II_SRRC> srrc;
+    interp2_hb_class<Lhb1_WHOLE, 2 * l_INPUT, II_HB1> hb1;
+    interp2_hb_class<Lhb2_WHOLE, 4 * l_INPUT, II_HB2> hb2;
+    interp2_hb_class<Lhb3_WHOLE, 8 * l_INPUT, II_HB3> hb3;
 
-  //_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-  //_
-  void process(DATA_T din[l_INPUT], DATA_T dout[16 * l_INPUT]) {
+    //_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+    //_
+    //_
+    void process(DATA_T din[l_INPUT], DATA_T dout[16 * l_INPUT]) {
 #pragma HLS dataflow
 
-    DATA_T srrc_dout[2 * l_INPUT];
-    DATA_T hb1_dout[4 * l_INPUT];
-    DATA_T hb2_dout[8 * l_INPUT];
-    srrc.process_frame(din, srrc_dout);
-    hb1.process_frame(srrc_dout, hb1_dout);
-    hb2.process_frame(hb1_dout, hb2_dout);
-    hb3.process_frame(hb2_dout, dout);
-  }
+        DATA_T srrc_dout[2 * l_INPUT];
+        DATA_T hb1_dout[4 * l_INPUT];
+        DATA_T hb2_dout[8 * l_INPUT];
+        srrc.process_frame(din, srrc_dout);
+        hb1.process_frame(srrc_dout, hb1_dout);
+        hb2.process_frame(hb1_dout, hb2_dout);
+        hb3.process_frame(hb2_dout, dout);
+    }
 
 //_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 #if 1
-  // constructor
-  filterStageClass(void) {
-    srrc.init(cin_srrc);
-    hb1.init(cin_hb1);
-    hb2.init(cin_hb2);
-    hb3.init(cin_hb3);
-  }
+    // constructor
+    filterStageClass(void) {
+        srrc.init(cin_srrc);
+        hb1.init(cin_hb1);
+        hb2.init(cin_hb2);
+        hb3.init(cin_hb3);
+    }
 
-  // destructor
-  ~filterStageClass(void) {}
+    // destructor
+    ~filterStageClass(void) {}
 #endif
 };
 
@@ -124,18 +125,19 @@ interp2_hb_class<Lhb3_WHOLE, 8*l_INPUT, II_HB3>  hb3(cin_hb3);
 template <int l_INPUT, const int l_OUTPUT = 16 * l_INPUT>
 class filterStageClassTwoChan {
 
-  filterStageClass<l_INPUT> duc_i;
-  filterStageClass<l_INPUT> duc_q;
+    filterStageClass<l_INPUT> duc_i;
+    filterStageClass<l_INPUT> duc_q;
 
-public:
-  //_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-  //_
-  void process(DATA_T din_i[l_INPUT], DATA_T dout_i[l_OUTPUT],
-               DATA_T din_q[l_INPUT], DATA_T dout_q[l_OUTPUT]) {
+  public:
+    //_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+    //_
+    //_
+    void process(DATA_T din_i[l_INPUT], DATA_T dout_i[l_OUTPUT],
+                 DATA_T din_q[l_INPUT], DATA_T dout_q[l_OUTPUT]) {
 #pragma HLS INLINE
-    duc_i.process(din_i, dout_i);
-    duc_q.process(din_q, dout_q);
-  }
+        duc_i.process(din_i, dout_i);
+        duc_q.process(din_q, dout_q);
+    }
 };
 
 #endif

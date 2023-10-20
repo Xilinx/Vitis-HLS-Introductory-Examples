@@ -7,4 +7,4 @@
 typedef hls::axis<std::complex<short int>, 0, 0, 0> data_t;
 typedef hls::stream<data_t> mystream;
 
-extern void example(mystream &A, mystream &B);
+extern void example(mystream& A, mystream& B);

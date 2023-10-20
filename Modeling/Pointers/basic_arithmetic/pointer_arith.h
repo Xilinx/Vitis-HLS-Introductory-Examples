@@ -22,6 +22,6 @@
 
 typedef int dio_t;
 
-void pointer_arith(dio_t *d);
+void pointer_arith(dio_t* d);
 
 #endif
