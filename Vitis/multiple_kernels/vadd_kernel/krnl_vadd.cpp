@@ -1,23 +1,24 @@
 /**
-* Copyright (C) 2022 Xilinx, Inc
-*
-* Licensed under the Apache License, Version 2.0 (the "License"). You may
-* not use this file except in compliance with the License. A copy of the
-* License is located at
-*
-*     http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
-* WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
-* License for the specific language governing permissions and limitations
-* under the License.
-*/
+ * Copyright (C) 2022 Xilinx, Inc
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"). You may
+ * not use this file except in compliance with the License. A copy of the
+ * License is located at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
 
 #include "krnl_vadd.hpp"
 
 // Read Data from Global Memory and write into Stream inStream
-static void read_input(uint32_t* in, hls::stream<uint32_t>& inStream, int vSize) {
+static void read_input(uint32_t* in, hls::stream<uint32_t>& inStream,
+                       int vSize) {
 // Auto-pipeline is going to apply pipeline to this loop
 mem_rd:
     for (int i = 0; i < vSize; i++) {
@@ -30,8 +31,7 @@ mem_rd:
 // Read Input data from inStream and write the result into outStream
 static void compute_add(hls::stream<uint32_t>& inStream1,
                         hls::stream<uint32_t>& inStream2,
-                        hls::stream<uint32_t>& outStream,
-                        int vSize) {
+                        hls::stream<uint32_t>& outStream, int vSize) {
 // Auto-pipeline is going to apply pipeline to this loop
 execute:
     for (int i = 0; i < vSize; i++) {
@@ -43,7 +43,8 @@ execute:
 }
 
 // Read result from outStream and write the result to Global Memory
-static void write_result(uint32_t* out, hls::stream<uint32_t>& outStream, int vSize) {
+static void write_result(uint32_t* out, hls::stream<uint32_t>& outStream,
+                         int vSize) {
 // Auto-pipeline is going to apply pipeline to this loop
 mem_wr:
     for (int i = 0; i < vSize; i++) {

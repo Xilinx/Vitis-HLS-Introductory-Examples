@@ -1,21 +1,21 @@
 /**
-* Copyright (C) 2019-2022 Xilinx, Inc
-*
-* Licensed under the Apache License, Version 2.0 (the "License"). You may
-* not use this file except in compliance with the License. A copy of the
-* License is located at
-*
-*     http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
-* WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
-* License for the specific language governing permissions and limitations
-* under the License.
-*/
+ * Copyright (C) 2019-2022 Xilinx, Inc
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"). You may
+ * not use this file except in compliance with the License. A copy of the
+ * License is located at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
 
-#include <iostream>
 #include <cstring>
+#include <iostream>
 #include <vector>
 
 // XRT includes
@@ -32,7 +32,6 @@ int main(int argc, char** argv) {
     std::cout << "Open the device" << device_index << std::endl;
     auto device = xrt::device(device_index);
     std::cout << "Opened the device" << device_index << std::endl;
-
 
     auto uuid = device.load_xclbin(binaryFile);
 
@@ -52,18 +51,15 @@ int main(int argc, char** argv) {
 
     // Initialize the input data
     for (int i = 0; i < totalNumWords; i++)
-          bufIn_map[i] = (uint32_t)i;
+        bufIn_map[i] = (uint32_t)i;
     std::cout << "The Test Data initialized" << std::endl;
-
 
     // Create the reference golden data for comparison
     int bufReference[totalNumWords];
     for (int i = 0; i < totalNumWords; ++i) {
-        bufReference[i] = ((i*3)+25)+((i*3)*2);
+        bufReference[i] = ((i * 3) + 25) + ((i * 3) * 2);
     }
     std::cout << "The Test Data created" << std::endl;
-
-
 
     std::cout << "Execution of the kernel\n";
     xrt::run run[3];
@@ -71,18 +67,16 @@ int main(int argc, char** argv) {
     for (int i = 0; i < 3; i++) {
         std::cout << "synchronize input buffer data to device global memory\n";
         bufIn.sync(XCL_BO_SYNC_BO_TO_DEVICE);
-        run[i] = krnl(bufIn,bufOut,totalNumWords/16);
+        run[i] = krnl(bufIn, bufOut, totalNumWords / 16);
         run[i].wait();
         std::cout << "Get the output data from the device" << std::endl;
         bufOut.sync(XCL_BO_SYNC_BO_FROM_DEVICE);
     }
 
-
 #if debug
-    for (int i = 0; i < totalNumWords; i++)
-    {
-	    std::cout << "Referece  "  << bufReference[i] << std::endl;
-	    std::cout << "Out  "  << bufOut_map[i] << std::endl;
+    for (int i = 0; i < totalNumWords; i++) {
+        std::cout << "Referece  " << bufReference[i] << std::endl;
+        std::cout << "Out  " << bufOut_map[i] << std::endl;
     }
 #endif
 

@@ -15,12 +15,12 @@
  * limitations under the License.
  */
 
-#include<iostream>
+#include <iostream>
 #define N 10
 
 struct A {
-  char foo;
-  short bar;
+    char foo;
+    short bar;
 };
 
 // Top function

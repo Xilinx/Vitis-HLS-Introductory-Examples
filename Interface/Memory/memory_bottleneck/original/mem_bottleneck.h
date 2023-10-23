@@ -18,8 +18,8 @@
 #ifndef _ARRAY_MEM_BOTTLENECK_H_
 #define _ARRAY_MEM_BOTTLENECK_H_
 
-#include <iostream>
 #include <fstream>
+#include <iostream>
 using namespace std;
 
 #include "ap_int.h"
@@ -31,4 +31,3 @@ typedef ap_int<10> dout_t;
 dout_t array_mem_bottleneck(din_t mem[N]);
 
 #endif
-

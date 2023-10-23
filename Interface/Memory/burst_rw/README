@@ -1,0 +1,20 @@
+This is simple example of using AXI4-master interface for burst read and write in Vitis HLS
+
+Files Included in this Package
+==============================
+README
+hls_config.cfg
+vadd.cpp
+vadd.h
+vadd_test.cpp
+run_hls.tcl
+run_vitis_commandline.sh
+
+Running the Design using Vitis HLS (edit run_hls.tcl to set $hls_exec and enable specific run steps)
+=========================================================
+vitis_hls -f run_hls.tcl
+
+Run the design using Vitis v++ and vitis-run commands
+=====================================================
+./run_vitis_commandline.sh
+

@@ -16,10 +16,9 @@
 
 #include "pointer_basic.h"
 
-void pointer_basic (dio_t *d) {
+void pointer_basic(dio_t *d) {
   static dio_t acc = 0;
-  
-  acc += *d;
-  *d  = acc;
-}
 
+  acc += *d;
+  *d = acc;
+}

@@ -16,12 +16,11 @@
  */
 
 #include "diamond.h"
-#include <iostream>
 #include <fstream>
+#include <iostream>
 using namespace std;
 
-int main()
-{
+int main() {
 
     hls::stream<data_t> test;
     hls::stream<data_t> outcome;
@@ -30,16 +29,16 @@ int main()
     ofstream FILE;
 
     // Save the results to a file
-    FILE.open ("result.dat");
+    FILE.open("result.dat");
 
     // Executing the DUT thrice
     for (int iter = 0; iter < 3; iter++) {
-        
+
         // Init test vector
-        for (int i = 0; i < N; i++){
+        for (int i = 0; i < N; i++) {
             test.write(i);
         }
-      
+
         // Execute DUT
         diamond(test, outcome);
 
@@ -53,17 +52,16 @@ int main()
     }
 
     FILE.close();
-    
+
     // Compare the results file with the golden results
     retval = system("diff --brief -w result.dat result.golden.dat");
     if (retval != 0) {
         cout << "Test failed  !!!" << endl;
         retval = 1;
-    }
-    else {
+    } else {
         cout << "Test passed !" << endl;
     }
-    
+
     // Return 0 if the test passed
     return retval;
 }

@@ -17,15 +17,15 @@
 #include "test.h"
 
 int main() {
-   int j=5;
-   int ret = test(j);
-   int golden = 36;
-   int result = 0;
-   if (ret == golden) {
+    int j = 5;
+    int ret = test(j);
+    int golden = 36;
+    int result = 0;
+    if (ret == golden) {
         printf("Test passed!\n");
     } else {
         printf("Test failed!\n");
-        result = 1;    
-    }   
-   return result;    
+        result = 1;
+    }
+    return result;
 }

@@ -28,12 +28,12 @@ int main() {
         A[i] = i;
     }
     // Save the results to a file
-    FILE.open ("result.dat");
+    FILE.open("result.dat");
 
     // Call the function
     loop_perfect(A, B);
     for (i = 0; i < N; ++i) {
-      FILE << B[i] << endl;
+        FILE << B[i] << endl;
     }
     FILE.close();
 
@@ -49,4 +49,3 @@ int main() {
     // Return 0 if the test passed
     return retval;
 }
-
