@@ -17,12 +17,9 @@
 
 #include "fft_top.h"
 
-void inputdatamover(
-    bool direction,
-    hls::stream<config_t>& config_strm,
-    hls::stream<cmpxDataIn>& in,
-    hls::stream<cmpxDataIn>& out_strm)
-{
+void inputdatamover(bool direction, hls::stream<config_t>& config_strm,
+                    hls::stream<cmpxDataIn>& in,
+                    hls::stream<cmpxDataIn>& out_strm) {
     config_t config;
     config.setDir(direction);
     config.setSch(0x2AB);
@@ -34,12 +31,9 @@ L0:
     }
 }
 
-void outputdatamover(
-    hls::stream<status_t>& status_in_strm,
-    bool* ovflo,
-    hls::stream<cmpxDataOut>& in_strm,
-    hls::stream<cmpxDataOut>& out)
-{
+void outputdatamover(hls::stream<status_t>& status_in_strm, bool* ovflo,
+                     hls::stream<cmpxDataOut>& in_strm,
+                     hls::stream<cmpxDataOut>& out) {
 L0:
     for (int i = 0; i < FFT_LENGTH; i++) {
 #pragma HLS pipeline II = 1 rewind
@@ -49,12 +43,8 @@ L0:
     *ovflo = status.getOvflo() & 0x1;
 }
 
-void fft_top(
-    bool direction,
-    hls::stream<cmpxDataIn>& in,
-    hls::stream<cmpxDataOut>& out,
-    bool* ovflo)
-{
+void fft_top(bool direction, hls::stream<cmpxDataIn>& in,
+             hls::stream<cmpxDataOut>& out, bool* ovflo) {
 #pragma HLS interface ap_hs port = direction
 #pragma HLS interface ap_fifo depth = 1 port = ovflo
 #pragma HLS interface ap_fifo depth = FFT_LENGTH port = in, out

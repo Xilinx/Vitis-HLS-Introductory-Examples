@@ -18,18 +18,17 @@
 #ifndef _TEST_LOOPS_H_
 #define _TEST_LOOPS_H_
 
-#include <iostream>
 #include <fstream>
+#include <iostream>
 using namespace std;
 
 #include "ap_int.h"
 #define N 10
 
-typedef ap_int<8>  din_t;
+typedef ap_int<8> din_t;
 typedef ap_int<13> dout_t;
 typedef ap_uint<5> dsel_t;
 
 dout_t test(din_t A[N]);
 
 #endif
-

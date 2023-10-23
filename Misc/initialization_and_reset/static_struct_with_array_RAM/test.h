@@ -16,8 +16,7 @@
  */
 #include <ap_int.h>
 
-template <int N>
-struct TestStruct {
+template <int N> struct TestStruct {
     int A[N];
     int B[N];
     int C[N];

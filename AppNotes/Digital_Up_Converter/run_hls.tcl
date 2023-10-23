@@ -1,5 +1,7 @@
 # clkperiod is coming from caller tcl script which contains something like set clkperiod 2.5
-
+if {![info exists clkperiod]} {
+  set clkperiod 2.5
+}
 open_project -reset proj_clk${clkperiod}
 
 add_files duc.cpp

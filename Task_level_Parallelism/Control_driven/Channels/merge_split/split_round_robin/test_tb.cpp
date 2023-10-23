@@ -16,31 +16,27 @@
  */
 #include "test.h"
 
-int main()
-{
+int main() {
     hls::stream<int> a;
-    hls::stream<ap_uint<1> > e;
-    hls::stream<ap_uint<32> > b1;
-    hls::stream<ap_uint<32> > b2;
-    hls::stream<ap_uint<32> > b3;
-    hls::stream<ap_uint<32> > b4;
+    hls::stream<ap_uint<1>> e;
+    hls::stream<ap_uint<32>> b1;
+    hls::stream<ap_uint<32>> b2;
+    hls::stream<ap_uint<32>> b3;
+    hls::stream<ap_uint<32>> b4;
     int cnt1 = 0;
     int cnt2 = 0;
     int cnt3 = 0;
     int cnt4 = 0;
 
-    for(int i=0;i<4;i++)
-    {
-        for(int j=0;j<4;j++)
-        {
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
             a.write(j);
         }
     }
 
-    dut(a,b1,b2,b3,b4);
+    dut(a, b1, b2, b3, b4);
 
-    for(int i=0;i<4;i++)
-    {
+    for (int i = 0; i < 4; i++) {
         int tmp1 = b1.read();
         if (tmp1 == 0)
             cnt1 += 1;
@@ -77,11 +73,10 @@ int main()
             cnt3 += 1;
         else if (tmp4 == 3)
             cnt4 += 1;
-        
     }
 
     if (cnt1 != 4 || cnt2 != 4 || cnt3 != 4 || cnt4 != 4)
         return 1;
-    
+
     return 0;
 }

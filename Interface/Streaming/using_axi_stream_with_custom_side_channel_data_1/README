@@ -1,0 +1,12 @@
+Example C++ code for implementing an AXI stream interface in Vitis HLS using only one side channel.
+(TDATA, TLAST only)
+
+Files Included in this Package
+==================================================
+example_test.cpp
+example.cpp
+README
+
+Running the Design (edit x_hls.tcl to run synthesis)
+=================================================
+vitis_hls -f run_hls.tcl

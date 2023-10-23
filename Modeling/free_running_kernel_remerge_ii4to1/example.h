@@ -15,8 +15,8 @@
  * limitations under the License.
  */
 
-#include <hls_stream.h>
 #include "ap_int.h"
+#include <hls_stream.h>
 using namespace hls;
 
 #include <iostream>

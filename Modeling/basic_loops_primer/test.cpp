@@ -17,14 +17,15 @@
 
 #include "test.h"
 
-dout_t test(din_t A[N]) {  
+dout_t test(din_t A[N]) {
 
-  dout_t out_accum=0;
-  dsel_t x;
-  
-  LOOP_1:for (x=0; x<N; x++) {
-      out_accum += A[x];
-  }
+    dout_t out_accum = 0;
+    dsel_t x;
 
-  return out_accum;
+LOOP_1:
+    for (x = 0; x < N; x++) {
+        out_accum += A[x];
+    }
+
+    return out_accum;
 }

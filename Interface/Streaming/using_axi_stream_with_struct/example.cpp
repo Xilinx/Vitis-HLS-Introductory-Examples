@@ -16,13 +16,12 @@
  */
 #include "example.h"
 
-void example(mystream &A, mystream &B) {
-#pragma HLS INTERFACE axis port=A
-#pragma HLS INTERFACE axis port=B
-
+void example(mystream& A, mystream& B) {
+#pragma HLS INTERFACE axis port = A
+#pragma HLS INTERFACE axis port = B
 
     data_t tmp_a;
-    
+
     do {
         tmp_a = A.read();
         data_t tmp_b;
@@ -31,4 +30,3 @@ void example(mystream &A, mystream &B) {
         B.write(tmp_b);
     } while (!tmp_a.last);
 }
-

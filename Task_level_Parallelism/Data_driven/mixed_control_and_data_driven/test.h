@@ -16,8 +16,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#include "hls_task.h"
 #include "hls_np_channel.h"
+#include "hls_task.h"
 
 const int N = 16;
 const int NP = 4;

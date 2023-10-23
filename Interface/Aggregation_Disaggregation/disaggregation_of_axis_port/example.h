@@ -18,9 +18,9 @@
 #define N 10
 
 struct A {
-  char c;
-  int i;
+    char c;
+    int i;
 };
 
 // Top function
-void dut(A in[N], A out[N]) ;
+void dut(A in[N], A out[N]);

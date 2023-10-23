@@ -35,7 +35,6 @@ create_clock -period 5 -name default
 # Set variable to select which steps to execute
 set hls_exec 2
 
-
 csim_design
 # Set any optimization directives
 config_dataflow -default_channel fifo -fifo_depth 2

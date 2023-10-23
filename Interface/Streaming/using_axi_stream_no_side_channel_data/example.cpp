@@ -15,20 +15,15 @@
  * limitations under the License.
  */
 
-#include "ap_axi_sdata.h"
-#include "hls_stream.h"
-#define DWIDTH 32
-#define type ap_int<DWIDTH>
-typedef hls::axis<type, 0, 0, 0> pkt;
-void example(hls::stream<pkt > &A,
-	     hls::stream<pkt> &B)
-{
-#pragma HLS INTERFACE axis port=A
-#pragma HLS INTERFACE axis port=B
+#include "example.h"
 
-	pkt tmp;
+void example(hls::stream<pkt>& A, hls::stream<pkt>& B) {
+#pragma HLS INTERFACE axis port = A
+#pragma HLS INTERFACE axis port = B
+
+    pkt tmp;
     pkt t1;
-	A.read(tmp);
-	t1.data = tmp.data + 5;
-	B.write(t1);
+    A.read(tmp);
+    t1.data = tmp.data + 5;
+    B.write(t1);
 }

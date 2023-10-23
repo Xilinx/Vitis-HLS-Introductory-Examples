@@ -1,0 +1,14 @@
+This example shows unsynchronized I/O scalars with hls::task
+
+
+Files Included in this Package
+==============================
+dut.cpp    
+dut_tb.cpp
+script.tcl
+README
+
+Running the Design 
+=========================================================
+vitis_hls -f run_hls.tcl
+

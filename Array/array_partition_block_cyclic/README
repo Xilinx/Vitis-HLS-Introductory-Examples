@@ -1,0 +1,19 @@
+This is a simple example of matrix multiplication (Row x Col) to demonstrate block and cyclic array partitioning pragma in HLS
+
+Files Included in this Package
+==============================
+README
+matmul_partition.cpp
+matmul_partition.h
+matmul_partition_test.cpp
+run_hls.tcl
+run_vitis_commandline.sh
+
+Running the Design using Vitis HLS (edit run_hls.tcl to set $hls_exec and enable specific run steps)
+=========================================================
+vitis_hls -f run_hls.tcl
+
+Running the design using Vitis v++ and vitis-run commands
+=====================================================
+./run_vitis_commandline.sh
+

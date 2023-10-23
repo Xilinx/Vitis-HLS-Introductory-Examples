@@ -15,36 +15,26 @@
  * limitations under the License.
  */
 
+#include "example.h"
 #include <iostream>
-#include "ap_axi_sdata.h"
-#include "hls_stream.h"
 using namespace std;
 
-#define DWIDTH 32
-#define type ap_int<DWIDTH>
-typedef hls::axis<type, 0, 0, 0> pkt;
-void example(hls::stream<pkt > &A,
-	     hls::stream<pkt> &B);
-int main()
-{
-  int i=100;
-  hls::stream<pkt> A, B;
-  pkt tmp1, tmp2;
-  tmp1.data = i;
-  
-  A.write(tmp1);
-  example(A,B);
+void example(hls::stream<pkt>& A, hls::stream<pkt>& B);
+int main() {
+    int i = 100;
+    hls::stream<pkt> A, B;
+    pkt tmp1, tmp2;
+    tmp1.data = i;
 
-  B.read(tmp2);
-  if (tmp2.data != 105)
-  {
-    cout << "ERROR: results mismatch" << endl;
-    return 1;
-  }
-  else
-  {
-    cout << "Success: results match" << endl;
-    return 0;
-  }
+    A.write(tmp1);
+    example(A, B);
+
+    B.read(tmp2);
+    if (tmp2.data != 105) {
+        cout << "ERROR: results mismatch" << endl;
+        return 1;
+    } else {
+        cout << "Success: results match" << endl;
+        return 0;
+    }
 }
-
