@@ -1,0 +1,26 @@
+A common dataflow pattern is where a writer and reader process
+exchange data by writing/reading from external memory - in this case
+because there are no direct channels of communication, both processes
+will start as soon as possible.  This is a problem because the reader
+process should not start until the writer has written out at least one
+line of memory (or it will read garbage). 
+
+To allow the writer to write out at least one line of memory, a stream
+of can be used a synchronization mechanism to inform the reader
+when it is safe to read this line of memory.
+
+
+Files Included in this Package
+==============================
+test.cpp  
+test.h
+test_tb.cpp  
+run_hls.tcl
+README
+
+Running the Design (edit run_hls.tcl to set $hls_exec and enable specific run steps)
+=========================================================
+vitis_hls -f run_hls.tcl
+
+
+
