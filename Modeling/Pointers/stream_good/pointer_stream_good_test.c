@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-*******************************************************************************/
 #include "pointer_stream_good.h"
 
 int main() {

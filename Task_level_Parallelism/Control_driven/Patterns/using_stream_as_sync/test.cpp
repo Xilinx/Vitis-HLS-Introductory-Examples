@@ -22,6 +22,7 @@ void write(hls::stream<int> &inputStream, int A[N][N], hls::stream<int> &line) {
 #pragma HLS INLINE OFF
     
     for (unsigned int i=0; i < N; ++i) {
+#pragma HLS PIPELINE II=3
         for (unsigned int j=0; j < N; ++j) {
             int temp = inputStream.read();
             std::cout << "Write: Reading A[" << i << "][" << j << "] = " << temp << std::endl;
@@ -42,6 +43,7 @@ void read(int A[N][N], hls::stream<int> &outputStream, hls::stream<int> &line)
 #pragma HLS INLINE OFF 
     int row;
     do {
+#pragma HLS PIPELINE II=3
         row = line.read(); // This gates this process. 
         for (unsigned j=0; j < N; ++j) {
             int temp = A[row][j];
