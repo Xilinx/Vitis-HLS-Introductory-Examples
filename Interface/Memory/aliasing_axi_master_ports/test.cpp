@@ -25,6 +25,9 @@ void write(hls::stream<A_t> &inputStream, A_t *aximA,
         aximA[i] = inputStream.read();
     }
     
+    // Required to separate the write to aximA and write to done. 
+    ap_wait();
+    
     // This stream acts like a barrier to prevent the read process from
     // starting
     done.write(true);
@@ -34,9 +37,11 @@ void read(B_t *aximB, hls::stream<B_t> &outputStream,
           hls::stream<bool> &done)
 {
 #pragma HLS INLINE OFF 
-
+           
     done.read();
-
+    
+    ap_wait(); // Required to separate the read of done and read of aximB
+           
     for (unsigned i=0; i<SIZE; i++) {
 #pragma HLS PIPELINE
         A_t tmp = aximB[i];
@@ -51,6 +56,10 @@ void dut(hls::stream<A_t> &inputStream, A_t *aximA, B_t *aximB,
 #pragma HLS INTERFACE m_axi port=aximB depth=DEPTHB latency=8 offset=direct max_widen_bitwidth=128 max_read_burst_length=256 max_write_burst_length=256 bundle=axim2
 #pragma HLS INTERFACE axis  port=outputStream
 
+// Needed to support overlap calls to dut
+#pragma HLS STABLE variable=aximA 
+#pragma HLS STABLE variable=aximB
+           
 // The ALIAS pragma lets you treat aximA and aximB as pointers to the same memory location. 
 #pragma HLS ALIAS ports=aximA,aximB distance=0
 
