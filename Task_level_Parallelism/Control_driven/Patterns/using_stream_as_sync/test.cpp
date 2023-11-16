@@ -57,7 +57,7 @@ void dut(hls::stream<int> &inputStream, int A[N][N], hls::stream<int> &outputStr
 #pragma HLS INTERFACE axis  port=inputStream
 #pragma HLS INTERFACE m_axi port=A 
 #pragma HLS INTERFACE axis  port=outputStream
-#pragma HLS STABLE variable=A
+//#pragma HLS STABLE variable=A
 #pragma HLS DATAFLOW
     
     hls::stream<int> line;

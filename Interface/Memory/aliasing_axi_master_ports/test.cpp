@@ -15,6 +15,7 @@
  * limitations under the License.
  */
 #include "test.h"
+#include "etc/ap_utils.h"
 
 void write(hls::stream<A_t> &inputStream, A_t *aximA,
            hls::stream<bool> &done) {
@@ -57,8 +58,8 @@ void dut(hls::stream<A_t> &inputStream, A_t *aximA, B_t *aximB,
 #pragma HLS INTERFACE axis  port=outputStream
 
 // Needed to support overlap calls to dut
-#pragma HLS STABLE variable=aximA 
-#pragma HLS STABLE variable=aximB
+//#pragma HLS STABLE variable=aximA 
+//#pragma HLS STABLE variable=aximB
            
 // The ALIAS pragma lets you treat aximA and aximB as pointers to the same memory location. 
 #pragma HLS ALIAS ports=aximA,aximB distance=0
