@@ -37,6 +37,7 @@ set hls_exec 2
 
 csim_design
 # Set any optimization directives
+config_compile -pipeline_style flp
 # End of directives
 
 if {$hls_exec == 1} {
