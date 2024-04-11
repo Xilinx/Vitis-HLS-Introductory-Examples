@@ -54,7 +54,7 @@ void inner(data_t A[SZ], hls::stream<data_t>& stream_in, data_t* out) {
     *out = accumulate(regA);
 }
 
-void free_pipe_mult(data_t A[SZ], hls::stream<data_t>& strm, data_t* out) {
+void free_pipe_mult(data_t A[SZ], hls::stream<data_t>& strm, data_t& out) {
 #pragma HLS DATAFLOW
 #pragma HLS INTERFACE ap_fifo port = strm
 
@@ -65,5 +65,5 @@ void free_pipe_mult(data_t A[SZ], hls::stream<data_t>& strm, data_t* out) {
 
     hls::stream<data_t> strm_out;
     process(strm, strm_out);
-    inner(B, strm_out, out);
+    inner(B, strm_out, &out);
 }
