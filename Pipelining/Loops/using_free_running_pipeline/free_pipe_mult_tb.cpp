@@ -41,7 +41,7 @@ int main() {
     FILE.open("result.dat");
 
     // Call the function
-    free_pipe_mult(Atest, strm, &total);
+    free_pipe_mult(Atest, strm, total);
 
     // Save output data
     cout << "Result: " << total << endl;
