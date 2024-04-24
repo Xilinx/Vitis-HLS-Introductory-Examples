@@ -1,4 +1,4 @@
-This examaple uses the RTL blackbox feature. 
+This example uses the RTL blackbox feature. 
 The RTL blackbox enables the use of existing RTL IP in an HLS project. This lets you add RTL code to your C/C++ code for synthesis of the project by Vitis HLS.
 
 
