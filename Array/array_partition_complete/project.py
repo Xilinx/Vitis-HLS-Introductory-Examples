@@ -30,5 +30,5 @@ cfg_file.set_value (section = 'hls', key = 'csim.code_analyzer',    value = '0')
 # Run flow steps
 comp = client.get_component(name='array_partition_complete')
 comp.run(operation='C_SIMULATION')
-#comp.run(operation='SYNTHESIS')
-#comp.run(operation='CO_SIMULATION')
+comp.run(operation='SYNTHESIS')
+comp.run(operation='CO_SIMULATION')
