@@ -25,7 +25,6 @@ Each includes code sources for top function and testbench, a README, Tcl files. 
 * Interface: Common examples that illustrate the usage of the various modes and interface protocols
 * Modeling: Math and DSP examples and other common use models/algorithms
 * Misc: Other examples such as RTL blackbox in C++
-* OptimizationTechniques: Examples such as stencil in C++
 
 ## Running the examples
 A Tcl file is provided:

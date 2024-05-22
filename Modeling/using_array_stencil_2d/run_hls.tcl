@@ -15,7 +15,7 @@
 # limitations under the License.
 open_project -reset conv_filter_prj
 set_top Filter2DKernel
-add_files -tb hls_testbench.cpp  
+add_files -tb test.cpp  
 add_files -tb cmdlineparser.cpp  
 add_files -tb filter2d_sw.cpp    
 add_files     filter2d_hw.cpp    
