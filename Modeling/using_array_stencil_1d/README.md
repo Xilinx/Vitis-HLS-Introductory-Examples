@@ -6,6 +6,10 @@ dut.cpp
 test.cpp  
 README  
 
-Running the design (edit run_hls.tcl to run synthesis)
+Running the design using Python Script 
+=================================================
+vitis -s run.py
+
+Running the design using TCL FILE (edit run_hls.tcl to run synthesis)
 =================================================
 vitis_hls -f run_hls.tcl

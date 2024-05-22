@@ -10,7 +10,11 @@ coefficients.h
 common.h  
 hls_testbench.cpp  
 run_hls.tcl  
-README  
+README 
+
+Running the design using Python Script 
+=================================================
+vitis -s run.py
 
 Running the design (edit run_hls.tcl to run synthesis)
 =================================================
