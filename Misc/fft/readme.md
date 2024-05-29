@@ -45,6 +45,8 @@ ffp_top.h   : header file for the example
 
 run_hls.tcl : script to run synthesis, simulation and export IP
 
+run.py	    : script to run csimulation, csynthesis and cosimulation using vitis
+
 README      : a small readme file which refers to this readme.md
 
 Running the Example
@@ -57,6 +59,15 @@ If you wish you can open the project with the VHLS GUI :
 ```
 $ vitis_hls -p proj_*
 ```
+Run python script with vitis
+```
+$ vitis -s run.py
+```
+To open the HLS component in Vitis Unified IDE after running the python script:
+```
+$ vitis -w w
+```
+
 
 Performance
 ===========
