@@ -17,7 +17,7 @@ Running the design using Vitis v++ and vitis-run commands
 =====================================================
 ./run_vitis_commandline.sh
 
-Running the design using python API
+Running the design using python script
 =====================================================
-vitis -s project.py
+vitis -s run.py
 
