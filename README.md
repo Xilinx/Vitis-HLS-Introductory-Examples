@@ -36,5 +36,6 @@ The examples are organized in categories denoted by the directory names:
   - vitis-run --mode hls --tcl run_hls.tcl
 * Using Vitis HLS (deprecated):
   - vitis_hls -f run_hls.tcl
+
 Note that by default only C simulation and C synthesis will run. Change the value of hls_exec in the Tcl script to run co-simulation and Vivado implementation.
 
