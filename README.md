@@ -1,4 +1,4 @@
-<img src="./Images/logo2.jpg" alt="logo2" width="200"/>
+<img src="./Images/logo2.png" alt="logo2" width="200"/>
 
 # Introductory examples for Vitis HLS
 
