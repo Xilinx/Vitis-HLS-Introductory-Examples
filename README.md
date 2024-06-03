@@ -1,6 +1,6 @@
-<img src="./Images/logo.gif" alt="logo" width="200"/>
+<img src="./Images/logo2.png" alt="logo2" width="200"/>
 
-# Basic examples for Vitis HLS
+# Introductory examples for Vitis HLS
 
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. 
 Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
@@ -19,19 +19,23 @@ limitations under the License.
 
 ## C/C++ synthesizable examples
 
-Each includes code sources for top function and testbench, a README, Tcl files.  They are organized in categories denoted by the prefix of the directory in which they reside:
-* Dataflow: Common examples that illustrate usage of different channels and topologies
-* Pipelining: Common examples that illustrate pipeline pragma usage for loops and functions
-* Interface: Common examples that illustrate the usage of the various modes and interface protocols
-* Modeling: Math and DSP examples and other common use models/algorithms
-* Misc: Other examples such as RTL blackbox in C++
+Each example comes with C/C++ source code, a README, and script or config file.
+The examples are organized in categories denoted by the directory names:
+* Appnotes: A DSP design, a legacy digital up converter appnote.
+* Array: Show how to partition memory arrays.
+* Interface: Common examples for interface protocols.
+* Misc.: Other examples such as the RTL blackbox flow and the LogiCore FFT from Vivado.
+* Modelling: The essentials for loops, arbitrary precision types and vectors.
+* Pipelining: Illustrating one of the most fundamental concept of HLS.
+* Task_Level_Parallelism: Dataflow and free running streams with hls::task.
+* Vitis: Kernel examples for the software acceleration flow.
 
-## Running the examples
-A Tcl file is provided:
-* _run_hls.tcl_: Sets up the project and specifies what steps of the flow will be executed (by default only C simulation and C synthesis are run).  
-  By changing the value of hls_exec it's possible to run C-RTL co-simulation and Vivado implementation
+## Running the examples at the command line
 
-To run at the command line, navigate to the example directory, type:
-`vitis_hls -f run_hls.tcl`
+* Using Vitis Unified IDE:
+  - ```vitis-run --mode hls --tcl run_hls.tcl```
+* Using Vitis HLS (deprecated):
+  - ```vitis_hls -f run_hls.tcl```
 
-To load the design into the HLS GUI, "Open"->"Project file" and select the project directory
+Note that by default only C simulation and C synthesis will run. Change the value of hls_exec in the Tcl script to run co-simulation and Vivado implementation.
+
