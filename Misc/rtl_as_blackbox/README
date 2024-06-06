@@ -12,8 +12,13 @@ result.golden.dat
 rtl_model.json
 rtl_model.v
 run_hls.tcl
+run.py
 
 
 Running the Design (edit x_hls.tcl to run synthesis)
 =================================================
 vitis_hls -f run_hls.tcl
+
+Running the design using python script
+=====================================================
+vitis -s run.py
