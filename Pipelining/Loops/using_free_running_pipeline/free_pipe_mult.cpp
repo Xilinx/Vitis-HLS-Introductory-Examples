@@ -1,6 +1,6 @@
 /*
  * Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
- * Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+ * Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -54,7 +54,7 @@ void inner(data_t A[SZ], hls::stream<data_t>& stream_in, data_t* out) {
     *out = accumulate(regA);
 }
 
-void free_pipe_mult(data_t A[SZ], hls::stream<data_t>& strm, data_t* out) {
+void free_pipe_mult(data_t A[SZ], hls::stream<data_t>& strm, data_t& out) {
 #pragma HLS DATAFLOW
 #pragma HLS INTERFACE ap_fifo port = strm
 
@@ -65,5 +65,5 @@ void free_pipe_mult(data_t A[SZ], hls::stream<data_t>& strm, data_t* out) {
 
     hls::stream<data_t> strm_out;
     process(strm, strm_out);
-    inner(B, strm_out, out);
+    inner(B, strm_out, &out);
 }
