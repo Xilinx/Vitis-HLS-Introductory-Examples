@@ -1,6 +1,6 @@
 /*
  * Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
- * Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+ * Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,10 +31,14 @@ fft_tb.cpp  : C testbench
 fft_top.cpp : top C function fft_top
 ffp_top.h   : header file for the example 
 run_hls.tcl : script to run synthesis, simulation and export IP
+run.py	    : script to run csimulation, csynthesis and cosimulation using vitis
 README      : this readme file
 
 Run Example
 ======================
 Open a command prompt with vitis tools set up and then run the command below
     vitis_hls -f run_hls.tcl
+
+Run the command below for python script
+    vitis -s run.py
 
