@@ -9,8 +9,8 @@ In this example, recommended scripted and command line flows are provided for mi
 
 # Common source files
 - pointer_basic.h
-- pointer_basic.cpp
-- pointer_basic_test.cpp
+- pointer_basic.c
+- pointer_basic_test.c
 - result.golden.dat
 - README.md
 
