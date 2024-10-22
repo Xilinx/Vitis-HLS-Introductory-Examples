@@ -17,7 +17,7 @@
 
 # Project settings
 # Create a project
-open_project -reset proj_intf_stream
+open_component -reset component_interface_stream -flow_target vivado
 
 
 # Add the file for synthsis
@@ -70,7 +70,6 @@ add_files -tb data/stimulus_19.res
 set_top fft_top
 
 # Solution settings
-open_solution -reset solution1 -flow_target vivado
 
 # Define technology 
 set_part  {xcvu9p-flga2104-2-i}

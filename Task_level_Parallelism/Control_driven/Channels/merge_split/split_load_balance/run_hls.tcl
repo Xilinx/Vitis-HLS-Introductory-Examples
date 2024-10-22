@@ -15,7 +15,7 @@
 # limitations under the License.
 
 # Create a project
-open_project proj -reset
+open_component -reset component_split_load_balance -flow_target vivado
 
 # Add design files
 add_files test.cpp
@@ -27,7 +27,6 @@ set_top dut
 
 # ########################################################
 # Create a solution
-open_solution -reset solution1 -flow_target vitis
 # Define technology and clock rate
 set_part {xcvu9p-flga2104-2-i}
 create_clock -period 5 -name default

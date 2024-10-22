@@ -15,7 +15,7 @@
 # limitations under the License.
 
 # Create a project
-open_project -reset proj
+open_component -reset component_axi_stream_to_master -flow_target vivado
 
 # Add design files
 add_files example.cpp
@@ -27,7 +27,6 @@ set_top example
 
 # ########################################################
 # Create a solution
-open_solution -reset solution1 -flow_target vitis
 
 # Define technology and clock rate
 set_part  {xcvu9p-flga2104-2-i}

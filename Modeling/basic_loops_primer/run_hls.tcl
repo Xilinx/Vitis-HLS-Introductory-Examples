@@ -35,8 +35,8 @@ proc run_rest_of_the_flow {{hls_exec 2}} {
     }
 }
 
-# Create a project
-open_project -reset proj_test
+# Create a component
+open_component -reset component1_basic_loops_primer -flow_target vivado
 
 # Add design files
 add_files test.cpp
@@ -49,7 +49,6 @@ set_top test
 
 # ########################################################
 # Create Solution 1
-open_solution -reset solution1 
 # Define technology and clock rate
 set_part  {xcvu9p-flga2104-2-i}
 create_clock -period 10
@@ -65,8 +64,18 @@ run_rest_of_the_flow 1
 close_solution
 
 # ########################################################
+# Create a component
+open_component -reset component2_basic_loops_primer -flow_target vivado
+
+# Add design files
+add_files test.cpp
+# Add test bench & files
+add_files -tb test_tb.cpp
+add_files -tb result.golden.dat
+
+# Set the top-level function
+set_top test
 # Create Solution 2
-open_solution -reset solution2 
 # Define technology and clock rate
 set_part  {xcvu9p-flga2104-2-i}
 create_clock -period 10
@@ -84,8 +93,18 @@ run_rest_of_the_flow 1
 close_solution
 
 # ########################################################
+# Create a component
+open_component -reset component3_basic_loops_primer -flow_target vivado
+
+# Add design files
+add_files test.cpp
+# Add test bench & files
+add_files -tb test_tb.cpp
+add_files -tb result.golden.dat
+
+# Set the top-level function
+set_top test
 # Create Solution 3
-open_solution -reset solution3 
 # Define technology and clock rate
 set_part  {xcvu9p-flga2104-2-i}
 create_clock -period 10

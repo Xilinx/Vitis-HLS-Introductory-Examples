@@ -14,11 +14,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-open_project proj
+open_component -reset component_unsynchronized_io_scalar -flow_target vivado
 set_top test
 add_files test.cpp 
 add_files -tb test_tb.cpp -cflags "-Wno-unknown-pragmas"
-open_solution "solution1" -flow_target vitis
 set_part {xc7v585t-ffg1761-2}
 create_clock -period 5 -name default
 config_export -vivado_clock 5

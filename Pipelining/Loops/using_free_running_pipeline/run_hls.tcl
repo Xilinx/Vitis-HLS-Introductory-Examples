@@ -15,7 +15,7 @@
 # limitations under the License.
 
 # Create a project
-open_project -reset proj_pipelining_frp
+open_component -reset component_using_free_running_pipeline -flow_target vivado
 
 # Add design files
 add_files free_pipe_mult.cpp
@@ -28,7 +28,6 @@ set_top free_pipe_mult
 
 # ########################################################
 # Create a solution
-open_solution -reset solution1
 # Define technology and clock rate
 set_part  {xcvu9p-flga2104-2-i}
 create_clock -period 5

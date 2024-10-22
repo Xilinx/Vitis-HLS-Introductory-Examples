@@ -15,7 +15,7 @@
 # limitations under the License.
 
 # Create a project
-open_project -reset proj_fxp_sqrt
+open_component -reset component_fixed_point_sqrt -flow_target vivado
 
 # Add design files
 add_files fxp_sqrt_top.cpp
@@ -27,7 +27,6 @@ set_top fxp_sqrt_top
 
 # ########################################################
 # Create a solution
-open_solution -reset solution1 -flow_target vitis
 # Define technology and clock rate
 set_part  {xcvu9p-flga2104-2-i}
 create_clock -period 5

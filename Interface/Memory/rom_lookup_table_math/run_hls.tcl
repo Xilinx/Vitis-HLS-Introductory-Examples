@@ -15,7 +15,7 @@
 # limitations under the License.
 
 # Create a project
-open_project -reset proj_lookup_math
+open_component -reset component_rom_lookup_table_math -flow_target vivado
 
 # Add design files
 add_files lookup_math.cpp
@@ -28,7 +28,6 @@ set_top lookup_math
 
 # ########################################################
 # Create a solution
-open_solution -reset solution1 -flow_target vitis
 
 # Define technology and clock rate
 set_part  {xcvu9p-flga2104-2-i}

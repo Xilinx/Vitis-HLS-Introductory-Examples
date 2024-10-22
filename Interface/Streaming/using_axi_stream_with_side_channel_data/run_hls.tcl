@@ -15,7 +15,7 @@
 # limitations under the License.
 
 # Create a project
-open_project -reset proj_axi_stream_side_channel_data
+open_component -reset component_using_axi_stream_with_side_channel_data -flow_target vivado
 
 # Add design files
 add_files example.cpp
@@ -28,7 +28,6 @@ set_top example
 # ########################################################
 # Create a solution
 
-open_solution -reset solution1 -flow_target vitis
 # Define technology and clock rate
 set_part  {xcvu9p-flga2104-2-i}
 create_clock -period "200MHz"

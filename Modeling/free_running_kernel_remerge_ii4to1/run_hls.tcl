@@ -15,7 +15,7 @@
 # limitations under the License.
 
 # Create a project
-open_project -reset proj_example
+open_component -reset component_free_running_kernel_remerge_ii4to1 -flow_target vivado
 
 # Add design files
 add_files example.cpp
@@ -28,7 +28,6 @@ set_top example
 
 # ########################################################
 # Create a solution
-open_solution -reset solution1
 # Define technology and clock rate
 set_part  {xcvu9p-flga2104-2-i}
 create_clock -period 5

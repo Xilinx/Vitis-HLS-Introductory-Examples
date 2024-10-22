@@ -14,11 +14,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-open_project proj
+open_component -reset component_unsynchronized_io_maxi -flow_target vivado
 set_top stable_pointer
 add_files dut.cpp 
 add_files -tb dut_tb.cpp 
-open_solution "solution1" -flow_target vitis
 set_part zynq
 create_clock -period 3.125 -name default
 csim_design 
