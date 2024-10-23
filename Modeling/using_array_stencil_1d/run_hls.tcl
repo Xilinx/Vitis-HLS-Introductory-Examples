@@ -19,7 +19,7 @@ set top top
 
 set src_file dut.cpp
 
-open_project -reset proj
+open_component -reset component_using_array_stencil_1d -flow_target vivado
 # Add design files
 
 add_files $src_file -cflags "-I ."
@@ -31,7 +31,6 @@ add_files -tb test.cpp -cflags "-I ."
 set_top $top
 # ########################################################
 # Create a solution
-open_solution -reset solution1
 set_part zynq
 # Define technology and clock rate
 set_part  {xcvu9p-flga2104-2-i}

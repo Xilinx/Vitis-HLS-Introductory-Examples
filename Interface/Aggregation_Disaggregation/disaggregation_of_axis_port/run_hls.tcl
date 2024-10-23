@@ -15,7 +15,7 @@
 # limitations under the License.
 
 # Create a project
-open_project proj -reset 
+open_component -reset component_disaggregation_of_axis_port -flow_target vivado
 
 # Add design files
 add_files example.cpp
@@ -26,7 +26,6 @@ set_top dut
 
 # ########################################################
 # Create a solution
-open_solution solution -reset -flow_target vitis
 
 # Define technology and clock rate
 set_part {xcvu9p-flga2104-2-i}

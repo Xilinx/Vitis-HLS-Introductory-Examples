@@ -15,7 +15,7 @@
 # limitations under the License.
 
 # Create a project
-open_project -reset proj_arbitrary_precision_casting
+open_component -reset component_using_arbitrary_precision_casting -flow_target vivado
 
 # Add design files
 add_files arbitrary_precision_casting.cpp
@@ -28,7 +28,6 @@ set_top arbitrary_precision_casting
 
 # ########################################################
 # Create a solution
-open_solution -reset solution1
 # Define technology and clock rate
 set_part  {xcvu9p-flga2104-2-i}
 create_clock -period 4

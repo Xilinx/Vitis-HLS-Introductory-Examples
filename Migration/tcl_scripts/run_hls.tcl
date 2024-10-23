@@ -15,22 +15,23 @@
 # limitations under the License.
 
 # Create a project
-open_project -reset proj_vadd_kernel
+open_project -reset proj_pointer_basic
 
 # Add design files
-add_files krnl_vadd.cpp
+add_files ../pointer_basic.c
 # Add test bench & files
-add_files -tb krnl_vadd_test.cpp
+add_files -tb ../pointer_basic_test.c
+add_files -tb ../result.golden.dat
 
 # Set the top-level function
-set_top krnl_vadd 
+set_top pointer_basic
 
 # ########################################################
 # Create a solution
-open_solution -reset solution1
+open_solution -reset solution1 -flow_target vivado
 # Define technology and clock rate
-set_part  {xcu250-figd2104-2L-e}
-create_clock -period 25
+set_part  {xcvu9p-flga2104-2-i}
+create_clock -period 4
 
 # Set variable to select which steps to execute
 set hls_exec 2
@@ -38,9 +39,10 @@ set hls_exec 2
 
 csim_design
 # Set any optimization directives
-#set_directive_pipeline krnl_vadd/mem_rd
+set_directive_interface -mode m_axi pointer_basic d -depth 1
 # End of directives
 
+# cosim_design option -trace_level all is used to create a VCD waveform file
 if {$hls_exec == 1} {
 	# Run Synthesis and Exit
 	csynth_design
@@ -49,17 +51,18 @@ if {$hls_exec == 1} {
 	# Run Synthesis, RTL Simulation and Exit
 	csynth_design
 	
-	cosim_design
+	cosim_design -trace_level all
 } elseif {$hls_exec == 3} { 
 	# Run Synthesis, RTL Simulation, RTL implementation and Exit
 	csynth_design
 	
-	cosim_design
+	cosim_design -trace_level all
 	export_design
 } else {
 	# Default is to exit after setup
 	csynth_design
 }
+
 
 exit
 

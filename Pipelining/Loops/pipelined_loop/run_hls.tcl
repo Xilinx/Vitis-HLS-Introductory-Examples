@@ -15,7 +15,7 @@
 # limitations under the License.
 
 # Create a project
-open_project -reset proj_loop_pipeline
+open_component -reset component1_pipelined_loop -flow_target vivado
 
 # Add design files
 add_files loop_pipeline.cpp
@@ -28,7 +28,6 @@ set_top loop_pipeline
 
 # ########################################################
 # Create a solution
-open_solution -reset solution1
 # Define technology and clock rate
 set_part  {xcvu9p-flga2104-2-i}
 create_clock -period 25
@@ -62,8 +61,19 @@ if {$hls_exec == 1} {
 	csynth_design
 }
 # ########################################################
+# Create a project
+open_component -reset component2_pipelined_loop -flow_target vivado
+
+# Add design files
+add_files loop_pipeline.cpp
+# Add test bench & files
+add_files -tb loop_pipeline_test.cpp
+add_files -tb result.golden.dat
+
+# Set the top-level function
+set_top loop_pipeline
+
 # Create a solution
-open_solution -reset solution2
 # Define technology and clock rate
 set_part  {xcvu9p-flga2104-2-i}
 create_clock -period 25
@@ -99,8 +109,19 @@ if {$hls_exec == 1} {
 
 
 # ########################################################
+# Create a project
+open_component -reset component3_pipelined_loop -flow_target vivado
+
+# Add design files
+add_files loop_pipeline.cpp
+# Add test bench & files
+add_files -tb loop_pipeline_test.cpp
+add_files -tb result.golden.dat
+
+# Set the top-level function
+set_top loop_pipeline
+
 # Create a solution
-open_solution -reset solution3
 # Define technology and clock rate
 set_part  {xcvu9p-flga2104-2-i}
 create_clock -period 25

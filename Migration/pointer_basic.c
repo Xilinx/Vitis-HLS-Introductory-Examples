@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 Xilinx, Inc.
+ * Copyright 2022 Xilinx, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,18 +14,11 @@
  * limitations under the License.
  */
 
-#ifndef _KRNL_VADD_H_
-#define _KRNL_VADD_H_
+#include "pointer_basic.h"
 
-// Includes
-#include <iostream>
-#include <ap_int.h>
-#include <hls_stream.h>
+void pointer_basic(dio_t *d) {
+  static dio_t acc = 0;
 
-const int size = 4096;
-
-extern "C" {
-void krnl_vmult(uint32_t* input1, uint32_t* input2, uint32_t* output, int vSize);
+  acc += *d;
+  *d = acc;
 }
-
-#endif

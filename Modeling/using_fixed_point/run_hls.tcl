@@ -15,7 +15,7 @@
 # limitations under the License.
 
 # Create a project
-open_project -reset proj_cpp_ap_fixed
+open_component -reset component_using_fixed_point -flow_target vivado
 
 # Add design files
 #add_files cpp_ap_fixed.cpp 
@@ -29,7 +29,6 @@ set_top cpp_ap_fixed
 
 # ########################################################
 # Create a solution
-open_solution -reset solution1
 # Define technology and clock rate
 set_part  {xcvu9p-flga2104-2-i}
 create_clock -period 4

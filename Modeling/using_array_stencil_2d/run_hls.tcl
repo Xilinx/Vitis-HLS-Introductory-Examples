@@ -13,7 +13,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-open_project -reset conv_filter_prj
+open_component -reset component_using_array_stencil_2d -flow_target vivado
 set_top Filter2DKernel
 add_files -tb test.cpp  
 add_files -tb cmdlineparser.cpp  
@@ -21,7 +21,6 @@ add_files -tb filter2d_sw.cpp
 add_files     filter2d_hw.cpp    
 # ########################################################
 # Create a solution
-open_solution "solution"
 set_part {xcku11p-ffva1156-1-e}
 create_clock -period 3.33333333 -name default
 config_flow -target vivado

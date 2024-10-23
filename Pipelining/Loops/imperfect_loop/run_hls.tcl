@@ -15,7 +15,7 @@
 # limitations under the License.
 
 # Create a project
-open_project -reset proj_loop_imperfect
+open_component -reset component_imperfect_loop -flow_target vivado
 
 # Add design files
 add_files loop_imperfect.cpp
@@ -28,7 +28,6 @@ set_top loop_imperfect
 
 # ########################################################
 # Create a solution
-open_solution -reset solution1
 # Define technology and clock rate
 set_part  {xcvu9p-flga2104-2-i}
 create_clock -period 25

@@ -15,7 +15,7 @@
 # limitations under the License.
 
 # Create a project
-open_project -reset proj
+open_component -reset component_using_stream_as_sync -flow_target vivado
 
 # Add design files
 add_files test.cpp
@@ -27,7 +27,6 @@ set_top dut
 
 # ########################################################
 # Create a solution
-open_solution -reset solution1
 # Define technology and clock rate
 set_part  {xcvu9p-flga2104-2-i}
 create_clock -period 10

@@ -15,7 +15,7 @@
 # limitations under the License.
 
 # Create a project
-open_project -reset proj_pointer_arith
+open_component -reset component_basic_arithmetic -flow_target vivado
 
 # Add design files
 add_files pointer_arith.c
@@ -28,7 +28,6 @@ set_top pointer_arith
 
 # ########################################################
 # Create a solution
-open_solution -reset solution1
 # Define technology and clock rate
 set_part  {xcvu9p-flga2104-2-i}
 create_clock -period 4

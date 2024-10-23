@@ -15,7 +15,7 @@
 # limitations under the License.
 
 # Create a project
-open_project -reset proj_hier_func4
+open_component -reset component_hier_func -flow_target vivado
 
 # Add design files
 add_files hier_func4.cpp
@@ -28,7 +28,6 @@ set_top hier_func4
 
 # ########################################################
 # Create a solution
-open_solution -reset solution1
 set_part  {xcvu9p-flga2104-2-i}
 create_clock -period 4
 

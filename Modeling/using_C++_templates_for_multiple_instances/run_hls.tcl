@@ -15,7 +15,7 @@
 # limitations under the License.
 
 # Create a project
-open_project -reset proj_cpp_template
+open_component -reset component_using_C++_templates_for_multiple_instances -flow_target vivado
 
 # Add design files
 add_files cpp_template.cpp
@@ -28,7 +28,6 @@ set_top cpp_template
 
 # ########################################################
 # Create a solution
-open_solution -reset solution1 -flow_target vitis
 # Define technology and clock rate
 set_part  {xcvu9p-flga2104-2-i}
 create_clock -period 4
