@@ -16,19 +16,28 @@
  */
 #include "test.h"
 
-int main() {
-
-    hls::stream<int> in;
-    hls::stream<int> out;
-
-    for (int i = 0; i < N; i++)
-        in.write(i);
-    test(in, out, N);
-
-    int sum = 0;
-    for (int i = 0; i < N; i++)
-        sum += out.read();
-    if (sum != 15250)
-        return 1;
-    return 0;
+void sub_task1(hls::stream<int>& in, hls::stream<int>& out) {
+    int c = in.read();
+    out.write(c + 2);
 }
+
+void sub_task2(hls::stream<int>& in, hls::stream<int>& out) {
+    int c = in.read();
+    out.write(c - 2);
+}
+
+void task2(hls::stream<int>& in, hls::stream<int>& out, hls::ap_hs<int> &n) {
+    int c = in.read();
+    int var = n.read();
+    out.write(c + var);
+}
+
+void test(hls::stream<int>& in, hls::stream<int>& out, hls::ap_hs<int> &n) {
+
+    HLS_TASK_STREAM<int> s1;
+    HLS_TASK_STREAM<int> s2;
+    HLS_TASK t(task2, s2, out, n);
+    HLS_TASK t1(sub_task1, in, s1);
+    HLS_TASK t2(sub_task2, s1, s2);
+}
+

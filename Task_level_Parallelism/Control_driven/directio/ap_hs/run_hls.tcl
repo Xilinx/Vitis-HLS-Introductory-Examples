@@ -1,6 +1,6 @@
 #
 # Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
-# Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+# Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,19 +13,25 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+open_component -reset directIo -flow_target vivado
+set_top krnl_stream_vdatamover
+add_files -tb tb.cpp  
+add_files     dut.cpp    
+# ########################################################
+# Create a solution
+open_solution "solution"
+set_part {xcku11p-ffva1156-1-e}
+create_clock -period 3.33333333 -name default
 
-open_component -reset component_unsynchronized_io_scalar -flow_target vivado
-set_top test
-add_files test.cpp 
-add_files -tb test_tb.cpp -cflags "-Wno-unknown-pragmas"
-set_part {xc7v585t-ffg1761-2}
-create_clock -period 5 -name default
-config_export -vivado_clock 5
-
+# Run Synthesis, RTL Simulation, RTL implementation and Exit
 # Set variable to select which steps to execute
 set hls_exec 2
 
 csim_design
+# Set any optimization directives
+
+# End of directives
+
 if {$hls_exec == 1} {
 	# Run Synthesis and Exit
 	csynth_design
@@ -45,6 +51,4 @@ if {$hls_exec == 1} {
 	# Default is to exit after setup
 	csynth_design
 }
-
 exit
-

@@ -1,10 +1,13 @@
-This example shows unsynchronized I/O scalars with hls::task
+This example shows using MAXI in hls::task
 
 
 Files Included in this Package
 ==============================
-mt.cpp    
-script.tcl
+dut.cpp    
+dut_tb.cpp
+run_hls.tcl
+run.py
+config.cfg
 README
 
 Running the Design 

@@ -3,9 +3,12 @@ This example shows unsynchronized I/O scalars with hls::task
 
 Files Included in this Package
 ==============================
-dut.cpp    
-dut_tb.cpp
-script.tcl
+test.cpp
+test.h
+test_tb.cpp    
+run_hls.tcl
+run.py
+config.cfg
 README
 
 Running the Design 

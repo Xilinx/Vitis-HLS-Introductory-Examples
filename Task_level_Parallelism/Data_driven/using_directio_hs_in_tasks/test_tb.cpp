@@ -16,27 +16,26 @@
  */
 #include "test.h"
 
-void sub_task1(hls::stream<int>& in, hls::stream<int>& out) {
-    int c = in.read();
-    out.write(c + 2);
-}
+int main() {
 
-void sub_task2(hls::stream<int>& in, hls::stream<int>& out) {
-    int c = in.read();
-    out.write(c - 1);
-}
+    hls::stream<int> in;
+    hls::stream<int> out;
+	hls::ap_hs<int> n;
+    int golden=0;
+    for (int i = 0; i < N; i++)
+    {
+        n.write(i);
+        in.write(i);
+        golden += 2*i;
+    }
+    
+    test(in, out, n);
 
-void task2(hls::stream<int>& in, hls::stream<int>& out, int n) {
-    int c = in.read();
-    out.write(c + 2 + n);
-}
+    int sum = 0;
+    for (int i = 0; i < N; i++)
+        sum += out.read();
 
-void test(hls::stream<int>& in, hls::stream<int>& out, int n) {
-#pragma HLS STABLE variable = n
-    HLS_TASK_STREAM<int> s1;
-    HLS_TASK_STREAM<int> s2;
-    HLS_TASK t(task2, s2, out, n);
-    HLS_TASK t1(sub_task1, in, s1);
-    HLS_TASK t2(sub_task2, s1, s2);
+    if (sum != golden)
+        return 1;
+    return 0;
 }
-
