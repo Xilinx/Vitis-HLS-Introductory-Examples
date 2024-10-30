@@ -1,0 +1,5 @@
+{
+  "name": "using_array_stencil_1d",
+  "description": "Example C++ code for the Stencil pragma in Vitis HLS",
+  "hls": {"config": "hls_config.cfg"}
+}

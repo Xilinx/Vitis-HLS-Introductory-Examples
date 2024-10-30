@@ -1,0 +1,5 @@
+{
+  "name": "burst_rw",
+  "description": "Example of using AXI4-master interface for burst read and write in Vitis HLS",
+  "hls": {"config": "hls_config.cfg"}
+}
