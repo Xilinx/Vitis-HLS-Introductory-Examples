@@ -1,0 +1,5 @@
+{
+  "name": "array_partition_block_cyclic",
+  "description": "This is a simple example of matrix multiplication (Row x Col) to demonstrate block and cyclic array partitioning pragma in Vitis HLS",
+  "hls": {"config": "hls_config.cfg"}
+}
