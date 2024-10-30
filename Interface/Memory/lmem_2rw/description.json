@@ -1,0 +1,5 @@
+{
+  "name": "lmem_2rw",
+  "description": "Example of vector addition to demonstrate how to utilize both ports of Local Memory in Vitis HLS",
+  "hls": {"config": "hls_config.cfg"}
+}
