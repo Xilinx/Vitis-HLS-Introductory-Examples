@@ -14,11 +14,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#pragma once
+#include "test.h"
 
-#include "hls_task.h"
-#define N 100
-#include <iostream>
+void sub_task1(hls::stream<int>& in, hls::stream<int>& out) {
+    int c = in.read();
+    out.write(c + 2);
+}
 
-void test(hls::stream<int>& in, hls::stream<int>& out, int n);
+void sub_task2(hls::stream<int>& in, hls::stream<int>& out) {
+    int c = in.read();
+    out.write(c - 2);
+}
+
+void task2(hls::stream<int>& in, hls::stream<int>& out, hls::ap_hs<int> &n) {
+    int c = in.read();
+    int var = n.read();
+    out.write(c + var);
+}
+
+void test(hls::stream<int>& in, hls::stream<int>& out, hls::ap_hs<int> &n) {
+
+    HLS_TASK_STREAM<int> s1;
+    HLS_TASK_STREAM<int> s2;
+    HLS_TASK t(task2, s2, out, n);
+    HLS_TASK t1(sub_task1, in, s1);
+    HLS_TASK t2(sub_task2, s1, s2);
+}
 

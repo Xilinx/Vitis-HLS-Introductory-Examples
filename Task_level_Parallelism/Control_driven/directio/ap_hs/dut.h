@@ -14,29 +14,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#include "test.h"
+#include "ap_axi_sdata.h"
+#include "ap_int.h"
+#include "hls_stream.h"
+#include "hls_directio.h"
+#include <iostream>
+#define DWIDTH 32
 
-void sub_task1(hls::stream<int>& in, hls::stream<int>& out) {
-    int c = in.read();
-    out.write(c + 2);
-}
+typedef ap_axiu<DWIDTH, 2, 5, 6> pkt;
+typedef ap_axiu<DWIDTH, 2, 5, 6> packet;
 
-void sub_task2(hls::stream<int>& in, hls::stream<int>& out) {
-    int c = in.read();
-    out.write(c - 1);
-}
-
-void task2(hls::stream<int>& in, hls::stream<int>& out, int n) {
-    int c = in.read();
-    out.write(c + 2 + n);
-}
-
-void test(hls::stream<int>& in, hls::stream<int>& out, int n) {
-#pragma HLS STABLE variable = n
-    HLS_TASK_STREAM<int> s1;
-    HLS_TASK_STREAM<int> s2;
-    HLS_TASK t(task2, s2, out, n);
-    HLS_TASK t1(sub_task1, in, s1);
-    HLS_TASK t2(sub_task2, s1, s2);
-}
-
+#define threshold 5000
+#define DATA 12000
+void krnl_stream_vdatamover(hls::stream<pkt> &in,
+                      hls::stream<pkt> &out,
+					  int *mem,
+                      hls::ap_hs<int> &reset_value,
+                      hls::ap_hs<int> &reset_myCounter
+                      );

@@ -13,8 +13,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
-open_component -reset component_unsynchronized_io_maxi -flow_target vivado
+open_component -reset proj -flow_target vivado
 set_top stable_pointer
 add_files dut.cpp 
 add_files -tb dut_tb.cpp 

@@ -1,0 +1,5 @@
+{
+    "name": "using_maxi_in_hlsTasks",
+    "description": "This example shows maxi with hls::task",
+    "hls": {"config": "config.cfg"}
+  }

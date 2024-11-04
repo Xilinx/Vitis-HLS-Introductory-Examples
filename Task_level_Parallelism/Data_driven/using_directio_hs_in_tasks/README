@@ -1,0 +1,22 @@
+This example shows Direct I/O scalars with hls::task
+
+
+Files Included in this Package
+==============================
+test.cpp
+test.h
+test_tb.cpp    
+run_hls.tcl
+run.py
+config.cfg
+README
+
+
+Running the Design 
+=========================================================
+vitis -s run.py
+
+Running the Design 
+=========================================================
+vitis-run --mode hls --tcl run_hls.tcl
+
