@@ -17,4 +17,4 @@ vitis -s run.py
 
 Running the design (edit run_hls.tcl to run synthesis)
 =================================================
-vitis_hls -f run_hls.tcl
+vitis-run --mode hls --tcl run_hls.tcl
