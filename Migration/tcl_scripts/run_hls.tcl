@@ -18,10 +18,10 @@
 open_project -reset proj_pointer_basic
 
 # Add design files
-add_files ../pointer_basic.c
+add_files pointer_basic.c
 # Add test bench & files
-add_files -tb ../pointer_basic_test.c
-add_files -tb ../result.golden.dat
+add_files -tb pointer_basic_test.c
+add_files -tb result.golden.dat
 
 # Set the top-level function
 set_top pointer_basic
