@@ -1,4 +1,4 @@
-This example shows unsynchronized I/O scalars with hls::task
+This example shows Direct I/O scalars with hls::task
 
 
 Files Included in this Package
