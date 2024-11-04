@@ -1,0 +1,5 @@
+{
+  "name": "array_partition_complete",
+  "description": "This is a simple example of matrix multiplication (Row x Col) to demonstrate complete array partitioning pragma in Vitis HLS",
+  "hls": {"config": "hls_config.cfg"}
+}
