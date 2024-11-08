@@ -1,0 +1,5 @@
+{
+  "name": "using_ap_float_accumulator",
+  "description": "This is a simple example using HLS's ap_float to demonstrate the use of accumulation.",
+  "hls": {"config": "hls_config-for-commandline-use.cfg"}
+}

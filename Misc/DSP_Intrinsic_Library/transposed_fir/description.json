@@ -1,0 +1,5 @@
+{
+  "name": "transposed_fir",
+  "description": "This is a simple example using HLS's DSP Intrinsic Library implement a Transposed FIR filter.",
+  "hls": {"config": "hls_config-for-commandline-use.cfg"}
+}
