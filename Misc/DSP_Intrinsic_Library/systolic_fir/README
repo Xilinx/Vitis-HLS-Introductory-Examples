@@ -18,8 +18,8 @@ hls_config-for-commandline-use.cfg
 Running the Design using Vitis HLS
 ==================================
 
-Use vitis_hls to execute the script "run_hls.tcl" ; edit it to set $hls_exec and enable specific run steps.
-$ vitis_hls -f run_hls.tcl
+Use vitis-run to execute the script "run_hls.tcl" ; edit it to set $hls_exec and enable specific run steps.
+$ vitis-run --mode hls --tcl run_hls.tcl
 
 Running the design using Vitis v++ and vitis-run commands
 =========================================================

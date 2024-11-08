@@ -30,7 +30,6 @@ comp = client.create_hls_component(name=component_name, template = 'empty_hls_co
 # Get handle of config file, then programmatically set desired options
 cfg_file = client.get_config_file(path = workspace_path+component_name+'/'+'hls_config.cfg')
 
-#cfg_file.set_value (                 key = 'part',                  value = 'versalprime')
 cfg_file.set_value (                 key = 'part',                  value = 'xcvp1702-vsva3340-3HP-e-S')
 cfg_file.set_value (section = 'hls', key = 'syn.file',              value =  cwd+'/'+hls_syn_file)
 cfg_file.set_values(section = 'hls', key = 'tb.file',               values= [cwd+'/'+hls_tb_file] )
