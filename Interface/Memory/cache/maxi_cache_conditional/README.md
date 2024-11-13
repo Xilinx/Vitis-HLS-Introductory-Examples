@@ -9,7 +9,7 @@ run.tcl
 
 Running the design (edit x_hls.tcl to run synthesis)
 =================================================
-vitis_hls -f run_hls.tcl
+vitis-run --mode hls --tcl run_hls.tcl
 
 Note the following interface #pragma used:
 

@@ -11,6 +11,6 @@ README
 
 Running the Design (edit run_hls.tcl to set $hls_exec and enable specific run steps)
 =========================================================
-vitis_hls -f run_hls.tcl
+vitis-run --mode hls --tcl run_hls.tcl
 
 # A config_dataflow directive is used to select FIFOs as the default channel type.

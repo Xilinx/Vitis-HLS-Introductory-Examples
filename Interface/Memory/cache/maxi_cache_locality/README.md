@@ -8,7 +8,7 @@ dut_tb.cpp
 run.tcl
 
 =================================================
-vitis_hls -f run_hls.tcl
+vitis-run --mode hls --tcl run_hls.tcl
 
 Note the following interface #pragma used:
 
