@@ -9,7 +9,7 @@ import os  # for getcwd, path and _exit
 cwd = os.getcwd()
 
 # here we set default assumed value for this design/component; change as needed
-component_name = os.path.basename(cwd)
+component_name = 'transposed_fir'
 workspace_path = './workspace/'
 hls_syn_top    = component_name
 hls_syn_file   = component_name+'.cpp'

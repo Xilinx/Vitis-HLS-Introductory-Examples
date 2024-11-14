@@ -15,7 +15,7 @@
 # limitations under the License.
 
 set parent_dir_name [file tail [file dirname [file normalize [info script]]]]
-set my_top $parent_dir_name
+set my_top "transposed_fir"
 
 # Create a project
 open_component -reset component_$my_top -flow_target vivado
