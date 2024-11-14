@@ -20,5 +20,5 @@ README            - this file
 
 Running the Design
 =================================================
-vitis_hls -f run_hls.tcl
+vitis-run --mode hls --tcl run_hls.tcl
 

@@ -15,7 +15,7 @@
 # limitations under the License.
 
 # Create a project
-open_project -reset proj_mem_bottleneck
+open_component -reset component_original -flow_target vivado
 
 # Add design files
 add_files mem_bottleneck.cpp
@@ -28,7 +28,6 @@ set_top array_mem_bottleneck
 
 # ########################################################
 # Create a solution
-open_solution -reset solution1 -flow_target vitis
 
 # Define technology and clock rate
 set_part  {xcvu9p-flga2104-2-i}

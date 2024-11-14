@@ -9,7 +9,7 @@ run_hls.tcl
 
 Running the design (edit x_hls.tcl to run synthesis)
 =================================================
-vitis_hls -f run_hls.tcl
+vitis-run --mode hls --tcl run_hls.tcl
 
 Block of Data read from the Device memory using AXI4 memory port, added and written back 
 to Device memory using AXI4 memory port. All of these operations are done sequentially.

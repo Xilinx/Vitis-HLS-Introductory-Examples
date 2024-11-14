@@ -16,13 +16,12 @@
 set top dut
 set src_file dut.cpp
 
-open_project -reset proj
+open_component -reset component_maxi_cache_locality -flow_target vivado
 
 add_files $src_file
 add_files -tb dut_tb.cpp
 set_top $top
 
-open_solution -reset solution1
 set_part virtexuplus
 create_clock -period "300MHz"
 csim_design

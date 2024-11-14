@@ -1,0 +1,5 @@
+{
+    "name": "using_directio",
+    "description": "Example C++ code showing usage of Direct I/O stream in Vitis HLS",
+    "hls": {"config": "config.cfg"}
+  }

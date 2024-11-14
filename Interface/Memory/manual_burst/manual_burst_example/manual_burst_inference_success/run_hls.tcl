@@ -14,12 +14,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-open_project -reset manual_burst
+open_component -reset component_manual_burst_inference_success -flow_target vivado
 set_top transfer_kernel
 add_files example.cpp
 add_files example.h
 add_files -tb example_tb.cpp -cflags "-Wno-unknown-pragmas" -csimflags "-Wno-unknown-pragmas"
-open_solution "manual_burst" -flow_target vitis
 set_part {xcvu11p-flga2577-1-e}
 create_clock -period 10 -name default
 config_interface -m_axi_alignment_byte_size 64 -m_axi_latency 64 -m_axi_max_widen_bitwidth 512

@@ -16,7 +16,7 @@
 ##
 #*******************************************************************************
 # Create a project
-open_project -reset proj_rom_init_c
+open_component -reset component_coefficient_filter -flow_target vivado
 
 # Add design files
 add_files hamming_window.c
@@ -28,7 +28,6 @@ set_top hamming_window
 
 # ########################################################
 # Create a solution
-open_solution -reset solution1
 # Define technology and clock rate
 set_part  {xcvu9p-flga2104-2-i}
 create_clock -period 5

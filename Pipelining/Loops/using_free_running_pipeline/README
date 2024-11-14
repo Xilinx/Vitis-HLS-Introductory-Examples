@@ -17,7 +17,7 @@ The Pipeline architecture can be implemented in 3 modes:
 
  Running the Design (edit run_hls.tcl to set $hls_exec and enable specific run steps)
  =========================================================
- vitis_hls -f run_hls.tcl
+ vitis-run --mode hls --tcl run_hls.tcl
 
  Running the design using python script
  =====================================================

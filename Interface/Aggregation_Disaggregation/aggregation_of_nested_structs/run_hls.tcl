@@ -15,7 +15,7 @@
 # limitations under the License.
 
 # Create a project
-open_project proj -reset
+open_component -reset component_aggregation_of_nested_structs -flow_target vivado
 
 # Add design files
 add_files example.cpp
@@ -26,7 +26,6 @@ set_top top
 
 # ########################################################
 # Create a solution
-open_solution solution -reset 
 
 # Define technology and clock rate
 set_part {xcvu9p-flga2104-2-i}

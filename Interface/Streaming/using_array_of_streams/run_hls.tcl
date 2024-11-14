@@ -16,7 +16,7 @@
 
 
 # Create a project
-open_project -reset proj_array_of_streams
+open_component -reset component_using_array_of_streams -flow_target vivado
 
 # The source file and test bench
 add_files example.cpp
@@ -29,7 +29,6 @@ set_top	dut
 # Solution settings
 
 # Create solution1
-open_solution -reset solution1 -flow_target vitis 
 
 # Define technology and clock rate
 set_part  {xcvu9p-flga2104-2-i}

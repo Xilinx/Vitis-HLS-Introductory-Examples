@@ -48,7 +48,7 @@ proc run_rest_of_the_flow {{hls_exec 2}} {
 # ##################################################
 # Main Entry: Create Project 
 # ##################################################
-open_project -reset proj
+open_component -reset component_global_array_RAM -flow_target vivado
 
 # Add design files
 add_files test.cpp

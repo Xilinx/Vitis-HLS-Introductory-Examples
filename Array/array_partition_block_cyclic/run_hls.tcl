@@ -15,7 +15,7 @@
 # limitations under the License.
 
 # Create a project
-open_project -reset proj_partition_cyclicblock
+open_component -reset component_array_partition_block_cyclic -flow_target vivado
 
 # Add design files
 add_files matmul_partition.cpp
@@ -27,7 +27,6 @@ set_top matmul_partition
 
 # ########################################################
 # Create a solution
-open_solution -reset solution1 -flow_target vitis
 # Define technology and clock rate
 set_part  {xcvu9p-flga2104-2-i}
 create_clock -period 10

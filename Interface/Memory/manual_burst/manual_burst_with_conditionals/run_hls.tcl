@@ -15,7 +15,7 @@
 # limitations under the License.
 
 # Create a project
-open_project -reset proj
+open_component -reset component_manual_burst_with_conditionals -flow_target vivado
 
 #Add design files
 add_files example.cpp
@@ -26,7 +26,6 @@ add_files -tb example_test.cpp
 set_top example
 
 #Create a solution
-open_solution -reset solution1
 #Define technology and clock rate
 set_part  {virtexu}
 create_clock -period 3

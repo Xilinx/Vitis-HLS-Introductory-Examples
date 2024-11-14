@@ -15,7 +15,7 @@
 # limitations under the License.
 
 # Create a project
-open_project -reset project
+open_component -reset component_max_widen_port_width -flow_target vivado
 
 #Add design files
 add_files example.cpp
@@ -27,7 +27,6 @@ set_top example
 
 # ########################################################
 # Create a solution
-open_solution -reset solution -flow_target vivado 
 
 # Define technology and clock rate
 set_part {xcvu9p-flga2104-2-i}
