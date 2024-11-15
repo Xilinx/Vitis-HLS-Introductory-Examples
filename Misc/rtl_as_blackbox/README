@@ -1,4 +1,4 @@
-This examaple uses the RTL blackbox feature. 
+This example uses the RTL blackbox feature. 
 The RTL blackbox enables the use of existing RTL IP in an HLS project. This lets you add RTL code to your C/C++ code for synthesis of the project by Vitis HLS.
 
 
@@ -15,7 +15,7 @@ run_hls.tcl
 run.py
 
 
-Running the Design (edit x_hls.tcl to run synthesis)
+Running the Design (edit run_hls.tcl to run synthesis)
 =================================================
 vitis-run --mode hls --tcl run_hls.tcl
 
