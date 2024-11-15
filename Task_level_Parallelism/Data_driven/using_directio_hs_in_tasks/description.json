@@ -1,5 +1,5 @@
 {
-    "name": "using_directio_in_hlsTasks",
-    "description": "This example shows Direct I/O scalars with hls::task",
+    "name": "using_directio_with_ap_hs_in_hlsTasks",
+    "description": "This example shows Direct I/O ap_hs scalars with hls::task",
     "hls": {"config": "config.cfg"}
   }
