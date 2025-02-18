@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+#include <stdlib.h>
 #include "pointer_arith.h"
 
 int main() {

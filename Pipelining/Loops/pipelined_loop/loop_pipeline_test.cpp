@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+#include <stdlib.h>
 #include "loop_pipeline.h"
 
 int main() {
