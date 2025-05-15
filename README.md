@@ -21,10 +21,10 @@ The examples are organized in categories denoted by the directory names:
 | Appnotes| A DSP design, a legacy digital up converter appnote.|[Digital_Up_Converter](https://github.com/Xilinx/Vitis-HLS-Introductory-Examples/tree/master/AppNotes/Digital_Up_Converter)|
 | Array| Show how to partition memory arrays.|[array_partition_complete](https://github.com/Xilinx/Vitis-HLS-Introductory-Examples/tree/master/Array/array_partition_complete)|
 | Interface| Common examples for interface protocols.|[using_axi_master](https://github.com/Xilinx/Vitis-HLS-Introductory-Examples/tree/master/Interface/Memory/using_axi_master)<br> [using_axi_lite](https://github.com/Xilinx/Vitis-HLS-Introductory-Examples/tree/master/Interface/Register/using_axi_lite)<br> [using_axi_stream_with_side_channel_data](https://github.com/Xilinx/Vitis-HLS-Introductory-Examples/tree/master/Interface/Streaming/using_axi_stream_with_side_channel_data)|
-| Misc| Other examples such as the RTL blackbox flow and the LogiCore FFT from Vivado.|[fft](https://github.com/Xilinx/Vitis-HLS-Introductory-Examples/tree/master/Misc/fft)<br> [rtl_as_blackbox](https://github.com/Xilinx/Vitis-HLS-Introductory-Examples/tree/master/Misc/rtl_as_blackbox)|
 | Modelling| The essentials for loops, arbitrary precision types and vectors.|[basic_loops_primer](https://github.com/Xilinx/Vitis-HLS-Introductory-Examples/tree/master/Modeling/basic_loops_primer)<br> [using_arbitrary_precision_arith](https://github.com/Xilinx/Vitis-HLS-Introductory-Examples/tree/master/Modeling/using_arbitrary_precision_arith)<br> [using_vectors](https://github.com/Xilinx/Vitis-HLS-Introductory-Examples/tree/master/Modeling/using_vectors)<br> [using_array_stencil_1d](https://github.com/Xilinx/Vitis-HLS-Introductory-Examples/tree/master/Modeling/using_array_stencil_1d)|
 | Pipelining| Illustrating one of the most fundamental concept of HLS.|[hier_func](https://github.com/Xilinx/Vitis-HLS-Introductory-Examples/tree/master/Pipelining/Functions/hier_func)<br> [pipelined_loop](https://github.com/Xilinx/Vitis-HLS-Introductory-Examples/tree/master/Pipelining/Loops/pipelined_loop)|
 | Task_Level_Parallelism| Dataflow and free running streams with ```hls::task```.|[using_stream_of_blocks](https://github.com/Xilinx/Vitis-HLS-Introductory-Examples/tree/master/Task_level_Parallelism/Control_driven/Channels/using_stream_of_blocks)<br> [input_bypass](https://github.com/Xilinx/Vitis-HLS-Introductory-Examples/tree/master/Task_level_Parallelism/Control_driven/Patterns/input_bypass)<br> [unique_task_regions](https://github.com/Xilinx/Vitis-HLS-Introductory-Examples/tree/master/Task_level_Parallelism/Data_driven/unique_task_regions)<br>[using_directio_hs_in_tasks](https://github.com/Xilinx/Vitis-HLS-Introductory-Examples/tree/master/Task_level_Parallelism/Data_driven/using_directio_hs_in_tasks)|
+| Misc| Other examples such as the RTL blackbox flow and the LogiCore FFT from Vivado.|[fft](https://github.com/Xilinx/Vitis-HLS-Introductory-Examples/tree/master/Misc/fft)<br> [rtl_as_blackbox](https://github.com/Xilinx/Vitis-HLS-Introductory-Examples/tree/master/Misc/rtl_as_blackbox)|
 
 ## Running the example scripts using Vitis Unified IDE
 
@@ -38,6 +38,10 @@ By default C Simulation, C Synthesis and Co-Simulation are run with both Tcl and
 ## Documentation
 
 [Vitis High-Level Synthesis User Guide (UG1399)](https://docs.amd.com/r/en-US/ug1399-vitis-hls)
+
+## Additional Resources
+
+[Vitis High-Level Synthesis - Useful Resources](https://adaptivesupport.amd.com/s/question/0D5KZ00000h7Q900AE/vitis-hls-useful-resources?language=en_US)
 
 <p class="sphinxhide" align="center"><sub>Copyright © 2020–2024 Advanced Micro Devices, Inc</sub></p>
 
