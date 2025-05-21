@@ -1,9 +1,9 @@
 Description
 ===========
 
-This C++ design is illustrating the use of the AMD/Xilinx FFT IP-XACT IP in Vitis HLS. This example is a single 1024 point forward FFT.
+This C++ design illustrates the instantiation of the AMD/Xilinx LogiCORE FFT from the Vivado IP catalog into Vitis HLS. This example is a single 1024 point forward FFT.
 
-The architecture is using dataflow with 3 processes : 
+The code micro-architecture uses dataflow with 3 processes : 
 * a datamover to read the input data,
 * a process to call the FFT itself,
 * a datamover to write-out the output data. 
@@ -17,11 +17,9 @@ in --+--> [inputdatamover]--(xn)-->[myfftwrapper]--(xk)-->[outputdatamover]--+--
      +-----------------------------------------------------------------------+
 ```
 
-The FFT C++ instantiation supports 2 access modes: via arrays or via hls::stream<>; those are the types you can define the variables "xn" and "xk" in the above diagram. In the 2 example designs that we provide, the top level function arguments (the input "in" and output "out") are created with the same types as the internal type. 
+The FFT C++ instantiation supports two access modes: arrays or stream via hls::stream<>; those are the types you can define the variables "xn" and "xk" in the above diagram. In the two example designs we provide, the top level function arguments (the input "in" and output "out") have the same data types as the internal variables. 
 
-We recommend using the stream version.
-
-The 2 variations of the design are referenced in the table below. If you integrate the FFT into a dataflow region you may not need the datamovers.
+The two design variations are referenced in the table below. If you integrate the FFT into a dataflow region you may not need the datamovers.
 
 
 |   Design name    | Top level interfaces | Internal data types |
@@ -36,34 +34,24 @@ Design Files
 Each design variations has the following files:
 
 data        : directory with input and expected data used by the testbench
-
 fft_tb.cpp  : C testbench; calls 20 times the top function
-
 fft_top.cpp : top C function fft_top
-
 ffp_top.h   : header file for the example 
-
 run_hls.tcl : script to run synthesis, simulation and export IP
-
-run.py	    : script to run csimulation, csynthesis and cosimulation using vitis
-
+run.py	  : script to run csimulation, csynthesis and cosimulation using vitis
 README      : a small readme file which refers to this readme.md
 
 Running the Example
 ===================
-Open a command prompt with vitis tools set up, go into the directory of a given design example and then run the command : 
+In a terminal, set up the Vitis tools, navigate into the directory and run the command: 
 ```
 $ vitis_hls -f run_hls.tcl
 ```
-If you wish you can open the project with the VHLS GUI :
-```
-$ vitis_hls -p proj_*
-```
-Run python script with vitis
+Alternatively run Python script with Vitis
 ```
 $ vitis -s run.py
 ```
-To open the HLS component in Vitis Unified IDE after running the python script:
+To open the HLS component in Vitis Unified IDE after running any of the scripts:
 ```
 $ vitis -w w
 ```
