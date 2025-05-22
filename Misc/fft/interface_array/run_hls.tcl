@@ -19,7 +19,6 @@
 # Create a project
 open_component -reset component_interface_array -flow_target vivado
 
-
 # Add the file for synthesis
 add_files fft_top.cpp
 
