@@ -34,9 +34,9 @@ void task2(hls::stream<int>& in, hls::stream<int>& out, hls::ap_none<int> &n) {
 
 void test(hls::stream<int>& in, hls::stream<int>& out, hls::ap_none<int> &bias) {
 #pragma HLS interface s_axilite port=bias
-    HLS_TASK_STREAM<int> s1;
-    HLS_TASK_STREAM<int> s2;
-    HLS_TASK t(task2, s2, out, bias);
-    HLS_TASK t1(sub_task1, in, s1);
-    HLS_TASK t2(sub_task2, s1, s2);
+    hls_thread_local hls::stream<int> s1;
+    hls_thread_local hls::stream<int> s2;
+    hls_thread_local hls::task t(task2, s2, out, bias);
+    hls_thread_local hls::task t1(sub_task1, in, s1);
+    hls_thread_local hls::task t2(sub_task2, s1, s2);
 }
