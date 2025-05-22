@@ -48,13 +48,17 @@ Open a command prompt with vitis tools set up, go into the directory of a given 
 ```
 $ vitis-run --mode hls --tcl run_hls.tcl
 ```
+To open the HLS component in Vitis Unified IDE after running the Tcl script:
+```
+$ vitis -w .
+```
 Alternatively, run the python script
 ```
 $ vitis -s run.py
 ```
 To open the HLS component in Vitis Unified IDE after running the python script:
 ```
-$ vitis -w <workspacename>
+$ vitis -w w
 ```
 
 Performance
