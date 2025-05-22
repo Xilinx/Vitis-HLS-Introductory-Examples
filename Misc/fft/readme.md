@@ -80,7 +80,7 @@ $AVER_THROUGHPUT = "1024"
 ```
 
 ## Frequency
-The cosntraint is 2.5 ns (i.e. 400 MHz) for a Virtex Ultrascale device (xcvu9p-flga2104-2-i); Using the export flow, we can check what frequency is achieved when run with the out-of-context implementation option. 
+The constraint is 2.5 ns (i.e. 400 MHz) for a Virtex Ultrascale device (xcvu9p-flga2104-2-i); Using the export flow, we can check what frequency is achieved when run with the out-of-context implementation option. 
 Different frequencies will be achieved if you change the target part and/or the clock period or, the design.
 
 ```
