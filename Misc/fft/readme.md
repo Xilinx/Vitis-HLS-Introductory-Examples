@@ -1,9 +1,9 @@
 Description
 ===========
 
-This C++ design illustrates the use of the AMD/Xilinx FFT LogiCORE IP in Vitis HLS. This example is a single 1024 point forward FFT.
+This C++ design illustrates the instantiation of the AMD/Xilinx LogiCORE FFT from the Vivado IP catalog into Vitis HLS. This example is a single 1024 point forward FFT.
 
-The code microarchitecture uses dataflow with 3 processes : 
+The code micro-architecture uses dataflow with 3 processes : 
 * a datamover to read the input data,
 * a process to call the FFT itself,
 * a datamover to write-out the output data. 
@@ -17,10 +17,9 @@ in --+--> [inputdatamover]--(xn)-->[myfftwrapper]--(xk)-->[outputdatamover]--+--
      +-----------------------------------------------------------------------+
 ```
 
-The FFT C++ instantiation supports two access modes for "in" and "out": via arrays or via hls::stream<>.
-In these two variants, the top level function arguments (the input "in" and output "out") use the same data types as internally. 
+The FFT C++ instantiation supports two access modes: arrays or stream via hls::stream<>; those are the types you can define the variables "xn" and "xk" in the above diagram. In the two example designs we provide, the top level function arguments (the input "in" and output "out") have the same data types as the internal variables. 
 
-The 2 variations of the design are referenced in the table below. If you integrate the FFT into a dataflow region you may not need the datamovers.
+The two design variations are referenced in the table below. If you integrate the FFT into a dataflow region you may not need the datamovers.
 
 
 |   Design name    | Top level interfaces | Internal data types |
@@ -44,19 +43,15 @@ README      : a small readme file which refers to this readme.md
 
 Running the Example
 ===================
-Open a command prompt with vitis tools set up, go into the directory of a given design example and then run the command : 
+In a terminal, set up the Vitis tools, navigate into the directory and run the command: 
 ```
 $ vitis-run --mode hls --tcl run_hls.tcl
 ```
-To open the HLS component in Vitis Unified IDE after running the Tcl script:
-```
-$ vitis -w .
-```
-Alternatively, run the python script
+Alternatively run Python script with Vitis
 ```
 $ vitis -s run.py
 ```
-To open the HLS component in Vitis Unified IDE after running the python script:
+To open the HLS component in Vitis Unified IDE after running any of the scripts:
 ```
 $ vitis -w w
 ```
