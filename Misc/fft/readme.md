@@ -1,12 +1,13 @@
 Description
 ===========
 
-This C++ design is illustrating the use of the AMD/Xilinx FFT IP-XACT IP in Vitis HLS. This example is a single 1024 point forward FFT.
+This C++ design illustrates the use of the AMD/Xilinx FFT LogiCORE IP in Vitis HLS. This example is a single 1024 point forward FFT.
 
 The architecture is using dataflow with 3 processes : 
 * a datamover to read the input data,
 * a process to call the FFT itself,
 * a datamover to write-out the output data. 
+
 
 ```
      +--(fft_top)------------------------------------------------------------+
@@ -16,9 +17,8 @@ in --+--> [inputdatamover]--(xn)-->[myfftwrapper]--(xk)-->[outputdatamover]--+--
      +-----------------------------------------------------------------------+
 ```
 
-The FFT C++ instantiation supports 2 access modes: via arrays or via hls::stream<>; those are the types you can define the variables "xn" and "xk" in the above diagram. In the 2 example designs that we provide, the top level function arguments (the input "in" and output "out") are created with the same types as the internal type. 
-
-We recommend using the stream version.
+The FFT C++ instantiation supports two access modes for "in" and "out": via arrays or via hls::stream<>.
+In these two variants, the top level function arguments (the input "in" and output "out") use the same data types as internally. 
 
 The 2 variations of the design are referenced in the table below. If you integrate the FFT into a dataflow region you may not need the datamovers.
 
@@ -28,7 +28,7 @@ The 2 variations of the design are referenced in the table below. If you integra
 | interface_array  |         array        |         array       |
 | interface_stream |        stream        |        stream       |
 
-The design example has been tested with version 2023.1 of Vitis HLS.
+The design example has been tested with version 2025.1 of Vitis HLS.
 
 Design Files
 ============
@@ -66,57 +66,46 @@ Performance
 ===========
 
 ## Throughput
-After running the design example, you can check the throughput in the GUI by opening the co-simulation report and verifying the II numbers for the top-level function fft_top which will be in the range 1025 - 1027 clock cycles which is expected for the 1024 point FFT; you can also open the timeline trace or the Vivado waveform if you enabled the dump trace option.
+After running the design example, you can check the throughput in the GUI by opening the co-simulation report and verifying the II numbers for the top-level function fft_top which will be in the range 1025 - 1027 clock cycles which is expected for the 1024 point FFT; you can also open the waveform if you enabled the dump trace option.
 On the command line you can grep the output of the latency report, for example 
 ```
 $ for d in interface_* ; do echo $d ; grep THROUGHPUT $d/proj*/solution1/sim/report/verilog/lat.rpt ; done
-
 interface_array
 $MAX_THROUGHPUT = "1027"
-$MIN_THROUGHPUT = "1026"
-$AVER_THROUGHPUT = "1026"
+$MIN_THROUGHPUT = "1027"
+$AVER_THROUGHPUT = "1027"
 interface_stream
 $MAX_THROUGHPUT = "1025"
-$MIN_THROUGHPUT = "1024"
-$AVER_THROUGHPUT = "1024"
+$MIN_THROUGHPUT = "1025"
+$AVER_THROUGHPUT = "1025"
 ```
 
 ## Frequency
-This design example has a 2.5 ns period constraint (i.e. 400 MHz) targetting a xcvu9p-flga2104-2-i; The export flow allows us to run the IP in Vivado. 
-Your result may vary depending on the target devive you choose, the constraint you pick or the context in which the IP block is integrated.
+In terms of achievable frequency, the design example is setup in Vitis HLS for 3.3 ns (i.e. 300 MHz) targetting a U200 Alveo board (part xcvu9p-flga2104-2-i); Using the export flow, we can check what frequency is achieved when run with the out-of-context implementation option. 
+Different frequencies will be achieved if you change the target part and/or the clock period or, the design.
 
 ```
-================================================================
-== Vivado Place & Route Results
-================================================================
-+ General Information:
-    * Version:         2025.1 (Build 6135595 on May 19 2025)
-    * Project:         component_interface_array
-    * Solution:        hls (Vivado IP Flow Target)
-    * Product family:  virtexuplus
-    * Target device:   xcvu9p-flga2104-2-i
+Implementation tool: Xilinx Vivado v.2023.1
+Project:             proj_interface_stream
+Solution:            solution1
+Device target:       xcvu9p-flga2104-2-i
 
-================================================================
-== Place & Route Resource Summary
-================================================================
-LUT:              3317
-FF:               4703
-DSP:              12
-BRAM:             7
+#=== Post-Implementation Resource usage ===
+SLICE:            0
+LUT:           3281
+FF:            4736
+DSP:             12
+BRAM:             3
 URAM:             0
-SRL:              979
+LATCH:            0
+SRL:            977
+CLB:            814
 
-================================================================
-== Place & Route Timing Summary
-================================================================
-* Timing was met
-+----------------+-------------+
-| Timing         | Period (ns) |
-+----------------+-------------+
-| Target         | 2.500       |
-| Post-Synthesis | 1.569       |
-| Post-Route     | 2.324       |
-+----------------+-------------+
+#=== Final timing ===
+CP required:                     3.300
+CP achieved post-synthesis:      1.460
+CP achieved post-implementation: 2.571
+Timing met
 ```
 
 Points to Note 
