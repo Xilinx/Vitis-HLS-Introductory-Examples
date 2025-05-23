@@ -47,11 +47,15 @@ In a terminal, set up the Vitis tools, navigate into the directory and run the c
 ```
 $ vitis-run --mode hls --tcl run_hls.tcl
 ```
+To open the HLS component in Vitis Unified IDE after running the Tcl script:
+```
+$ vitis -w .
+```
 Alternatively run Python script with Vitis
 ```
 $ vitis -s run.py
 ```
-To open the HLS component in Vitis Unified IDE after running any of the scripts:
+To open the HLS component in Vitis Unified IDE after running the Python script:
 ```
 $ vitis -w w
 ```
