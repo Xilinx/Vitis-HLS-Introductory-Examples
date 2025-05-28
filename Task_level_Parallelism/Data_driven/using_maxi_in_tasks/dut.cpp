@@ -17,7 +17,6 @@
 #include "ap_axi_sdata.h"
 #include "ap_int.h"
 #include "hls_stream.h"
-#define HLS_TASK_ALLOW_NON_STREAM_ARGS
 #include "hls_print.h"
 #include "hls_task.h"
 
