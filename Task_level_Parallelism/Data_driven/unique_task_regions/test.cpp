@@ -35,9 +35,9 @@ template <typename>
 void mid(hls::stream<int>& in1, hls::stream<int>& out1, hls::stream<int>& in2,
          hls::stream<int>& out2) {
 #pragma HLS dataflow
-    HLS_TASK_STREAM<int> in1_t, out1_t, in2_t, out2_t;
-    HLS_TASK t1(func, in1_t, out1_t);
-    HLS_TASK t2(func, in2_t, out2_t);
+    hls_thread_local hls::stream<int> in1_t, out1_t, in2_t, out2_t;
+    hls_thread_local hls::task t1(func, in1_t, out1_t);
+    hls_thread_local hls::task t2(func, in2_t, out2_t);
 
     copy(in1, in1_t);
     copy(in2, in2_t);
