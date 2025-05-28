@@ -1,0 +1,36 @@
+This is a simple example using HLS's DSP Intrinsic Library implement a Systolic FIR filter using std::complex<> data type.
+
+Files Included in this Package
+==============================
+
+* this file:
+README
+* design files:
+systolic_fir.cpp
+systolic_fir.h
+systolic_fir_test.cpp
+* scripts:
+run_hls.tcl
+run.py
+run_vitis_commandline.sh
+hls_config-for-commandline-use.cfg
+
+Running the Design using Vitis HLS
+==================================
+
+Use vitis-run to execute the script "run_hls.tcl" ; edit it to set $hls_exec and enable specific run steps.
+$ vitis-run --mode hls --tcl run_hls.tcl
+
+Running the design using Vitis v++ and vitis-run commands
+=========================================================
+
+Use "run_vitis_commandline.sh" to run on the commands line the specified flow steps in the given order.
+$ ./run_vitis_commandline.sh help
+$ ./run_vitis_commandline.sh csim
+$ ./run_vitis_commandline.sh csim csynth cosim
+
+Running the design using Python and python script
+=================================================
+Use Vitis to set up a workspace and component from the script and runs csim csynth cosim.
+$ vitis -s run.py
+

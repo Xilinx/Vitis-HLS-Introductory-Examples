@@ -1,0 +1,5 @@
+{
+  "name": "systolic_fir_using_complex",
+  "description": "This is a simple example using HLS's DSP Intrinsic Library implement a Systolic FIR filter using std::complex<> data type.",
+  "hls": {"config": "hls_config-for-commandline-use.cfg"}
+}
