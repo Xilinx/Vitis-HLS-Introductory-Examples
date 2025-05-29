@@ -1,6 +1,6 @@
 /*
  * Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
- * Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+ * Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@
 
 Description
 ===========
-   C++ source code example for using Xilinx FFT IP-XACT IP in Vitis HLS.
+   C++ source code example for instantiation of the LogiCORE FFT IP in Vitis HLS.
 
    This example is a single 1024 point forward FFT.
 
@@ -30,7 +30,7 @@ data        : directory with input and expected data used by the testbench
 fft_tb.cpp  : C testbench
 fft_top.cpp : top C function fft_top
 ffp_top.h   : header file for the example 
-run_hls.tcl : script to run synthesis, simulation and export IP using vitis_hls
+run_hls.tcl : script to run synthesis, simulation and export IP
 run.py	    : script to run csimulation, csynthesis and cosimulation using vitis
 README      : this readme file
 
@@ -41,4 +41,3 @@ Open a command prompt with vitis tools set up and then run the command below
 
 Run the command below for python script
     vitis -s run.py
-

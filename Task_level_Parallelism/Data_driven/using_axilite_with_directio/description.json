@@ -1,0 +1,5 @@
+{
+    "name": "using_axi_lite_with_directio_in_hlsTasks",
+    "description": "This example shows AXI Lite with Direct I/O stream in hls::task",
+    "hls": {"config": "config.cfg"}
+  }

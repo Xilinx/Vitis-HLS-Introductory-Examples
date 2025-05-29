@@ -1,6 +1,6 @@
 /*
  * Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
- * Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+ * Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,18 +14,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#include "test.h"
+#pragma once
 
-int main() {
-    int j = 5;
-    int ret = test(j);
-    int golden = 36;
-    int result = 0;
-    if (ret == golden) {
-        printf("Test passed!\n");
-    } else {
-        printf("Test failed!\n");
-        result = 1;
-    }
-    return result;
-}
+#include "hls_task.h"
+#define N 100
+#include <iostream>
+#include "hls_directio.h"
+void test(hls::stream<int>& in, hls::stream<int>& out, hls::ap_none<int> &n);

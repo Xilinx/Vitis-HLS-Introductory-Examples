@@ -1,6 +1,6 @@
 /*
  * Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
- * Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+ * Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,10 +34,10 @@ void task2(hls::stream<int>& in, hls::stream<int>& out, hls::ap_hs<int> &n) {
 
 void test(hls::stream<int>& in, hls::stream<int>& out, hls::ap_hs<int> &n) {
 
-    HLS_TASK_STREAM<int> s1;
-    HLS_TASK_STREAM<int> s2;
-    HLS_TASK t(task2, s2, out, n);
-    HLS_TASK t1(sub_task1, in, s1);
-    HLS_TASK t2(sub_task2, s1, s2);
+    hls_thread_local hls::stream<int> s1;
+    hls_thread_local hls::stream<int> s2;
+    hls_thread_local hls::task t(task2, s2, out, n);
+    hls_thread_local hls::task t1(sub_task1, in, s1);
+    hls_thread_local hls::task t2(sub_task2, s1, s2);
 }
 

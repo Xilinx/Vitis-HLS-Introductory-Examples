@@ -1,6 +1,6 @@
 #
 # Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
-# Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+# Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,8 +19,7 @@
 # Create a project
 open_component -reset component_interface_array -flow_target vivado
 
-
-# Add the file for synthsis
+# Add the file for synthesis
 add_files fft_top.cpp
 
 # Add testbench files for co-simulation
@@ -75,7 +74,7 @@ set_top fft_top
 set_part  {xcvu9p-flga2104-2-i}
 
 # Set the target clock period
-create_clock -period 3.3
+create_clock -period 2.5
 
 # Set to 0: to run setup
 # Set to 1: to run setup and synthesis
@@ -94,23 +93,17 @@ config_dataflow -start_fifo_depth 4
 if {$hls_exec == 1} {
 	# Run Synthesis and Exit
 	csynth_design
-	
 } elseif {$hls_exec == 2} {
 	# Run Synthesis, RTL Simulation and Exit
 	csynth_design
-	
     cosim_design -rtl verilog
 } elseif {$hls_exec == 3} { 
 	# Run Synthesis, RTL Simulation, RTL implementation and Exit
 	csynth_design
-	
     cosim_design -rtl verilog -trace_level all
-
-	export_design
+	export_design -rtl verilog -flow impl
 } else {
 	# Default is to exit after setup
 	csynth_design
 }
 exit
-
-

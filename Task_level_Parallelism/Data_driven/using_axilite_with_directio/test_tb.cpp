@@ -1,6 +1,6 @@
 /*
  * Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
- * Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+ * Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,12 +14,28 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#include <ap_int.h>
+#include "test.h"
 
-template <int N> struct TestStruct {
-    int A[N];
-    int B[N];
-    int C[N];
-};
+int main() {
 
-int test(int i);
+    hls::stream<int> in;
+    hls::stream<int> out;
+	hls::ap_none<int> n;
+    int golden=0;
+    for (int i = 0; i < N; i++)
+    {
+        n.write(i);
+        in.write(i);
+        golden += 2*i;
+    }
+    
+    test(in, out, n);
+
+    int sum = 0;
+    for (int i = 0; i < N; i++)
+        sum += out.read();
+
+    if (sum != golden)
+        return 1;
+    return 0;
+}
