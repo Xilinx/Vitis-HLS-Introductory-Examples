@@ -2,7 +2,7 @@
 #define __MERGE_LOAD_BALANCE_HH__
 /*
  * Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
- * Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+ * Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
