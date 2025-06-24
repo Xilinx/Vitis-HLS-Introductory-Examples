@@ -4,6 +4,11 @@ import os
 
 cwd = os.getcwd()+'/'
 
+# Demonstrates use of environment variable inside python script
+# Set up SRC_PATH environment variable (if not set the path defaults to ../../../)
+# Relative path is wrt to generated hls config file located at <workspace_dir>/<component_dir>/hls_config.cfg
+src_path = os.environ.get('SRC_PATH', '../../../')
+
 # Initialize session
 client = vitis.create_client()
 client.set_workspace(path='./w')
@@ -18,8 +23,8 @@ comp = client.create_hls_component(name='pointer_basic', cfg_file = ['hls_config
 # Get handle of config file, then programmatically set desired options
 cfg_file = client.get_config_file(path = './w/pointer_basic/hls_config.cfg')
 cfg_file.set_value (                 key = 'part',                  value = 'xcvu9p-flga2104-2-i') 
-cfg_file.set_value (section = 'hls', key = 'syn.file',              value = '../../../pointer_basic.c')
-cfg_file.set_values(section = 'hls', key = 'tb.file',               values = ['../../../pointer_basic_test.c','../../../result.golden.dat'])
+cfg_file.set_value (section = 'hls', key = 'syn.file',              value = src_path + 'pointer_basic.c')
+cfg_file.set_values(section = 'hls', key = 'tb.file',               values = [src_path + 'pointer_basic_test.c',src_path + 'result.golden.dat'])
 cfg_file.set_value (section = 'hls', key = 'syn.top',               value = 'pointer_basic')
 cfg_file.set_value (section = 'hls', key = 'clock',                 value = '4') # 250MHz
 cfg_file.set_value (section = 'hls', key = 'flow_target',           value = 'vivado')
