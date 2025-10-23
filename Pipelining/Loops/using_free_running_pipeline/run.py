@@ -6,17 +6,17 @@ cwd = os.getcwd()+'/'
 
 # Initialize session
 client = vitis.create_client()
-client.set_workspace(path='./w')
+client.set_workspace(path='./work_using_free_running_pipeline')
 
 # Delete the component if it already exists
-if os.path.exists('./w/using_free_running_pipeline'):
+if os.path.exists('./work_using_free_running_pipeline/using_free_running_pipeline'):
 	client.delete_component(name='using_free_running_pipeline')
 
 # Create component. Create new config file in the component folder of the workspace
 comp = client.create_hls_component(name='using_free_running_pipeline', cfg_file = ['hls_config.cfg'], template = 'empty_hls_component')
 
 # Get handle of config file, then programmatically set desired options
-cfg_file = client.get_config_file(path = './w/using_free_running_pipeline/hls_config.cfg')
+cfg_file = client.get_config_file(path = './work_using_free_running_pipeline/using_free_running_pipeline/hls_config.cfg')
 cfg_file.set_value (                 key = 'part',                  value = 'xcvu9p-flga2104-2-i') 
 cfg_file.set_value (section = 'hls', key = 'syn.file',              value = cwd+'free_pipe_mult.cpp')
 cfg_file.set_values(section = 'hls', key = 'tb.file',               values = [cwd+'free_pipe_mult_tb.cpp', cwd+'result.golden.dat'])
