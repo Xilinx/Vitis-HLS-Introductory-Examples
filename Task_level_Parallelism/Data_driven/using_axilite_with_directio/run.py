@@ -19,10 +19,10 @@ import os
 cwd = os.getcwd()+'/'
 # Initialize session
 client = vitis.create_client()
-client.set_workspace(path='./w')
+client.set_workspace(path='./work_directIo')
 
 # Delete the component if it already exists
-if os.path.exists('./w/directIo'):
+if os.path.exists('./work_directIo/directIo'):
 	client.delete_component(name='directIo')
 
 # Create component. Create new config file in the component folder of the workspace
