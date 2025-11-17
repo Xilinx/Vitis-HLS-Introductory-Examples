@@ -5,10 +5,10 @@ cwd = os.getcwd()+'/'
 
 # Initialize session
 client = vitis.create_client()
-client.set_workspace(path='./w')
+client.set_workspace(path='./work_autorestart')
 
 # Delete the component if it already exists
-if os.path.exists('./w/autorestart'):
+if os.path.exists('./work_autorestart/autorestart'):
 	client.delete_component(name='autorestart')
 
 # Create component. Create new config file in the component folder of the workspace
