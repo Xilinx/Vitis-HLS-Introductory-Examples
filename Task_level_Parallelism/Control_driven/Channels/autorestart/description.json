@@ -1,0 +1,5 @@
+{
+  "name": "autorestart",
+  "description": "This example shows how to use auto restart and Default default PIPOs as the channel type.",
+  "hls": {"config": "hls_config.cfg"}
+}
