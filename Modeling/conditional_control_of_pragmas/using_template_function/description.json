@@ -1,0 +1,5 @@
+{
+  "name": "using_template_function",
+  "description": "This example demonstrates conditional use of HLS pragmas in C++ template functions for flexible hardware optimization",
+  "hls": {"config": "hls_config.cfg"}
+}
