@@ -1,4 +1,4 @@
-This example shows how to use the default PIPOs as the channel type.
+This example shows how to use auto restart and Dataflow default PIPOs as the channel type.
 
 Files Included in this Package
 ==============================

@@ -20,6 +20,8 @@
 void diamond(data_t vecIn[N], data_t vecOut[N]) {
     data_t c1[N], c2[N], c3[N], c4[N];
 #pragma HLS dataflow
+#pragma HLS INTERFACE s_axilite port=return autorestart
+
     funcA(vecIn, c1, c2);
     funcB(c1, c3);
     funcC(c2, c4);
