@@ -5,10 +5,10 @@ cwd = os.getcwd()+'/'
 
 # Initialize session
 client = vitis.create_client()
-client.set_workspace(path='./w')
+client.set_workspace(path='./work_stencil_2d')
 
 # Delete the component if it already exists
-if os.path.exists('./w/stencil_2d'):
+if os.path.exists('./work_stencil_2d/stencil_2d'):
 	client.delete_component(name='stencil_2d')
 
 # Create component. Create new config file in the component folder of the workspace

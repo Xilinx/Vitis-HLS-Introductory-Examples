@@ -1,5 +1,0 @@
-{
-  "name": "using_pipos",
-  "description": "This example shows how to use the default PIPOs as the channel type.",
-  "hls": {"config": "hls_config.cfg"}
-}

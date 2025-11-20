@@ -1,0 +1,5 @@
+{
+  "name": "using_defines",
+  "description": "This example demonstrates conditional use of HLS pragmas using C preprocessor #define directives for compile-time optimization control",
+  "hls": {"config": "hls_config.cfg"}
+}

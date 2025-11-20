@@ -6,17 +6,17 @@ cwd = os.getcwd()+'/'
 
 # Initialize session
 client = vitis.create_client()
-client.set_workspace(path='./w')
+client.set_workspace(path='./work_interface_array')
 
 # Delete the component if it already exists
-if os.path.exists('./w/component_interface_array'):
+if os.path.exists('./work_interface_array/component_interface_array'):
 	client.delete_component(name='component_interface_array')
 
 # Create component. Create new config file in the component folder of the workspace
 comp = client.create_hls_component(name='component_interface_array', cfg_file = ['hls_config.cfg'], template = 'empty_hls_component')
 
 # Get handle of config file, then programmatically set desired options
-cfg_file = client.get_config_file(path = './w/component_interface_array/hls_config.cfg')
+cfg_file = client.get_config_file(path = './work_interface_array/component_interface_array/hls_config.cfg')
 cfg_file.set_value (                 key = 'part',                  value = 'xcvu9p-flga2104-2-i') 
 cfg_file.set_value (section = 'hls', key = 'syn.file',              value = cwd+'fft_top.cpp')
 cfg_file.set_values(section = 'hls', key = 'tb.file',               values = [cwd+'fft_tb.cpp', 

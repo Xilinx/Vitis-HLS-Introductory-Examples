@@ -6,17 +6,17 @@ cwd = os.getcwd()+'/'
 
 # Initialize session
 client = vitis.create_client()
-client.set_workspace(path='./w')
+client.set_workspace(path='./work_rtl_as_blackbox')
 
 # Delete the component if it already exists
-if os.path.exists('./w/rtl_as_blackbox'):
+if os.path.exists('./work_rtl_as_blackbox/rtl_as_blackbox'):
 	client.delete_component(name='rtl_as_blackbox')
 
 # Create component. Create new config file in the component folder of the workspace
 comp = client.create_hls_component(name='rtl_as_blackbox', cfg_file = ['hls_config.cfg'], template = 'empty_hls_component')
 
 # Get handle of config file, then programmatically set desired options
-cfg_file = client.get_config_file(path = './w/rtl_as_blackbox/hls_config.cfg')
+cfg_file = client.get_config_file(path = './work_rtl_as_blackbox/rtl_as_blackbox/hls_config.cfg')
 cfg_file.set_value (                 key = 'part',                  value = 'xcvu9p-flga2104-2-i') 
 cfg_file.set_value (section = 'hls', key = 'syn.file',              value = cwd+'example.cpp')
 cfg_file.set_value (section = 'hls', key = 'syn.blackbox.file',     value = cwd+'rtl_model.json')
