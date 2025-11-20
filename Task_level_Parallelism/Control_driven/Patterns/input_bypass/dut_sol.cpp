@@ -17,7 +17,6 @@
 
 void add_kernel(int tmp1[128], int tmp2[128], int tmp3[128]) {
 
-    int buff[127];
     for (int i = 0; i < 128; i++) {
         tmp3[i] = tmp1[i] + tmp2[i];
     }
@@ -25,7 +24,6 @@ void add_kernel(int tmp1[128], int tmp2[128], int tmp3[128]) {
 
 void Double_pass(int tmp2[128], int tmp1[128], int tmp4[128], int tmp5[128]) {
 
-    int buff[127];
     for (int i = 0; i < 128; i++) {
         tmp4[i] = tmp1[i];
         tmp5[i] = tmp2[i];
@@ -33,6 +31,7 @@ void Double_pass(int tmp2[128], int tmp1[128], int tmp4[128], int tmp5[128]) {
 }
 
 void pass(int a[128], int b[128], int tmp1[128], int tmp2[128]) {
+
     for (int i = 0; i < 128; i++) {
         tmp1[i] = a[i];
         tmp2[i] = b[i];
