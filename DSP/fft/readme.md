@@ -49,10 +49,6 @@ To open the component in the Vitis Unified IDE after running the Python script:
 ```
 $ vitis -w wspace
 ```
-To open the HLS component in Vitis Unified IDE after running the Python script:
-```
-$ vitis -w wspace
-```
 
 Performance
 ===========
