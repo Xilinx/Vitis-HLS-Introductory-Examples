@@ -1,0 +1,20 @@
+Description
+===========
+   C++ source code example for AMD/Xilinx LogiCORE FIR Compiler.
+   This example is a decimator filter.
+
+Files
+=====
+fir_tb.cpp  : C testbench.
+fir_top.cpp : Top function fft_top.
+fir_top.h   : Header file that sets the FIR parameters via its config struct.
+run.py	    : Script to run C simulation, C synthesis and co-simulation using Vitis.
+run_hls.tcl : Script to run C simulation, C synthesis and co-simulation using Vitis.
+README      : This readme file.
+
+Run Example
+===========
+Run the command below (Python script)
+    vitis -s run.py
+or use Tcl:
+    vitis-run --mode hls --tcl run_hls.tcl

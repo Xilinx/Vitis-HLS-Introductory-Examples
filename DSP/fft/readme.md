@@ -3,7 +3,7 @@ Description
 
 These Vitis HLS design examples illustrate instantiations of the AMD/Xilinx LogiCORE FFT from the Vivado IP catalog.
 
-The code micro-architecture in v2025.2 no longer requires data mover processes. A single process, the call to the FFT itself is sufficient.
+The code micro-architecture in v2025.2 no longer requires the data mover processes. A single process, the call to the FFT itself is sufficient.
 
 ```
      +--(fft_top)--------------------+
@@ -13,7 +13,7 @@ The code micro-architecture in v2025.2 no longer requires data mover processes. 
      +-------------------------------+
 ```
 
-The FFT C++ instantiation supports arrays or streams (hls::stream<>) access modes for the variables "xn" and "xk" in the above diagram.
+The FFT C++ instantiation supports array or stream (hls::stream<>) access modes for the variables "xn" and "xk".
 In the four example designs, the top level function arguments have the same data types as the internal variables. 
 
 The design variations for our examples are referenced in the table below.
@@ -21,10 +21,10 @@ The design variations for our examples are referenced in the table below.
 
 |         Design name         | Top level interfaces | FFT length |       Data types        | Super sample rate |
 | :-------------------------: | :------------------: | :----:|:---------------------: | :---------------: |
-|       interface_array       |        array         | 1024 | 16-bit (fixed point)   |        no         |
-|      interface_stream       |        stream        | 1024 | 16-bit (fixed point)   |        no         |
-| interface_array_float_ssr2  |        array         | 1024 | 32-bit (floating-point) |         2         |
-| interface_stream_float_ssr2 |        stream        | 1024 | 32-bit (floating-point) |         2         |
+|       comp_interface_array       |        array         | 1024 | 16-bit (fixed point)   |        no         |
+|      comp_interface_stream       |        stream        | 1024 | 16-bit (fixed point)   |        no         |
+| comp_interface_array_float_ssr2  |        array         | 1024 | 32-bit (floating-point) |         2         |
+| comp_interface_stream_float_ssr2 |        stream        | 1024 | 32-bit (floating-point) |         2         |
 
 These examples have been tested with Vitis v2025.2.
 
@@ -37,7 +37,8 @@ Design Files
 - **fft_top.cpp**: The top function "fft_top"
 - **fft_top.h**: Header file
 - **run.py**: Python script to run the flow (csimulation, csynthesis, cosimulation, implementation)
-- **README**: Readme file which refers to this readme.md
+- **run_hls.tcl**: Tcl script to run the flow (csimulation, csynthesis, cosimulation, implementation)
+- **README**: Readme file
 
 Running the examples
 ====================
@@ -47,7 +48,11 @@ $ vitis --source run.py
 ```
 To open the component in the Vitis Unified IDE after running the Python script:
 ```
-$ vitis -w wspace
+$ vitis -w work_<testcase>
+```
+As an alternative to Python, a Tcl script is provided. Run this command (also creates a component that can be opened in Vitis):
+```
+$ vitis-run --mode hls --tcl run_hls.tcl
 ```
 
 Performance
