@@ -1,43 +1,18 @@
-/*
- * Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
- * Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-
 Description
 ===========
-   C++ source code example for instantiation of the LogiCORE FFT IP in Vitis HLS.
-
-   This example is a single 1024 point forward FFT.
-
-   Please refer to upper level directory for a description of the different versions.
+   C++ source code example for AMD/Xilinx LogiCORE FFT.
+   This example is a 1,024 point FFT with array input and output data.
 
 Files
-=======
-data        : directory with input and expected data used by the testbench
-fft_tb.cpp  : C testbench
-fft_top.cpp : top C function fft_top
-ffp_top.h   : header file for the example 
-run_hls.tcl : script to run synthesis, simulation and export IP
-run.py	    : script to run csimulation, csynthesis and cosimulation using vitis
-README      : this readme file
+=====
+data        : Directory with data (stimuli and results) used by the testbench.
+fft_tb.cpp  : C testbench.
+fft_top.cpp : Top function fft_top.
+ffp_top.h   : Header file that sets the FFT parameters via its config struct.
+run.py	    : Script to run C simulation, C synthesis and co-simulation using Vitis.
+README      : This readme file.
 
 Run Example
-======================
-Open a command prompt with vitis tools set up and then run the command below
-    vitis-run --mode hls --tcl run_hls.tcl
-
-Run the command below for python script
+===========
+Run the command below (Python script)
     vitis -s run.py
