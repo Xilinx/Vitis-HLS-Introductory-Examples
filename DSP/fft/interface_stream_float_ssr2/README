@@ -10,7 +10,7 @@ data-ssr2   : Directory with data (stimuli and results) used by the testbench (S
 data-ssr4   : Directory with data when macro FFT_SSR is set to 4 (SSR=4).
 fft_tb.cpp  : C testbench.
 fft_top.cpp : Top function fft_top.
-ffp_top.h   : Header file that sets the FFT parameters via its config struct.
+fft_top.h   : Header file that sets the FFT parameters via its config struct.
 run.py	     : Script to run C simulation, C synthesis and co-simulation using Vitis.
 run_hls.tcl : Script to run C simulation, C synthesis and co-simulation using Vitis.
 README      : This readme file.
