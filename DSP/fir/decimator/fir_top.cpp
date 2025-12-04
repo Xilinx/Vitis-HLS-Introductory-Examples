@@ -17,7 +17,6 @@
 #include "fir_top.h"
 
 struct config1 : hls::ip_fir::params_t {
-    static const double coeff_vec[total_num_coeff];
     static const unsigned input_length = INPUT_LENGTH;
     static const unsigned output_length = OUTPUT_LENGTH;
     static const unsigned num_coeffs = COEFF_NUM;
@@ -26,9 +25,8 @@ struct config1 : hls::ip_fir::params_t {
     static const unsigned filter_type = hls::ip_fir::decimation;
     static const unsigned rate_change = hls::ip_fir::integer;
     static const unsigned decim_rate = 2;
+    static constexpr double coeff_vec[total_num_coeff] = {6,0,-4,-3,5,6,-6,-13,7,44,64,44,7,-13,-6,6,5,-3,-4,0,6};
 };
-const double config1::coeff_vec[total_num_coeff] = 
-    {6,0,-4,-3,5,6,-6,-13,7,44,64,44,7,-13,-6,6,5,-3,-4,0,6};
 
 // DUT
 void fir_top(s_data_t in[INPUT_LENGTH],
@@ -41,7 +39,10 @@ void fir_top(s_data_t in[INPUT_LENGTH],
 //#pragma HLS stream variable=out
 #pragma HLS dataflow
 
-    // Create struct for config
+    // Create fir1 with struct config1
+    // The static keyword ensures that the FIR object
+    // is created only once and retains its state between calls
+    // (preserves filter's internal state between invocations) 
     static hls::FIR<config1> fir1;
     
     fir1.run(in, out, config);
