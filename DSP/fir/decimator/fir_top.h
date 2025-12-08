@@ -31,6 +31,8 @@ const unsigned INPUT_LENGTH = FIR_LENGTH;
 const unsigned OUTPUT_LENGTH = FIR_LENGTH/2;
 const unsigned CHAN_NUM = 1;
 
+const unsigned total_num_coeff = COEFF_NUM * COEFF_SETS;  // 7 * 3 = 21
+
 typedef ap_fixed<INPUT_WIDTH, INPUT_WIDTH - INPUT_FRACTIONAL_BITS> s_data_t;
 typedef ap_fixed<OUTPUT_WIDTH, OUTPUT_WIDTH - OUTPUT_FRACTIONAL_BITS> m_data_t;
 typedef ap_uint<8> config_t;
