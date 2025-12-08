@@ -1,0 +1,5 @@
+{
+  "name": "interface_stream_float_ssr2",
+  "description": "This example is a 1,024 pts FFT (SSR=2) with floating-point streaming input and output data using AMD/Xilinx LogiCORE FFT.",
+  "hls": {"config": "hls_config.cfg"}
+}
