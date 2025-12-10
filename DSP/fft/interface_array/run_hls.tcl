@@ -13,81 +13,28 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-#
 
-# Project settings
 # Create a project
-open_component -reset component_interface_array -flow_target vivado
+open_component -reset comp_interface_array -flow_target vivado
 
-# Add the file for synthesis
+# Add design files
 add_files fft_top.cpp
-
-# Add testbench files for co-simulation
+# Add testbench files
 add_files -tb fft_tb.cpp
-add_files -tb data/stimulus_00.dat
-add_files -tb data/stimulus_01.dat
-add_files -tb data/stimulus_02.dat
-add_files -tb data/stimulus_03.dat
-add_files -tb data/stimulus_04.dat
-add_files -tb data/stimulus_05.dat
-add_files -tb data/stimulus_06.dat
-add_files -tb data/stimulus_07.dat
-add_files -tb data/stimulus_08.dat
-add_files -tb data/stimulus_09.dat
-add_files -tb data/stimulus_10.dat
-add_files -tb data/stimulus_11.dat
-add_files -tb data/stimulus_12.dat
-add_files -tb data/stimulus_13.dat
-add_files -tb data/stimulus_14.dat
-add_files -tb data/stimulus_15.dat
-add_files -tb data/stimulus_16.dat
-add_files -tb data/stimulus_17.dat
-add_files -tb data/stimulus_18.dat
-add_files -tb data/stimulus_19.dat
-add_files -tb data/stimulus_00.res
-add_files -tb data/stimulus_01.res
-add_files -tb data/stimulus_02.res
-add_files -tb data/stimulus_03.res
-add_files -tb data/stimulus_04.res
-add_files -tb data/stimulus_05.res
-add_files -tb data/stimulus_06.res
-add_files -tb data/stimulus_07.res
-add_files -tb data/stimulus_08.res
-add_files -tb data/stimulus_09.res
-add_files -tb data/stimulus_10.res
-add_files -tb data/stimulus_11.res
-add_files -tb data/stimulus_12.res
-add_files -tb data/stimulus_13.res
-add_files -tb data/stimulus_14.res
-add_files -tb data/stimulus_15.res
-add_files -tb data/stimulus_16.res
-add_files -tb data/stimulus_17.res
-add_files -tb data/stimulus_18.res
-add_files -tb data/stimulus_19.res
+add_files -tb data
 
-# Set top module of the design
+# Set the top-level function
 set_top fft_top
 
-# Solution settings
+# Define technology and clock rate
+set_part  xcvc1902-vsva2197-2MP-e-S
+create_clock -period 2.0
 
-# Define technology 
-set_part  {xcvu9p-flga2104-2-i}
-
-# Set the target clock period
-create_clock -period 2.5
-
-# Set to 0: to run setup
-# Set to 1: to run setup and synthesis
-# Set to 2: to run setup, synthesis and RTL simulation
-# Set to 3: to run setup, synthesis, RTL simulation and RTL synthesis
-# Any other value will run setup only
+# Set variable to select which steps to execute
 set hls_exec 2
 
-# Run C simulation
 csim_design
-
 # Set any optimization directives
-config_dataflow -start_fifo_depth 4
 # End of directives
 
 if {$hls_exec == 1} {
@@ -96,14 +43,15 @@ if {$hls_exec == 1} {
 } elseif {$hls_exec == 2} {
 	# Run Synthesis, RTL Simulation and Exit
 	csynth_design
-    cosim_design -rtl verilog
+	cosim_design
 } elseif {$hls_exec == 3} { 
 	# Run Synthesis, RTL Simulation, RTL implementation and Exit
 	csynth_design
-    cosim_design -rtl verilog -trace_level all
-	export_design -rtl verilog -flow impl
+	cosim_design
+	export_design
 } else {
-	# Default is to exit after setup
+	# Default is to exit after running csynth
 	csynth_design
 }
+
 exit

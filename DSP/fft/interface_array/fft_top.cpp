@@ -14,51 +14,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 #include "fft_top.h"
 
-void inputdatamover(bool direction, config_t* config, cmpxDataIn in[FFT_LENGTH],
-                    cmpxDataIn out[FFT_LENGTH]) {
-    config->setDir(direction);
-    config->setSch(0x2AB);
-L0:
-    for (int i = 0; i < FFT_LENGTH; i++) {
-        out[i] = in[i];
-    }
-}
-
-void outputdatamover(status_t* status_in, bool* ovflo,
-                     cmpxDataOut in[FFT_LENGTH], cmpxDataOut out[FFT_LENGTH]) {
-L0:
-    for (int i = 0; i < FFT_LENGTH; i++) {
-        out[i] = in[i];
-    }
-    *ovflo = status_in->getOvflo() & 0x1;
-}
-
-void myfftwrapper(cmpxDataIn xn[FFT_LENGTH], cmpxDataIn xk[FFT_LENGTH],
-                  status_t& fft_status, config_t& fft_config) {
-#pragma HLS dataflow
-#pragma HLS INLINE recursive
-    hls::fft<config1>(xn, xk, &fft_status, &fft_config);
-}
-
-void fft_top(bool direction, complex<data_in_t> in[FFT_LENGTH],
-             complex<data_out_t> out[FFT_LENGTH], bool* ovflo) {
-#pragma HLS interface ap_hs port = direction
-#pragma HLS interface ap_fifo depth = 1 port = ovflo
-#pragma HLS interface ap_fifo depth = FFT_LENGTH port = in, out
+void fft_top(ap_uint<1> dir,
+             ap_uint<15> scaling,
+             cmpxDataIn xn[FFT_LENGTH],
+             cmpxDataOut xk[FFT_LENGTH],
+             bool* status)
+{
+#pragma HLS interface ap_fifo depth=1 port=status
+#pragma HLS interface ap_fifo depth=1024 port=xn,xk
+#pragma HLS stream variable=xn
+#pragma HLS stream variable=xk
 #pragma HLS dataflow
 
-    complex<data_in_t> xn[FFT_LENGTH];
-    complex<data_out_t> xk[FFT_LENGTH];
-    config_t fft_config;
-    status_t fft_status;
+    hls::fft<config1>(xn, xk, dir, scaling, -1, status);
 
-    inputdatamover(direction, &fft_config, in, xn);
-
-    // FFT IP
-    myfftwrapper(xn, xk, fft_status, fft_config);
-
-    outputdatamover(&fft_status, ovflo, xk, out);
 }
+
