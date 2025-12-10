@@ -1,0 +1,5 @@
+{
+  "name": "interface_stream",
+  "description": "This example is a 1,024 point FFT with stream input and output data using AMD/Xilinx LogiCORE FFT.",
+  "hls": {"config": "hls_config.cfg"}
+}

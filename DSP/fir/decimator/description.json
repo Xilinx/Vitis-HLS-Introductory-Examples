@@ -1,0 +1,5 @@
+{
+  "name": "decimator",
+  "description": "This is a decimator filter example using AMD/Xilinx LogiCORE FIR Compiler.",
+  "hls": {"config": "hls_config.cfg"}
+}
