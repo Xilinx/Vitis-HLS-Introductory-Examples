@@ -1,0 +1,5 @@
+{
+  "name": "interface_array_float_ssr2",
+  "description": "This example is a 1,024 pts FFT (SSR=2) with floating-point array input and output data using AMD/Xilinx LogiCORE FFT.",
+  "hls": {"config": "hls_config.cfg"}
+}
