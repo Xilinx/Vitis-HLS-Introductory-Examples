@@ -18,18 +18,17 @@
 
 #if USE_STREAM_INTERFACE
 // Stream interface implementation
-void fft_top(hls::stream<cmpxDataIn> &in,
-             hls::stream<cmpxDataOut> &out,
-             bool direction,
+void fft_top(bool direction,
+             hls::stream<hls::vector<cmpxDataIn, FFT_SSR>> &in,
+             hls::stream<hls::vector<cmpxDataOut, FFT_SSR>> &out,
              bool* status)
 {
-#pragma HLS interface ap_fifo depth=1 port=status
-#pragma HLS interface ap_fifo depth=1024 port=in,out
-#pragma HLS stream variable=in
-#pragma HLS stream variable=out
+#pragma HLS interface ap_hs port = direction
+#pragma HLS interface ap_fifo depth = 1 port = status
 #pragma HLS dataflow
 
-    hls::fft<config1>(in, out, direction, status);
+    // no direction and no overflow for SSR>1
+    hls::fft<config1>(in, out);
 }
 
 #else
@@ -40,7 +39,8 @@ void fft_top(bool direction, std::complex<data_in_t> in[FFT_LENGTH],
 #pragma HLS interface ap_fifo depth = 1 port = status
 #pragma HLS dataflow
 
-    hls::fft<config1>(in, out, status);
+    // no direction parameter for SSR>1 array interface
+    hls::fft<config1>(in, out);
 }
 #endif
 

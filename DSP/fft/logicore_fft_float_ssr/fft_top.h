@@ -38,8 +38,8 @@ using namespace std;
 struct config1 : hls::ip_fft::ssr_params_t {
     static const unsigned super_sample_rate = FFT_SSR;
     static const bool use_native_float = true;
-    OVERRIDE(systolicfft_inv) = false;  // OVERRIDE as an option to avoid setting up misspelled parameters
-    static const unsigned log2_transform_length = FFT_NFFT_MAX;
+    static const bool systolicfft_inv = false;
+    static const unsigned max_nfft = FFT_NFFT_MAX;
 };
 
 typedef hls::ip_fft::config_t<config1> config_t;
@@ -54,8 +54,8 @@ typedef std::complex<data_out_t> cmpxDataOut;
 // Function declaration with interface determined by macro
 #if USE_STREAM_INTERFACE
 void fft_top(bool direction,
-             hls::stream<cmpxDataIn> &in,
-             hls::stream<cmpxDataOut> &out,
+             hls::stream<hls::vector<cmpxDataIn, FFT_SSR>> &in,
+             hls::stream<hls::vector<cmpxDataOut, FFT_SSR>> &out,
              bool* status);
 #else
 void fft_top(bool direction, cmpxDataIn in[FFT_LENGTH],

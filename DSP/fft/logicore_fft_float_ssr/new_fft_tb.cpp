@@ -153,9 +153,11 @@ int main() {
         bool direction = false;  // Forward FFT
         
 #if USE_STREAM_INTERFACE
-        // Stream interface variables
-        hls::stream<cmpxDataIn> in_stream;
-        hls::stream<cmpxDataOut> out_stream;
+        // Stream interface variables - use vectors for SSR>1
+        hls::stream<hls::vector<cmpxDataIn, FFT_SSR>> in_stream;
+        hls::stream<hls::vector<cmpxDataOut, FFT_SSR>> out_stream;
+        hls::vector<cmpxDataIn, FFT_SSR> in_vec;
+        hls::vector<cmpxDataOut, FFT_SSR> out_vec;
 #endif
         
         // Read input data
@@ -179,14 +181,20 @@ int main() {
         
         // Call DUT (Design Under Test)
 #if USE_STREAM_INTERFACE
-        // Stream interface: write data to stream
-        for (int i = 0; i < FFT_LENGTH; i++) {
-            in_stream.write(input[i]);
+        // Stream interface: pack data into vectors and write to stream
+        for (int i = 0; i < FFT_LENGTH; i += FFT_SSR) {
+            for (int j = 0; j < FFT_SSR; j++) {
+                in_vec[j] = input[i + j];
+            }
+            in_stream.write(in_vec);
         }
         fft_top(direction, in_stream, out_stream, &ovflo);
-        // Read data from stream
-        for (int i = 0; i < FFT_LENGTH; i++) {
-            output[i] = out_stream.read();
+        // Read data from stream and unpack vectors
+        for (int i = 0; i < FFT_LENGTH; i += FFT_SSR) {
+            out_vec = out_stream.read();
+            for (int j = 0; j < FFT_SSR; j++) {
+                output[i + j] = out_vec[j];
+            }
         }
 #else
         // Array interface: pass arrays directly
