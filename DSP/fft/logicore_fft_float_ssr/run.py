@@ -1,0 +1,32 @@
+
+import vitis
+import os
+
+cwd = os.getcwd()+'/'
+
+# Initialize session
+client = vitis.create_client()
+client.set_workspace(path='./work_logicore_fft_float_ssr/')
+
+# Delete the component if it already exists
+if os.path.exists('./work_logicore_fft_float_ssr/comp_logicore_fft_float_ssr'):
+	client.delete_component(name='comp_logicore_fft_float_ssr')
+
+# Create component. Create new config file in the component folder of the workspace
+comp = client.create_hls_component(name='comp_logicore_fft_float_ssr', cfg_file = ['hls_config.cfg'], template = 'empty_hls_component')
+# Get handle of config file, then programmatically set desired options
+cfg_file = client.get_config_file(path = './work_logicore_fft_float_ssr/comp_logicore_fft_float_ssr/hls_config.cfg')
+cfg_file.set_value (                 key = 'part',                  value = 'xcvc1902-vsva2197-2MP-e-S') 
+cfg_file.set_value (section = 'hls', key = 'syn.file',              value = cwd+'fft_top.cpp')
+cfg_file.set_values(section = 'hls', key = 'tb.file',               values = [cwd+'new_fft_tb.cpp',cwd+'data'])
+cfg_file.set_value (section = 'hls', key = 'syn.top',               value = 'fft_top')
+cfg_file.set_value (section = 'hls', key = 'clock',                 value = '2') # 500MHz
+cfg_file.set_value (section = 'hls', key = 'flow_target',           value = 'vivado')
+cfg_file.set_value (section = 'hls', key = 'package.output.format', value = 'rtl')
+
+# Run flow steps
+comp = client.get_component(name='comp_logicore_fft_float_ssr')
+comp.run(operation='C_SIMULATION')
+comp.run(operation='SYNTHESIS')
+comp.run(operation='CO_SIMULATION')
+comp.run(operation='IMPLEMENTATION')

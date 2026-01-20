@@ -38,7 +38,6 @@ not configurable yet
 const char FFT_INPUT_WIDTH                     = 16;
 const char FFT_OUTPUT_WIDTH                    = FFT_INPUT_WIDTH;
 const char FFT_STATUS_WIDTH                    = 8;
-const char FFT_CONFIG_WIDTH                    = 16;
 const char FFT_CHANNELS                        = 1;
 const int  FFT_LENGTH                          = 1024; 
 const char FFT_NFFT_MAX                        = 10; 
@@ -69,10 +68,8 @@ typedef std::complex<data_out_t> cmpxDataOut;
 using namespace std;
 
 struct config1 : hls::ip_fft::params_t {
-    OVERRIDE(output_ordering) = hls::ip_fft::natural_order;
-    OVERRIDE(config_width) = FFT_CONFIG_WIDTH;
+    static const unsigned output_ordering = hls::ip_fft::natural_order;
 };
-
 
 typedef hls::ip_fft::config_t<config1> config_t;
 typedef hls::ip_fft::status_t<config1> status_t;

@@ -1,3 +1,4 @@
 proj/
 .crashReporter/
 *log
+DSP/fft/run_all_fft_examples.sh

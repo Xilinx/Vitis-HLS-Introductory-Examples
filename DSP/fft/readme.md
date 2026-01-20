@@ -25,6 +25,7 @@ The design variations for our examples are referenced in the table below.
 |      comp_interface_stream       |        stream        | 1024 | 16-bit (fixed point)   |        no         |
 | comp_interface_array_float_ssr2  |        array         | 1024 | 32-bit (floating-point) |         2         |
 | comp_interface_stream_float_ssr2 |        stream        | 1024 | 32-bit (floating-point) |         2         |
+| logicore_fft_float_ssr           | array or stream | 1024 | 32-bit (floating-point) | 2 |
 
 These examples have been tested with Vitis v2025.2.
 
@@ -38,6 +39,7 @@ Design Files
 - **fft_top.h**: Header file
 - **run.py**: Python script to run the flow (csimulation, csynthesis, cosimulation, implementation)
 - **run_hls.tcl**: Tcl script to run the flow (csimulation, csynthesis, cosimulation, implementation)
+- Python data generation and plot scripts for the logicore_fft_float_ssr design
 - **README**: Readme file
 
 Running the examples
