@@ -5,17 +5,17 @@ Description
        both ARRAY and STREAM interfaces through a compile-time macro.
        
        The USE_STREAM_INTERFACE macro in fft_top.h controls the interface type:
-         - Set to 0 for ARRAY interface (default)
-         - Set to 1 for STREAM interface
+         - Set to 0 for ARRAY interface
+         - Set to 1 for STREAM interface (default)
  
 Interface Selection
 ===================
 To change the interface type, modify the USE_STREAM_INTERFACE macro in fft_top.h:
 
-For ARRAY interface (default):
+For ARRAY interface:
     #define USE_STREAM_INTERFACE 0
 
-For STREAM interface:
+For STREAM interface (default):
     #define USE_STREAM_INTERFACE 1
 
 The testbench automatically adapts to the selected interface and prints
@@ -68,7 +68,7 @@ ARRAY Interface:
 STREAM Interface:
   - Uses hls::stream for sequential data transfer
   - Better for pipelined streaming applications
-  - Function signature: fft_top(bool dir, hls::stream<cmpxDataIn> &in, ...)
+  - Function signature: fft_top(bool dir, hls::stream<...> &in, ...)
 
 Run Example
 ===========
