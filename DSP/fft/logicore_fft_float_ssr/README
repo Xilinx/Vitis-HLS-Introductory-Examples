@@ -1,0 +1,81 @@
+Description
+===========
+       C++ source code example for AMD/Xilinx LogiCORE FFT.
+       This example is a 1,024 pts FFT (SSR=2) with floating-point data that supports
+       both ARRAY and STREAM interfaces through a compile-time macro.
+       
+       The USE_STREAM_INTERFACE macro in fft_top.h controls the interface type:
+         - Set to 0 for ARRAY interface
+         - Set to 1 for STREAM interface (default)
+ 
+Interface Selection
+===================
+To change the interface type, modify the USE_STREAM_INTERFACE macro in fft_top.h:
+
+For ARRAY interface:
+    #define USE_STREAM_INTERFACE 0
+
+For STREAM interface (default):
+    #define USE_STREAM_INTERFACE 1
+
+The testbench automatically adapts to the selected interface and prints
+which interface is being used during simulation.
+
+Files
+=====
+data/                  : Directory with test stimulus and expected FFT results for 5 test cases:
+                         ramp, sine, sawtooth, mixed, and impulse signals
+plots/                 : Directory containing visualization plots of FFT results
+new_fft_tb.cpp         : C testbench that supports both ARRAY and STREAM interfaces
+fft_top.cpp            : Top function fft_top with interface selection via macro
+fft_top.h              : Header file with FFT parameters and interface selection macro
+generate_fft_data.py   : Python script to generate test stimulus and expected FFT output files
+plot_fft_data.py       : Python script to visualize time domain signals and FFT results
+run.py                 : Script to run C simulation, C synthesis and co-simulation using Vitis
+run_hls.tcl            : Script to run C simulation, C synthesis and co-simulation using Vitis
+README                 : This readme file
+
+Test Cases
+==========
+The testbench includes 5 comprehensive test cases:
+1. Ramp        - Linear increase from 0 to 1023
+2. Sine        - Pure sine wave at frequency bin 10
+3. Sawtooth    - Periodic ramp (seesaw) with period 64
+4. Mixed       - Combination of three sine waves at bins 10, 25, 50
+5. Impulse     - Unit impulse at t=0
+
+Generate Test Data
+==================
+To regenerate test stimulus and expected results:
+    python3 generate_fft_data.py
+
+This creates input signals and computes reference FFT outputs using NumPy.
+
+Visualize Results
+=================
+To generate plots of test signals and FFT results:
+    python3 plot_fft_data.py
+
+This creates PNG plots in the plots/ directory showing time domain and frequency domain analysis.
+
+Interface Comparison
+====================
+ARRAY Interface:
+  - Simple array-based data passing
+  - Suitable for block processing
+  - Function signature: fft_top(bool direction, cmpxDataIn in[FFT_LENGTH], ...)
+
+STREAM Interface:
+  - Uses hls::stream for sequential data transfer
+  - Better for pipelined streaming applications
+  - Function signature: fft_top(bool dir, hls::stream<...> &in, ...)
+
+Run Example
+===========
+1. Choose interface type by editing USE_STREAM_INTERFACE in fft_top.h
+2. Run using Python script:
+       vitis -s run.py
+   Or use Tcl:
+       vitis-run --mode hls --tcl run_hls.tcl
+
+The testbench output will indicate which interface is being tested.
