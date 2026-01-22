@@ -1,0 +1,5 @@
+{
+  "name": "logicore_fft_float_ssr",
+  "description": "This example is a 1,024 pts FFT (SSR=2) with floating-point data that supports both ARRAY and STREAM interfaces through a compile-time macro.",
+  "hls": {"config": "hls_config.cfg"}
+}

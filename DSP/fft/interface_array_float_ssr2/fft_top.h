@@ -21,13 +21,10 @@
 
 // SSR=2 data set: 1024 FFT
 #if FFT_SSR == 2
-#define FFT_CONFIG_WIDTH 16
 #define FFT_NFFT_MAX 10
 #elif FFT_SSR == 4 // SSR=4 data set: 64 FFT
-#define FFT_CONFIG_WIDTH 8
 #define FFT_NFFT_MAX 6
 #else
-#define FFT_CONFIG_WIDTH 16
 #define FFT_NFFT_MAX 10
 #endif
 
@@ -41,13 +38,8 @@ using namespace std;
 
 struct config1 : hls::ip_fft::ssr_params_t {
     static const unsigned super_sample_rate = FFT_SSR;
-
     static const bool use_native_float = true;
-
-    OVERRIDE(systolicfft_inv) = false;
-
-    static const unsigned config_width = FFT_CONFIG_WIDTH;
-
+    static const bool systolicfft_inv = false;
     static const unsigned max_nfft = FFT_NFFT_MAX;
 };
 
