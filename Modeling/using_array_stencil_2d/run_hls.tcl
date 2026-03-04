@@ -23,7 +23,6 @@ add_files     filter2d_hw.cpp
 # Create a solution
 set_part {xcku11p-ffva1156-1-e}
 create_clock -period 3.33333333 -name default
-config_flow -target vivado
 # Run Synthesis, RTL Simulation, RTL implementation and Exit
 # Set variable to select which steps to execute
 set hls_exec 2
