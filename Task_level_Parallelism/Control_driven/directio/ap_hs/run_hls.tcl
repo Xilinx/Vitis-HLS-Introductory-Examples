@@ -18,8 +18,6 @@ set_top krnl_stream_vdatamover
 add_files -tb tb.cpp  
 add_files     dut.cpp    
 # ########################################################
-# Create a solution
-open_solution "solution"
 set_part {xcku11p-ffva1156-1-e}
 create_clock -period 3.33333333 -name default
 
