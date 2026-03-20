@@ -29,7 +29,6 @@ set_top example
 #Define technology and clock rate
 set_part  {virtexu}
 create_clock -period 3
-config_flow -target vitis
 
 csim_design
 csynth_design	
