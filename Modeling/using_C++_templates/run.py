@@ -4,17 +4,17 @@ import os
 cwd = os.getcwd()+'/'
 # Initialize session
 client = vitis.create_client()
-client.set_workspace(path='./work_using_C++_templates')
+client.set_workspace(path='./work_using_cpp_templates')
 
 # Delete the component if it already exists
-if os.path.exists('./work_using_C++_templates/using_C++_templates'):
-	client.delete_component(name='using_C++_templates')
+if os.path.exists('./work_using_cpp_templates/using_cpp_templates'):
+	client.delete_component(name='using_cpp_templates')
 
 # Create component. Create new config file in the component folder of the workspace
-comp = client.create_hls_component(name='using_C++_templates', cfg_file = [cwd+'hls_config.cfg'], template = 'empty_hls_component')
+comp = client.create_hls_component(name='using_cpp_templates', cfg_file = [cwd+'hls_config.cfg'], template = 'empty_hls_component')
 
 # Run flow steps
-comp = client.get_component(name='using_C++_templates')
+comp = client.get_component(name='using_cpp_templates')
 comp.run(operation='C_SIMULATION')
 comp.run(operation='SYNTHESIS')
 comp.run(operation='CO_SIMULATION')
