@@ -1,5 +1,0 @@
-{
-  "name": "cpp_templates_for_multiple_instances",
-  "description": "This simple example shows how to use C++ template functions to create multiple instances of the same function",
-  "hls": {"config": "hls_config.cfg"}
-}
