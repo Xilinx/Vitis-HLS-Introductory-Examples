@@ -46,6 +46,6 @@ By default C Simulation, C Synthesis and Co-Simulation are run with both Tcl and
 
 [Parallel Programming for FPGAs](https://github.com/Xilinx/pp4fpgas)
 
-<p class="sphinxhide" align="center"><sub>Copyright © 2020–2025 Advanced Micro Devices, Inc</sub></p>
+<p class="sphinxhide" align="center"><sub>Copyright © 2020–2026 Advanced Micro Devices, Inc</sub></p>
 
 <p class="sphinxhide" align="center"><sup><a href="https://www.amd.com/en/corporate/copyright">Terms and Conditions</a></sup></p>
