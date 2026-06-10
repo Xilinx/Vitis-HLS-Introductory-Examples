@@ -1,6 +1,6 @@
 /*
  * Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
- * Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+ * Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,16 +18,16 @@
 #ifndef _CPP_TEMPLATE_H_
 #define _CPP_TEMPLATE_H_
 
-#include <cstdio>
+#include <cstdlib>
+#include <fstream>
+#include <iomanip>
+#include <iostream>
+using namespace std;
 
-void cpp_template(int inp, int* out);
+#define FIB_N 5
 
-template <int K> void func_with_static(int inp, int* dout) {
-    // Use inline off pragma to avoid automatic inlining
-#pragma HLS INLINE off
-    static int acc = 0;
-    acc += inp;
-    *dout = acc;
-}
+typedef int data_t;
+
+void cpp_template(data_t a, data_t b, data_t& dout);
 
 #endif

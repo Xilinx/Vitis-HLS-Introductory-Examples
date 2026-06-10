@@ -1,6 +1,6 @@
 #
 # Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
-# Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+# Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,7 +15,7 @@
 # limitations under the License.
 
 # Create a project
-open_component -reset component_using_axi_stream_with_custom_side_channel_data_2 -flow_target vivado
+open_component -reset component_axi_stream_custom_side_channel_data_2 -flow_target vivado
 
 # Add design files
 add_files example.cpp

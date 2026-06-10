@@ -1,6 +1,6 @@
 #
 # Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
-# Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+# Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,37 +14,29 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# *******************************************************************************
-# Vendor: Xilinx 
-# Associated Filename: run_hls.tcl
-# Purpose: Tcl commands to setup Vitis HLS Coding Style example 
-# Device: All 
-# Revision History: May 30, 2008 - initial release
-#                                                 
-
 # Create a project
-open_component -reset component_using_axis_array_stream_no_side_channel_data -flow_target vivado
+open_component -reset component_using_cpp_templates -flow_target vivado
 
 # Add design files
-add_files example.cpp
+add_files cpp_template.cpp
 # Add test bench & files
-add_files -tb example_test.cpp
+add_files -tb cpp_template_test.cpp
+add_files -tb result.golden.dat
 
 # Set the top-level function
-set_top example
+set_top cpp_template
 
 # ########################################################
 # Create a solution
 # Define technology and clock rate
 set_part  {xcvu9p-flga2104-2-i}
-create_clock -period "200MHz"
+create_clock -period 4
 
 # Set variable to select which steps to execute
 set hls_exec 2
 
 
 csim_design
-
 # Set any optimization directives
 # End of directives
 
@@ -62,7 +54,7 @@ if {$hls_exec == 1} {
 	csynth_design
 	
 	cosim_design
-	export_design -format ip_catalog
+	export_design
 } else {
 	# Default is to exit after setup
 	csynth_design
