@@ -1,0 +1,43 @@
+This is a simple example using HLS's hls::burst_maxi manual burst (2026.1
+unaligned-path extension) to move a non-power-of-2 24-bit struct (rgb_t)
+through a 512-bit M-AXI port.
+
+The design batches accesses in groups of 16 rgb_t elements (packed via
+hls::vector<rgb_t, 16> into a 384-bit access) and handles the remaining
+elements one at a time via the tail (narrow) path. Both the wide-batch
+and narrow-tail requests use read_request_unaligned / write_request_unaligned,
+so no compile-time alignment of the burst start address is required.
+
+Files Included in this Package
+==============================
+
+* this file:
+README
+* design files:
+unaligned_burst_rgb.cpp
+unaligned_burst_rgb.h
+unaligned_burst_rgb_test.cpp
+* scripts:
+run_hls.tcl
+run.py
+run_vitis_commandline.sh
+hls_config-for-commandline-use.cfg
+
+Running the Design using Vitis HLS
+==================================
+
+Use vitis-run to execute the script "run_hls.tcl" ; edit it to set $hls_exec and enable specific run steps.
+$ vitis-run --mode hls --tcl run_hls.tcl
+
+Running the design using Vitis v++ and vitis-run commands
+=========================================================
+
+Use "run_vitis_commandline.sh" to run on the commands line the specified flow steps in the given order.
+$ ./run_vitis_commandline.sh help
+$ ./run_vitis_commandline.sh csim
+$ ./run_vitis_commandline.sh csim csynth cosim
+
+Running the design using Python and python script
+=================================================
+Use Vitis to set up a workspace and component from the script and runs csim csynth cosim.
+$ vitis -s run.py
