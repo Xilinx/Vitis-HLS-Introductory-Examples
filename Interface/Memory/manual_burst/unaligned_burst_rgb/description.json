@@ -1,0 +1,5 @@
+{
+  "name": "unaligned_burst_rgb",
+  "description": "This is a simple example using HLS's hls::burst_maxi manual burst (2026.1 unaligned-path extension) to move a non-power-of-2 24-bit struct (rgb_t) via a 512-bit M-AXI port.",
+  "hls": {"config": "hls_config-for-commandline-use.cfg"}
+}

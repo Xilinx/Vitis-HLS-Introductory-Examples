@@ -1,0 +1,5 @@
+{
+  "name": "array_partition_lib_simple",
+  "description": "This is a simple example using HLS's hls::array_partition library (hls::gather) to guarantee II=1 parallel access to a cyclically partitioned array with a runtime, non-statically-analyzable stride.",
+  "hls": {"config": "hls_config-for-commandline-use.cfg"}
+}
