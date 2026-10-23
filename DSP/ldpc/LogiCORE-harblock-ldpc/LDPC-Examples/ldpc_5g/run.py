@@ -17,12 +17,12 @@ comp = client.create_hls_component(name='comp_ldpc_5g', cfg_file = ['hls_config.
 
 # Get handle of config file, then programmatically set desired options
 cfg_file = client.get_config_file(path = './work_ldpc_5g/comp_ldpc_5g/hls_config.cfg')
-cfg_file.set_value (                 key = 'part',     value = 'xcvr1602-vsva2488-2HP-i-S-es1')
+cfg_file.set_value (                 key = 'part',     value = 'xcvr1602-vsva2488-2HP-i-S')
 cfg_file.set_value (section = 'hls', key = 'syn.file', value = cwd+'ldpc_top.cpp')
 cfg_file.set_value (section = 'hls', key = 'tb.file',  value = cwd+'ldpc_tb.cpp')
 cfg_file.set_value (section = 'hls', key = 'syn.top',               value = 'ldpc_top')
 cfg_file.set_value (section = 'hls', key = 'clock',                 value = '2') # 500MHz
-cfg_file.set_value (section = 'hls', key = 'flow_target',           value = 'vivado')
+cfg_file.set_value (section = 'hls', key = 'enableBetaDevice',      value = '1')
 cfg_file.set_value (section = 'hls', key = 'package.output.format', value = 'rtl')
 
 # Run flow steps

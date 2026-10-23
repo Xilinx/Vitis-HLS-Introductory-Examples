@@ -17,12 +17,12 @@ comp = client.create_hls_component(name='comp_vrf_fft_fwd_inv', cfg_file = ['hls
 
 # Get handle of config file, then programmatically set desired options
 cfg_file = client.get_config_file(path = './work_vrf_fft_fwd_inv/comp_vrf_fft_fwd_inv/hls_config.cfg')
-cfg_file.set_value (                 key = 'part',     value = 'xcvr1602-vsva2488-2HP-i-S-es1')
+cfg_file.set_value (                 key = 'part',     value = 'xcvr1602-vsva2488-2HP-i-S')
 cfg_file.set_value (section = 'hls', key = 'syn.file', value = cwd+'fft_top.cpp')
 cfg_file.set_values(section = 'hls', key = 'tb.file',  values = [cwd+'fft_tb.cpp', cwd+'data'])
 cfg_file.set_value (section = 'hls', key = 'syn.top',               value = 'fft_top')
 cfg_file.set_value (section = 'hls', key = 'clock',                 value = '2.5') # 400MHz
-cfg_file.set_value (section = 'hls', key = 'flow_target',           value = 'vivado')
+cfg_file.set_value (section = 'hls', key = 'enableBetaDevice',      value = '1')
 cfg_file.set_value (section = 'hls', key = 'package.output.format', value = 'rtl')
 
 # Run flow steps

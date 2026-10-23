@@ -14,7 +14,7 @@
 # limitations under the License.
 
 # Create a project
-open_component -reset comp_ldpc_words -flow_target vivado
+open_component -reset comp_ldpc_words
 
 # Add design files
 add_files ldpc_top.cpp
@@ -25,7 +25,8 @@ add_files -tb ldpc_tb.cpp
 set_top ldpc_top
 
 # Define technology and clock rate (the Versal LDPC Decoder requires a Versal RF or a Versal Premium Series Gen 2 device)
-set_part  xcvr1602-vsva2488-2HP-i-S-es1
+enable_beta_device *
+set_part  xcvr1602-vsva2488-2HP-i-S
 create_clock -period 2.0
 
 # Set variable to select which steps to execute

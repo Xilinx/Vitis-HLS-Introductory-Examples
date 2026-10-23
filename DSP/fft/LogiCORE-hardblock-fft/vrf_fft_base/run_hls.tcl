@@ -14,10 +14,11 @@
 # limitations under the License.
 
 # Create a project
-open_component -reset comp_vrf_fft_base -flow_target vivado
+open_component -reset comp_vrf_fft_base
 
 # Add design files
 add_files fft_top.cpp
+
 # Add testbench files
 add_files -tb fft_tb.cpp
 
@@ -25,7 +26,8 @@ add_files -tb fft_tb.cpp
 set_top fft_top
 
 # Define technology and clock rate (the Versal RF FFT requires a Versal RF device)
-set_part  xcvr1602-vsva2488-2HP-i-S-es1
+enable_beta_device *
+set_part  xcvr1602-vsva2488-2HP-i-S
 create_clock -period 2.5
 
 # Set variable to select which steps to execute
@@ -34,6 +36,9 @@ set hls_exec 2
 csim_design
 # Set any optimization directives
 # End of directives
+
+# Enable VCD waveform generation for co-simulation
+config_cosim -trace_level all
 
 if {$hls_exec == 1} {
 	# Run Synthesis and Exit

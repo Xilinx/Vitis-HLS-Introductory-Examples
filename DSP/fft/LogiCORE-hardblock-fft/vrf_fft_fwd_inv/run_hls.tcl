@@ -14,7 +14,7 @@
 # limitations under the License.
 
 # Create a project
-open_component -reset comp_vrf_fft_fwd_inv -flow_target vivado
+open_component -reset comp_vrf_fft_fwd_inv
 
 # Add design files
 add_files fft_top.cpp
@@ -25,7 +25,8 @@ add_files -tb data
 set_top fft_top
 
 # Define technology and clock rate (the Versal RF FFT requires a Versal RF device)
-set_part  xcvr1602-vsva2488-2HP-i-S-es1
+enable_beta_device *
+set_part  xcvr1602-vsva2488-2HP-i-S
 create_clock -period 2.5
 
 # Set variable to select which steps to execute
