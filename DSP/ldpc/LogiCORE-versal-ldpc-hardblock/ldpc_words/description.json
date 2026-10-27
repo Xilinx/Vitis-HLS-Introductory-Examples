@@ -1,0 +1,5 @@
+{
+  "name": "ldpc_words",
+  "description": "This example demonstrates a hardblock LDPC Decoder with word-oriented data processing using Versal Premium Series Gen 2 LogiCORE LDPC IP. Supports variable frame sizes via AXI-Stream interface.",
+  "hls": {"config": "hls_config_for_commandline_use.cfg"}
+}

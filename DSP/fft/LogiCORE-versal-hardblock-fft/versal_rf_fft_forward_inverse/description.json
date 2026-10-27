@@ -1,0 +1,5 @@
+{
+  "name": "vrf_fft_fwd_inv",
+  "description": "This example demonstrates a 2,048 point hardblock FFT using Versal RF LogiCORE FFT IP with configurable forward and inverse FFT modes. Uses AXI-Stream interface with direction control.",
+  "hls": {"config": "hls_config_for_commandline_use.cfg"}
+}
