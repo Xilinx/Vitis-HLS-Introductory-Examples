@@ -1,0 +1,5 @@
+{
+  "name": "double_pump_using_blackbox",
+  "description": "Double-pumped 4-lane int8 MAC implemented as an RTL black box running at 2x the base clock, called from HLS through a black-box JSON",
+  "hls": {"config": "hls_config.cfg"}
+}

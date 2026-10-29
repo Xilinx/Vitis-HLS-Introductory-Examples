@@ -1,0 +1,38 @@
+{
+"c_function_name" : "dp_mac4",
+"rtl_top_module_name" : "dp_mac4",
+"c_files" : [{ "c_file" : "dp_mac4.cpp", "cflag" : "" }],
+"rtl_files" : [ "dp_mac4.v" ],
+"c_parameters" : [
+    { "c_name" : "In", "c_port_direction" : "in", "rtl_ports" : { "data_read_in" : "In" } }
+],
+"c_return" : {
+    "c_name" : "return",
+    "c_port_direction" : "out",
+    "rtl_ports" : { "data_write_out" : "ap_return" }
+},
+"rtl_common_signal" : {
+    "module_clock"                    : "ap_clk",
+    "module_reset"                    : "ap_rst",
+    "module_clock_enable"             : "ap_ce",
+    "ap_ctrl_chain_protocol_idle"     : "",
+    "ap_ctrl_chain_protocol_start"    : "",
+    "ap_ctrl_chain_protocol_ready"    : "",
+    "ap_ctrl_chain_protocol_done"     : "",
+    "ap_ctrl_chain_protocol_continue" : ""
+},
+"rtl_performance" : {
+    "latency" : "5",
+    "II"      : "1",
+    "input_timing" : [
+        { "c_name" : "In", "port_to_register_delay" : "1.80", "take_effect_stage" : "1" }
+    ],
+    "output_timing" : [
+        { "c_name" : "c_return", "register_to_port_delay" : "0.50", "take_effect_stage" : "5" }
+    ]
+},
+"rtl_resource_usage" : { "FF":"600","LUT":"150","BRAM":"0","URAM":"0","DSP":"4" },
+"rtl_extra_clock_domain" : {
+    "ap_clk_div2" : { "derived_period_div" : "2" }
+}
+}
