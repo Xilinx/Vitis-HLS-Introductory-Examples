@@ -1,0 +1,37 @@
+This example shows hls::m_axi_buf used with HLS_TOP_AUTORESTART. A single kernel
+invocation (launch(1, ...)) re-reads the buffer offset eight times, once per
+block of 8192 samples, through read_offset(). A separate updater thread pushes a
+new offset with write_offset() while the kernel is running, so offset updates can
+land mid-block.
+
+This is an observation test. It never fails. It reports:
+  * which region each block latched (taken from its first sample)
+  * whether any block mixes samples from more than one region (a torn read)
+  * whether the offsets read back match the pushed order
+
+Files Included in this Package
+==============================
+test.h          Declarations, constants, and the HLS_TOP_AUTORESTART declaration
+test.cpp        Design (synthesized)
+test_tb.cpp     Testbench, including the updater thread
+hls_config.cfg  Vitis HLS configuration
+run_hls.tcl     Tcl flow script
+run.py           Python flow script (vitis -s run.py)
+description.json
+README
+
+Requirements
+============
+hls::m_axi_buf and HLS_TOP_AUTORESTART require a Vitis build that provides them
+(2026.2 or later). The default 2026.1 headers do not define m_axi_buf.
+
+Notes
+=====
+Live behaviour is visible in csim only. The testbench's wall-clock sleeps have no
+relationship to RTL simulation time, because cosim captures the testbench stimulus
+and replays it. Run cosim only to inspect the ap_none offset register in the
+waveform. Cosim is slow: 8192 AXI reads per iteration, 8 iterations.
+
+Running the Design (edit run_hls.tcl to set $hls_exec and enable specific run steps)
+=========================================================
+vitis-run --mode hls --tcl run_hls.tcl
