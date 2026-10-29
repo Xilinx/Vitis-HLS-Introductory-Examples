@@ -1,0 +1,5 @@
+{
+  "name": "top_task",
+  "description": "Example C++ code showing usage of HLS_TOP_TASK with an ap_hs input and ap_ack output in Vitis HLS",
+  "hls": {"config": "hls_config.cfg"}
+}
