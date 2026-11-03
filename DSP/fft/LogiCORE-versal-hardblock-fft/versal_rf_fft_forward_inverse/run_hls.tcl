@@ -30,7 +30,8 @@ set_part  xcvr1602-vsva2488-2HP-i-S
 create_clock -period 2.5
 
 # Set variable to select which steps to execute
-set hls_exec 3
+set hls_exec 2
+# set hls_exec 3 ;# Uncomment to also run place & route (Vivado implementation via export_design)
 
 csim_design
 # Set any optimization directives
