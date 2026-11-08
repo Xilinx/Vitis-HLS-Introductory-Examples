@@ -1,0 +1,5 @@
+{
+  "name": "using_maxi_buf",
+  "description": "Example C++ code showing hls::m_axi_buf with HLS_TOP_AUTORESTART, where a separate thread pushes new buffer offsets while the kernel is running",
+  "hls": {"config": "hls_config.cfg"}
+}

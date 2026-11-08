@@ -1,0 +1,5 @@
+{
+  "name": "autorestart",
+  "description": "Example C++ code showing usage of HLS_TOP_AUTORESTART with an infinite (-1) launch count and stream I/O in Vitis HLS",
+  "hls": {"config": "hls_config.cfg"}
+}
