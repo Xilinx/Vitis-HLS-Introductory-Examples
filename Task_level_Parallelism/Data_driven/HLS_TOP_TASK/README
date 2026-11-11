@@ -1,0 +1,26 @@
+This example shows HLS_TOP_TASK with an ap_hs input and an ap_ack output in
+Vitis HLS. The task is launched with launch(in, out, c), and the testbench reads
+one result per input from the ap_ack output.
+
+Files Included in this Package
+==============================
+test.h          HLS_TOP_TASK declaration and shared constants
+test.cpp        Design (synthesized)
+test_tb.cpp     Testbench
+hls_config.cfg  Vitis HLS configuration
+run_hls.tcl     Tcl flow script
+description.json
+run.py          Optional Python flow script (vitis -s run.py)
+README
+
+Requirements
+============
+HLS_TOP_TASK requires a Vitis build that provides it (2026.2 or later).
+
+Running the Design (edit run_hls.tcl to set $hls_exec and enable specific run steps)
+=========================================================
+vitis-run --mode hls --tcl run_hls.tcl
+
+Running the Design using the Python Script
+=========================================
+vitis -s run.py

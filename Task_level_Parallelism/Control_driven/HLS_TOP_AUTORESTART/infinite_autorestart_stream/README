@@ -1,0 +1,30 @@
+This example shows HLS_TOP_AUTORESTART with an infinite (-1) launch count and
+hls::stream I/O in Vitis HLS.
+
+The kernel is launched once with launch(-1, ...). It never returns and never
+completes, so is_done() and wait_for_done() are not legal. Its scalar input c is
+stable, and every result comes back over the hls::stream output, which the
+testbench drains with blocking reads for the exact number of expected results.
+
+Files Included in this Package
+==============================
+test.h          HLS_TOP_AUTORESTART declaration and shared constants
+test.cpp        Design (synthesized)
+test_tb.cpp     Testbench
+hls_config.cfg  Vitis HLS configuration
+run_hls.tcl     Tcl flow script
+description.json
+run.py          Optional Python flow script (vitis -s run.py)
+README
+
+Requirements
+============
+HLS_TOP_AUTORESTART requires a Vitis build that provides it (2026.2 or later).
+
+Running the Design (edit run_hls.tcl to set $hls_exec and enable specific run steps)
+=========================================================
+vitis-run --mode hls --tcl run_hls.tcl
+
+Running the Design using the Python Script
+=========================================
+vitis -s run.py
