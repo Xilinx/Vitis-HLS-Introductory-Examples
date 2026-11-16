@@ -40,8 +40,8 @@ int main() {
 
     for (int j = 0; j < 512; j++) {
         if (tmp[j] != 2 * j) {
-            std::cout << "value of i is" << j << "value of a[j] is" << a[j]
-                      << "value of out b[j] is " << b[j]
+            std::cout << "value of j is" << j << "value of a[j] is" << a[j]
+                      << "value of b[j] is " << b[j]
                       << "value of tmp[j] is " << tmp[j] << std::endl;
             return 1;
             break;
