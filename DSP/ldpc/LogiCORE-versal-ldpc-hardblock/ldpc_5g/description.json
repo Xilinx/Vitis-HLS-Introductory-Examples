@@ -1,0 +1,5 @@
+{
+  "name": "ldpc_5g",
+  "description": "This example demonstrates a hardblock LDPC Decoder for 5G communications using Versal Premium Series Gen 2 LogiCORE LDPC IP. Features AXI-Stream interface with 5G NR compatible decoding.",
+  "hls": {"config": "hls_config_for_commandline_use.cfg"}
+}
