@@ -16,8 +16,9 @@ The code micro-architecture in v2025.2 no longer requires the data mover process
 The FFT C++ instantiation supports array or stream (hls::stream<>) access modes for the variables "xn" and "xk".
 In the four example designs, the top level function arguments have the same data types as the internal variables. 
 
-The design variations for our examples are referenced in the table below.
+## Fabric-based FFT Examples
 
+The design variations for our fabric-based examples are referenced in the table below.
 
 |         Design name         | Top level interfaces | FFT length |       Data types        | Super sample rate |
 | :-------------------------: | :------------------: | :----:|:---------------------: | :---------------: |
@@ -27,7 +28,23 @@ The design variations for our examples are referenced in the table below.
 | comp_interface_stream_float_ssr2 |        stream        | 1024 | 32-bit (floating-point) |         2         |
 | logicore_fft_float_ssr           | array or stream | 1024 | 32-bit (floating-point) | 2 |
 
-These examples have been tested with Vitis v2025.2.
+## Hardblock FFT Examples
+
+The following examples demonstrate hardblock FFT IP instantiation for Versal RF and Premium devices:
+
+|         Design name         | Configuration | FFT length |       Data types        | Features |
+| :-------------------------: | :------------------: | :----:|:---------------------: | :---------------: |
+| vrf_fft_base | Basic hardblock configuration | 2048 | Complex floating-point | Forward FFT, AXI-Stream interface |
+| vrf_fft_fwd_inv | Forward and Inverse FFT | 2048 | Complex floating-point | Configurable FFT direction, AXI-Stream interface |
+
+**Hardblock FFT Performance (vrf_fft_base)**
+- Average Latency: 5261 clock cycles
+- Frame Interval: 2050 clock cycles
+- Throughput: 0.623 frames/interval
+- Peak Stream Depth: 2048 samples
+- Pipelined execution with up to 3 concurrent frames in-flight
+
+These examples have been tested with Vitis v2026.2.
 
 Design Files
 ============
