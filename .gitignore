@@ -2,3 +2,6 @@ proj/
 .crashReporter/
 *log
 DSP/fft/run_all_fft_examples.sh
+# HLS build output directories (comp_<name>/ and work_<name>/)
+comp_*/
+work_*/
